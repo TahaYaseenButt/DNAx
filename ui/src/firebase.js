@@ -12,18 +12,18 @@ import {
 } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAXiS0WN2u5W3RnPiEjTKvJEj_ZgzlmTnc",
-  authDomain: "dnax-64b1f.firebaseapp.com",
-  projectId: "dnax-64b1f",
-  storageBucket: "dnax-64b1f.firebasestorage.app",
-  messagingSenderId: "233724153587",
-  appId: "1:233724153587:web:65170631d00538766ff186",
-  measurementId: "G-LGPK9D7JZ3"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "",
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "dnax-64b1f.firebaseapp.com",
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || "dnax-64b1f",
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || "dnax-64b1f.firebasestorage.app",
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "233724153587",
+  appId: import.meta.env.VITE_FIREBASE_APP_ID || "1:233724153587:web:65170631d00538766ff186",
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID || "G-LGPK9D7JZ3"
 };
 
-// Initialize Firebase App & Cloud Firestore
-const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
+// Initialize Firebase App & Cloud Firestore only if apiKey is present
+const app = firebaseConfig.apiKey ? initializeApp(firebaseConfig) : null;
+export const db = app ? getFirestore(app) : null;
 
 const COLLECTION_NAME = "dnax_sequences";
 
@@ -31,6 +31,7 @@ const COLLECTION_NAME = "dnax_sequences";
  * Fetch all stored sequences from Cloud Firestore ordered by creation date
  */
 export async function getCloudSequences() {
+  if (!db) return [];
   try {
     const colRef = collection(db, COLLECTION_NAME);
     const q = query(colRef, orderBy("created_at", "desc"));
@@ -49,6 +50,7 @@ export async function getCloudSequences() {
  * Save a new synthetic construct document to Cloud Firestore
  */
 export async function saveCloudSequence(seqData) {
+  if (!db) return { success: false, error: "Database not connected" };
   try {
     const colRef = collection(db, COLLECTION_NAME);
     const docData = {
@@ -75,6 +77,7 @@ export async function saveCloudSequence(seqData) {
  * Delete a construct document from Cloud Firestore
  */
 export async function deleteCloudSequence(docId) {
+  if (!db) return { success: false };
   try {
     const docRef = doc(db, COLLECTION_NAME, String(docId));
     await deleteDoc(docRef);
@@ -89,6 +92,7 @@ export async function deleteCloudSequence(docId) {
  * Real-time subscription listener for cloud database changes
  */
 export function subscribeCloudSequences(callback) {
+  if (!db) return () => {};
   try {
     const colRef = collection(db, COLLECTION_NAME);
     const q = query(colRef, orderBy("created_at", "desc"));

@@ -29,6 +29,11 @@ dist/
 # Node / Web UI
 ui/node_modules/
 ui/dist/
+.env
+.env.*
+*.env
+ui/.env
+ui/.env.*
 ui/.env.local
 ui/.env.development.local
 ui/.env.test.local
