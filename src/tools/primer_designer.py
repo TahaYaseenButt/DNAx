@@ -8,7 +8,8 @@ from tkinter import ttk, messagebox
 import threading
 from utils.bio_math import (
     get_rev_complement, calculate_tm, calculate_gc, 
-    has_nucleotide_runs, check_hairpin, check_self_dimer
+    has_nucleotide_runs, check_hairpin, check_self_dimer,
+    get_oligo_structure, get_pairwise_complementarity, normalize_dna
 )
 
 # --- Restriction Enzyme Data ---
@@ -27,102 +28,84 @@ RESTRICTION_DATA = {
 
 def check_3prime_stability(seq):
     """
-    Check 3' end stability for PCR.
-    - Should end in G or C (GC clamp) but not more than 3 G/C in last 5 bases
-    - Avoid ending in T (weak binding)
+    Check the PCR-primer 3' end for over-stabilization.
+    The final five bases should contain no more than two G/C bases; a very
+    GC-rich 3' end raises non-specific extension risk.
     Returns score: higher is better (0-10 scale)
     """
-    seq = seq.upper()
+    seq = normalize_dna(seq)
+    if not seq:
+        return 0
     last_5 = seq[-5:]
-    last_base = seq[-1]
-    
-    score = 5  # baseline
-    
-    # GC clamp bonus
-    if last_base in ['G', 'C']:
-        score += 2
-    elif last_base == 'T':
-        score -= 2  # T at 3' end is weak
-    
-    # Count G/C in last 5 bases
+    score = 8
     gc_count = last_5.count('G') + last_5.count('C')
-    if gc_count >= 4:
-        score -= 2  # Too stable, might cause mispriming
-    elif gc_count <= 1:
-        score -= 1  # Too weak
-    
+    if gc_count > 2:
+        score -= 5
+    elif gc_count == 0:
+        score -= 1
     return max(0, min(10, score))
 
 def check_primer_dimer(fwd_seq, rev_seq, min_complementary=4):
     """
-    Check if forward and reverse primers can form dimers with each other.
-    Critical for PCR efficiency.
+    Check extension-prone primer dimer risk using anti-parallel complementarity.
+    A short internal 4-mer is common in unrelated oligos and is not itself a
+    reason to reject a pair; the 3' interaction is what drives extension.
     """
-    fwd = fwd_seq.upper()
-    rev = rev_seq.upper()
-    rev_rc = get_rev_complement(rev)
-    
-    # Check if 3' ends are complementary (most problematic)
-    fwd_3prime = fwd[-6:]
-    rev_3prime = rev[-6:]
-    
-    if fwd_3prime in get_rev_complement(rev):
-        return True
-    if rev_3prime in get_rev_complement(fwd):
-        return True
-    
-    # General complementarity check
-    for i in range(len(fwd) - min_complementary + 1):
-        segment = fwd[i:i + min_complementary]
-        if segment in rev_rc:
-            return True
-    return False
+    metrics = get_pairwise_complementarity(fwd_seq, rev_seq)
+    return (
+        metrics['max_three_prime_complementarity'] >= min_complementary
+        or metrics['max_complementary_run'] >= min_complementary + 4
+    )
+
+
+def evaluate_qpcr_primer(seq, target_tm=60.0):
+    """Return transparent qPCR primer metrics and strict in-silico checks."""
+    sequence = normalize_dna(seq)
+    tm = calculate_tm(sequence, oligo_concentration_nM=400.0)
+    gc = calculate_gc(sequence)
+    structure = get_oligo_structure(sequence)
+    issues = []
+
+    if not 18 <= len(sequence) <= 25:
+        issues.append('length outside 18-25 nt')
+    if not 35.0 <= gc <= 65.0:
+        issues.append('GC outside 35-65%')
+    if not 57.0 <= tm <= 63.0:
+        issues.append('Tm outside 57-63 C')
+    if has_nucleotide_runs(sequence, 3):
+        issues.append('homopolymer run of four or more bases')
+    if structure['max_hairpin_stem'] >= 4:
+        issues.append('hairpin stem of four or more bases')
+    if structure['max_three_prime_self_dimer'] >= 4:
+        issues.append('3-prime self-dimer run of four or more bases')
+    if structure['max_self_dimer_run'] >= 8:
+        issues.append('self-dimer run of eight or more bases')
+    if check_3prime_stability(sequence) < 5:
+        issues.append('more than two G/C bases in the final five bases')
+
+    score = 100.0
+    score -= abs(tm - target_tm) * 4.0
+    score -= abs(gc - 50.0) * 0.5
+    score -= len(issues) * 12.0
+    if 20 <= len(sequence) <= 22:
+        score += 3.0
+
+    return {
+        'seq': sequence,
+        'tm': round(tm, 2),
+        'gc': round(gc, 2),
+        'len': len(sequence),
+        'score': round(max(0.0, score), 2),
+        'issues': issues,
+        'is_valid': not issues,
+        'structure': structure,
+    }
 
 def score_primer(seq, target_tm=60.0):
     """
-    Score a primer candidate for PCR suitability (higher is better).
-    Considers: Tm, GC%, 3' stability, runs, hairpins, self-dimers.
+    Backwards-compatible numeric wrapper around the qPCR primer evaluator.
     """
-    seq = seq.upper()
-    tm = calculate_tm(seq)
-    gc = calculate_gc(seq)
-    
-    score = 100  # Start with perfect score
-    
-    # Tm penalty (want close to target)
-    tm_diff = abs(tm - target_tm)
-    score -= tm_diff * 2
-    
-    # GC content penalty (want 40-60%)
-    if gc < 40:
-        score -= (40 - gc) * 0.5
-    elif gc > 60:
-        score -= (gc - 60) * 0.5
-    
-    # Nucleotide runs penalty
-    if has_nucleotide_runs(seq, 4):
-        score -= 15
-    if has_nucleotide_runs(seq, 3):
-        score -= 5
-    
-    # Hairpin penalty
-    if check_hairpin(seq):
-        score -= 20
-    
-    # Self-dimer penalty
-    if check_self_dimer(seq):
-        score -= 15
-    
-    # 3' stability bonus/penalty
-    stability = check_3prime_stability(seq)
-    score += (stability - 5) * 2  # centered around 5
-    
-    # Length preference (20-22 is ideal for standard PCR)
-    length = len(seq)
-    if 20 <= length <= 22:
-        score += 3
-    
-    return score
+    return evaluate_qpcr_primer(seq, target_tm)['score']
 
 def find_primers(sequence, min_len=18, max_len=25, target_tm=60.0):
     """
@@ -139,7 +122,7 @@ def find_primers(sequence, min_len=18, max_len=25, target_tm=60.0):
     
     Returns dict with 'fwd', 'rev', and 'product_size'.
     """
-    seq = sequence.upper().strip()
+    seq = normalize_dna(sequence)
     if len(seq) < 20:
         return {"error": "Sequence too short for PCR (min 20bp required)."}
 
@@ -157,20 +140,11 @@ def find_primers(sequence, min_len=18, max_len=25, target_tm=60.0):
         # Or very close if GC is terrible? No, user wants SAME bp. So must be 0.
         candidate = seq[0:length]
         
-        tm = calculate_tm(candidate)
-        gc = calculate_gc(candidate)
-        
-        # We might need to relax constraints if the user forced a specific sequence
-        # Relaxed checks for mandatory positions
-        primer_score = score_primer(candidate, target_tm)
-        fwd_candidates.append({
-            'seq': candidate,
-            'tm': round(tm, 1),
-            'gc': round(gc, 1),
-            'len': length,
-            'pos': 0,
-            'score': primer_score
-        })
+        primer = evaluate_qpcr_primer(candidate, target_tm)
+        if not primer['is_valid']:
+            continue
+        primer['pos'] = 0
+        fwd_candidates.append(primer)
 
     # --- 2. Find Reverse Primer Candidates (Must end at strict 3' end) ---
     rev_candidates = []
@@ -192,19 +166,12 @@ def find_primers(sequence, min_len=18, max_len=25, target_tm=60.0):
         subseq = seq[start_idx:] # The target binding site on Sense strand
         candidate_rc = get_rev_complement(subseq) # The actual primer sequence
         
-        tm = calculate_tm(candidate_rc)
-        gc = calculate_gc(candidate_rc)
-        
-        primer_score = score_primer(candidate_rc, target_tm)
-        rev_candidates.append({
-            'seq': candidate_rc,
-            'bind_seq': subseq,
-            'tm': round(tm, 1),
-            'gc': round(gc, 1),
-            'len': length,
-            'pos': start_idx,
-            'score': primer_score
-        })
+        primer = evaluate_qpcr_primer(candidate_rc, target_tm)
+        if not primer['is_valid']:
+            continue
+        primer['bind_seq'] = subseq
+        primer['pos'] = start_idx
+        rev_candidates.append(primer)
 
     if not fwd_candidates:
         return {"error": "Could not design Forward primer at 5' end. Sequence might be too GC-rich/poor at the start."}
@@ -224,7 +191,7 @@ def find_primers(sequence, min_len=18, max_len=25, target_tm=60.0):
         for rev in rev_candidates[:20]:
             # Tm difference (should be < 5°C for PCR)
             tm_diff = abs(fwd['tm'] - rev['tm'])
-            if tm_diff > 5:
+            if tm_diff > 1.5:
                 continue
             
             # Check for primer-dimer formation
@@ -254,6 +221,94 @@ def find_primers(sequence, min_len=18, max_len=25, target_tm=60.0):
         "rev": rev,
         "product_size": product_size,
         "tm_difference": abs(fwd['tm'] - rev['tm'])
+    }
+
+
+def find_qpcr_primers(
+    sequence,
+    probe_start,
+    probe_end,
+    min_product_size=70,
+    max_product_size=150,
+    min_probe_gap=4,
+    target_tm=60.0,
+):
+    """Design a compact qPCR amplicon around a fixed, internal probe site."""
+    seq = normalize_dna(sequence)
+    if not (0 <= probe_start < probe_end <= len(seq)):
+        return {'error': 'Probe coordinates are outside the target sequence.'}
+    if min_product_size < 50 or max_product_size < min_product_size:
+        return {'error': 'Invalid qPCR amplicon size range.'}
+
+    fwd_candidates = []
+    for start in range(probe_start):
+        for length in range(18, 26):
+            end = start + length
+            if end > probe_start - min_probe_gap:
+                continue
+            if probe_end - start + 18 > max_product_size:
+                continue
+            primer = evaluate_qpcr_primer(seq[start:end], target_tm)
+            if primer['is_valid']:
+                primer['pos'] = start
+                fwd_candidates.append(primer)
+
+    rev_candidates = []
+    for start in range(probe_end + min_probe_gap, len(seq)):
+        for length in range(18, 26):
+            end = start + length
+            if end > len(seq):
+                continue
+            primer = evaluate_qpcr_primer(get_rev_complement(seq[start:end]), target_tm)
+            if primer['is_valid']:
+                primer['pos'] = start
+                primer['bind_seq'] = seq[start:end]
+                rev_candidates.append(primer)
+
+    if not fwd_candidates or not rev_candidates:
+        return {'error': 'No qPCR primer candidates meet the strict Tm, GC, and structure rules.'}
+
+    best_pair = None
+    best_score = -float('inf')
+    optimum_product_size = (min_product_size + max_product_size) / 2.0
+    for fwd in fwd_candidates:
+        for rev in rev_candidates:
+            amplicon_end = rev['pos'] + rev['len']
+            product_size = amplicon_end - fwd['pos']
+            if not min_product_size <= product_size <= max_product_size:
+                continue
+            if fwd['pos'] + fwd['len'] + min_probe_gap > probe_start:
+                continue
+            if probe_end + min_probe_gap > rev['pos']:
+                continue
+            tm_difference = abs(fwd['tm'] - rev['tm'])
+            if tm_difference > 1.5 or check_primer_dimer(fwd['seq'], rev['seq']):
+                continue
+
+            pair_score = (
+                fwd['score'] + rev['score']
+                - tm_difference * 6.0
+                - abs(product_size - optimum_product_size) * 0.12
+            )
+            if pair_score > best_score:
+                best_score = pair_score
+                best_pair = (fwd, rev, product_size, amplicon_end)
+
+    if not best_pair:
+        return {'error': 'No compatible qPCR primer pair surrounds the probe site.'}
+
+    fwd, rev, product_size, amplicon_end = best_pair
+    pair_structure = get_pairwise_complementarity(fwd['seq'], rev['seq'])
+    return {
+        'success': True,
+        'fwd': fwd,
+        'rev': rev,
+        'product_size': product_size,
+        'amplicon_start': fwd['pos'],
+        'amplicon_end': amplicon_end,
+        'amplicon_seq': seq[fwd['pos']:amplicon_end],
+        'tm_difference': round(abs(fwd['tm'] - rev['tm']), 2),
+        'pair_structure': pair_structure,
     }
 
 

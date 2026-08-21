@@ -155,12 +155,25 @@ export const api = {
     ];
   },
 
-  // Database CRUD
+  // Database CRUD (PyWebView Local SQLite on Desktop / Firebase Cloud Firestore on Web)
   getSequences: async () => {
     const bridge = getApi();
     if (bridge && bridge.get_all_sequences) {
       return await bridge.get_all_sequences();
     }
+
+    // Try Firebase Cloud Firestore first
+    try {
+      const { getCloudSequences } = await import('./firebase');
+      const cloudSeqs = await getCloudSequences();
+      if (cloudSeqs && cloudSeqs.length > 0) {
+        saveLocalSequences(cloudSeqs);
+        return cloudSeqs;
+      }
+    } catch (e) {
+      console.warn('Firestore fallback to local:', e);
+    }
+
     return getLocalSequences();
   },
 
@@ -169,7 +182,23 @@ export const api = {
     if (bridge && bridge.save_sequence) {
       return await bridge.save_sequence(record);
     }
-    // Browser local storage persistence
+
+    // Try Firebase Cloud Firestore
+    try {
+      const { saveCloudSequence } = await import('./firebase');
+      const res = await saveCloudSequence(record);
+      if (res && res.success) {
+        // Also update local cache
+        const current = getLocalSequences();
+        current.unshift({ ...record, id: res.id, created_at: new Date().toISOString().replace('T', ' ').slice(0, 19) });
+        saveLocalSequences(current);
+        return res;
+      }
+    } catch (e) {
+      console.warn('Firestore save fallback to local:', e);
+    }
+
+    // Browser local storage persistence fallback
     const current = getLocalSequences();
     const newId = current.length > 0 ? Math.max(...current.map((s) => s.id || 0)) + 1 : 1;
     const newRecord = {
@@ -187,6 +216,15 @@ export const api = {
     if (bridge && bridge.delete_sequence) {
       return await bridge.delete_sequence(id);
     }
+
+    // Try Firebase Cloud Firestore
+    try {
+      const { deleteCloudSequence } = await import('./firebase');
+      await deleteCloudSequence(id);
+    } catch (e) {
+      console.warn('Firestore delete fallback:', e);
+    }
+
     const current = getLocalSequences().filter((s) => s.id !== id);
     saveLocalSequences(current);
     return { success: true };
@@ -198,7 +236,17 @@ export const api = {
       return await bridge.get_similarity_matrix(method);
     }
 
-    const seqs = getLocalSequences();
+    let seqs = getLocalSequences();
+    try {
+      const { getCloudSequences } = await import('./firebase');
+      const cloudSeqs = await getCloudSequences();
+      if (cloudSeqs && cloudSeqs.length > 0) {
+        seqs = cloudSeqs;
+      }
+    } catch (e) {
+      // ignore
+    }
+
     const names = seqs.map((s) => s.name);
     const n = names.length;
     const matrix = [];
