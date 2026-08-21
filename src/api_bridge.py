@@ -6,6 +6,7 @@ from utils.database import get_db
 from utils.bio_alignment import (
     compute_similarity_matrix,
     compare_query_to_database,
+    get_similarity_status,
     validate_primers_and_probes_against_db,
     check_oligo_cross_reactivity
 )
@@ -61,9 +62,7 @@ class ApiBridge:
         if matches:
             top_match = matches[0]
             max_sim = top_match['similarity']
-            status_info = get_similarity_status(max_sim)
-            status_text = status_info['label']
-            is_safe = status_info['is_safe']
+            status_text, status_col, is_safe = get_similarity_status(max_sim)
         else:
             top_match = None
             max_sim = 0.0
