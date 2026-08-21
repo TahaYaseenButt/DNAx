@@ -1,0 +1,7 @@
+pyinstaller>=5.0
+requests>=2.0
+Pillow>=9.0
+PyMuPDF>=1.20.0
+openpyxl>=3.0.0
+reportlab>=3.6.0
+qrcode>=7.0
