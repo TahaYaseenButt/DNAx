@@ -375,8 +375,10 @@ export const api = {
       const probes = data?.probes || [];
       const qrToken = data?.qr_code || `DNAX-QR-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
 
-      // 1. Generate QR Code Data URL
+      // 1. Generate QR Code & Logo Data URLs
       let qrDataUrl = null;
+      let logoDataUrl = null;
+
       try {
         const QRCode = (await import('qrcode')).default;
         const qrPayload = `DNAx Verification Certificate\nConstruct: ${name}\nToken: ${qrToken}\nLength: ${length} bp\nGC: ${gc.toFixed(1)}%\nStatus: VERIFIED AUTHENTIC`;
@@ -385,22 +387,48 @@ export const api = {
         console.warn('QR code gen warning:', qrErr);
       }
 
+      try {
+        const loadImg = (src) => new Promise((resolve) => {
+          const img = new window.Image();
+          img.crossOrigin = 'Anonymous';
+          img.onload = () => {
+            const canvas = document.createElement('canvas');
+            canvas.width = img.width;
+            canvas.height = img.height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+            resolve(canvas.toDataURL('image/png'));
+          };
+          img.onerror = () => resolve(null);
+          img.src = src;
+        });
+        logoDataUrl = await loadImg('/logo.png');
+      } catch (imgErr) {
+        console.warn('Logo image load warning:', imgErr);
+      }
+
       // 2. Header Top Banner
       doc.setFillColor(15, 23, 42); // Navy #0f172a
       doc.rect(0, 0, 210, 28, 'F');
       
+      const startX = logoDataUrl ? 38 : 14;
+
+      if (logoDataUrl) {
+        doc.addImage(logoDataUrl, 'PNG', 12, 3, 22, 22);
+      }
+
       doc.setTextColor(255, 255, 255);
       doc.setFont('helvetica', 'bold');
-      doc.setFontSize(13);
-      doc.text('DNAx™ ASSAY PROTOCOL & MOLECULAR REPORT', 14, 11);
+      doc.setFontSize(12.5);
+      doc.text('DNAx™ ASSAY PROTOCOL & MOLECULAR REPORT', startX, 10);
       
       doc.setFont('helvetica', 'normal');
       doc.setFontSize(8);
-      doc.text(`Construct: ${name} | Architecture: ${mode} dsDNA | Date: ${new Date().toISOString().slice(0, 10)}`, 14, 17);
+      doc.text(`Construct: ${name} | Architecture: ${mode} dsDNA | Date: ${new Date().toISOString().slice(0, 10)}`, startX, 16);
       
       doc.setTextColor(56, 189, 248); // Sky-400
       doc.setFont('courier', 'bold');
-      doc.text(`QR Certificate Serial: ${qrToken}`, 14, 23);
+      doc.text(`QR Certificate Serial: ${qrToken}`, startX, 22);
 
       // Draw Scannable QR Code on top right
       if (qrDataUrl) {
