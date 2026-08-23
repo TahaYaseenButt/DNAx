@@ -37,46 +37,65 @@ def safe_random_dna(length: int) -> str:
 
 def generate_smart_payload(length=500, mode='linear', primer_option='denovo',
                            univ_fwd='CGATCGATCGATCGATCGAT', univ_rev='TAACGATCGATCGCTAGCGC',
-                           existing_db_records=None):
+                           num_probes=4, existing_db_records=None):
     """
     Modular payload generator that produces orthogonal DNA constructs with 
     embedded TaqMan probe binding sites and primer seeds.
+    Strictly preserves probe thermodynamic standard (24bp, Tm >= 68.0°C).
+    Raises ValueError if length is insufficient for requested probe count.
     """
     from tools.qpcr import ProbeDesigner
     from tools.primer_designer import find_primers
     from utils.bio_math import calculate_gc, calculate_tm
 
     existing_db_records = existing_db_records or []
+    num_probes = max(0, int(num_probes))
 
-    # Determine probe length
-    if length < 150:
-        probe_length = 18
-    elif length < 300:
-        probe_length = 20
-    elif length < 600:
-        probe_length = 22
-    else:
-        probe_length = 24
+    # Standard probe length to guarantee Tm >= 68°C without compromise
+    probe_length = 24
+    primer_len = len(univ_fwd) if primer_option == "universal" else 20
+    min_spacer = 6
 
-    remaining_space = length - 50
-    num_probes = 4
-    while num_probes > 0:
-        required_space = num_probes * probe_length + (num_probes + 1) * 5
-        if remaining_space >= required_space:
-            break
-        num_probes -= 1
+    # Absolute minimum length required to fit high-quality probes without physical overlap or Tm compromise
+    min_required_len = (primer_len * 2) + (num_probes * probe_length) + ((num_probes + 1) * min_spacer)
 
+    if length < min_required_len and num_probes > 0:
+        raise ValueError(
+            f"Insufficient construct length: {num_probes} standard TaqMan probes ({min_required_len} bp required) "
+            f"cannot fit into a {length} bp construct without compromising thermodynamic stability (Tm ≥ 68.0°C). "
+            f"Minimum length required: {min_required_len} bp. Please increase length or reduce probe count."
+        )
+
+    # Generate ideal probes of standard length 24bp
     ideal_probes = ProbeDesigner.generate_ideal_probes(
         num_probes, length=probe_length, existing_db_records=existing_db_records
     ) if num_probes > 0 else []
+
+    # Assign fluorophore channels dynamically
+    fluorophore_channels = [
+        {"channel": "FAM", "color": "#10b981", "quencher": "BHQ-1"},
+        {"channel": "HEX", "color": "#f59e0b", "quencher": "BHQ-1"},
+        {"channel": "ROX", "color": "#f97316", "quencher": "BHQ-2"},
+        {"channel": "Cy5", "color": "#ec4899", "quencher": "BHQ-3"},
+        {"channel": "Quasar705", "color": "#8b5cf6", "quencher": "BHQ-3"},
+        {"channel": "CAL Fluor 610", "color": "#ef4444", "quencher": "BHQ-2"},
+        {"channel": "TET", "color": "#eab308", "quencher": "BHQ-1"},
+        {"channel": "JOE", "color": "#84cc16", "quencher": "BHQ-1"},
+    ]
+
+    for idx, p in enumerate(ideal_probes):
+        ch_info = fluorophore_channels[idx % len(fluorophore_channels)]
+        p['channel'] = ch_info['channel']
+        p['quencher'] = ch_info['quencher']
+        p['color'] = ch_info['color']
 
     # Primer seeds
     if primer_option == "universal":
         fwd_seed = univ_fwd.upper().strip()
         rev_seed = reverse_complement(univ_rev.upper().strip())
     else:
-        fwd_seed = "GC" + safe_random_dna(21) + "GC"
-        rev_seed = "GC" + safe_random_dna(21) + "GC"
+        fwd_seed = "GC" + safe_random_dna(16) + "GC"
+        rev_seed = "GC" + safe_random_dna(16) + "GC"
 
     remaining = length - len(fwd_seed) - len(rev_seed)
     if remaining <= 0:
@@ -117,10 +136,7 @@ def generate_smart_payload(length=500, mode='linear', primer_option='denovo',
             parts.append(rev_seed)
             payload = ''.join(parts)
 
-    if mode == "circular":
-        linear_seq = f"{BSAI_SITE}{SPACER}{OVERHANG_FWD}{payload}{OVERHANG_REV}{SPACER}{BSAI_REV}"
-    else:
-        linear_seq = payload
+    linear_seq = payload
 
     # Primers
     if primer_option == "universal":

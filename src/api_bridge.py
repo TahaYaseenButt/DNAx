@@ -39,61 +39,70 @@ class ApiBridge:
 
     # 2. DNA Generator
     def generate_dna(self, params):
-        length = int(params.get('length', 500))
-        mode = params.get('mode', 'linear')
-        primer_option = params.get('primerOption', 'denovo')
-        univ_fwd = params.get('univFwd', 'CGATCGATCGATCGATCGAT').strip().upper()
-        univ_rev = params.get('univRev', 'TAACGATCGATCGCTAGCGC').strip().upper()
+        try:
+            length = int(params.get('length', 500))
+            mode = params.get('mode', 'linear')
+            primer_option = params.get('primerOption', 'denovo')
+            univ_fwd = params.get('univFwd', 'CGATCGATCGATCGATCGAT').strip().upper()
+            univ_rev = params.get('univRev', 'TAACGATCGATCGCTAGCGC').strip().upper()
+            num_probes = int(params.get('numProbes', params.get('num_probes', 4)))
 
-        db_records = self.db.get_all_sequences()
+            db_records = self.db.get_all_sequences()
 
-        # Generate payload with smart orthogonality
-        payload_data = generate_smart_payload(
-            length=length,
-            mode=mode,
-            primer_option=primer_option,
-            univ_fwd=univ_fwd,
-            univ_rev=univ_rev,
-            existing_db_records=db_records
-        )
+            # Generate payload with smart orthogonality and strict thermodynamic standards
+            payload_data = generate_smart_payload(
+                length=length,
+                mode=mode,
+                primer_option=primer_option,
+                univ_fwd=univ_fwd,
+                univ_rev=univ_rev,
+                num_probes=num_probes,
+                existing_db_records=db_records
+            )
 
-        # Cross-homology check against database
-        matches = compare_query_to_database(payload_data['payload'], db_records)
-        if matches:
-            top_match = matches[0]
-            max_sim = top_match['similarity']
-            status_text, status_col, is_safe = get_similarity_status(max_sim)
-        else:
-            top_match = None
-            max_sim = 0.0
-            status_text = 'Database Library: 0 constructs saved. Ready as first reference.'
-            is_safe = True
+            # Cross-homology check against database
+            matches = compare_query_to_database(payload_data['payload'], db_records)
+            if matches:
+                top_match = matches[0]
+                max_sim = top_match['similarity']
+                status_text, status_col, is_safe = get_similarity_status(max_sim)
+            else:
+                top_match = None
+                max_sim = 0.0
+                status_text = 'Database Library: 0 constructs saved. Ready as first reference.'
+                is_safe = True
 
-        # Validate primers and probes
-        fwd_p = payload_data.get('primers', {}).get('fwd', {}).get('seq', '')
-        rev_p = payload_data.get('primers', {}).get('rev', {}).get('seq', '')
-        oligo_val = validate_primers_and_probes_against_db(
-            fwd_p,
-            rev_p,
-            payload_data.get('probes', []),
-            db_records
-        )
+            # Validate primers and probes
+            fwd_p = payload_data.get('primers', {}).get('fwd', {}).get('seq', '')
+            rev_p = payload_data.get('primers', {}).get('rev', {}).get('seq', '')
+            oligo_val = validate_primers_and_probes_against_db(
+                fwd_p,
+                rev_p,
+                payload_data.get('probes', []),
+                db_records
+            )
 
-        return {
-            'mode': mode,
-            'payload': payload_data['payload'],
-            'linear_seq': payload_data.get('linear_seq', payload_data['payload']),
-            'length': length,
-            'total_length': len(payload_data.get('linear_seq', payload_data['payload'])),
-            'gc_pct': payload_data.get('gc', calculate_gc(payload_data['payload'])),
-            'primers': payload_data.get('primers'),
-            'probes': payload_data.get('probes', []),
-            'max_similarity': round(max_sim, 1),
-            'top_match_name': top_match['name'] if top_match else 'None',
-            'status_text': status_text,
-            'is_safe': is_safe,
-            'oligo_status': "100% Unique & Orthogonal (0 Clashes across DB)" if oligo_val['is_valid'] else oligo_val['status_text']
-        }
+            return {
+                'success': True,
+                'mode': mode,
+                'payload': payload_data['payload'],
+                'linear_seq': payload_data.get('linear_seq', payload_data['payload']),
+                'length': length,
+                'total_length': len(payload_data.get('linear_seq', payload_data['payload'])),
+                'gc_pct': payload_data.get('gc', calculate_gc(payload_data['payload'])),
+                'primers': payload_data.get('primers'),
+                'probes': payload_data.get('probes', []),
+                'num_probes': len(payload_data.get('probes', [])),
+                'max_similarity': round(max_sim, 1),
+                'top_match_name': top_match['name'] if top_match else 'None',
+                'status_text': status_text,
+                'is_safe': is_safe,
+                'oligo_status': "100% Unique & Orthogonal (0 Clashes across DB)" if oligo_val['is_valid'] else oligo_val['status_text']
+            }
+        except ValueError as ve:
+            return {'success': False, 'error': str(ve)}
+        except Exception as e:
+            return {'success': False, 'error': f"Synthesis error: {str(e)}"}
 
     # 3. BLAST Search
     def run_blast(self, sequence, mode='in_silico'):
