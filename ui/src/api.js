@@ -3,6 +3,8 @@
  * Communicates with the backend PyWebView API bridge or falls back to a persistent LocalStorage DB layer for live browser dev.
  */
 
+import { DNAX_LOGO_BASE64 } from './logoBase64';
+
 // Helper to wait for pywebviewready event or check immediate availability
 const getApi = () => {
   if (typeof window !== 'undefined' && window.pywebview && window.pywebview.api) {
@@ -377,7 +379,7 @@ export const api = {
 
       // 1. Generate QR Code & Logo Data URLs
       let qrDataUrl = null;
-      let logoDataUrl = null;
+      let logoDataUrl = DNAX_LOGO_BASE64 || null;
 
       try {
         const QRCode = (await import('qrcode')).default;
@@ -385,26 +387,6 @@ export const api = {
         qrDataUrl = await QRCode.toDataURL(qrPayload, { margin: 1, width: 150 });
       } catch (qrErr) {
         console.warn('QR code gen warning:', qrErr);
-      }
-
-      try {
-        const loadImg = (src) => new Promise((resolve) => {
-          const img = new window.Image();
-          img.crossOrigin = 'Anonymous';
-          img.onload = () => {
-            const canvas = document.createElement('canvas');
-            canvas.width = img.width;
-            canvas.height = img.height;
-            const ctx = canvas.getContext('2d');
-            ctx.drawImage(img, 0, 0);
-            resolve(canvas.toDataURL('image/png'));
-          };
-          img.onerror = () => resolve(null);
-          img.src = src;
-        });
-        logoDataUrl = await loadImg('/logo.png');
-      } catch (imgErr) {
-        console.warn('Logo image load warning:', imgErr);
       }
 
       // 2. Header Top Banner
