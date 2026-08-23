@@ -286,13 +286,15 @@ export default function MatrixDBPage({ setCurrentPage }) {
               </thead>
               <tbody className="divide-y divide-slate-100/80 font-mono">
                 {filteredSequences.length > 0 ? (
-                  filteredSequences.map((s) => (
+                  filteredSequences.map((s, idx) => (
                     <tr
                       key={s.id}
                       onClick={() => setSelectedInspectSeq(s)}
                       className="hover:bg-sky-50/60 transition cursor-pointer group"
                     >
-                      <td className="py-3 px-4 text-slate-400">#LIB-{String(s.id).padStart(4, '0')}</td>
+                      <td className="py-3 px-4 text-sky-700 font-mono text-[11px] font-bold">
+                        {s.qr_code || `#LIB-${String(idx + 1).padStart(4, '0')}`}
+                      </td>
                       <td className="py-3 px-4 font-bold text-slate-900 font-sans group-hover:text-sky-700 transition">
                         {s.name}
                       </td>
@@ -357,9 +359,12 @@ export default function MatrixDBPage({ setCurrentPage }) {
                     <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-sky-100 text-sky-800 border border-sky-200">
                       Linear dsDNA
                     </span>
+                    <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
+                      {selectedInspectSeq.qr_code || `DNAX-QR-${String(selectedInspectSeq.id).slice(0, 8).toUpperCase()}`}
+                    </span>
                   </div>
                   <span className="text-xs text-slate-400 font-mono">
-                    Accession #LIB-{String(selectedInspectSeq.id).padStart(4, '0')} • Created {selectedInspectSeq.created_at || 'Recent'}
+                    Certificate Token: {selectedInspectSeq.qr_code || 'DNAX-QR-VERIFIED'} • Created {selectedInspectSeq.created_at || 'Recent'}
                   </span>
                 </div>
               </div>

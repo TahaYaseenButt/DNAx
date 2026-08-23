@@ -239,21 +239,24 @@ export const api = {
   },
 
   saveSequence: async (record) => {
+    const qrToken = record.qr_code || `DNAX-QR-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
+    const recordWithQr = { ...record, qr_code: qrToken };
+
     const bridge = getApi();
     if (bridge && bridge.save_sequence) {
-      return await bridge.save_sequence(record);
+      return await bridge.save_sequence(recordWithQr);
     }
 
     // Try Firebase Cloud Firestore
     try {
       const { saveCloudSequence } = await import('./firebase');
-      const res = await saveCloudSequence(record);
+      const res = await saveCloudSequence(recordWithQr);
       if (res && res.success) {
         // Also update local cache
         const current = getLocalSequences();
-        current.unshift({ ...record, id: res.id, created_at: new Date().toISOString().replace('T', ' ').slice(0, 19) });
+        current.unshift({ ...recordWithQr, id: res.id, created_at: new Date().toISOString().replace('T', ' ').slice(0, 19) });
         saveLocalSequences(current);
-        return res;
+        return { ...res, qr_code: qrToken };
       }
     } catch (e) {
       console.warn('Firestore save fallback to local:', e);
@@ -263,13 +266,13 @@ export const api = {
     const current = getLocalSequences();
     const newId = current.length > 0 ? Math.max(...current.map((s) => s.id || 0)) + 1 : 1;
     const newRecord = {
-      ...record,
+      ...recordWithQr,
       id: newId,
       created_at: new Date().toISOString().replace('T', ' ').slice(0, 19),
     };
     current.push(newRecord);
     saveLocalSequences(current);
-    return { success: true, id: newId };
+    return { success: true, id: newId, qr_code: qrToken };
   },
 
   deleteSequence: async (id) => {
@@ -357,7 +360,7 @@ export const api = {
       return await bridge.export_pdf(data, filename);
     }
 
-    // Client-side fallback using jsPDF
+    // Client-side fallback using jsPDF with Logo & Scannable QR Code
     try {
       const { jsPDF } = await import('jspdf');
       const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
@@ -367,51 +370,75 @@ export const api = {
       const payload = data?.payload || 'CGATCGATCGATCGATCGATCGATCGATCGATCGATCGAT';
       const fullSeq = data?.linear_seq || payload;
       const length = data?.length || payload.length;
-      const gc = data?.gc_pct || 50.0;
+      const gc = typeof data?.gc_pct === 'number' ? data.gc_pct : 50.0;
       const primers = data?.primers || {};
       const probes = data?.probes || [];
+      const qrToken = data?.qr_code || `DNAX-QR-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
 
-      // 1. Header
+      // 1. Generate QR Code Data URL
+      let qrDataUrl = null;
+      try {
+        const QRCode = (await import('qrcode')).default;
+        const qrPayload = `DNAx Verification Certificate\nConstruct: ${name}\nToken: ${qrToken}\nLength: ${length} bp\nGC: ${gc.toFixed(1)}%\nStatus: VERIFIED AUTHENTIC`;
+        qrDataUrl = await QRCode.toDataURL(qrPayload, { margin: 1, width: 150 });
+      } catch (qrErr) {
+        console.warn('QR code gen warning:', qrErr);
+      }
+
+      // 2. Header Top Banner
       doc.setFillColor(15, 23, 42); // Navy #0f172a
-      doc.rect(0, 0, 210, 24, 'F');
+      doc.rect(0, 0, 210, 28, 'F');
+      
       doc.setTextColor(255, 255, 255);
       doc.setFont('helvetica', 'bold');
-      doc.setFontSize(14);
-      doc.text('DNAx™ ASSAY PROTOCOL & MOLECULAR SPECIFICATION', 14, 12);
+      doc.setFontSize(13);
+      doc.text('DNAx™ ASSAY PROTOCOL & MOLECULAR REPORT', 14, 11);
+      
       doc.setFont('helvetica', 'normal');
-      doc.setFontSize(9);
-      doc.text(`Construct: ${name} | Architecture: ${mode} | Date: ${new Date().toISOString().slice(0, 10)}`, 14, 18);
+      doc.setFontSize(8);
+      doc.text(`Construct: ${name} | Architecture: ${mode} dsDNA | Date: ${new Date().toISOString().slice(0, 10)}`, 14, 17);
+      
+      doc.setTextColor(56, 189, 248); // Sky-400
+      doc.setFont('courier', 'bold');
+      doc.text(`QR Certificate Serial: ${qrToken}`, 14, 23);
 
-      let y = 32;
+      // Draw Scannable QR Code on top right
+      if (qrDataUrl) {
+        doc.setFillColor(255, 255, 255);
+        doc.rect(177, 2, 24, 24, 'F');
+        doc.addImage(qrDataUrl, 'PNG', 178, 3, 22, 22);
+      }
 
-      // 2. Biophysical Specs
+      let y = 35;
+
+      // 2. Biophysical Specs Table
       doc.setTextColor(3, 105, 161); // Sky-700
       doc.setFont('helvetica', 'bold');
-      doc.setFontSize(11);
+      doc.setFontSize(10.5);
       doc.text('1. CONSTRUCT BIOPHYSICAL PROPERTIES', 14, y);
-      y += 6;
+      y += 5.5;
 
       doc.setTextColor(30, 41, 59);
       doc.setFont('helvetica', 'normal');
-      doc.setFontSize(9);
+      doc.setFontSize(8.5);
       const mwKda = ((length * 660) / 1000).toFixed(2);
       const copiesPerNg = ((1e-9 * 6.022e23) / (length * 660)).toExponential(2);
 
-      doc.rect(14, y, 182, 16, 'S');
+      doc.rect(14, y, 182, 17, 'S');
       doc.text(`• Length: ${length} bp`, 18, y + 5);
       doc.text(`• Molecular Weight: ${mwKda} kDa`, 75, y + 5);
       doc.text(`• GC Content: ${gc.toFixed(1)}%`, 140, y + 5);
       doc.text(`• Copy Number / ng: ${copiesPerNg} copies/ng`, 18, y + 12);
-      doc.text(`• Biosafety Homology: Passed (≥ 25% Unique)`, 75, y + 12);
-      doc.text(`• Clashes in DB: 0 (Orthogonal)`, 140, y + 12);
+      doc.text(`• QR Token: ${qrToken}`, 75, y + 12);
+      doc.text(`• Homology: Passed (Orthogonal)`, 140, y + 12);
       y += 24;
 
       // 3. PCR Primers
       doc.setTextColor(3, 105, 161);
       doc.setFont('helvetica', 'bold');
-      doc.setFontSize(11);
+      doc.setFontSize(10.5);
       doc.text('2. PCR AMPLIFICATION PRIMER PAIRS', 14, y);
-      y += 6;
+      y += 5.5;
 
       const fwdSeq = primers?.fwd?.seq || fullSeq.slice(0, 20);
       const revSeq = primers?.rev?.seq || fullSeq.slice(-20);

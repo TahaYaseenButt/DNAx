@@ -42,19 +42,27 @@ class SequenceDatabase:
                     linear_seq TEXT NOT NULL,
                     primers_json TEXT,
                     probes_json TEXT,
+                    qr_code TEXT,
                     notes TEXT
                 )
             ''')
+            # Auto-migrate for existing databases if qr_code column is missing
+            try:
+                cursor.execute('ALTER TABLE sequences ADD COLUMN qr_code TEXT')
+            except Exception:
+                pass
+
             cursor.execute('CREATE INDEX IF NOT EXISTS idx_sequences_name ON sequences(name)')
             cursor.execute('CREATE INDEX IF NOT EXISTS idx_sequences_created ON sequences(created_at)')
             conn.commit()
 
     def save_sequence(self, name, payload, linear_seq, mode='linear', length=None,
-                      total_length=None, gc_pct=None, primers=None, probes=None, notes=''):
+                      total_length=None, gc_pct=None, primers=None, probes=None, qr_code=None, notes=''):
         """
         Saves or updates a DNA sequence record.
         Returns the inserted/updated sequence ID.
         """
+        import hashlib
         name = name.strip()
         if not name:
             name = f"DNA_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}"
@@ -68,6 +76,10 @@ class SequenceDatabase:
             c = payload.count('C') + payload.count('c')
             gc_pct = round(((g + c) / max(1, len(payload))) * 100, 2)
 
+        if not qr_code or str(qr_code).strip() == '':
+            hash_token = hashlib.sha256(f"{name}_{payload}".encode()).hexdigest()[:8].upper()
+            qr_code = f"DNAX-QR-{hash_token}"
+
         primers_str = json.dumps(primers) if primers is not None else None
         probes_str = json.dumps(probes) if probes is not None else None
 
@@ -77,8 +89,8 @@ class SequenceDatabase:
             cursor.execute('''
                 INSERT INTO sequences (
                     name, created_at, mode, length, total_length, gc_pct,
-                    payload, linear_seq, primers_json, probes_json, notes
-                ) VALUES (?, CURRENT_TIMESTAMP, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    payload, linear_seq, primers_json, probes_json, qr_code, notes
+                ) VALUES (?, CURRENT_TIMESTAMP, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 ON CONFLICT(name) DO UPDATE SET
                     created_at = CURRENT_TIMESTAMP,
                     mode = excluded.mode,
@@ -89,8 +101,9 @@ class SequenceDatabase:
                     linear_seq = excluded.linear_seq,
                     primers_json = excluded.primers_json,
                     probes_json = excluded.probes_json,
+                    qr_code = excluded.qr_code,
                     notes = excluded.notes
-            ''', (name, mode, length, total_length, gc_pct, payload, linear_seq, primers_str, probes_str, notes))
+            ''', (name, mode, length, total_length, gc_pct, payload, linear_seq, primers_str, probes_str, qr_code, notes))
             conn.commit()
             return cursor.lastrowid
 

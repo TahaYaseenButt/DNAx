@@ -53,6 +53,7 @@ export async function saveCloudSequence(seqData) {
   if (!db) return { success: false, error: "Database not connected" };
   try {
     const colRef = collection(db, COLLECTION_NAME);
+    const qrToken = seqData.qr_code || `DNAX-QR-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
     const docData = {
       name: seqData.name || `DNAx_Construct_${Date.now().toString().slice(-4)}`,
       mode: seqData.mode || "linear",
@@ -62,11 +63,12 @@ export async function saveCloudSequence(seqData) {
       linear_seq: seqData.linear_seq || seqData.payload || "",
       primers: seqData.primers || null,
       probes: seqData.probes || [],
+      qr_code: qrToken,
       notes: seqData.notes || "",
       created_at: new Date().toISOString().replace("T", " ").slice(0, 19)
     };
     const docRef = await addDoc(colRef, docData);
-    return { success: true, id: docRef.id };
+    return { success: true, id: docRef.id, qr_code: qrToken };
   } catch (error) {
     console.error("Firestore saveCloudSequence error:", error);
     return { success: false, error: error.message };
