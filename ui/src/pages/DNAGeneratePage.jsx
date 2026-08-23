@@ -23,6 +23,7 @@ import { api } from '../api';
 
 export default function DNAGeneratePage({ setCurrentPage, targetBp = 500, setConstructData, constructData }) {
   const [length, setLength] = useState(targetBp || 500);
+  const [constructName, setConstructName] = useState(constructData?.name || '');
   const [numProbes, setNumProbes] = useState(4);
   const [primerOption, setPrimerOption] = useState('denovo');
   const [univFwd, setUnivFwd] = useState('CGATCGATCGATCGATCGAT');
@@ -34,6 +35,23 @@ export default function DNAGeneratePage({ setCurrentPage, targetBp = 500, setCon
   useEffect(() => {
     if (targetBp) setLength(targetBp);
   }, [targetBp]);
+
+  useEffect(() => {
+    const initName = async () => {
+      if (constructData?.name) {
+        setConstructName(constructData.name);
+        return;
+      }
+      try {
+        const seqs = await api.getSequences();
+        const nextNum = (seqs?.length || 0) + 1;
+        setConstructName(`DNAx_Construct_${String(nextNum).padStart(2, '0')}`);
+      } catch (e) {
+        setConstructName(`DNAx_Construct_01`);
+      }
+    };
+    initName();
+  }, [constructData]);
 
   // Calculate strict thermodynamic minimum length without compromising probe standards (24bp, Tm >= 68°C)
   const probeStandardLen = 24;
@@ -68,9 +86,13 @@ export default function DNAGeneratePage({ setCurrentPage, targetBp = 500, setCon
         setErrorMessage(data.error || 'Failed to synthesize construct.');
         setResult(null);
       } else {
-        setResult(data);
+        const namedData = {
+          ...data,
+          name: constructName.trim() || `DNAx_Construct_${Date.now().toString().slice(-4)}`
+        };
+        setResult(namedData);
         setErrorMessage(null);
-        if (setConstructData) setConstructData(data);
+        if (setConstructData) setConstructData(namedData);
       }
     } catch (e) {
       console.error(e);
@@ -109,43 +131,55 @@ export default function DNAGeneratePage({ setCurrentPage, targetBp = 500, setCon
 
       {/* Main Configuration Card */}
       <div className="glass-panel p-6 space-y-5">
-        {/* Row 1: Primer Strategy & Architecture */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pb-4 border-b border-slate-200/60">
+        {/* Row 1: Construct Name, Primer Strategy & Architecture */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pb-4 border-b border-slate-200/60">
+          {/* Construct Name */}
+          <div className="space-y-1.5">
+            <label className="text-xs font-bold text-slate-700">Construct Name / Batch ID</label>
+            <input
+              type="text"
+              value={constructName}
+              onChange={(e) => setConstructName(e.target.value)}
+              placeholder="e.g. DNAx_Construct_02"
+              className="w-full bg-white/90 border border-slate-200 rounded-xl px-3.5 py-2 text-xs font-bold text-slate-900 focus:outline-none focus:border-sky-500 shadow-2xs"
+            />
+          </div>
+
           {/* Construct Architecture: Linear dsDNA */}
           <div className="space-y-1.5">
-            <label className="text-xs font-bold text-slate-700">Construct Architecture</label>
-            <div className="flex items-center space-x-2 p-2.5 rounded-xl bg-white/90 border border-sky-200 text-xs font-bold text-sky-900 shadow-2xs">
-              <span className="w-2.5 h-2.5 rounded-full bg-sky-500" />
-              <span>Linear Double-Stranded DNA (Linear dsDNA)</span>
+            <label className="text-xs font-bold text-slate-700">Architecture</label>
+            <div className="flex items-center space-x-2 p-2 rounded-xl bg-white/90 border border-sky-200 text-xs font-bold text-sky-900 shadow-2xs">
+              <span className="w-2 h-2 rounded-full bg-sky-500" />
+              <span>Linear dsDNA</span>
             </div>
           </div>
 
           {/* Primer Seed Option */}
           <div className="space-y-1.5">
-            <label className="text-xs font-bold text-slate-700">Primer Seed Strategy</label>
+            <label className="text-xs font-bold text-slate-700">Primer Strategy</label>
             <div className="grid grid-cols-2 gap-2">
               <button
                 type="button"
                 onClick={() => setPrimerOption('denovo')}
-                className={`flex items-center justify-center space-x-2 px-3 py-2.5 rounded-xl text-xs font-bold border transition cursor-pointer ${
+                className={`flex items-center justify-center space-x-1 px-2 py-2 rounded-xl text-xs font-bold border transition cursor-pointer ${
                   primerOption === 'denovo'
                     ? 'bg-sky-50 border-sky-300 text-sky-800 shadow-2xs'
                     : 'bg-white/70 border-slate-200 text-slate-600 hover:bg-white'
                 }`}
               >
-                <span>🎲 De Novo Orthogonal</span>
+                <span>🎲 De Novo</span>
               </button>
 
               <button
                 type="button"
                 onClick={() => setPrimerOption('universal')}
-                className={`flex items-center justify-center space-x-2 px-3 py-2.5 rounded-xl text-xs font-bold border transition cursor-pointer ${
+                className={`flex items-center justify-center space-x-1 px-2 py-2 rounded-xl text-xs font-bold border transition cursor-pointer ${
                   primerOption === 'universal'
                     ? 'bg-sky-50 border-sky-300 text-sky-800 shadow-2xs'
                     : 'bg-white/70 border-slate-200 text-slate-600 hover:bg-white'
                 }`}
               >
-                <span>🌐 Universal Primers</span>
+                <span>🌐 Universal</span>
               </button>
             </div>
           </div>
