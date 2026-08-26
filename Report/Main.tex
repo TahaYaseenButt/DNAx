@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper]{report}
+\documentclass[11pt,a4paper]{report}
 
 % --- Packages ---
 \usepackage[utf8]{inputenc}
@@ -24,18 +24,10 @@
 \pgfplotsset{compat=1.18}
 \usepackage{hyperref}
 
-% --- Colors ---
-\definecolor{nustblue}{RGB}{15, 60, 115}
-\definecolor{nustgold}{RGB}{205, 145, 30}
-\definecolor{darkslate}{RGB}{30, 41, 59}
-\definecolor{tableheader}{RGB}{230, 240, 250}
-\definecolor{accentgreen}{RGB}{16, 120, 75}
-\definecolor{skyaccent}{RGB}{2, 132, 199}
-\definecolor{lightsky}{RGB}{224, 242, 254}
-\definecolor{lightpurple}{RGB}{243, 232, 255}
-\definecolor{lightamber}{RGB}{254, 243, 199}
-\definecolor{lightrose}{RGB}{255, 228, 230}
-\definecolor{lightemerald}{RGB}{209, 250, 229}
+% --- Formal Monochrome & NUST Blue Color Palette ---
+\definecolor{nustblue}{RGB}{15, 60, 115}      % Primary Accent: NUST Deep Blue
+\definecolor{nustlight}{RGB}{235, 242, 250}   % Subtle Table / Box Fill
+\definecolor{bordergray}{RGB}{180, 190, 200}  % Clean Diagram Borders
 
 % --- Hyperref Setup ---
 \hypersetup{
@@ -43,7 +35,7 @@
     linkcolor=nustblue,
     citecolor=nustblue,
     urlcolor=nustblue,
-    pdftitle={Indigenous Development of DNA Tagging System for Industries - Third Progress Report},
+    pdftitle={Indigenous DNA Tagging System for National Industries - Executive Briefing},
     pdfauthor={National University of Sciences and Technology (NUST)}
 }
 
@@ -52,80 +44,84 @@
 \addtolength{\topmargin}{-3pt}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\small\color{gray}DNAx Project — Third Technical Review Report}
-\fancyhead[R]{\small\color{gray}NUST ASAB-SCME}
-\fancyfoot[C]{\thepage}
+\fancyhead[L]{\small\color{black}Indigenous DNA Tagging System for Industries}
+\fancyhead[R]{\small\color{black}NUST ASAB-SCME}
+\fancyfoot[C]{\color{black}\thepage}
 \renewcommand{\headrulewidth}{0.5pt}
 \renewcommand{\footrulewidth}{0.5pt}
 
-% --- Chapter Title Formatting ---
+% --- Section and Chapter Title Formatting (Strict Black Text with NUST Blue Accents) ---
 \titleformat{\chapter}[display]
-  {\normalfont\bfseries\color{nustblue}}
-  {\filleft\large\MakeUppercase{\chaptertitlename} \Huge\thechapter}
+  {\normalfont\bfseries\color{black}}
+  {\filleft\large\MakeUppercase{\chaptertitlename} \Huge\color{nustblue}\thechapter}
   {1ex}
-  {\titlerule[1.5pt]\vspace{1.5ex}\Huge}
-  [\vspace{1ex}{\titlerule[0.5pt]}]
+  {{\color{nustblue}\titlerule[1.5pt]}\vspace{1.5ex}\Huge}
+  [\vspace{1ex}{{\color{nustblue}\titlerule[0.5pt]}}]
 
 \titleformat{\section}
-  {\normalfont\Large\bfseries\color{nustblue}}{\thesection}{1em}{}
+  {\normalfont\Large\bfseries\color{black}}{\thesection}{1em}{}
 
 \titleformat{\subsection}
-  {\normalfont\large\bfseries\color{darkslate}}{\thesubsection}{1em}{}
+  {\normalfont\large\bfseries\color{black}}{\thesubsection}{1em}{}
 
-\setstretch{1.2}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{black}}{\thesubsubsection}{1em}{}
+
+\setstretch{1.15}
 
 \begin{document}
+\color{black}
 
 % =========================================================================
-% TITLE PAGE
+% EXECUTIVE TITLE PAGE (PRESIDENTIAL BRIEFING STANDARD)
 % =========================================================================
 \begin{titlepage}
 \begin{center}
     \vspace*{0.5cm}
     
-    {\Large \textbf{NATIONAL UNIVERSITY OF SCIENCES AND TECHNOLOGY}}\\[0.2cm]
+    {\Large \textbf{NATIONAL UNIVERSITY OF SCIENCES AND TECHNOLOGY (NUST)}}\\[0.2cm]
     {\large \textbf{ATTA-UR-RAHMAN SCHOOL OF APPLIED BIOSCIENCES (ASAB)}}\\[0.1cm]
-    {\large \textbf{\& SCHOOL OF CHEMICAL AND MATERIALS ENGINEERING (SCME)}}\\[1.2cm]
+    {\large \textbf{\& SCHOOL OF CHEMICAL AND MATERIALS ENGINEERING (SCME)}}\\[1.5cm]
     
     \begin{figure}[H]
         \centering
-        % Placeholder for NUST / ASAB Official Crest
-        \fbox{\parbox{0.35\textwidth}{\centering \vspace{1.5cm} \textbf{[NUST ASAB-SCME Official Crest]} \vspace{1.5cm}}}
-        \label{fig:crest}
+        \begin{tikzpicture}
+            \node[rectangle, rounded corners=6pt, draw=nustblue, fill=nustlight, line width=1.2pt, minimum width=0.65\textwidth, minimum height=2.2cm, align=center] {
+                \Large \textbf{\color{nustblue}NATIONAL DEFENSE \& STRATEGIC INDUSTRIES}\\[0.2cm]
+                \small \textbf{\color{black}PROJECT PROOF-OF-CONCEPT \& TECHNICAL REPORT}
+            };
+        \end{tikzpicture}
     \end{figure}
     
     \vspace{0.8cm}
-    {\large \textbf{THIRD TECHNICAL PANEL REVIEW REPORT}}\\[0.4cm]
+    {\large \textbf{EXECUTIVE BRIEFING REPORT}}\\[0.4cm]
     
-    \noindent\makebox[\linewidth]{\rule{\textwidth}{2pt}}\\[0.4cm]
-    {\huge \textbf{\color{nustblue} INDIGENOUS DEVELOPMENT OF DNA TAGGING SYSTEM FOR INDUSTRIES}}\\[0.2cm]
-    \noindent\makebox[\linewidth]{\rule{\textwidth}{1pt}}\\[0.6cm]
+    \noindent\makebox[\linewidth]{{\color{nustblue}\rule{\textwidth}{2pt}}}\\[0.4cm]
+    {\huge \textbf{INDIGENOUS DEVELOPMENT OF DNA TAGGING SYSTEM FOR INDUSTRIES}}\\[0.2cm]
+    \noindent\makebox[\linewidth]{{\color{nustblue}\rule{\textwidth}{1pt}}}\\[0.8cm]
     
-    {\large \textbf{Project Commencement Date:} 2 January 2026}\\[0.2cm]
-    {\large \textbf{Reporting Date:} 25 August 2026}\\[1.2cm]
+    {\large \textbf{Project Inception:} January 2, 2026 \quad $\vert$ \quad \textbf{Review Date:} August 2026}\\[1.5cm]
     
     \begin{tabular}{ll}
-        \textbf{Principal Investigator:} & \textbf{Dr. Muhammad Qasim Hayat} (ASAB) \\[0.15cm]
-        \textbf{Co-Principal Investigators:} & \textbf{Dr. Umair Manzoor} (SCME) \\
-        & \textbf{Dr. Husnain Ahmed Janjua} (ASAB) \\
-        & \textbf{Dr. Malik Adeel Umer} (SCME) \\[0.15cm]
-        \textbf{Lead Research Associate:} & \textbf{Taha Yaseen} (ASAB) \\
+        \textbf{Principal Investigator:} & \textbf{Dr. Muhammad Qasim Hayat} (ASAB, NUST) \\[0.2cm]
+        \textbf{Co-Principal Investigators:} & \textbf{Dr. Umair Manzoor} (SCME, NUST) \\
+        & \textbf{Dr. Husnain Ahmed Janjua} (ASAB, NUST) \\
+        & \textbf{Dr. Malik Adeel Umer} (SCME, NUST) \\[0.2cm]
+        \textbf{Lead Research Associate:} & \textbf{Taha Yaseen} (ASAB, NUST) \\
     \end{tabular}
     
     \vfill
-    {\small Islamabad, Pakistan — August 2026}
+    {\small Islamabad, Pakistan — 2026}
 \end{center}
 \end{titlepage}
 
 % =========================================================================
-% SIGNATURES AND APPROVALS
+% EXECUTIVE SIGNATURES & VERIFICATION
 % =========================================================================
-\chapter*{Signatures and Institutional Approvals}
-\addcontentsline{toc}{chapter}{Signatures and Institutional Approvals}
+\chapter*{Institutional Authentication \& Approvals}
+\addcontentsline{toc}{chapter}{Institutional Authentication \& Approvals}
 
-This formal project review report delineates the comprehensive technical, experimental, and empirical milestones accomplished under the defense and industrial-sponsored project \textbf{``Indigenous Development of DNA Tagging System for Industries''} at the National University of Sciences and Technology (NUST). 
-
-The signatures below verify that the research methodologies, algorithmic bioinformatic pipelines, nanomaterial encapsulation processes, wet-lab qPCR multiplex validations, and digital infrastructure documented herein have been executed and verified in compliance with national forensic standards and NUST institutional guidelines.
+This formal report presents the comprehensive technological architecture, empirical wet-lab validation, and proof-of-concept results for the \textbf{Indigenous DNA Tagging System for Industries}. All experimental data, real-time qPCR curves, and software protocols documented herein have been executed, verified, and approved by the project research leadership.
 
 \vspace{2.5cm}
 
@@ -134,20 +130,18 @@ The signatures below verify that the research methodologies, algorithmic bioinfo
     \rule{0.85\linewidth}{0.6pt} & \rule{0.85\linewidth}{0.6pt} \\
     \textbf{Dr. Muhammad Qasim Hayat} & \textbf{Dr. Umair Manzoor} \\
     Principal Investigator (PI) & Co-Principal Investigator \\
-    Atta-ur-Rahman School of Applied Biosciences & School of Chemical and Materials Engineering \\
-    NUST, Islamabad & NUST, Islamabad \\[3.0cm]
+    ASAB, NUST & SCME, NUST \\[3.0cm]
     
     \rule{0.85\linewidth}{0.6pt} & \rule{0.85\linewidth}{0.6pt} \\
     \textbf{Dr. Husnain Ahmed Janjua} & \textbf{Dr. Malik Adeel Umer} \\
     Co-Principal Investigator & Co-Principal Investigator \\
-    Atta-ur-Rahman School of Applied Biosciences & School of Chemical and Materials Engineering \\
-    NUST, Islamabad & NUST, Islamabad \\
+    ASAB, NUST & SCME, NUST \\
 \end{tabularx}
 
 \clearpage
 
 % =========================================================================
-% PRELIMINARY PAGES
+% TABLE OF CONTENTS
 % =========================================================================
 \pagenumbering{roman}
 \tableofcontents
@@ -168,9 +162,5 @@ The signatures below verify that the research methodologies, algorithmic bioinfo
 \include{ch3}
 \include{ch4}
 \include{ch5}
-\include{ch6}
-\include{ch7}
-\include{ch8}
-\include{annexures}
 
 \end{document}

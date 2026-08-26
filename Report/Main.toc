@@ -1,63 +1,35 @@
-\contentsline {chapter}{Signatures and Institutional Approvals}{1}{chapter*.2}%
-\contentsline {chapter}{\numberline {1}Executive Summary \& Project Mandate}{1}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Executive Summary}{1}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Project Deliverables and Scope of Work}{2}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Milestone Progress and Work-Done Trajectory}{3}{section.1.3}%
-\contentsline {chapter}{\numberline {2}DNA Taggant Design, Combinatorics \& Software Engine}{5}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Introduction to DNA-Based Information Storage}{5}{section.2.1}%
-\contentsline {section}{\numberline {2.2}The 6-Stage Bioinformatic Design Pipeline (DNAx Signet\textsuperscript {\textcopyright })}{5}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Probe Chain Architecture and Molecular Anatomy}{7}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Mathematical Combinatorics of the 200~bp Sequence Space}{7}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}Raw Sequence Combinations}{7}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}Modular Building Block Library Combinations}{8}{subsection.2.4.2}%
-\contentsline {chapter}{\numberline {3}Physical DNA Synthesis, PCR Amplification \& Bulk Formulation}{9}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Introduction and Chemical Synthesis}{9}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Polymerase Chain Reaction (PCR) Amplification Protocol}{10}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Thermal Cycling Program}{10}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Reaction Composition}{10}{subsection.3.2.2}%
-\contentsline {section}{\numberline {3.3}Agarose Gel Electrophoresis Verification}{11}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Bulk Formulation: Preparation of 1.0~Liter Industrial Taggant Solution}{12}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Formulation Protocol for 1~Liter of Taggant Buffer}{12}{subsection.3.4.1}%
-\contentsline {chapter}{\numberline {4}Nanomaterial Encapsulation, Surface Chemistry \& Characterization}{13}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Nanotechnology Taggant Architecture}{13}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Encapsulation Methodology \& Reaction Protocols}{14}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Stage I: Silica Nanoparticle Core Synthesis}{14}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Stage II: Surface Functionalization \& Charge Inversion (CTAB)}{14}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Stage III: DNA Loading \& Secondary Inorganic Encapsulation}{14}{subsection.4.2.3}%
-\contentsline {subsection}{\numberline {4.2.4}Stage IV: Optical Phosphor Doping \& Thermal Barrier Deposition}{14}{subsection.4.2.4}%
-\contentsline {section}{\numberline {4.3}Experimental Characterization Results}{15}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Scanning Electron Microscopy (SEM) \& EDX Elemental Analysis}{15}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Particle Size Analysis (PSA) — Laser Diffraction}{15}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Fourier Transform Infrared Spectroscopy (FTIR)}{16}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4}X-Ray Diffraction (XRD) \& Photoluminescence (PL)}{16}{subsection.4.3.4}%
-\contentsline {chapter}{\numberline {5}Industrial Product Integration \& Automated Roll-to-Roll Spray Machinery}{17}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Introduction to Industrial Taggant Dispersion}{17}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Product Classes and Substrates Evaluated}{17}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Automated Roll-to-Roll Industrial Manufacturing Machine}{18}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Operational Stations of the Roll-to-Roll Line}{19}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}Microcontroller Integration with DNAx Manufacturing Software}{20}{subsection.5.3.2}%
-\contentsline {chapter}{\numberline {6}Forensic Recovery, Chemical Etching \& 4-Channel Multiplex qPCR Proof-of-Concept}{21}{chapter.6}%
-\contentsline {section}{\numberline {6.1}National-Level Forensic Agency Operational Workflow}{21}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Chemical Etching Protocol for Encapsulated Taggants}{22}{section.6.2}%
-\contentsline {section}{\numberline {6.3}4-Channel Multiplex qPCR Assay Execution}{22}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Multiplex qPCR Reaction Recipe}{22}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}Real-Time Thermocycling Program}{23}{subsection.6.3.2}%
-\contentsline {section}{\numberline {6.4}Empirical qPCR Results and Multi-Probe Verification}{23}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}Quantitative Cycle ($C_q$) Empirical Data Analysis}{24}{subsection.6.4.1}%
-\contentsline {subsection}{\numberline {6.4.2}Significance for Forensic Identification}{25}{subsection.6.4.2}%
-\contentsline {chapter}{\numberline {7}Digital Management System (DMS) \& 4-App Software Ecosystem}{26}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Architectural Foundation and Unified Database Design}{26}{section.7.1}%
-\contentsline {section}{\numberline {7.2}The Four Specialized Application Modules}{27}{section.7.2}%
-\contentsline {subsection}{\numberline {7.2.1}1. DNAx Signet\textsuperscript {\textcopyright } (Research Laboratory Module)}{27}{subsection.7.2.1}%
-\contentsline {subsection}{\numberline {7.2.2}2. DNAx Manufacturing\textsuperscript {\textcopyright } (Industrial Production Module)}{27}{subsection.7.2.2}%
-\contentsline {subsection}{\numberline {7.2.3}3. DNAx Vendor\textsuperscript {\textcopyright } (Mobile Supply Chain Tracking Module)}{28}{subsection.7.2.3}%
-\contentsline {subsection}{\numberline {7.2.4}4. DNAx Forensics\textsuperscript {\textcopyright } (Agency Verification Module)}{28}{subsection.7.2.4}%
-\contentsline {section}{\numberline {7.3}Dual Desktop and Cloud Deployment Architecture}{29}{section.7.3}%
-\contentsline {chapter}{\numberline {8}Laboratory Infrastructure, Financial Audit \& Recommendations}{30}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Establishment of the Central DNAx Laboratory}{30}{section.8.1}%
-\contentsline {subsection}{\numberline {8.1.1}Current Status of Laboratory Assets and Instrumentation}{30}{subsection.8.1.1}%
-\contentsline {section}{\numberline {8.2}Financial Audit and Budget Utilization Statement}{31}{section.8.2}%
-\contentsline {section}{\numberline {8.3}Operational Bottlenecks and Strategic Recommendations}{32}{section.8.3}%
-\contentsline {subsection}{\numberline {8.3.1}Identified Operational Bottlenecks}{32}{subsection.8.3.1}%
-\contentsline {subsection}{\numberline {8.3.2}Strategic Recommendations and Requests}{32}{subsection.8.3.2}%
-\contentsline {chapter}{Annexures}{33}{chapter*.29}%
+\contentsline {chapter}{Institutional Authentication \& Approvals}{1}{chapter*.2}%
+\contentsline {chapter}{\numberline {1}Executive Summary \& Strategic Background}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Project Mandate and Strategic National Imperative}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Core Technological Concept}{1}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Summary of Key Achievements to Date}{2}{section.1.3}%
+\contentsline {chapter}{\numberline {2}End-to-End Operational Workflow}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}System Operational Overview}{3}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Step 1: In Silico DNA Taggant Design via Software}{3}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Step 2: Physical Synthesis, Amplification \& Inventory Storage}{4}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Step 3: Protective Nano-Encapsulation (High-Stress Environments)}{4}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Step 4: Product Integration \& Automated Industrial Dispensing}{5}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Step 5: Forensic Field Sampling \& Chemical Recovery}{5}{section.2.6}%
+\contentsline {section}{\numberline {2.7}Step 6: Multiplex qPCR Detection \& Instant Identification}{5}{section.2.7}%
+\contentsline {chapter}{\numberline {3}Empirical Proof-of-Concept Results}{6}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Overview of Wet-Lab Experimental Validation}{6}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Agarose Gel Electrophoresis Analysis}{6}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Multiplex Real-Time qPCR Verification Results}{7}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Quantitative Empirical Data Analysis}{8}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Mathematical Combinatorics \& Unforgeability}{8}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Nanomaterial Protective Encapsulation}{10}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Nanotechnology Taggant Architecture}{10}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Encapsulation Protocols \& Reaction Methodology}{11}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Stage I: Silica Core Nanoparticle Synthesis}{11}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Stage II: CTAB Surface Functionalization \& Charge Inversion}{11}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Stage III: DNA Loading \& Secondary Silica Shell Encapsulation}{11}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Stage IV: Optical Phosphor Doping \& Outer Ceramic Shielding}{11}{subsection.4.2.4}%
+\contentsline {section}{\numberline {4.3}Nanomaterial Characterization Data}{12}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Scanning Electron Microscopy (SEM) \& EDX Spectroscopy}{12}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Particle Size Analysis (PSA) — Laser Diffraction}{12}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Fourier Transform Infrared (FTIR) Spectroscopy}{12}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}X-Ray Diffraction (XRD) Phase Analysis}{12}{subsection.4.3.4}%
+\contentsline {chapter}{\numberline {5}Digital Management System \& National Verification}{13}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Unified Digital Architecture}{13}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Specialized Software Capabilities}{13}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Strategic Impact \& Conclusion}{14}{section.5.3}%
