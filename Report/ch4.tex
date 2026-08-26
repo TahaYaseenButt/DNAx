@@ -14,10 +14,10 @@ The PCR amplification product was evaluated on a 2.0\% agarose gel stained with 
 \begin{figure}[H]
     \centering
     \begin{tikzpicture}[
-        gelbackground/.style={rectangle, fill=black!90, draw=bordergray, line width=1.2pt, minimum width=9.5cm, minimum height=5.8cm, rounded corners=4pt},
-        well/.style={rectangle, fill=black, draw=gray!70, minimum width=1.1cm, minimum height=0.25cm},
+        gelbackground/.style={rectangle, fill=black!90, draw=black, line width=1.0pt, minimum width=9.5cm, minimum height=5.8cm, rounded corners=2pt},
+        well/.style={rectangle, fill=black, draw=gray!60, minimum width=1.1cm, minimum height=0.25cm},
         band/.style={rectangle, fill=white, rounded corners=1pt, opacity=0.9},
-        strongband/.style={band, fill=nustlight!95!white, line width=0.5pt, draw=white}
+        strongband/.style={band, fill=white, line width=0.5pt, draw=white}
     ]
         % Dark Gel Background
         \node[gelbackground] (gel) at (0, 0) {};
@@ -44,10 +44,10 @@ The PCR amplification product was evaluated on a 2.0\% agarose gel stained with 
         \node[band, minimum width=0.8cm, minimum height=0.08cm] at (-2.8, -1.8) {}; % 100 bp
         
         % Ladder text annotations
-        \node[font=\tiny\color{gray!30}, left=0.6cm of gel.west, anchor=west] at (-4.2, 1.6) {1000 bp};
-        \node[font=\tiny\color{gray!30}, left=0.6cm of gel.west, anchor=west] at (-4.2, 0.5) {500 bp};
+        \node[font=\tiny\color{gray!40}, left=0.6cm of gel.west, anchor=west] at (-4.2, 1.6) {1000 bp};
+        \node[font=\tiny\color{gray!40}, left=0.6cm of gel.west, anchor=west] at (-4.2, 0.5) {500 bp};
         \node[font=\tiny\bfseries\color{white}, left=0.6cm of gel.west, anchor=west] at (-4.2, -1.1) {\textbf{200 bp}};
-        \node[font=\tiny\color{gray!30}, left=0.6cm of gel.west, anchor=west] at (-4.2, -1.8) {100 bp};
+        \node[font=\tiny\color{gray!40}, left=0.6cm of gel.west, anchor=west] at (-4.2, -1.8) {100 bp};
         
         % Lane 1: Sharp 200 bp Band
         \node[strongband, minimum width=0.95cm, minimum height=0.18cm] at (-0.9, -1.1) {};
@@ -56,7 +56,7 @@ The PCR amplification product was evaluated on a 2.0\% agarose gel stained with 
         \node[strongband, minimum width=0.95cm, minimum height=0.18cm] at (0.9, -1.1) {};
         
         % Target Indicator Arrow
-        \draw[-{Stealth[length=2.5mm]}, line width=1.2pt, color=nustlight] (2.2, -1.1) -- (1.5, -1.1);
+        \draw[-{Stealth[length=2.5mm]}, line width=1.0pt, color=white] (2.2, -1.1) -- (1.5, -1.1);
         \node[font=\small\bfseries\color{white}, right=0.1cm of gel.east, anchor=west] at (2.3, -1.1) {Target 200~bp Amplicon};
     \end{tikzpicture}
     \caption{Agarose gel electrophoresis showing the discrete 200~bp amplicon band with zero non-specific amplification.}
@@ -81,12 +81,12 @@ Real-time qPCR was executed with simultaneous 4-channel fluorescence acquisition
             xmin=1, xmax=40,
             ymin=0, ymax=1.2,
             grid=both,
-            grid style={dotted, gray!60},
+            grid style={dotted, gray!50},
             title style={color=black}
         ]
-            \addplot[domain=1:40, samples=60, smooth, line width=1.5pt, color=nustblue] 
+            \addplot[domain=1:40, samples=60, smooth, line width=1.2pt, color=black] 
                 {1.05 / (1 + exp(-0.45*(x - 5.5)))};
-            \addplot[dashed, color=black!60, line width=0.8pt] coordinates {(1, 0.05) (40, 0.05)};
+            \addplot[dashed, color=black!60, line width=0.6pt] coordinates {(1, 0.05) (40, 0.05)};
             \node[font=\scriptsize\bfseries, color=black] at (axis cs: 22, 0.85) {$C_q = 5.34$ (Positive)};
         \end{axis}
 
@@ -102,12 +102,12 @@ Real-time qPCR was executed with simultaneous 4-channel fluorescence acquisition
             xmin=1, xmax=40,
             ymin=0, ymax=1.2,
             grid=both,
-            grid style={dotted, gray!60},
+            grid style={dotted, gray!50},
             title style={color=black}
         ]
-            \addplot[domain=1:40, samples=60, smooth, line width=1.5pt, color=nustblue] 
+            \addplot[domain=1:40, samples=60, smooth, line width=1.2pt, color=black] 
                 {0.98 / (1 + exp(-0.40*(x - 17.2)))};
-            \addplot[dashed, color=black!60, line width=0.8pt] coordinates {(1, 0.05) (40, 0.05)};
+            \addplot[dashed, color=black!60, line width=0.6pt] coordinates {(1, 0.05) (40, 0.05)};
             \node[font=\scriptsize\bfseries, color=black] at (axis cs: 26, 0.80) {$C_q = 17.25$ (Positive)};
         \end{axis}
 
@@ -123,12 +123,12 @@ Real-time qPCR was executed with simultaneous 4-channel fluorescence acquisition
             xmin=1, xmax=40,
             ymin=0, ymax=1.2,
             grid=both,
-            grid style={dotted, gray!60},
+            grid style={dotted, gray!50},
             title style={color=black}
         ]
-            \addplot[domain=1:40, samples=60, smooth, line width=1.5pt, color=nustblue] 
+            \addplot[domain=1:40, samples=60, smooth, line width=1.2pt, color=black] 
                 {1.02 / (1 + exp(-0.38*(x - 15.6)))};
-            \addplot[dashed, color=black!60, line width=0.8pt] coordinates {(1, 0.05) (40, 0.05)};
+            \addplot[dashed, color=black!60, line width=0.6pt] coordinates {(1, 0.05) (40, 0.05)};
             \node[font=\scriptsize\bfseries, color=black] at (axis cs: 26, 0.80) {$C_q = 15.62$ (Positive)};
         \end{axis}
 
@@ -144,12 +144,12 @@ Real-time qPCR was executed with simultaneous 4-channel fluorescence acquisition
             xmin=1, xmax=40,
             ymin=0, ymax=1.2,
             grid=both,
-            grid style={dotted, gray!60},
+            grid style={dotted, gray!50},
             title style={color=black}
         ]
-            \addplot[domain=1:40, samples=60, smooth, line width=1.5pt, color=nustblue] 
+            \addplot[domain=1:40, samples=60, smooth, line width=1.2pt, color=black] 
                 {0.95 / (1 + exp(-0.35*(x - 17.5)))};
-            \addplot[dashed, color=black!60, line width=0.8pt] coordinates {(1, 0.05) (40, 0.05)};
+            \addplot[dashed, color=black!60, line width=0.6pt] coordinates {(1, 0.05) (40, 0.05)};
             \node[font=\scriptsize\bfseries, color=black] at (axis cs: 26, 0.75) {$C_q = 17.49$ (Positive)};
         \end{axis}
     \end{tikzpicture}

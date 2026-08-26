@@ -17,11 +17,11 @@ In actual implementation, the central facility maintains a physical library of $
 \begin{figure}[H]
     \centering
     \begin{tikzpicture}[
-        block/.style={rectangle, rounded corners=2pt, draw=nustblue, fill=nustlight, font=\tiny\bfseries, minimum width=0.8cm, minimum height=0.55cm, align=center},
-        selblock/.style={rectangle, rounded corners=3pt, draw=black, fill=white, line width=1.1pt, font=\scriptsize\bfseries, minimum width=1.8cm, minimum height=0.65cm, align=center}
+        block/.style={rectangle, rounded corners=1pt, draw=black, fill=white, font=\tiny\bfseries, minimum width=0.8cm, minimum height=0.55cm, align=center},
+        selblock/.style={rectangle, rounded corners=2pt, draw=black, fill=gray!15, line width=0.8pt, font=\scriptsize\bfseries, minimum width=1.8cm, minimum height=0.65cm, align=center}
     ]
         % Library Block Matrix
-        \node[font=\small\bfseries\color{nustblue}] at (2.2, 3.0) {Master Library ($M = 72$ Probes)};
+        \node[font=\small\bfseries\color{black}] at (2.2, 3.0) {Master Library ($M = 72$ Probes)};
         
         \foreach \x in {0,...,5} {
             \foreach \y in {0,...,3} {
@@ -31,7 +31,7 @@ In actual implementation, the central facility maintains a physical library of $
         }
         
         % Arrow to Selection
-        \draw[-{Stealth[length=3mm]}, line width=1.4pt, color=black] (5.5, 0.9) -- (7.0, 0.9) 
+        \draw[-{Stealth[length=3mm]}, line width=1.0pt, color=black] (5.5, 0.9) -- (7.0, 0.9) 
             node[midway, above, font=\scriptsize\bfseries] {Select $k=4$};
             
         % Selected Taggant
@@ -41,7 +41,7 @@ In actual implementation, the central facility maintains a physical library of $
         \node[selblock] (sb3) at (9.2, 0.6) {Probe 54 (TxRed)};
         \node[selblock] (sb4) at (9.2, -0.15) {Probe 71 (Cy5)};
         
-        \node[rectangle, draw=nustblue, fill=nustlight, rounded corners=4pt, font=\footnotesize\bfseries, align=center, text width=5.2cm] at (4.5, -1.5) {
+        \node[rectangle, draw=black, fill=white, rounded corners=2pt, font=\footnotesize\bfseries, align=center, text width=5.2cm] at (4.5, -1.5) {
             $\displaystyle \binom{72}{4} = \mathbf{1,028,790}$\\
             Unique Combinations
         };

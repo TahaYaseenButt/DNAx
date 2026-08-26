@@ -41,13 +41,13 @@ The primary objectives of this project are:
 \begin{figure}[H]
     \centering
     \begin{tikzpicture}[
-        corepillar/.style={rectangle, rounded corners=4pt, draw=nustblue, fill=nustlight, line width=1.1pt, text width=3.4cm, minimum height=1.3cm, align=center, font=\small\bfseries},
-        arrowstyle/.style={-{Stealth[length=2.5mm]}, line width=1.3pt, color=nustblue}
+        corepillar/.style={rectangle, rounded corners=2pt, draw=black, fill=white, line width=0.8pt, text width=3.2cm, minimum height=1.2cm, align=center, font=\small\bfseries},
+        arrowstyle/.style={-{Stealth[length=2.5mm]}, line width=1.0pt, color=black}
     ]
         \node[corepillar] (p1) at (0, 0) {1. DNA Design\\ (Software)};
-        \node[corepillar] (p2) at (4.0, 0) {2. Synthesis \&\\ Formulation};
-        \node[corepillar] (p3) at (8.0, 0) {3. Product\\ Integration};
-        \node[corepillar] (p4) at (12.0, 0) {4. Forensic qPCR\\ Verification};
+        \node[corepillar] (p2) at (3.8, 0) {2. Synthesis \&\\ Formulation};
+        \node[corepillar] (p3) at (7.6, 0) {3. Product\\ Integration};
+        \node[corepillar] (p4) at (11.4, 0) {4. Forensic qPCR\\ Verification};
         
         \draw[arrowstyle] (p1) -- (p2);
         \draw[arrowstyle] (p2) -- (p3);

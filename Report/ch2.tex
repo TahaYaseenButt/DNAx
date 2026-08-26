@@ -7,23 +7,23 @@ The DNA Tag and Trace workflow consists of five clear operational stages (Figure
 \begin{figure}[H]
     \centering
     \begin{tikzpicture}[
-        stepnode/.style={rectangle, rounded corners=4pt, draw=nustblue, fill=nustlight, line width=1pt, text width=5.5cm, minimum height=1.2cm, align=left, font=\small},
-        arrowstyle/.style={-{Stealth[length=2.5mm]}, line width=1.3pt, color=nustblue}
+        stepnode/.style={rectangle, rounded corners=2pt, draw=black, fill=white, line width=0.8pt, text width=5.5cm, minimum height=1.15cm, align=left, font=\small},
+        arrowstyle/.style={-{Stealth[length=2.5mm]}, line width=1.0pt, color=black}
     ]
         % Left Column
-        \node[stepnode] (s1) at (0, 3.8) {\textbf{1. DNA Designing}\\ \footnotesize Algorithmic generation, $T_m$ matching, BLAST};
-        \node[stepnode] (s2) at (0, 1.9) {\textbf{2. Physical Synthesis}\\ \footnotesize PCR scaling, 1L carrier buffer formulation};
+        \node[stepnode] (s1) at (0, 3.6) {\textbf{1. DNA Designing}\\ \footnotesize Algorithmic generation, $T_m$ matching, BLAST};
+        \node[stepnode] (s2) at (0, 1.8) {\textbf{2. Physical Synthesis}\\ \footnotesize PCR scaling, 1L carrier buffer formulation};
         \node[stepnode] (s3) at (0, 0.0) {\textbf{3. Product Integration}\\ \footnotesize Spraying on packaging, liquids \& security stamps};
         
         % Right Column
-        \node[stepnode] (s4) at (7.2, 3.8) {\textbf{4. Field Recovery}\\ \footnotesize Surface swabbing \& chemical recovery};
-        \node[stepnode] (s5) at (7.2, 1.9) {\textbf{5. qPCR Verification}\\ \footnotesize 4-channel multiplex detection \& deconvolution};
-        \node[stepnode] (s6) at (7.2, 0.0) {\textbf{6. Database Match}\\ \footnotesize Ledger query \& verification report};
+        \node[stepnode] (s4) at (7.0, 3.6) {\textbf{4. Field Recovery}\\ \footnotesize Surface swabbing \& chemical recovery};
+        \node[stepnode] (s5) at (7.0, 1.8) {\textbf{5. qPCR Verification}\\ \footnotesize 4-channel multiplex detection \& deconvolution};
+        \node[stepnode] (s6) at (7.0, 0.0) {\textbf{6. Database Match}\\ \footnotesize Ledger query \& verification report};
         
         % Sequential Flow
         \draw[arrowstyle] (s1) -- (s2);
         \draw[arrowstyle] (s2) -- (s3);
-        \draw[arrowstyle] (s3.east) -- ++(0.85,0) |- (s4.west);
+        \draw[arrowstyle] (s3.east) -- ++(0.75,0) |- (s4.west);
         \draw[arrowstyle] (s4) -- (s5);
         \draw[arrowstyle] (s5) -- (s6);
     \end{tikzpicture}
@@ -47,8 +47,8 @@ DNA constructs are designed through the custom software engine:
 \begin{figure}[H]
     \centering
     \begin{tikzpicture}[
-        basebox/.style={rectangle, draw=black, line width=1pt, minimum height=0.9cm, align=center, font=\small\bfseries},
-        primerbox/.style={basebox, fill=nustlight, text width=2.4cm},
+        basebox/.style={rectangle, draw=black, line width=0.8pt, minimum height=0.9cm, align=center, font=\small\bfseries},
+        primerbox/.style={basebox, fill=gray!15, text width=2.4cm},
         probebox/.style={basebox, fill=white, text width=2.2cm}
     ]
         \node[primerbox] (fwd) at (0, 0) {5' Forward\\ Primer (20 bp)};
@@ -58,13 +58,13 @@ DNA constructs are designed through the custom software engine:
         \node[probebox, right=0.15cm of p3] (p4) {Probe 4\\ Cy5 (24 bp)};
         \node[primerbox, right=0.15cm of p4] (rev) {3' Reverse\\ Primer (20 bp)};
         
-        \draw[decorate, decoration={brace, amplitude=6pt, mirror}, line width=1pt, color=black] 
+        \draw[decorate, decoration={brace, amplitude=6pt, mirror}, line width=0.8pt, color=black] 
             ($(p1.south west)+(0,-0.15)$) -- ($(p4.south east)+(0,-0.15)$)
             node[midway, below=7pt, font=\small\bfseries] {Multiplex Payload (4 Probes $\times$ 24 bp)};
             
-        \draw[decorate, decoration={brace, amplitude=6pt}, line width=1pt, color=nustblue] 
+        \draw[decorate, decoration={brace, amplitude=6pt}, line width=0.8pt, color=black] 
             ($(fwd.north west)+(0,0.15)$) -- ($(rev.north east)+(0,0.15)$)
-            node[midway, above=7pt, font=\small\bfseries\color{nustblue}] {Linear dsDNA Construct (200 bp)};
+            node[midway, above=7pt, font=\small\bfseries] {Linear dsDNA Construct (200 bp)};
     \end{tikzpicture}
     \caption{Molecular layout of the 200~bp DNA taggant construct.}
     \label{fig:molecular_anatomy}

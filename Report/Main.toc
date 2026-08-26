@@ -1,4 +1,4 @@
-\contentsline {chapter}{Project Approvals \& Institutional Verification}{1}{chapter*.2}%
+\contentsline {chapter}{Project Approvals}{1}{chapter*.1}%
 \contentsline {chapter}{\numberline {1}Project Background \& Objectives}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Project Background}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Conventional Markers vs. DNA Tagging}{1}{section.1.2}%
