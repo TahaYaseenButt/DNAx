@@ -1,14 +1,14 @@
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces The closed-loop sovereign lifecycle of the national DNA authentication architecture.}}{2}{figure.caption.4}%
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Overview of the DNA Tag and Trace workflow.}}{2}{figure.caption.4}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces The end-to-end operational doctrine governing the life-cycle of national DNA taggants.}}{3}{figure.caption.5}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Molecular architecture of the synthesized 200~bp DNA construct featuring flanking 20~bp primer docks and 4 internal 24~bp fluorescent probe targets.}}{4}{figure.caption.6}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces The five stages of the DNA tagging and verification lifecycle.}}{3}{figure.caption.5}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Molecular layout of the 200~bp DNA taggant construct.}}{4}{figure.caption.6}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Combinatorial formulation of 4 distinct probe targets from a sovereign master library of 72 yielding over 1 million unique industrial batch codes.}}{7}{figure.caption.7}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Combinatorial mixing of 4 probes from a 72-probe library yielding over 1 million unique codes.}}{6}{figure.caption.7}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Agarose gel electrophoresis confirming high-specificity PCR amplification of the 200~bp synthetic DNA taggant construct with zero non-specific banding.}}{10}{figure.caption.9}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Real-time multiplex qPCR amplification curves demonstrating simultaneous 100\% optical detection across all 4 probe channels.}}{11}{figure.caption.10}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Agarose gel electrophoresis showing the discrete 200~bp amplicon band with zero non-specific amplification.}}{7}{figure.caption.9}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Simultaneous real-time qPCR curves showing 100\% positive detection across all 4 probe channels.}}{8}{figure.caption.10}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Concentric multi-layer architecture of the encapsulated DNA taggant particle providing thermal and chemical protection.}}{12}{figure.caption.12}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Multi-layer architecture of the encapsulated DNA taggant particle.}}{9}{figure.caption.12}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces The 4-tier sovereign software ecosystem operating on a role-isolated central database ledger.}}{15}{figure.caption.13}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces The 4-app software ecosystem operating on a central database ledger.}}{12}{figure.caption.13}%

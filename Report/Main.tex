@@ -35,8 +35,8 @@
     linkcolor=nustblue,
     citecolor=nustblue,
     urlcolor=nustblue,
-    pdftitle={Indigenous DNA Tagging System for National Industries - Presidential Technical Briefing},
-    pdfauthor={National University of Sciences and Technology (NUST)}
+    pdftitle={DNA Tag and Trace System - Project Report},
+    pdfauthor={NUST}
 }
 
 % --- Header and Footer ---
@@ -44,13 +44,13 @@
 \addtolength{\topmargin}{-3pt}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\small\color{black}Indigenous DNA Tagging System for National Industries}
+\fancyhead[L]{\small\color{black}DNA Tag and Trace System}
 \fancyhead[R]{\small\color{black}NUST ASAB-SCME}
 \fancyfoot[C]{\color{black}\thepage}
 \renewcommand{\headrulewidth}{0.5pt}
 \renewcommand{\footrulewidth}{0.5pt}
 
-% --- Dignitary-Grade Chapter & Section Title Formatting (Strict Black with NUST Blue Accents) ---
+% --- Clean Heading Formatting ---
 \titleformat{\chapter}[display]
   {\normalfont\bfseries\color{black}}
   {\filleft\large\MakeUppercase{\chaptertitlename} \Huge\color{nustblue}\thechapter}
@@ -73,7 +73,7 @@
 \color{black}
 
 % =========================================================================
-% EXECUTIVE TITLE PAGE (PRESIDENTIAL / HEAD OF STATE BRIEFING STANDARD)
+% TITLE PAGE
 % =========================================================================
 \begin{titlepage}
 \begin{center}
@@ -86,21 +86,21 @@
     \begin{figure}[H]
         \centering
         \begin{tikzpicture}
-            \node[rectangle, rounded corners=6pt, draw=nustblue, fill=nustlight, line width=1.2pt, minimum width=0.75\textwidth, minimum height=2.4cm, align=center] {
-                \Large \textbf{\color{nustblue}PRESIDENTIAL TECHNICAL BRIEFING \& STRATEGIC DOSSIER}\\[0.25cm]
-                \small \textbf{\color{black}INDIGENOUS BIO-MOLECULAR DEFENSE \& SUPPLY CHAIN INTEGRITY}
+            \node[rectangle, rounded corners=6pt, draw=nustblue, fill=nustlight, line width=1.2pt, minimum width=0.75\textwidth, minimum height=2.0cm, align=center] {
+                \Large \textbf{\color{nustblue}DNA BASE TAG AND TRACE SYSTEM}\\[0.2cm]
+                \small \textbf{\color{black}PROJECT PROOF-OF-CONCEPT REPORT}
             };
         \end{tikzpicture}
     \end{figure}
     
     \vspace{0.8cm}
-    {\large \textbf{TECHNICAL PROOF-OF-CONCEPT REPORT}}\\[0.4cm]
+    {\large \textbf{TECHNICAL REPORT}}\\[0.4cm]
     
     \noindent\makebox[\linewidth]{{\color{nustblue}\rule{\textwidth}{2pt}}}\\[0.4cm]
-    {\huge \textbf{INDIGENOUS DEVELOPMENT OF DNA TAGGING SYSTEM FOR NATIONAL INDUSTRIES}}\\[0.2cm]
+    {\huge \textbf{INDIGENOUS DNA TAGGING SYSTEM FOR INDUSTRIES}}\\[0.2cm]
     \noindent\makebox[\linewidth]{{\color{nustblue}\rule{\textwidth}{1pt}}}\\[0.8cm]
     
-    {\large \textbf{Project Review:} August 2026 \quad $\vert$ \quad \textbf{Classification:} Strategic / Proprietary}\\[1.5cm]
+    {\large \textbf{Date:} August 2026}\\[1.5cm]
     
     \begin{tabular}{ll}
         \textbf{Principal Investigator:} & \textbf{Dr. Muhammad Qasim Hayat} (ASAB, NUST) \\[0.2cm]
@@ -116,12 +116,12 @@
 \end{titlepage}
 
 % =========================================================================
-% EXECUTIVE SIGNATURES & VERIFICATION
+% SIGNATURES
 % =========================================================================
-\chapter*{Institutional Authentication \& Sovereign Endorsement}
-\addcontentsline{toc}{chapter}{Institutional Authentication \& Sovereign Endorsement}
+\chapter*{Project Approvals}
+\addcontentsline{toc}{chapter}{Project Approvals}
 
-This strategic technical report presents the completed technological architecture, mathematical foundation, and empirical wet-lab validation for the \textbf{Indigenous DNA Tagging System for National Industries}. All bioinformatic algorithms, physical synthesis protocols, real-time multiplex qPCR verification curves, and scalability models documented herein have been executed, validated, and formally certified by the project scientific leadership.
+This report documents the technical development, workflow, mathematical calculations, and empirical qPCR verification of the \textbf{DNA Base Tag and Trace System}.
 
 \vspace{2.5cm}
 
@@ -141,7 +141,7 @@ This strategic technical report presents the completed technological architectur
 \clearpage
 
 % =========================================================================
-% TABLE OF CONTENTS, LIST OF FIGURES & TABLES
+% TABLE OF CONTENTS
 % =========================================================================
 \pagenumbering{roman}
 \tableofcontents
@@ -155,7 +155,7 @@ This strategic technical report presents the completed technological architectur
 \setcounter{page}{1}
 
 % =========================================================================
-% STRATEGIC CHAPTERS
+% CHAPTERS
 % =========================================================================
 \include{ch1}
 \include{ch2}
