@@ -6,9 +6,36 @@ To house the physical synthesis, nanomaterial encapsulation, and forensic verifi
 
 \begin{figure}[H]
     \centering
-    % Placeholder for 3D CAD Lab Floorplan (May Report Fig 6)
-    \fbox{\parbox{0.85\textwidth}{\centering \vspace{1.8cm} \textbf{[Figure 8.1: 3D CAD Architectural Floor Plan and Equipment Layout of the DNAx Laboratory (Room 309-B)]} \vspace{1.8cm}}}
-    \caption{Architectural layout and zoning of the specialized DNAx research facility.}
+    \begin{tikzpicture}[
+        labwall/.style={rectangle, draw=darkslate, fill=gray!10, line width=1.5pt, minimum width=11.5cm, minimum height=6.5cm},
+        zone/.style={rectangle, rounded corners=3pt, draw=darkslate, line width=0.8pt, align=center, font=\scriptsize\bfseries},
+        bench/.style={zone, fill=lightsky, draw=nustblue},
+        storage/.style={zone, fill=lightpurple, draw=purple!80!black},
+        hood/.style={zone, fill=lightemerald, draw=accentgreen},
+        server/.style={zone, fill=lightamber, draw=nustgold!90!black}
+    ]
+        % Main Outer Lab Room 309-B
+        \node[labwall] (room) at (0, 0) {};
+        \node[font=\small\bfseries\color{nustblue}] at (0, 2.7) {DNAx Laboratory — Room 309-B (ASAB-NUST)};
+        
+        % Top Wall Elements: Cabinets & Main Molecular Workbench
+        \node[storage, minimum width=3.0cm, minimum height=1.0cm] at (-3.8, 1.8) {Reagent Storage\\ Cabinets};
+        \node[bench, minimum width=4.5cm, minimum height=1.0cm] at (0.3, 1.8) {Main Molecular Prep Workbench\\ (Micropipettes, Vortex, Centrifuge)};
+        \node[storage, minimum width=2.4cm, minimum height=1.0cm] at (4.0, 1.8) {Consumable\\ Storage};
+        
+        % Center Area: micPCR Station
+        \node[zone, fill=lightrose, draw=red!80!black, minimum width=3.8cm, minimum height=1.1cm] at (0.3, 0.2) {micPCR Real-Time Cycler\\ Testing Station};
+        
+        % Bottom Wall Elements: Server, Cold Storage, Laminar Flow Hood
+        \node[server, minimum width=3.0cm, minimum height=1.1cm] at (-3.8, -1.8) {Air-Gapped Offline\\ Server / DMS Station};
+        \node[storage, minimum width=3.2cm, minimum height=1.1cm] at (-0.3, -1.8) {Cold Storage\\ ($-20^\circ\text{C} / +4^\circ\text{C}$)};
+        \node[hood, minimum width=3.4cm, minimum height=1.1cm] at (3.5, -1.8) {Sterile Laminar Flow\\ Hood (Class 100)};
+        
+        % Door Entry
+        \draw[line width=1.5pt, color=darkslate] (-5.75, -0.6) -- (-5.75, 0.6);
+        \node[font=\tiny\bfseries, rotate=90] at (-5.5, 0) {RFID Access Door};
+    \end{tikzpicture}
+    \caption{Architectural layout and specialized operational zoning of the DNAx research facility (Room 309-B, ASAB-NUST).}
     \label{fig:lab_cad}
 \end{figure}
 

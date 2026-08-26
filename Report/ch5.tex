@@ -35,9 +35,28 @@ To scale the tagging process for high-speed industrial printing presses and pack
 
 \begin{figure}[H]
     \centering
-    % Placeholder for 3D CAD Machine Diagram (Slide 20)
-    \fbox{\parbox{0.9\textwidth}{\centering \vspace{2.2cm} \textbf{[Figure 5.3: Engineering Blueprint and 3D CAD Layout of the 6-Station Automated Roll-to-Roll DNA Spray and Curing System]} \vspace{2.2cm}}}
-    \caption{Automated roll-to-roll inline packaging integration machine engineered for the DNAx manufacturing ecosystem.}
+    \begin{tikzpicture}[
+        station/.style={rectangle, rounded corners=6pt, draw=nustblue, fill=lightsky, line width=1pt, text width=3.8cm, minimum height=1.5cm, align=center, font=\small, drop shadow},
+        arrowstyle/.style={-{Stealth[length=3mm]}, line width=1.4pt, color=nustblue}
+    ]
+        % Top Row: Stations 1, 2, 3
+        \node[station] (st1) at (0, 3.2) {\textbf{Station 1: Input \& Print}\\ \footnotesize Substrate Unwind \& 2D QR Code Thermal Print};
+        \node[station, draw=accentgreen, fill=lightemerald] (st2) at (5.2, 3.2) {\textbf{Station 2: Vision Verify}\\ \footnotesize Inline Optical Camera \& Decode Verification};
+        \node[station, draw=purple!80!black, fill=lightpurple] (st3) at (10.4, 3.2) {\textbf{Station 3: DNA Spray}\\ \footnotesize Piezoelectric Micro-Drop DNA Taggant Deposition};
+        
+        % Bottom Row: Stations 4, 5, 6
+        \node[station, draw=nustgold!90!black, fill=lightamber] (st4) at (10.4, 0) {\textbf{Station 4: IR Curing}\\ \footnotesize Convection / IR Tunnel ($60^\circ\text{C}$, 1.5s Flash Dry)};
+        \node[station] (st5) at (5.2, 0) {\textbf{Station 5: Tension Control}\\ \footnotesize Sag Sensing Dancer \& Web Torque Feedback};
+        \node[station, draw=accentgreen, fill=lightemerald] (st6) at (0, 0) {\textbf{Station 6: Output Take-Up}\\ \footnotesize Synchronized Rewind of Authenticated Master Roll};
+        
+        % Process Arrows
+        \draw[arrowstyle] (st1) -- (st2);
+        \draw[arrowstyle] (st2) -- (st3);
+        \draw[arrowstyle] (st3) -- (st4);
+        \draw[arrowstyle] (st4) -- (st5);
+        \draw[arrowstyle] (st5) -- (st6);
+    \end{tikzpicture}
+    \caption{Schematic block diagram of the automated 6-station roll-to-roll DNA taggant spray and curing assembly line.}
     \label{fig:spray_machine}
 \end{figure}
 

@@ -8,9 +8,28 @@
 
 \begin{figure}[H]
     \centering
-    % Placeholder for Core-Shell Diagram
-    \fbox{\parbox{0.85\textwidth}{\centering \vspace{3.5cm} \textbf{[Figure 4.1: Core-Shell Architecture of the Encapsulated DNA Taggant Particle]} \\ \small (Insert schematic showing silica core, CTAB layer, DNA loading, and outer protective ceramic/phosphor coating) \vspace{3.5cm}}}
-    \caption{Multi-layer structural design of the encapsulated DNA taggant.}
+    \begin{tikzpicture}[scale=0.9]
+        % Outermost Ceramic Shield
+        \draw[line width=1.5pt, fill=lightamber, draw=nustgold!90!black] (0,0) circle (3.6cm);
+        \node[font=\footnotesize\bfseries\color{nustgold!90!black}] at (0, 3.25) {Outer Refractory Ceramic Barrier ($>800^\circ\text{C}$)};
+        
+        % Secondary Silica & Phosphor Shell
+        \draw[line width=1.2pt, fill=lightrose, draw=red!70!black] (0,0) circle (2.9cm);
+        \node[font=\footnotesize\bfseries\color{red!80!black}] at (0, 2.55) {Secondary $\text{SiO}_2$ Shell + Phosphors ($\text{SnO}_2:\text{Eu}^{3+}$)};
+        
+        % DNA Strands Layer
+        \draw[line width=1.2pt, fill=lightemerald, draw=accentgreen] (0,0) circle (2.2cm);
+        \node[font=\footnotesize\bfseries\color{accentgreen}] at (0, 1.85) {Synthetic DNA Layer ($\delta^-$ Phosphate Backbone)};
+        
+        % CTAB Surfactant Bilayer
+        \draw[line width=1.2pt, fill=lightpurple, draw=purple!80!black] (0,0) circle (1.5cm);
+        \node[font=\scriptsize\bfseries\color{purple!80!black}] at (0, 1.2) {CTAB Bilayer ($\delta^+$)};
+        
+        % Silica Nanoparticle Core
+        \draw[line width=1.5pt, fill=lightsky, draw=nustblue] (0,0) circle (0.85cm);
+        \node[font=\tiny\bfseries\color{nustblue}, align=center] at (0, 0) {$\text{SiO}_2$ Core\\ (200--300 nm)};
+    \end{tikzpicture}
+    \caption{Schematic cross-section of the concentric DNA taggant composite nanoparticle showing silica core, CTAB charge-inversion layer, encapsulated DNA strands, optical phosphors, and outer ceramic barrier.}
     \label{fig:core_shell_schematic}
 \end{figure}
 

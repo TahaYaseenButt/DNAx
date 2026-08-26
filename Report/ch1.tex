@@ -21,9 +21,29 @@ The project scope is structured around six core technical deliverables, as offic
 
 \begin{figure}[H]
     \centering
-    % Placeholder for Figure 1: Overall Project Scope and Technical Deliverables
-    \fbox{\parbox{0.85\textwidth}{\centering \vspace{1.5cm} \textbf{[Figure 1.1: Schematic Representation of the 6 Technical Pillars of the DNAx Ecosystem]} \vspace{1.5cm}}}
-    \caption{The six core technical deliverables of the Indigenous DNA Tagging System.}
+    \begin{tikzpicture}[
+        pillar/.style={rectangle, rounded corners=6pt, draw=nustblue, fill=lightsky, line width=1pt, text width=4.3cm, minimum height=1.6cm, align=center, font=\small\bfseries, drop shadow},
+        arrowstyle/.style={-{Stealth[length=3mm]}, line width=1.2pt, color=nustblue}
+    ]
+        % Top Row
+        \node[pillar] (p1) at (0, 4.5) {1. DNA Taggant Design\\ \footnotesize\normalfont (DNAx Signet Engine)};
+        \node[pillar] (p2) at (5.5, 4.5) {2. Physical Synthesis\\ \footnotesize\normalfont (Up-Scaling \& 1L Buffer)};
+        \node[pillar] (p3) at (11, 4.5) {3. Nanocoating\\ \footnotesize\normalfont ($\text{SiO}_2$ Core-Shell)};
+        
+        % Bottom Row
+        \node[pillar, fill=lightpurple, draw=purple!80!black] (p6) at (0, 1.5) {6. Digital DMS\\ \footnotesize\normalfont (4-App System \& SQL)};
+        \node[pillar, fill=lightemerald, draw=accentgreen] (p5) at (5.5, 1.5) {5. Forensic Detection\\ \footnotesize\normalfont (4-Plex qPCR Assay)};
+        \node[pillar, fill=lightamber, draw=nustgold!80!black] (p4) at (11, 1.5) {4. Product Integration\\ \footnotesize\normalfont (Spray Line \& Labels)};
+        
+        % Connecting Arrows
+        \draw[arrowstyle] (p1) -- (p2);
+        \draw[arrowstyle] (p2) -- (p3);
+        \draw[arrowstyle] (p3) -- (p4);
+        \draw[arrowstyle] (p4) -- (p5);
+        \draw[arrowstyle] (p5) -- (p6);
+        \draw[arrowstyle, dashed] (p6.north) -- (p1.south);
+    \end{tikzpicture}
+    \caption{The six core technical deliverables and sequential lifecycle of the DNAx tagging ecosystem.}
     \label{fig:six_pillars}
 \end{figure}
 
@@ -41,9 +61,42 @@ Figure~\ref{fig:work_done_chart} and Table~\ref{tab:deliverable_status} summariz
 
 \begin{figure}[H]
     \centering
-    % Placeholder for Work Done Matrix
-    \fbox{\parbox{0.85\textwidth}{\centering \vspace{1.8cm} \textbf{[Figure 1.2: Cumulative Work Done Progress Bar Graph across 6 Technical Pillars]} \vspace{1.8cm}}}
-    \caption{Progress matrix depicting percentage completion across the project deliverables.}
+    \begin{tikzpicture}
+        \begin{axis}[
+            xbar,
+            width=0.9\textwidth,
+            height=6.5cm,
+            xlabel={\textbf{Milestone Completion (\%) as of August 25, 2026}},
+            symbolic y coords={
+                {6. Digital DMS},
+                {5. qPCR Forensics},
+                {4. Product Integration},
+                {3. Nanocoating},
+                {2. Synthesis \& Scaling},
+                {1. Taggant Design}
+            },
+            ytick=data,
+            nodes near coords={\pgfmathprintnumber\pgfplotspointmeta\%},
+            nodes near coords align={horizontal},
+            xmin=0, xmax=115,
+            bar width=14pt,
+            fill=nustblue,
+            draw=darkslate,
+            axis lines*=left,
+            xmajorgrids=true,
+            grid style=dashed
+        ]
+            \addplot[fill=skyaccent!80!nustblue] coordinates {
+                (100,{1. Taggant Design})
+                (90,{2. Synthesis \& Scaling})
+                (80,{3. Nanocoating})
+                (75,{4. Product Integration})
+                (85,{5. qPCR Forensics})
+                (85,{6. Digital DMS})
+            };
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Empirical completion progress chart across the six project deliverables.}
     \label{fig:work_done_chart}
 \end{figure}
 

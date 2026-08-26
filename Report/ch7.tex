@@ -6,9 +6,27 @@ To guarantee enterprise-scale operational security and eliminate data leakage, t
 
 \begin{figure}[H]
     \centering
-    % Placeholder for DMS Ecosystem Diagram (Slide 17)
-    \fbox{\parbox{0.9\textwidth}{\centering \vspace{2.2cm} \textbf{[Figure 7.1: DNAx Digital Management System (DMS) Architecture: Central Database Linked to Signet, Manufacturing, Vendor, and Forensics Modules]} \vspace{2.2cm}}}
-    \caption{The 4-tier DNAx software ecosystem operating on a shared, role-isolated database foundation.}
+    \begin{tikzpicture}[
+        hubnode/.style={cylinder, draw=nustblue, fill=lightsky, shape aspect=0.4, line width=1.3pt, minimum width=3.2cm, minimum height=2.4cm, align=center, font=\small\bfseries, drop shadow},
+        appnode/.style={rectangle, rounded corners=6pt, draw=darkslate, fill=white, line width=1pt, text width=3.8cm, minimum height=1.6cm, align=center, font=\small, drop shadow},
+        linkarrow/.style={latex-latex, line width=1.3pt, color=nustblue}
+    ]
+        % Central Hub
+        \node[hubnode] (hub) at (0, 0) {CENTRAL DATABASE\\ (DMS Ledger)\\ \scriptsize SQL / Cloud Firestore\\ \tiny Role-Isolated Views};
+        
+        % 4 Surrounding Apps
+        \node[appnode, draw=accentgreen, fill=lightemerald] (signet) at (-5.5, 2.5) {\textbf{DNAx Signet\textsuperscript{\textcopyright}}\\ \footnotesize \textbf{Research Laboratory}\\ \tiny Designs \& Validates Taggants};
+        \node[appnode, draw=purple!80!black, fill=lightpurple] (mfg) at (5.5, 2.5) {\textbf{DNAx Manufacturing\textsuperscript{\textcopyright}}\\ \footnotesize \textbf{Production Plant}\\ \tiny Registers, Mixes \& Sprays};
+        \node[appnode, draw=red!80!black, fill=lightrose] (forensic) at (-5.5, -2.5) {\textbf{DNAx Forensics\textsuperscript{\textcopyright}}\\ \footnotesize \textbf{Forensic Agency}\\ \tiny Tests \& Deconvolutes qPCR};
+        \node[appnode, draw=nustgold!90!black, fill=lightamber] (vendor) at (5.5, -2.5) {\textbf{DNAx Vendor\textsuperscript{\textcopyright}}\\ \footnotesize \textbf{Distributors \& Customs}\\ \tiny Mobile Chain-of-Custody};
+        
+        % Secure SQL Links
+        \draw[linkarrow] (signet.south east) -- (hub.north west) node[midway, above, sloped, font=\tiny\bfseries] {Write New Taggants};
+        \draw[linkarrow] (mfg.south west) -- (hub.north east) node[midway, above, sloped, font=\tiny\bfseries] {Log Batch Issuance};
+        \draw[linkarrow] (forensic.north east) -- (hub.south west) node[midway, below, sloped, font=\tiny\bfseries] {Verify Probe Fingerprint};
+        \draw[linkarrow] (vendor.north west) -- (hub.south east) node[midway, below, sloped, font=\tiny\bfseries] {Append Custody Event};
+    \end{tikzpicture}
+    \caption{Architectural overview of the unified DNAx Digital Management System (DMS) linking all four specialized modules.}
     \label{fig:dms_architecture}
 \end{figure}
 
@@ -41,9 +59,21 @@ Deployed on factory floor terminals and integrated with automated packaging mach
 
 \begin{figure}[H]
     \centering
-    % Placeholder for Manufacturing Flow (Slide 19)
-    \fbox{\parbox{0.85\textwidth}{\centering \vspace{1.8cm} \textbf{[Figure 7.2: Operational Flowchart of the DNAx Manufacturing Module Interfacing with Spray Hardware and Database]} \vspace{1.8cm}}}
-    \caption{Workflow of the DNAx Manufacturing module governing industrial taggant registration, mixing, and dispensing.}
+    \begin{tikzpicture}[
+        action/.style={rectangle, rounded corners=5pt, draw=purple!80!black, fill=lightpurple, line width=1pt, text width=4.5cm, minimum height=1.3cm, align=center, font=\small, drop shadow},
+        arrowstyle/.style={-{Stealth[length=2.5mm]}, line width=1.3pt, color=purple!80!black}
+    ]
+        \node[action] (a1) at (0, 3.5) {\textbf{1. Scan Master Stock Bottle}\\ \footnotesize Register Authenticated Taggant QR};
+        \node[action] (a2) at (6.0, 3.5) {\textbf{2. Compute Real-Time Mix}\\ \footnotesize Generate Dynamic Lot Combination};
+        \node[action] (a3) at (6.0, 1.0) {\textbf{3. Microcontroller Command}\\ \footnotesize Dispense Micro-Droplet onto Substrate};
+        \node[action] (a4) at (0, 1.0) {\textbf{4. Print \& Log to Database}\\ \footnotesize Output Product Label \& Commit Batch};
+        
+        \draw[arrowstyle] (a1) -- (a2);
+        \draw[arrowstyle] (a2) -- (a3);
+        \draw[arrowstyle] (a3) -- (a4);
+        \draw[arrowstyle] (a4) -- (a1);
+    \end{tikzpicture}
+    \caption{Operational workflow of the DNAx Manufacturing module governing industrial taggant registration, mixing, and dispensing.}
     \label{fig:mfg_flow}
 \end{figure}
 
@@ -57,9 +87,20 @@ A cross-platform mobile application deployed on Android and iOS devices for ware
 
 \begin{figure}[H]
     \centering
-    % Placeholder for Vendor App Screenshots (Slide 18)
-    \fbox{\parbox{0.8\textwidth}{\centering \vspace{1.8cm} \textbf{[Figure 7.3: Mobile User Interface of the DNAx Vendor Application Displaying Product Issuance, Transfer, and Custody History]} \vspace{1.8cm}}}
-    \caption{Cross-platform mobile interface of DNAx Vendor governing secure supply chain tracking.}
+    \begin{tikzpicture}[
+        custody/.style={rectangle, rounded corners=6pt, draw=nustgold!90!black, fill=lightamber, line width=1pt, text width=2.8cm, minimum height=1.4cm, align=center, font=\small, drop shadow},
+        arrowstyle/.style={-{Stealth[length=3mm]}, line width=1.4pt, color=nustgold!90!black}
+    ]
+        \node[custody] (c1) at (0, 0) {\textbf{Factory / Issuer}\\ \footnotesize Scan Product QR\\ Biometric Auth};
+        \node[custody] (c2) at (4.2, 0) {\textbf{Distributor / Vendor}\\ \footnotesize Scan Buyer/Seller\\ GPS Geo-Tag};
+        \node[custody] (c3) at (8.4, 0) {\textbf{Retail / Agency}\\ \footnotesize Custody Transfer\\ Status Updated};
+        \node[custody, draw=accentgreen, fill=lightemerald] (c4) at (12.6, 0) {\textbf{End Consumer}\\ \footnotesize Authenticated\\ Immutable Audit};
+        
+        \draw[arrowstyle] (c1) -- (c2);
+        \draw[arrowstyle] (c2) -- (c3);
+        \draw[arrowstyle] (c3) -- (c4);
+    \end{tikzpicture}
+    \caption{Immutable multi-party custody tracking and verification sequence governed by DNAx Vendor.}
     \label{fig:vendor_app}
 \end{figure}
 

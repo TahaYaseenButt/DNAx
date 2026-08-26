@@ -14,9 +14,29 @@ The proprietary in-house bioinformatic platform, \textbf{DNAx Signet\textsupersc
 
 \begin{figure}[H]
     \centering
-    % Placeholder for Figure: DNAx Signet 6-Stage Pipeline
-    \fbox{\parbox{0.85\textwidth}{\centering \vspace{1.5cm} \textbf{[Figure 2.1: Architectural Flowchart of the 6-Stage DNAx Signet Bioinformatic Pipeline]} \vspace{1.5cm}}}
-    \caption{The 6-stage bioinformatic assay pipeline implemented in DNAx Signet\textsuperscript{\textcopyright}.}
+    \begin{tikzpicture}[
+        stepnode/.style={rectangle, rounded corners=5pt, draw=nustblue, fill=white, line width=1pt, text width=4.0cm, minimum height=1.3cm, align=center, font=\small, drop shadow},
+        numbox/.style={circle, fill=nustblue, text=white, font=\bfseries\footnotesize, inner sep=2pt},
+        arrowstyle/.style={-{Stealth[length=2.5mm]}, line width=1.2pt, color=nustblue}
+    ]
+        % Column 1
+        \node[stepnode] (s1) at (0, 4.0) {\textbf{Stage 1: Physical Sizing}\\ \footnotesize Target $L=200\text{ bp}$, $L_{\text{min}}$ Bounds};
+        \node[stepnode] (s2) at (0, 2.0) {\textbf{Stage 2: De Novo Synthesis}\\ \footnotesize GC 48--52\%, No Homopolymers};
+        \node[stepnode] (s3) at (0, 0.0) {\textbf{Stage 3: Local BLAST Screen}\\ \footnotesize NCBI Mirror, Orthogonality $>25\%$};
+        
+        % Column 2
+        \node[stepnode, draw=accentgreen] (s4) at (6.5, 4.0) {\textbf{Stage 4: PCR Primer Pair}\\ \footnotesize $20\text{ bp}$, $T_m = 58.5^\circ\text{C}$, $\Delta T_m \le 0.5^\circ\text{C}$};
+        \node[stepnode, draw=purple!80!black] (s5) at (6.5, 2.0) {\textbf{Stage 5: Multiplex Probes}\\ \footnotesize 4 Channels, $24\text{ bp}$, $T_m \ge 68^\circ\text{C}$};
+        \node[stepnode, draw=nustgold!90!black, fill=lightamber] (s6) at (6.5, 0.0) {\textbf{Stage 6: Review \& Vault}\\ \footnotesize SHA-256 QR Token, PDF Dossier};
+        
+        % Arrows
+        \draw[arrowstyle] (s1) -- (s2);
+        \draw[arrowstyle] (s2) -- (s3);
+        \draw[arrowstyle] (s3.east) -- ++(0.75,0) |- (s4.west);
+        \draw[arrowstyle] (s4) -- (s5);
+        \draw[arrowstyle] (s5) -- (s6);
+    \end{tikzpicture}
+    \caption{The 6-stage algorithmic bioinformatic assay pipeline in DNAx Signet\textsuperscript{\textcopyright}.}
     \label{fig:pipeline_flow}
 \end{figure}
 
@@ -47,9 +67,32 @@ The structural anatomy of the linear double-stranded DNA (dsDNA) construct is il
 
 \begin{figure}[H]
     \centering
-    % Placeholder for Probe Anatomy (Slide 5)
-    \fbox{\parbox{0.9\textwidth}{\centering \vspace{1.8cm} \textbf{[Figure 2.2: Molecular Anatomy of the 200~bp Taggant: 4-Component Linked Probe Chain with Flanking Primers]} \vspace{1.8cm}}}
-    \caption{Molecular architecture of the synthesized DNA taggant: (A) The 4 component probes, (B) Linked probe chain assembly, and (C) Primer annealing to form the completed double-stranded tag.}
+    \begin{tikzpicture}[
+        basebox/.style={rectangle, draw=darkslate, line width=1pt, minimum height=1.1cm, align=center, font=\small\bfseries},
+        primerbox/.style={basebox, fill=lightsky, text width=2.4cm},
+        probe1/.style={basebox, fill=lightemerald, text width=2.2cm},
+        probe2/.style={basebox, fill=lightamber, text width=2.2cm},
+        probe3/.style={basebox, fill=lightrose, text width=2.2cm},
+        probe4/.style={basebox, fill=lightpurple, text width=2.2cm}
+    ]
+        % Linked Chain
+        \node[primerbox] (fwd) at (0, 0) {5' Forward\\ Primer (20 bp)};
+        \node[probe1, right=0.15cm of fwd] (p1) {Probe 1\\ FAM (24 bp)};
+        \node[probe2, right=0.15cm of p1] (p2) {Probe 2\\ HEX (24 bp)};
+        \node[probe3, right=0.15cm of p2] (p3) {Probe 3\\ TxRed (24 bp)};
+        \node[probe4, right=0.15cm of p3] (p4) {Probe 4\\ Cy5 (24 bp)};
+        \node[primerbox, right=0.15cm of p4] (rev) {3' Reverse\\ Primer (20 bp)};
+        
+        % Overarching Bracket / Indicators
+        \draw[decorate, decoration={brace, amplitude=6pt, mirror}, line width=1pt, color=darkslate] 
+            ($(p1.south west)+(0,-0.2)$) -- ($(p4.south east)+(0,-0.2)$)
+            node[midway, below=8pt, font=\small\bfseries] {Multiplex Information Payload (4 Probes $\times$ 24 bp)};
+            
+        \draw[decorate, decoration={brace, amplitude=8pt}, line width=1.2pt, color=nustblue] 
+            ($(fwd.north west)+(0,0.2)$) -- ($(rev.north east)+(0,0.2)$)
+            node[midway, above=10pt, font=\normalsize\bfseries\color{nustblue}] {Total Linear dsDNA Construct (200 bp)};
+    \end{tikzpicture}
+    \caption{Molecular architecture of the synthesized 200~bp DNA taggant featuring flanking 20~bp primer docks and 4 internal 24~bp fluorescent probe targets.}
     \label{fig:taggant_anatomy}
 \end{figure}
 
@@ -64,7 +107,43 @@ For a linear DNA construct of length $N = 200\text{ base pairs}$, with 4 possibl
 This number ($2.58 \times 10^{120}$) exceeds the total estimated number of atoms in the observable universe ($\approx 10^{80}$) by 40 orders of magnitude, rendering brute-force guessing or accidental environmental duplication physically impossible.
 
 \subsection{Modular Building Block Library Combinations}
-To enable rapid modular synthesis and cost-effective multiplex qPCR detection, DNAx employs a combinatorial building block strategy. In this architecture, constructs are assembled from a standardized library of pre-validated, orthogonal 24~bp probe blocks.
+To enable rapid modular synthesis and cost-effective multiplex qPCR detection, DNAx employs a combinatorial building block strategy (Figure~\ref{fig:combinatorics_diagram}). In this architecture, constructs are assembled from a standardized library of pre-validated, orthogonal 24~bp probe blocks.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        block/.style={rectangle, rounded corners=3pt, draw=nustblue, fill=lightsky, font=\scriptsize\bfseries, minimum width=0.8cm, minimum height=0.6cm, align=center},
+        selblock/.style={rectangle, rounded corners=3pt, draw=accentgreen, fill=lightemerald, line width=1.2pt, font=\scriptsize\bfseries, minimum width=1.6cm, minimum height=0.7cm, align=center}
+    ]
+        % Library of 72 blocks
+        \node[font=\small\bfseries\color{nustblue}] at (2.2, 3.2) {Building Block Library ($M = 72$ Orthogonal Probes)};
+        
+        \foreach \x in {0,...,5} {
+            \foreach \y in {0,...,3} {
+                \pgfmathtruncatemacro{\idx}{\y*6 + \x + 1}
+                \node[block] at (\x*0.9, \y*0.65) {B\idx};
+            }
+        }
+        
+        % Arrow to Selection
+        \draw[-{Stealth[length=3mm]}, line width=1.5pt, color=darkslate] (5.5, 1.0) -- (7.0, 1.0) 
+            node[midway, above, font=\scriptsize\bfseries] {Choose $k=4$};
+            
+        % Selected Taggant
+        \node[font=\small\bfseries\color{accentgreen}] at (9.2, 3.2) {Taggant Lot Identity};
+        \node[selblock] (sb1) at (9.2, 2.1) {Block 12 (FAM)};
+        \node[selblock] (sb2) at (9.2, 1.3) {Block 35 (HEX)};
+        \node[selblock] (sb3) at (9.2, 0.5) {Block 68 (TxRed)};
+        \node[selblock] (sb4) at (9.2, -0.3) {Block 72 (Cy5)};
+        
+        \node[rectangle, draw=nustgold!80!black, fill=lightamber, rounded corners=5pt, font=\footnotesize\bfseries, align=center, text width=4.5cm] at (4.5, -1.5) {
+            $\displaystyle \binom{72}{4} = \frac{72!}{4!(68)!} = \mathbf{1,028,790}$\\
+            Unique Taggant Combinations
+        };
+    \end{tikzpicture}
+    \caption{Combinatorial selection of 4 distinct probe building blocks from a library of 72 yielding over 1 million unique taggant codes.}
+    \label{fig:combinatorics_diagram}
+\end{figure}
 
 For a library of $M = 72$ unique, non-interfering DNA building blocks, choosing $k = 4$ distinct blocks per taggant (without replacement, where order is tracked or unordered multiplexing is applied) yields:
 \begin{equation}
