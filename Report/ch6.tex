@@ -2,46 +2,80 @@
 \label{chap:software_ecosystem}
 
 \section{System Architecture}
-The software ecosystem operates on a centralized, role-isolated database foundation connecting four specialized applications (Figure~\ref{fig:dms_architecture}).
+The software ecosystem operates on a dual-database architecture connecting four specialized applications (Figure~\ref{fig:dms_architecture}):
+\begin{enumerate}
+    \item \textbf{DNA Records Database (Primary Source of Truth)}: A secure Firebase database storing synthesized sequence data, construct length, GC-content, primer docks, and 4-probe fluorophore assignments under the \texttt{/dna\_exports} node.
+    \item \textbf{Supply Chain Tracking Database}: A live telemetry database structured around \texttt{/users}, \texttt{/products}, and \texttt{/transactions} to record custody handoffs in real time.
+\end{enumerate}
 
 \begin{figure}[H]
     \centering
     \begin{tikzpicture}[
-        hubnode/.style={cylinder, draw=nustblue, fill=nustlight, shape aspect=0.4, line width=1.2pt, minimum width=3.2cm, minimum height=2.2cm, align=center, font=\small\bfseries},
-        appnode/.style={rectangle, rounded corners=4pt, draw=black, fill=white, line width=1pt, text width=4.0cm, minimum height=1.4cm, align=center, font=\small},
-        linkarrow/.style={latex-latex, line width=1.1pt, color=nustblue}
+        hubnode/.style={cylinder, draw=nustblue, fill=nustlight, shape aspect=0.4, line width=1.1pt, minimum width=3.2cm, minimum height=2.0cm, align=center, font=\small\bfseries},
+        appnode/.style={rectangle, rounded corners=3pt, draw=black, fill=white, line width=0.9pt, text width=4.2cm, minimum height=1.35cm, align=center, font=\small},
+        linkarrow/.style={latex-latex, line width=1.0pt, color=nustblue}
     ]
         % Central Hub
-        \node[hubnode] (hub) at (0, 0) {CENTRAL DATABASE\\ (Unified Ledger)\\ \scriptsize Relational Core\\ \tiny Role-Based Access};
+        \node[hubnode] (hub) at (0, 0) {CENTRAL DATABASE\\ \scriptsize Unified Firebase Core\\ \tiny \texttt{/dna\_exports} \& \texttt{/transactions}};
         
         % 4 Surrounding Apps
-        \node[appnode] (signet) at (-5.5, 2.2) {\textbf{1. DNAx Signet\textsuperscript{\textcopyright}}\\ \footnotesize Research Laboratory\\ \tiny Design \& Validation};
-        \node[appnode] (mfg) at (5.5, 2.2) {\textbf{2. DNAx Manufacturing\textsuperscript{\textcopyright}}\\ \footnotesize Production Facility\\ \tiny Mixing \& Spray Control};
-        \node[appnode] (forensic) at (-5.5, -2.2) {\textbf{4. DNAx Forensics\textsuperscript{\textcopyright}}\\ \footnotesize Enforcement Agency\\ \tiny qPCR Deconvolution};
-        \node[appnode] (vendor) at (5.5, -2.2) {\textbf{3. DNAx Vendor\textsuperscript{\textcopyright}}\\ \footnotesize Supply Chain \& Customs\\ \tiny Custody Tracking};
+        \node[appnode] (signet) at (-5.5, 2.1) {\textbf{1. DNAx (Signet)}\\ \footnotesize Bioinformatic Design Suite\\ \tiny Sequence \& Assay Generation};
+        \node[appnode] (inv) at (5.5, 2.1) {\textbf{2. DNAx Inventory}\\ \footnotesize Desktop Warehouse Terminal\\ \tiny Batch Generator \& Scanner};
+        \node[appnode] (forensic) at (-5.5, -2.1) {\textbf{4. DNAx Forensics}\\ \footnotesize Desktop Forensic Lab App\\ \tiny Sequence, Gel \& Barcode Tests};
+        \node[appnode] (vendor) at (5.5, -2.1) {\textbf{3. DNAx Vendor}\\ \footnotesize Mobile Android/iOS App\\ \tiny Issuance \& Custody Transfer};
         
-        % Secure Links
+        % Connections
         \draw[linkarrow] (signet.south east) -- (hub.north west);
-        \draw[linkarrow] (mfg.south west) -- (hub.north east);
+        \draw[linkarrow] (inv.south west) -- (hub.north east);
         \draw[linkarrow] (forensic.north east) -- (hub.south west);
         \draw[linkarrow] (vendor.north west) -- (hub.south east);
     \end{tikzpicture}
-    \caption{The 4-app software ecosystem operating on a central database ledger.}
+    \caption{The 4-app software ecosystem operating on the central database ledger.}
     \label{fig:dms_architecture}
 \end{figure}
 
 \section{Application Modules}
-\begin{enumerate}
-    \item \textbf{DNAx Signet\textsuperscript{\textcopyright} (Research Module)}: Operates in central laboratories for sequence generation, SantaLucia thermodynamic modeling, local BLAST screening, and specification dossier export.
-    \item \textbf{DNAx Manufacturing\textsuperscript{\textcopyright} (Production Module)}: Deployed in manufacturing plants. Interfaces with spray machinery micro-metering pumps to dispense exact taggant formulas and log batch issuance.
-    \item \textbf{DNAx Vendor\textsuperscript{\textcopyright} (Supply Chain Module)}: Deployed on mobile devices for customs officers and distributors. Verifies product QR codes and logs timestamped GPS tracking events.
-    \item \textbf{DNAx Forensics\textsuperscript{\textcopyright} (Verification Module)}: Used by forensic laboratories. Ingests multi-channel qPCR telemetry, deconvolutes the 4-probe fluorophore combination, verifies authenticity against the database, and issues verification certificates.
-\end{enumerate}
+
+\subsection{1. DNAx (Bioinformatic Design Platform)}
+Deployed as a hybrid web/desktop application (React, Vite, Tailwind CSS, PyWebView, and SQLite/Firebase):
+\begin{itemize}
+    \item \textbf{Sequence Generator}: Generates orthogonal 200~bp constructs with constrained GC content ($48\%\text{--}52\%$) and zero homopolymers.
+    \item \textbf{Thermodynamic Solver}: Calculates SantaLucia nearest-neighbor melting temperatures ($T_m$) for primer pairs ($58.5^\circ\text{C}$) and 4 multiplex probes ($68.0^\circ\text{C}$).
+    \item \textbf{Safety Screening}: Performs local BLAST screening against offline NCBI genome mirrors.
+    \item \textbf{Dossier Export}: Generates molecular specification PDFs embedded with high-resolution 2D QR codes for physical batch tagging.
+\end{itemize}
+
+\subsection{2. DNAx Inventory (Manufacturing \& Warehouse App)}
+A Python/Tkinter desktop application deployed in production plants and warehouses:
+\begin{itemize}
+    \item \textbf{Batch Generator (\texttt{generator.py})}: Allocates unique DNA tag identifiers to incoming production runs.
+    \item \textbf{Barcode Scanner (\texttt{scanner.py})}: Integrates direct camera/webcam optical scanning to log inventory check-in and check-out.
+    \item \textbf{Stock Ledger (\texttt{items.py})}: Tracks live item availability and stock status in the cloud.
+    \item \textbf{Audit Trail (\texttt{history.py})}: Records all internal movement logs.
+\end{itemize}
+
+\subsection{3. DNAx Vendor (Mobile Supply Chain App)}
+A cross-platform React Native/Expo mobile application for field inspectors, distributors, and retailers:
+\begin{itemize}
+    \item \textbf{Product Issuance (\texttt{issue.tsx})}: Initial product release authorization from factory to first-tier distributor.
+    \item \textbf{Custody Transfer (\texttt{transfer.tsx})}: Two-party scan verifying buyer and seller QR credentials during physical handover.
+    \item \textbf{Live Scanner (\texttt{scanner.tsx})}: Real-time camera barcode/QR scanner for instant status queries.
+    \item \textbf{Transaction History (\texttt{history.tsx})}: Timestamped chain-of-custody audit trail stored in Firebase (\texttt{/transactions}).
+\end{itemize}
+
+\subsection{4. DNAx Forensics (Laboratory Verification Suite)}
+A specialized desktop Python/Tkinter testing suite engineered for forensic agencies:
+\begin{itemize}
+    \item \textbf{Sequence Matching (\texttt{sequence\_test.py})}: Ingests Sanger or NGS sequence strings and searches the cloud database (\texttt{/dna\_exports}) for exact sequence matches.
+    \item \textbf{Gel Sizing Test (\texttt{gel\_test.py})}: Cross-references electrophoretic base-pair lengths (e.g., 200~bp) against registered company profiles.
+    \item \textbf{Barcode Matching (\texttt{barcode\_test.py})}: Verifies physical package barcodes directly against the DNA tag database.
+    \item \textbf{qPCR Fluorophore Deconvolution}: Matches empirical $C_q$ trajectories (FAM, HEX, Texas Red, Cy5) to issue legal Certificates of Authenticity.
+\end{itemize}
 
 \section{Conclusion}
-The successful completion of this proof-of-concept establishes a complete, domestic bio-molecular tagging capability:
+The integration of these four applications establishes a closed-loop digital and physical tracking ecosystem:
 \begin{itemize}
-    \item \textbf{100\% In-House Technology}: Domestic control over software algorithms, biochemical synthesis, nanomaterial encapsulation, and forensic verification.
-    \item \textbf{Multi-Sector Deployment}: Ready for integration across pharmaceuticals, petroleum, defense materials, and tax stamps.
-    \item \textbf{Forensic Certainty}: Physical DNA markers bound to database records, providing absolute authentication.
+    \item \textbf{Unbroken Traceability}: Every physical product tagged with synthetic DNA is mirrored by an active record in the cloud.
+    \item \textbf{Multi-Platform Accessibility}: Dedicated interfaces for research scientists (DNAx), warehouse operators (DNAx Inventory), logistics agents (DNAx Vendor), and forensic officers (DNAx Forensics).
+    \item \textbf{Full Sovereign Control}: Completely indigenous software architecture free of third-party licensing dependencies.
 \end{itemize}

@@ -1,9 +1,11 @@
 \documentclass[11pt,a4paper]{report}
 
-% --- Packages ---
+% --- Typography & Micro-Layout (IEEE / Springer Academic Standard) ---
 \usepackage[utf8]{inputenc}
-\usepackage[margin=1in]{geometry}
-\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=0.9in,top=1in,bottom=1in]{geometry}
+\usepackage{newtxtext,newtxmath}
+\usepackage{microtype}
+\usepackage{amsmath,amsfonts}
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{array}
@@ -12,7 +14,7 @@
 \usepackage{fancyhdr}
 \usepackage{titlesec}
 \usepackage{tocloft}
-\usepackage{caption}
+\usepackage[font=small,labelfont=bf,labelsep=period,skip=6pt]{caption}
 \usepackage{subcaption}
 \usepackage{setspace}
 \usepackage{float}
@@ -26,8 +28,8 @@
 
 % --- Formal Monochrome & NUST Blue Color Palette ---
 \definecolor{nustblue}{RGB}{15, 60, 115}      % Primary Accent: NUST Deep Blue
-\definecolor{nustlight}{RGB}{240, 244, 250}   % Subtle Table / Box Fill
-\definecolor{bordergray}{RGB}{160, 175, 190}  % Clean Diagram Borders
+\definecolor{nustlight}{RGB}{242, 246, 252}   % Subtle Table / Box Fill
+\definecolor{bordergray}{RGB}{170, 185, 200}  % Clean Diagram Borders
 
 % --- Hyperref Setup ---
 \hypersetup{
@@ -35,78 +37,81 @@
     linkcolor=nustblue,
     citecolor=nustblue,
     urlcolor=nustblue,
-    pdftitle={DNA Tag and Trace System - Project Report},
+    pdftitle={DNA Base Tag and Trace System - Project Technical Report},
     pdfauthor={NUST}
 }
 
-% --- Header and Footer ---
-\setlength{\headheight}{15pt}
-\addtolength{\topmargin}{-3pt}
+% --- Header and Footer (Springer / IEEE Standard) ---
+\setlength{\headheight}{14pt}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\small\color{black}DNA Tag and Trace System}
-\fancyhead[R]{\small\color{black}NUST ASAB-SCME}
-\fancyfoot[C]{\color{black}\thepage}
-\renewcommand{\headrulewidth}{0.5pt}
-\renewcommand{\footrulewidth}{0.5pt}
+\fancyhead[L]{\footnotesize\textsf{\color{darkgray}DNA Base Tag and Trace System — Project Technical Report}}
+\fancyhead[R]{\footnotesize\textsf{\color{darkgray}NUST ASAB-SCME}}
+\fancyfoot[C]{\footnotesize\textsf{\thepage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
 
-% --- Clean Heading Formatting ---
-\titleformat{\chapter}[display]
-  {\normalfont\bfseries\color{black}}
-  {\filleft\large\MakeUppercase{\chaptertitlename} \Huge\color{nustblue}\thechapter}
-  {1ex}
-  {{\color{nustblue}\titlerule[1.5pt]}\vspace{1.5ex}\Huge}
-  [\vspace{1ex}{{\color{nustblue}\titlerule[0.5pt]}}]
+% --- IEEE / Springer Style Chapter & Section Headings ---
+\titleformat{\chapter}[block]
+  {\normalfont\Large\bfseries\color{nustblue}}
+  {\Large\thechapter.}{0.8em}{\Large\color{black}}
+  [\vspace{0.3ex}{\color{nustblue}\titlerule[1pt]}]
+
+\titlespacing*{\chapter}{0pt}{1.5ex plus 0.5ex minus 0.2ex}{2.2ex plus 0.5ex minus 0.2ex}
 
 \titleformat{\section}
-  {\normalfont\Large\bfseries\color{black}}{\thesection}{1em}{}
+  {\normalfont\large\bfseries\color{black}}{\thesection}{0.7em}{}
+\titlespacing*{\section}{0pt}{1.8ex plus 0.4ex minus 0.2ex}{0.8ex plus 0.2ex}
 
 \titleformat{\subsection}
-  {\normalfont\large\bfseries\color{black}}{\thesubsection}{1em}{}
+  {\normalfont\normalsize\bfseries\color{black}}{\thesubsection}{0.6em}{}
+\titlespacing*{\subsection}{0pt}{1.4ex plus 0.3ex minus 0.2ex}{0.5ex plus 0.1ex}
 
 \titleformat{\subsubsection}
-  {\normalfont\normalsize\bfseries\color{black}}{\thesubsubsection}{1em}{}
+  {\normalfont\small\bfseries\color{black}}{\thesubsubsection}{0.5em}{}
+\titlespacing*{\subsubsection}{0pt}{1.2ex plus 0.2ex minus 0.1ex}{0.4ex plus 0.1ex}
 
-\setstretch{1.15}
+\renewcommand{\arraystretch}{1.2}
+\setstretch{1.12}
 
 \begin{document}
 \color{black}
 
 % =========================================================================
-% TITLE PAGE
+% TITLE PAGE (SPRINGER / IEEE TECHNICAL REPORT STANDARD)
 % =========================================================================
 \begin{titlepage}
 \begin{center}
-    \vspace*{0.5cm}
+    \vspace*{0.2cm}
     
-    {\Large \textbf{NATIONAL UNIVERSITY OF SCIENCES AND TECHNOLOGY (NUST)}}\\[0.2cm]
+    {\Large \textbf{NATIONAL UNIVERSITY OF SCIENCES AND TECHNOLOGY (NUST)}}\\[0.15cm]
     {\large \textbf{ATTA-UR-RAHMAN SCHOOL OF APPLIED BIOSCIENCES (ASAB)}}\\[0.1cm]
-    {\large \textbf{\& SCHOOL OF CHEMICAL AND MATERIALS ENGINEERING (SCME)}}\\[1.5cm]
+    {\large \textbf{\& SCHOOL OF CHEMICAL AND MATERIALS ENGINEERING (SCME)}}\\[1.2cm]
     
     \begin{figure}[H]
         \centering
         \begin{tikzpicture}
-            \node[rectangle, rounded corners=6pt, draw=nustblue, fill=nustlight, line width=1.2pt, minimum width=0.75\textwidth, minimum height=2.0cm, align=center] {
+            \node[rectangle, rounded corners=4pt, draw=nustblue, fill=nustlight, line width=1.2pt, minimum width=0.82\textwidth, minimum height=2.0cm, align=center] {
                 \Large \textbf{\color{nustblue}DNA BASE TAG AND TRACE SYSTEM}\\[0.2cm]
-                \small \textbf{\color{black}PROJECT PROOF-OF-CONCEPT REPORT}
+                \small \textbf{\color{black}COMPREHENSIVE TECHNICAL PROOF-OF-CONCEPT REPORT}
             };
         \end{tikzpicture}
     \end{figure}
     
-    \vspace{0.8cm}
-    {\large \textbf{TECHNICAL REPORT}}\\[0.4cm]
+    \vspace{0.6cm}
+    {\large \textbf{TECHNICAL REPORT}}\\[0.3cm]
     
-    \noindent\makebox[\linewidth]{{\color{nustblue}\rule{\textwidth}{2pt}}}\\[0.4cm]
-    {\huge \textbf{INDIGENOUS DNA TAGGING SYSTEM FOR INDUSTRIES}}\\[0.2cm]
-    \noindent\makebox[\linewidth]{{\color{nustblue}\rule{\textwidth}{1pt}}}\\[0.8cm]
+    \noindent\makebox[\linewidth]{{\color{nustblue}\rule{\textwidth}{1.5pt}}}\\[0.3cm]
+    {\huge \textbf{INDIGENOUS DNA TAGGING SYSTEM FOR INDUSTRIES}}\\[0.15cm]
+    \noindent\makebox[\linewidth]{{\color{nustblue}\rule{\textwidth}{0.8pt}}}\\[0.6cm]
     
-    {\large \textbf{Date:} August 2026}\\[1.5cm]
+    {\normalsize \textbf{Date:} August 2026 \quad $\vert$ \quad \textbf{Classification:} Strategic / Proprietary}\\[1.2cm]
     
     \begin{tabular}{ll}
-        \textbf{Principal Investigator:} & \textbf{Dr. Muhammad Qasim Hayat} (ASAB, NUST) \\[0.2cm]
+        \textbf{Principal Investigator:} & \textbf{Dr. Muhammad Qasim Hayat} (ASAB, NUST) \\[0.15cm]
         \textbf{Co-Principal Investigators:} & \textbf{Dr. Umair Manzoor} (SCME, NUST) \\
         & \textbf{Dr. Husnain Ahmed Janjua} (ASAB, NUST) \\
-        & \textbf{Dr. Malik Adeel Umer} (SCME, NUST) \\[0.2cm]
+        & \textbf{Dr. Malik Adeel Umer} (SCME, NUST) \\[0.15cm]
         \textbf{Lead Research Associate:} & \textbf{Taha Yaseen} (ASAB, NUST) \\
     \end{tabular}
     
@@ -116,21 +121,21 @@
 \end{titlepage}
 
 % =========================================================================
-% SIGNATURES
+% SIGNATURES & ENDORSEMENTS
 % =========================================================================
-\chapter*{Project Approvals}
-\addcontentsline{toc}{chapter}{Project Approvals}
+\chapter*{Project Approvals \& Institutional Verification}
+\addcontentsline{toc}{chapter}{Project Approvals \& Institutional Verification}
 
-This report documents the technical development, workflow, mathematical calculations, and empirical qPCR verification of the \textbf{DNA Base Tag and Trace System}.
+This report presents the system architecture, mathematical calculations, software ecosystem (DNAx, DNAx Inventory, DNAx Vendor, DNAx Forensics), and empirical wet-lab qPCR verification for the \textbf{DNA Base Tag and Trace System}.
 
-\vspace{2.5cm}
+\vspace{2.2cm}
 
 \noindent
 \begin{tabularx}{\textwidth}{X X}
     \rule{0.85\linewidth}{0.6pt} & \rule{0.85\linewidth}{0.6pt} \\
     \textbf{Dr. Muhammad Qasim Hayat} & \textbf{Dr. Umair Manzoor} \\
     Principal Investigator (PI) & Co-Principal Investigator \\
-    ASAB, NUST & SCME, NUST \\[3.0cm]
+    ASAB, NUST & SCME, NUST \\[2.6cm]
     
     \rule{0.85\linewidth}{0.6pt} & \rule{0.85\linewidth}{0.6pt} \\
     \textbf{Dr. Husnain Ahmed Janjua} & \textbf{Dr. Malik Adeel Umer} \\
@@ -141,7 +146,7 @@ This report documents the technical development, workflow, mathematical calculat
 \clearpage
 
 % =========================================================================
-% TABLE OF CONTENTS
+% TABLE OF CONTENTS, LIST OF FIGURES & TABLES
 % =========================================================================
 \pagenumbering{roman}
 \tableofcontents
