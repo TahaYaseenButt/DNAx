@@ -40,7 +40,7 @@ The software ecosystem operates on a dual-database architecture connecting four 
 \subsection{1. DNAx (Bioinformatic Design Platform)}
 Deployed as a hybrid web/desktop application (React, Vite, Tailwind CSS, PyWebView, and SQLite/Firebase):
 \begin{itemize}
-    \item \textbf{Sequence Generator}: Generates orthogonal 200~bp constructs with constrained GC content ($48\%\text{--}52\%$) and zero homopolymers.
+    \item \textbf{Sequence Generator}: Generates orthogonal, custom-length constructs (such as the 200~bp prototype) with constrained GC content ($48\%\text{--}52\%$) and zero homopolymers.
     \item \textbf{Thermodynamic Solver}: Calculates SantaLucia nearest-neighbor melting temperatures ($T_m$) for primer pairs ($58.5^\circ\text{C}$) and 4 multiplex probes ($68.0^\circ\text{C}$).
     \item \textbf{Safety Screening}: Performs local BLAST screening against offline NCBI genome mirrors.
     \item \textbf{Dossier Export}: Generates molecular specification PDFs embedded with high-resolution 2D QR codes for physical batch tagging.

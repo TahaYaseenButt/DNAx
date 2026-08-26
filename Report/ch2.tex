@@ -35,7 +35,7 @@ The DNA Tag and Trace workflow consists of five clear operational stages (Figure
 \section{DNA Designing}
 DNA constructs are designed through the custom software engine:
 \begin{itemize}
-    \item \textbf{Construct Sizing}: Standardized to a 200~base pair (bp) double-stranded DNA construct.
+    \item \textbf{Custom Sizing}: The software supports arbitrary, user-defined sequence lengths according to industrial application requirements (for this proof-of-concept validation, a 200~bp prototype construct was engineered and synthesized).
     \item \textbf{Structure}: Flanked by 20~bp forward and reverse primers, containing four internal 24~bp fluorescent probe targets (FAM, HEX, Texas Red, Cy5) separated by spacers (Figure~\ref{fig:molecular_anatomy}).
     \item \textbf{Thermodynamic Boundaries}: Melting temperatures ($T_m$) are calculated using SantaLucia parameters:
     \begin{equation}
@@ -66,16 +66,16 @@ DNA constructs are designed through the custom software engine:
             
         \draw[decorate, decoration={brace, amplitude=5pt}, line width=0.8pt, color=black] 
             ($(fwd.north west)+(0,0.12)$) -- ($(rev.north east)+(0,0.12)$)
-            node[midway, above=6pt, font=\small\bfseries] {Linear dsDNA Construct (200 bp)};
+            node[midway, above=6pt, font=\small\bfseries] {Synthesized Prototype Construct (200 bp)};
     \end{tikzpicture}
-    \caption{Molecular layout of the 200~bp DNA taggant construct.}
+    \caption{Molecular layout of the synthesized 200~bp prototype DNA taggant construct.}
     \label{fig:molecular_anatomy}
 \end{figure}
 
 \section{Physical Synthesis \& Formulation}
 \begin{enumerate}
     \item \textbf{Plasmid Miniprep}: Synthesized in pUC57 vector (Lot No. BJ033535).
-    \item \textbf{PCR Scaling}: High-yield PCR amplification ($35\text{ cycles}$) produces pure 200~bp amplicon.
+    \item \textbf{PCR Scaling}: High-yield PCR amplification ($35\text{ cycles}$) produces pure amplicon ($200\text{ bp}$ prototype).
     \item \textbf{1.0-Liter Bulk Formulation}: 100~$\mu\text{L}$ PCR product is mixed into 1.0~Liter of stabilized carrier buffer (10~mL 1M Tris-HCl, 2~mL 0.5M EDTA, 988~mL $\text{ddH}_2\text{O}$), generating the master taggant stock.
 \end{enumerate}
 
