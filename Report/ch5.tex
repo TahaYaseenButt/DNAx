@@ -1,0 +1,55 @@
+\chapter{Industrial Product Integration \& Automated Roll-to-Roll Spray Machinery}
+\label{chap:integration}
+
+\section{Introduction to Industrial Taggant Dispersion}
+A critical requirement of an industrial anti-counterfeiting and forensic tracing standard is seamless, non-destructive integration into commercial manufacturing lines. The DNAx taggant formulation was engineered to be completely invisible, non-toxic, odorless, and chemically inert, ensuring that product aesthetics, physical performance, and regulatory compliance remain entirely uncompromised.
+
+\section{Product Classes and Substrates Evaluated}
+During the reporting period, empirical integration trials were conducted across diverse commercial, medical, and security substrates (Figure~\ref{fig:products_photos}):
+
+\begin{figure}[H]
+    \centering
+    % Placeholder for Product Photos (Slide 15)
+    \fbox{\parbox{0.85\textwidth}{\centering \vspace{1.8cm} \textbf{[Figure 5.1: Real-World Industrial Substrates Integrated with DNA Taggants: (A) Pharmaceutical Bottles, (B) Commercial Excise Tax Stamps, and (C) Tobacco Products]} \vspace{1.8cm}}}
+    \caption{Photographs of physical commercial products tagged with formulated synthetic DNA constructs.}
+    \label{fig:products_photos}
+\end{figure}
+
+\begin{enumerate}
+    \item \textbf{Pharmaceutical Bottles and Medical Liquid Formulations}: Liquid syrups, dropper bottles (e.g., \textit{Dilan}, \textit{Gelsemium 30}, \textit{Surkhana}), and sealed blister packs were tagged by micro-dosing taggant solution into the packaging varnish and cap seal adhesives.
+    \item \textbf{Commercial Excise Tax Stamps and Security Stickers}: Porous thermal paper and adhesive backing layers of standard QR code labels were spray-coated. As demonstrated in Figure~\ref{fig:qr_coated_stickers}, the invisible DNA coating integrates seamlessly without degrading the optical contrast or read-rate of the underlying 2D barcode.
+    \item \textbf{Tobacco and High-Tax Consumer Goods}: Paper rolling wraps and outer foil packaging of cigarettes were successfully impregnated with micro-volumes ($<2.0~\mu\text{L}/\text{unit}$) of taggant buffer.
+    \item \textbf{Metallurgical Substrates and Spent Cartridge Casings}: Brass, copper, and stainless steel alloy fragments were coated with ceramic-shielded encapsulated taggants, validating resilience under mechanical handling and elevated temperatures.
+\end{enumerate}
+
+\begin{figure}[H]
+    \centering
+    % Placeholder for Coated QR stickers (Slide 7 / Slide 20)
+    \fbox{\parbox{0.8\textwidth}{\centering \vspace{1.5cm} \textbf{[Figure 5.2: Precision Spray-Coating of DNA Taggants over High-Density QR Security Stickers]} \vspace{1.5cm}}}
+    \caption{Commercial QR code adhesive labels after precision DNA spray deposition, exhibiting 100\% optical scan readability.}
+    \label{fig:qr_coated_stickers}
+\end{figure}
+
+\section{Automated Roll-to-Roll Industrial Manufacturing Machine}
+To scale the tagging process for high-speed industrial printing presses and packaging facilities, the project team conceptualized and engineered an automated \textbf{6-Station Roll-to-Roll Spray and Curing Assembly Line} (Figure~\ref{fig:spray_machine}).
+
+\begin{figure}[H]
+    \centering
+    % Placeholder for 3D CAD Machine Diagram (Slide 20)
+    \fbox{\parbox{0.9\textwidth}{\centering \vspace{2.2cm} \textbf{[Figure 5.3: Engineering Blueprint and 3D CAD Layout of the 6-Station Automated Roll-to-Roll DNA Spray and Curing System]} \vspace{2.2cm}}}
+    \caption{Automated roll-to-roll inline packaging integration machine engineered for the DNAx manufacturing ecosystem.}
+    \label{fig:spray_machine}
+\end{figure}
+
+\subsection{Operational Stations of the Roll-to-Roll Line}
+\begin{enumerate}
+    \item \textbf{Station 1: Input \& Thermal Printing}: Unwinds the base label or packaging substrate roll and performs high-speed thermal transfer printing of the encrypted 2D product QR barcode.
+    \item \textbf{Station 2: Vision Verification}: An inline optical machine-vision camera verifies the geometric alignment, print contrast, and decode integrity of each printed QR code.
+    \item \textbf{Station 3: Customization Spray Assembly}: A high-precision piezoelectric micro-dispenser spray head delivers pressurized micro-droplets of the tailored DNA taggant mixture directly onto designated security zones of the passing label web.
+    \item \textbf{Station 4: Drying and Infrared Curing Module}: An inline infrared (IR) and convection drying tunnel operating at $55^\circ\text{C}\text{--}65^\circ\text{C}$ rapidly evaporates the aqueous carrier solvent within 1.5~seconds, permanently anchoring the taggant into the substrate fibers without thermal denaturation of the DNA.
+    \item \textbf{Station 5: Tension Control \& Sag Sensing}: Optical and ultrasonic dancer sensors continuously monitor web tension, automatically modulating motor torque to prevent substrate stretching, misalignment, or tearing.
+    \item \textbf{Station 6: Output Take-Up}: Rewinds the fully authenticated, DNA-impregnated labels onto finished master rolls ready for dispatch to consumer packaging facilities.
+\end{enumerate}
+
+\subsection{Microcontroller Integration with DNAx Manufacturing Software}
+The physical spray station is dynamically linked to an embedded Arduino/STM32 microcontroller interfaced with the \textbf{DNAx Manufacturing\textsuperscript{\textcopyright}} software module. The software registers stock taggant vials via handheld barcode scanning, computes unique real-time combinations, instructs the micro-metering pump on the exact micro-volume to dispense per unit, and automatically logs the transaction into the central database.

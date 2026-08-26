@@ -1,0 +1,107 @@
+\chapter{Physical DNA Synthesis, PCR Amplification \& Bulk Formulation}
+\label{chap:synthesis}
+
+\section{Introduction and Chemical Synthesis}
+Following the in silico design and thermodynamic verification in DNAx Signet\textsuperscript{\textcopyright}, physical synthesis of the validated 200~bp sequence was initiated. The complete double-stranded DNA construct was commercially cloned into a high-copy cloning vector (\textbf{pUC57-Amp}) under \textbf{Lot No. BJ033535} and purified via standard silica spin-column miniprep. 
+
+In parallel, high-performance liquid chromatography (HPLC)-purified single-stranded DNA primers and dual-labeled fluorophore/quencher TaqMan probes were acquired for amplification and validation assays:
+\begin{itemize}
+    \item \textbf{Forward Primer}: 20~nt ($T_m \approx 59.2^\circ\text{C}$, $\text{GC} = 50.0\%$).
+    \item \textbf{Reverse Primer}: 20~nt ($T_m \approx 58.8^\circ\text{C}$, $\text{GC} = 50.0\%$).
+    \item \textbf{Probe A (FAM Channel)}: 24~nt, $5'\text{-FAM}$ reporter, $3'\text{-BHQ-1}$ dark quencher ($T_m = 69.5^\circ\text{C}$).
+    \item \textbf{Probe B (HEX Channel)}: 24~nt, $5'\text{-HEX}$ reporter, $3'\text{-BHQ-1}$ dark quencher ($T_m = 70.1^\circ\text{C}$).
+    \item \textbf{Probe C (Texas Red / ROX Channel)}: 24~nt, $5'\text{-Texas Red}$ reporter, $3'\text{-BHQ-2}$ dark quencher ($T_m = 69.8^\circ\text{C}$).
+    \item \textbf{Probe D (Cy5 Channel)}: 24~nt, $5'\text{-Cy5}$ reporter, $3'\text{-BHQ-3}$ dark quencher ($T_m = 70.4^\circ\text{C}$).
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    % Placeholder for physical tubes (Slide 6)
+    \fbox{\parbox{0.85\textwidth}{\centering \vspace{1.5cm} \textbf{[Figure 3.1: Physical Reagent Vials of Synthesized Primers, 4 Probes, and Miniprep Taggant (Lot BJ033535)]} \vspace{1.5cm}}}
+    \caption{Synthesized physical inventory: Forward/Reverse Primers, Probes A--D, and the 200~bp pUC57 plasmid miniprep stock.}
+    \label{fig:reagents_photo}
+\end{figure}
+
+\section{Polymerase Chain Reaction (PCR) Amplification Protocol}
+To generate high-concentration linear dsDNA fragments for industrial formulation, bulk PCR amplification was established using a high-fidelity DNA polymerase master mix.
+
+\subsection{Thermal Cycling Program}
+The optimized thermal cycling conditions for bulk amplification of the 200~bp taggant are detailed in Table~\ref{tab:pcr_cycling}.
+
+\begin{table}[H]
+\centering
+\small
+\caption{Optimized PCR Thermal Cycling Parameters for 200~bp Taggant Amplification}
+\label{tab:pcr_cycling}
+\begin{tabularx}{0.85\textwidth}{l c c c}
+\toprule
+\textbf{Reaction Step} & \textbf{Temperature ($^\circ\text{C}$)} & \textbf{Hold Time} & \textbf{Number of Cycles} \\
+\midrule
+Initial Denaturation & $95^\circ\text{C}$ & $5\text{ min}$ & $1$ \\
+Denaturation & $95^\circ\text{C}$ & $30\text{ sec}$ & \multirow{3}{*}{$35\text{ cycles}$} \\
+Annealing & $55^\circ\text{C}$ & $30\text{ sec}$ & \\
+Extension & $72^\circ\text{C}$ & $45\text{ sec}$ & \\
+Final Extension & $72^\circ\text{C}$ & $7\text{ min}$ & $1$ \\
+Hold & $4^\circ\text{C}$ & $\infty$ & $1$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Reaction Composition}
+Reactions were prepared in $25.0~\mu\text{L}$ total volume as specified in Table~\ref{tab:pcr_recipe}. Two reaction variations (Reaction 1 with $1.0~\mu\text{L}$ template vs. Reaction 2 with $2.0~\mu\text{L}$ template) were evaluated to assess yield and template saturation.
+
+\begin{table}[H]
+\centering
+\small
+\caption{PCR Master Mix Recipe ($25.0~\mu\text{L}$ Total Reaction Volume)}
+\label{tab:pcr_recipe}
+\begin{tabularx}{0.85\textwidth}{l c c}
+\toprule
+\textbf{Reagent Component} & \textbf{Reaction 1 Volume ($\mu\text{L}$)} & \textbf{Reaction 2 Volume ($\mu\text{L}$)} \\
+\midrule
+10X Standard Taq Reaction Buffer & $2.5~\mu\text{L}$ & $2.5~\mu\text{L}$ \\
+$\text{MgCl}_2$ ($25\text{ mM}$ stock) & $1.5~\mu\text{L}$ & $1.5~\mu\text{L}$ \\
+Forward Primer ($10~\mu\text{M}$) & $1.0~\mu\text{L}$ & $1.0~\mu\text{L}$ \\
+Reverse Primer ($10~\mu\text{M}$) & $1.0~\mu\text{L}$ & $1.0~\mu\text{L}$ \\
+Taq DNA Polymerase ($5\text{ U}/\mu\text{L}$) & $1.0~\mu\text{L}$ & $1.0~\mu\text{L}$ \\
+Template DNA (pUC57-Taggant Miniprep) & $1.0~\mu\text{L}$ & $2.0~\mu\text{L}$ \\
+Nuclease-Free Distilled Water ($\text{ddH}_2\text{O}$) & $16.0~\mu\text{L}$ & $15.0~\mu\text{L}$ \\
+\midrule
+\textbf{Total Reaction Volume} & \textbf{25.0~$\mu\text{L}$} & \textbf{25.0~$\mu\text{L}$} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Agarose Gel Electrophoresis Verification}
+Amplified PCR products were resolved on a $2.0\%$ (w/v) high-resolution agarose gel prepared in $1\times\text{ TAE}$ buffer (40~mM Tris-acetate, 1~mM EDTA, pH 8.3) pre-stained with ethidium bromide ($0.5~\mu\text{g/mL}$). A 100~bp DNA molecular weight ladder was electrophoresed in parallel at $90\text{ V}$ for 45 minutes and visualized under ultraviolet transillumination ($302\text{ nm}$).
+
+\begin{figure}[H]
+    \centering
+    % Placeholder for Gel Photo (Slide 7)
+    \fbox{\parbox{0.85\textwidth}{\centering \vspace{1.8cm} \textbf{[Figure 3.2: Agarose Gel Electrophoresis Analysis Revealing Intense, Pure 200~bp Amplicon Band]} \vspace{1.8cm}}}
+    \caption{Agarose gel electrophoresis confirming robust, specific amplification of the 200~bp synthetic taggant with zero non-specific banding or primer-dimer artifact formation.}
+    \label{fig:gel_photo}
+\end{figure}
+
+As shown in Figure~\ref{fig:gel_photo}, the PCR amplification yielded an intense, sharp band migrating precisely at the expected \textbf{200~bp} position. No non-specific high-molecular-weight amplicons or lower primer-dimer bands were detected, confirming complete sequence specificity and optimal primer annealing thermodynamics.
+
+\section{Bulk Formulation: Preparation of 1.0~Liter Industrial Taggant Solution}
+To transition from bench-scale molecular biology to scalable industrial application, an optimized carrier buffer protocol was formulated to prepare 1.0~Liter of stable, ready-to-use liquid taggant (Figure~\ref{fig:te_buffer}):
+
+\begin{figure}[H]
+    \centering
+    % Placeholder for 1L Buffer Bottle (Slide 8)
+    \fbox{\parbox{0.65\textwidth}{\centering \vspace{1.5cm} \textbf{[Figure 3.3: 1.0~Liter Bottle of Formulated 1X TE Buffer Containing 200~bp Taggant]} \vspace{1.5cm}}}
+    \caption{Bulk 1.0~Liter preparation of synthetic DNA taggant dissolved in stabilized $1\times\text{ TE}$ buffer for commercial industrial integration.}
+    \label{fig:te_buffer}
+\end{figure}
+
+\subsection{Formulation Protocol for 1~Liter of Taggant Buffer}
+\begin{enumerate}
+    \item \textbf{10.0~mL of 1.0~M Tris-HCl (pH 8.0)}: Acts as a primary biological pH buffer, maintaining ionic stability in the range of $\text{pH } 7.8\text{--}8.2$.
+    \item \textbf{2.0~mL of 0.5~M EDTA (pH 8.0)}: Serves as a potent divalent cation chelator ($\text{Mg}^{2+}, \text{Ca}^{2+}$), effectively inactivating trace environmental deoxyribonucleases (DNases) that could otherwise catalyze enzymatic degradation of the taggant.
+    \item \textbf{988.0~mL of Ultra-Pure Sterile Distilled Water ($\text{ddH}_2\text{O}$)}.
+    \item \textbf{100.0~$\mu\text{L}$ of Concentrated PCR Amplicon Product} (derived from 4--5 bulk PCR tubes, yielding an estimated working copy number of $\sim 10^7\text{--}10^8\text{ copies/mL}$).
+\end{enumerate}
+
+The resulting formulation provides an optically transparent, stable aqueous taggant that can be directly metered into printing inks, adhesives, industrial coating suspensions, and liquid pharmaceutical lots without altering the physicochemical properties of the host product.

@@ -1,0 +1,27 @@
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces The six core technical deliverables of the Indigenous DNA Tagging System.}}{2}{figure.caption.3}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Progress matrix depicting percentage completion across the project deliverables.}}{3}{figure.caption.4}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces The 6-stage bioinformatic assay pipeline implemented in DNAx Signet\textsuperscript {\textcopyright }.}}{6}{figure.caption.6}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Molecular architecture of the synthesized DNA taggant: (A) The 4 component probes, (B) Linked probe chain assembly, and (C) Primer annealing to form the completed double-stranded tag.}}{7}{figure.caption.7}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Synthesized physical inventory: Forward/Reverse Primers, Probes A--D, and the 200~bp pUC57 plasmid miniprep stock.}}{10}{figure.caption.8}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Agarose gel electrophoresis confirming robust, specific amplification of the 200~bp synthetic taggant with zero non-specific banding or primer-dimer artifact formation.}}{11}{figure.caption.11}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Bulk 1.0~Liter preparation of synthetic DNA taggant dissolved in stabilized $1\times \text { TE}$ buffer for commercial industrial integration.}}{12}{figure.caption.12}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Schematic cross-section of the concentric DNA taggant composite nanoparticle.}}{13}{figure.caption.13}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces CTAB self-assembly on silica core providing the cationic ammonium ($\text {N}^+(\text {CH}_3)_3$) interface for DNA binding.}}{15}{figure.caption.14}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Comprehensive experimental characterization quad-chart of the encapsulated DNA taggants.}}{16}{figure.caption.15}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Photographs of physical commercial products tagged with formulated synthetic DNA constructs.}}{18}{figure.caption.16}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Commercial QR code adhesive labels after precision DNA spray deposition, exhibiting 100\% optical scan readability.}}{19}{figure.caption.17}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Automated roll-to-roll inline packaging integration machine engineered for the DNAx manufacturing ecosystem.}}{20}{figure.caption.18}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Complete forensic evidence processing pipeline for national-level authentication.}}{23}{figure.caption.19}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Empirical qPCR amplification curves and quantification cycle ($C_q$) values confirming successful, simultaneous 4-channel taggant detection.}}{25}{figure.caption.22}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {7.1}{\ignorespaces The 4-tier DNAx software ecosystem operating on a shared, role-isolated database foundation.}}{27}{figure.caption.24}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Workflow of the DNAx Manufacturing module governing industrial taggant registration, mixing, and dispensing.}}{29}{figure.caption.25}%
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Cross-platform mobile interface of DNAx Vendor governing secure supply chain tracking.}}{29}{figure.caption.26}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Architectural layout and zoning of the specialized DNAx research facility.}}{31}{figure.caption.27}%

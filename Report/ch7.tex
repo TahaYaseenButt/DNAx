@@ -1,0 +1,80 @@
+\chapter{Digital Management System (DMS) \& 4-App Software Ecosystem}
+\label{chap:dms}
+
+\section{Architectural Foundation and Unified Database Design}
+To guarantee enterprise-scale operational security and eliminate data leakage, the digital backbone of the project — the \textbf{DNAx Digital Management System (DMS)} — was engineered around a strictly segmented, role-isolated architecture (Figure~\ref{fig:dms_architecture}).
+
+\begin{figure}[H]
+    \centering
+    % Placeholder for DMS Ecosystem Diagram (Slide 17)
+    \fbox{\parbox{0.9\textwidth}{\centering \vspace{2.2cm} \textbf{[Figure 7.1: DNAx Digital Management System (DMS) Architecture: Central Database Linked to Signet, Manufacturing, Vendor, and Forensics Modules]} \vspace{2.2cm}}}
+    \caption{The 4-tier DNAx software ecosystem operating on a shared, role-isolated database foundation.}
+    \label{fig:dms_architecture}
+\end{figure}
+
+The digital ecosystem enforces three fundamental security axioms:
+\begin{enumerate}
+    \item \textbf{Single Centralized Ledger}: All applications interface with a unified relational SQL/Firestore database schema.
+    \item \textbf{Strict Role-Based Table/Column Grants}: No application module communicates directly with any other module. Each module writes only what it generates and reads only what its security clearance permits via cryptographically enforced access tokens.
+    \item \textbf{Blind Double-Blind Laboratory Protocols}: Laboratory technicians and field operators handle reagents and samples identified exclusively by dynamic, encrypted QR codes, preventing human bias or sequence disclosure.
+\end{enumerate}
+
+\section{The Four Specialized Application Modules}
+
+\subsection{1. DNAx Signet\textsuperscript{\textcopyright} (Research Laboratory Module)}
+Dedicated to computational biologists and research scientists at the national central laboratory:
+\begin{itemize}
+    \item Generates orthogonal 200~bp constructs with constrained GC-content and homopolymer suppression.
+    \item Computes SantaLucia nearest-neighbor thermodynamic melting temperatures ($T_m$) for primers and multiplex probes.
+    \item Performs automated local BLAST screening against offline NCBI genome mirrors to prevent environmental cross-homology.
+    \item Generates publication-grade molecular specification dossiers and assay protocol PDFs containing cryptographic QR verification tokens.
+\end{itemize}
+
+\subsection{2. DNAx Manufacturing\textsuperscript{\textcopyright} (Industrial Production Module)}
+Deployed on factory floor terminals and integrated with automated packaging machinery (Figure~\ref{fig:mfg_flow}):
+\begin{itemize}
+    \item Registers incoming bulk taggant stock bottles by scanning authenticated master QR codes.
+    \item Computes real-time randomized combinatorial mixing ratios for specific production lots (e.g., mixing Probes 12, 35, 68, and 72).
+    \item Transmits serial micro-dispensing commands to hardware microcontrollers governing the automated roll-to-roll spray nozzles.
+    \item Prints synchronized encrypted 2D product QR codes and logs batch issuance data directly to the central database.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    % Placeholder for Manufacturing Flow (Slide 19)
+    \fbox{\parbox{0.85\textwidth}{\centering \vspace{1.8cm} \textbf{[Figure 7.2: Operational Flowchart of the DNAx Manufacturing Module Interfacing with Spray Hardware and Database]} \vspace{1.8cm}}}
+    \caption{Workflow of the DNAx Manufacturing module governing industrial taggant registration, mixing, and dispensing.}
+    \label{fig:mfg_flow}
+\end{figure}
+
+\subsection{3. DNAx Vendor\textsuperscript{\textcopyright} (Mobile Supply Chain Tracking Module)}
+A cross-platform mobile application deployed on Android and iOS devices for warehouse operators, wholesale distributors, and retail inspectors (Figure~\ref{fig:vendor_app}):
+\begin{itemize}
+    \item \textbf{Multi-Party Scan \& Verify}: Scans product package QR codes, seller identification credentials, and buyer digital IDs during physical custody transfer.
+    \item \textbf{Biometric Authorization}: Integrates fingerprint/facial biometric validation to authorize inventory movements.
+    \item \textbf{Immutable Chain of Custody}: Appends timestamped GPS geolocation and transfer metadata to the central transaction log, creating an unbroken audit trail from factory to consumer.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    % Placeholder for Vendor App Screenshots (Slide 18)
+    \fbox{\parbox{0.8\textwidth}{\centering \vspace{1.8cm} \textbf{[Figure 7.3: Mobile User Interface of the DNAx Vendor Application Displaying Product Issuance, Transfer, and Custody History]} \vspace{1.8cm}}}
+    \caption{Cross-platform mobile interface of DNAx Vendor governing secure supply chain tracking.}
+    \label{fig:vendor_app}
+\end{figure}
+
+\subsection{4. DNAx Forensics\textsuperscript{\textcopyright} (Agency Verification Module)}
+Engineered explicitly for national forensic laboratories, customs enforcement, and intelligence agencies:
+\begin{itemize}
+    \item Ingests raw optical fluorescence telemetry ($C_q$ values, baseline-corrected $\Delta R_n$) from multi-channel real-time qPCR machines.
+    \item Automatically deconvolutes the 4-probe fluorophore combination (FAM, HEX, Texas Red, Cy5).
+    \item Queries the isolated central database to match the physical probe combination against the registered manufacturer batch.
+    \item Automatically issues a cryptographically signed, court-admissible \textbf{Forensic Certificate of Authenticity}.
+\end{itemize}
+
+\section{Dual Desktop and Cloud Deployment Architecture}
+To accommodate both high-security air-gapped facilities and geographically distributed commercial field operations, the software suite implements a dual-runtime architecture:
+\begin{enumerate}
+    \item \textbf{Air-Gapped Desktop Runtime (Windows Native / PyWebView)}: Runs locally with zero internet dependency, utilizing native Python bioinformatic libraries and local SQLite databases for maximum operational secrecy in defense installations.
+    \item \textbf{Serverless Cloud Runtime (Netlify Edge + Google Cloud Firestore)}: Runs ultra-fast client-side JavaScript bioinformatic engines directly in web browsers on Netlify's global CDN, connected to real-time Google Cloud Firestore for multi-user commercial supply chain verification.
+\end{enumerate}
