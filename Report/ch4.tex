@@ -14,6 +14,7 @@ The PCR amplification product was evaluated on a 2.0\% agarose gel stained with 
 \begin{figure}[H]
     \centering
     \begin{tikzpicture}[
+        scale=0.88, transform shape,
         gelbackground/.style={rectangle, fill=black!90, draw=black, line width=1.0pt, minimum width=9.5cm, minimum height=5.8cm, rounded corners=2pt},
         well/.style={rectangle, fill=black, draw=gray!60, minimum width=1.1cm, minimum height=0.25cm},
         band/.style={rectangle, fill=white, rounded corners=1pt, opacity=0.9},
@@ -74,7 +75,7 @@ Real-time qPCR was executed with simultaneous 4-channel fluorescence acquisition
         % Quadrant 1: FAM Channel
         \begin{axis}[
             name=plot1,
-            width=7.2cm, height=4.8cm,
+            width=6.6cm, height=4.5cm,
             title={\small\textbf{Channel 1: FAM ($520\text{ nm}$)}},
             xlabel={\scriptsize Cycle Number},
             ylabel={\scriptsize Fluorescence ($\Delta R_n$)},
@@ -93,9 +94,9 @@ Real-time qPCR was executed with simultaneous 4-channel fluorescence acquisition
         % Quadrant 2: HEX Channel
         \begin{axis}[
             name=plot2,
-            at={($(plot1.east)+(1.1cm,0)$)},
+            at={($(plot1.east)+(0.8cm,0)$)},
             anchor=west,
-            width=7.2cm, height=4.8cm,
+            width=6.6cm, height=4.5cm,
             title={\small\textbf{Channel 2: HEX ($556\text{ nm}$)}},
             xlabel={\scriptsize Cycle Number},
             ylabel={\scriptsize Fluorescence ($\Delta R_n$)},
@@ -114,9 +115,9 @@ Real-time qPCR was executed with simultaneous 4-channel fluorescence acquisition
         % Quadrant 3: Texas Red Channel
         \begin{axis}[
             name=plot3,
-            at={($(plot1.south)+(0,-1.3cm)$)},
+            at={($(plot1.south)+(0,-1.2cm)$)},
             anchor=north,
-            width=7.2cm, height=4.8cm,
+            width=6.6cm, height=4.5cm,
             title={\small\textbf{Channel 3: Texas Red ($610\text{ nm}$)}},
             xlabel={\scriptsize Cycle Number},
             ylabel={\scriptsize Fluorescence ($\Delta R_n$)},
@@ -135,9 +136,9 @@ Real-time qPCR was executed with simultaneous 4-channel fluorescence acquisition
         % Quadrant 4: Cy5 Channel
         \begin{axis}[
             name=plot4,
-            at={($(plot2.south)+(0,-1.3cm)$)},
+            at={($(plot2.south)+(0,-1.2cm)$)},
             anchor=north,
-            width=7.2cm, height=4.8cm,
+            width=6.6cm, height=4.5cm,
             title={\small\textbf{Channel 4: Cy5 ($670\text{ nm}$)}},
             xlabel={\scriptsize Cycle Number},
             ylabel={\scriptsize Fluorescence ($\Delta R_n$)},
@@ -165,7 +166,7 @@ Table~\ref{tab:qpcr_empirical_data} presents the experimental quantification cyc
 \small
 \caption{Empirical qPCR Verification Data Across 4 Optical Probe Channels}
 \label{tab:qpcr_empirical_data}
-\begin{tabularx}{0.95\textwidth}{l c c c p{4.2cm}}
+\begin{tabularx}{\textwidth}{l c c c p{4.0cm}}
 \toprule
 \textbf{Target Probe} & \textbf{Optical Channel} & \textbf{Emission $\lambda$} & \textbf{Experimental $C_q$} & \textbf{Verification Status} \\
 \midrule

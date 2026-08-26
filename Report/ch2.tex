@@ -7,23 +7,24 @@ The DNA Tag and Trace workflow consists of five clear operational stages (Figure
 \begin{figure}[H]
     \centering
     \begin{tikzpicture}[
-        stepnode/.style={rectangle, rounded corners=2pt, draw=black, fill=white, line width=0.8pt, text width=5.5cm, minimum height=1.15cm, align=left, font=\small},
-        arrowstyle/.style={-{Stealth[length=2.5mm]}, line width=1.0pt, color=black}
+        scale=0.9, transform shape,
+        stepnode/.style={rectangle, rounded corners=2pt, draw=black, fill=white, line width=0.8pt, text width=6.2cm, minimum height=1.1cm, align=left, font=\small},
+        arrowstyle/.style={-{Stealth[length=2.5mm]}, line width=0.9pt, color=black}
     ]
         % Left Column
-        \node[stepnode] (s1) at (0, 3.6) {\textbf{1. DNA Designing}\\ \footnotesize Algorithmic generation, $T_m$ matching, BLAST};
-        \node[stepnode] (s2) at (0, 1.8) {\textbf{2. Physical Synthesis}\\ \footnotesize PCR scaling, 1L carrier buffer formulation};
+        \node[stepnode] (s1) at (0, 3.4) {\textbf{1. DNA Designing}\\ \footnotesize Algorithmic generation, $T_m$ matching, BLAST};
+        \node[stepnode] (s2) at (0, 1.7) {\textbf{2. Physical Synthesis}\\ \footnotesize PCR scaling, 1L carrier buffer formulation};
         \node[stepnode] (s3) at (0, 0.0) {\textbf{3. Product Integration}\\ \footnotesize Spraying on packaging, liquids \& security stamps};
         
         % Right Column
-        \node[stepnode] (s4) at (7.0, 3.6) {\textbf{4. Field Recovery}\\ \footnotesize Surface swabbing \& chemical recovery};
-        \node[stepnode] (s5) at (7.0, 1.8) {\textbf{5. qPCR Verification}\\ \footnotesize 4-channel multiplex detection \& deconvolution};
-        \node[stepnode] (s6) at (7.0, 0.0) {\textbf{6. Database Match}\\ \footnotesize Ledger query \& verification report};
+        \node[stepnode] (s4) at (7.4, 3.4) {\textbf{4. Field Recovery}\\ \footnotesize Surface swabbing \& chemical recovery};
+        \node[stepnode] (s5) at (7.4, 1.7) {\textbf{5. qPCR Verification}\\ \footnotesize 4-channel multiplex detection \& deconvolution};
+        \node[stepnode] (s6) at (7.4, 0.0) {\textbf{6. Database Match}\\ \footnotesize Ledger query \& verification report};
         
         % Sequential Flow
         \draw[arrowstyle] (s1) -- (s2);
         \draw[arrowstyle] (s2) -- (s3);
-        \draw[arrowstyle] (s3.east) -- ++(0.75,0) |- (s4.west);
+        \draw[arrowstyle] (s3.east) -- ++(0.6,0) |- (s4.west);
         \draw[arrowstyle] (s4) -- (s5);
         \draw[arrowstyle] (s5) -- (s6);
     \end{tikzpicture}
@@ -47,24 +48,25 @@ DNA constructs are designed through the custom software engine:
 \begin{figure}[H]
     \centering
     \begin{tikzpicture}[
-        basebox/.style={rectangle, draw=black, line width=0.8pt, minimum height=0.9cm, align=center, font=\small\bfseries},
-        primerbox/.style={basebox, fill=gray!15, text width=2.4cm},
-        probebox/.style={basebox, fill=white, text width=2.2cm}
+        scale=0.88, transform shape,
+        basebox/.style={rectangle, draw=black, line width=0.8pt, minimum height=0.85cm, align=center, font=\small\bfseries},
+        primerbox/.style={basebox, fill=gray!15, text width=2.2cm},
+        probebox/.style={basebox, fill=white, text width=2.0cm}
     ]
         \node[primerbox] (fwd) at (0, 0) {5' Forward\\ Primer (20 bp)};
-        \node[probebox, right=0.15cm of fwd] (p1) {Probe 1\\ FAM (24 bp)};
-        \node[probebox, right=0.15cm of p1] (p2) {Probe 2\\ HEX (24 bp)};
-        \node[probebox, right=0.15cm of p2] (p3) {Probe 3\\ TxRed (24 bp)};
-        \node[probebox, right=0.15cm of p3] (p4) {Probe 4\\ Cy5 (24 bp)};
-        \node[primerbox, right=0.15cm of p4] (rev) {3' Reverse\\ Primer (20 bp)};
+        \node[probebox, right=0.12cm of fwd] (p1) {Probe 1\\ FAM (24 bp)};
+        \node[probebox, right=0.12cm of p1] (p2) {Probe 2\\ HEX (24 bp)};
+        \node[probebox, right=0.12cm of p2] (p3) {Probe 3\\ TxRed (24 bp)};
+        \node[probebox, right=0.12cm of p3] (p4) {Probe 4\\ Cy5 (24 bp)};
+        \node[primerbox, right=0.12cm of p4] (rev) {3' Reverse\\ Primer (20 bp)};
         
-        \draw[decorate, decoration={brace, amplitude=6pt, mirror}, line width=0.8pt, color=black] 
-            ($(p1.south west)+(0,-0.15)$) -- ($(p4.south east)+(0,-0.15)$)
-            node[midway, below=7pt, font=\small\bfseries] {Multiplex Payload (4 Probes $\times$ 24 bp)};
+        \draw[decorate, decoration={brace, amplitude=5pt, mirror}, line width=0.8pt, color=black] 
+            ($(p1.south west)+(0,-0.12)$) -- ($(p4.south east)+(0,-0.12)$)
+            node[midway, below=6pt, font=\small\bfseries] {Multiplex Payload (4 Probes $\times$ 24 bp)};
             
-        \draw[decorate, decoration={brace, amplitude=6pt}, line width=0.8pt, color=black] 
-            ($(fwd.north west)+(0,0.15)$) -- ($(rev.north east)+(0,0.15)$)
-            node[midway, above=7pt, font=\small\bfseries] {Linear dsDNA Construct (200 bp)};
+        \draw[decorate, decoration={brace, amplitude=5pt}, line width=0.8pt, color=black] 
+            ($(fwd.north west)+(0,0.12)$) -- ($(rev.north east)+(0,0.12)$)
+            node[midway, above=6pt, font=\small\bfseries] {Linear dsDNA Construct (200 bp)};
     \end{tikzpicture}
     \caption{Molecular layout of the 200~bp DNA taggant construct.}
     \label{fig:molecular_anatomy}

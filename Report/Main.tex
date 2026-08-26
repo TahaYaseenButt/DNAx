@@ -1,8 +1,8 @@
-\documentclass[11pt,a4paper]{report}
+\documentclass[12pt,a4paper]{report}
 
-% --- Typography & Formatting (Standard IEEE / Springer Technical Report) ---
+% --- Military & Service Staff Briefing Standard Geometry ---
 \usepackage[utf8]{inputenc}
-\usepackage[margin=1in]{geometry}
+\usepackage[left=25mm,right=40mm,top=25mm,bottom=25mm]{geometry}
 \usepackage{newtxtext,newtxmath}
 \usepackage{microtype}
 \usepackage{amsmath,amsfonts}
@@ -25,16 +25,16 @@
 \pgfplotsset{compat=1.18}
 \usepackage{hyperref}
 
-% --- Strict Monochrome Setup (All Links and Text in Pure Black) ---
+% --- Strict Monochrome (Pure Black & White) ---
 \hypersetup{
     colorlinks=false,
     pdfborder={0 0 0},
-    pdftitle={DNA Base Tag and Trace System - Technical Report},
+    pdftitle={DNA Base Tag and Trace System - Written Brief},
     pdfauthor={NUST}
 }
 
-% --- Clean Running Header & Footer ---
-\setlength{\headheight}{14pt}
+% --- Running Header & Footer ---
+\setlength{\headheight}{15pt}
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\small DNA Base Tag and Trace System}
@@ -43,54 +43,59 @@
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0pt}
 
-% --- Clean Chapter & Section Headings (Pure Black, No Extra Lines) ---
+% --- Block Style Paragraph Formatting (Service Writing Standard) ---
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.8\baselineskip}
+\setstretch{1.0}
+
+% --- Flush Left Headings (Standard Block Style) ---
 \titleformat{\chapter}[hang]
-  {\normalfont\LARGE\bfseries\color{black}}
-  {\thechapter}{1em}{\LARGE\color{black}}
-\titlespacing*{\chapter}{0pt}{2.5ex plus 0.5ex minus 0.2ex}{2ex plus 0.3ex minus 0.2ex}
+  {\normalfont\Large\bfseries\color{black}}
+  {\thechapter.}{0.8em}{\Large\color{black}}
+\titlespacing*{\chapter}{0pt}{2ex}{1.5ex}
 
 \titleformat{\section}
-  {\normalfont\Large\bfseries\color{black}}
-  {\thesection}{0.8em}{\color{black}}
-\titlespacing*{\section}{0pt}{2ex plus 0.4ex minus 0.2ex}{1ex}
+  {\normalfont\large\bfseries\color{black}}
+  {\thesection}{0.6em}{\color{black}}
+\titlespacing*{\section}{0pt}{1.8ex plus 0.2ex minus 0.1ex}{0.8ex}
 
 \titleformat{\subsection}
-  {\normalfont\large\bfseries\color{black}}
-  {\thesubsection}{0.6em}{\color{black}}
-\titlespacing*{\subsection}{0pt}{1.5ex plus 0.3ex minus 0.2ex}{0.6ex}
+  {\normalfont\normalsize\bfseries\color{black}}
+  {\thesubsection}{0.5em}{\color{black}}
+\titlespacing*{\subsection}{0pt}{1.4ex plus 0.2ex minus 0.1ex}{0.5ex}
 
 \titleformat{\subsubsection}
-  {\normalfont\normalsize\bfseries\color{black}}
-  {\thesubsubsection}{0.5em}{\color{black}}
-\titlespacing*{\subsubsection}{0pt}{1.2ex plus 0.2ex minus 0.1ex}{0.4ex}
+  {\normalfont\small\bfseries\color{black}}
+  {\thesubsubsection}{0.4em}{\color{black}}
+\titlespacing*{\subsubsection}{0pt}{1.0ex plus 0.1ex minus 0.1ex}{0.3ex}
 
-\renewcommand{\arraystretch}{1.25}
-\setstretch{1.15}
+\renewcommand{\arraystretch}{1.2}
 
 \begin{document}
 \color{black}
 
 % =========================================================================
-% FORMAL TITLE PAGE (PURE BLACK & WHITE)
+% FORMAL BRIEFING TITLE COVER
 % =========================================================================
 \begin{titlepage}
 \begin{center}
     \vspace*{0.5cm}
     
-    {\Large \textbf{NATIONAL UNIVERSITY OF SCIENCES AND TECHNOLOGY}}\\[0.2cm]
-    {\large \textbf{ATTA-UR-RAHMAN SCHOOL OF APPLIED BIOSCIENCES (ASAB)}}\\[0.1cm]
-    {\large \textbf{\& SCHOOL OF CHEMICAL AND MATERIALS ENGINEERING (SCME)}}\\[2.0cm]
+    {\large \textbf{NATIONAL UNIVERSITY OF SCIENCES AND TECHNOLOGY}}\\[0.15cm]
+    {\normalsize \textbf{ATTA-UR-RAHMAN SCHOOL OF APPLIED BIOSCIENCES (ASAB)}}\\[0.1cm]
+    {\normalsize \textbf{\& SCHOOL OF CHEMICAL AND MATERIALS ENGINEERING (SCME)}}\\[2.5cm]
     
-    {\huge \textbf{DNA BASE TAG AND TRACE SYSTEM}}\\[0.4cm]
-    {\large \textbf{Project Proof-of-Concept Technical Report}}\\[2.0cm]
+    {\Large \textbf{TECHNICAL BRIEFING REPORT}}\\[0.3cm]
+    {\LARGE \textbf{DNA BASE TAG AND TRACE SYSTEM}}\\[0.3cm]
+    {\normalsize \textbf{Indigenous Bio-Molecular Tagging for Strategic Industries}}\\[2.5cm]
     
-    {\normalsize \textbf{Date:} August 2026}\\[2.0cm]
+    {\normalsize \textbf{Date:} August 2026 \quad $\vert$ \quad \textbf{Security Classification:} Restricted / Proprietary}\\[2.0cm]
     
     \begin{tabular}{ll}
-        \textbf{Principal Investigator:} & \textbf{Dr. Muhammad Qasim Hayat} (ASAB, NUST) \\[0.2cm]
+        \textbf{Principal Investigator:} & \textbf{Dr. Muhammad Qasim Hayat} (ASAB, NUST) \\[0.15cm]
         \textbf{Co-Principal Investigators:} & \textbf{Dr. Umair Manzoor} (SCME, NUST) \\
         & \textbf{Dr. Husnain Ahmed Janjua} (ASAB, NUST) \\
-        & \textbf{Dr. Malik Adeel Umer} (SCME, NUST) \\[0.2cm]
+        & \textbf{Dr. Malik Adeel Umer} (SCME, NUST) \\[0.15cm]
         \textbf{Lead Research Associate:} & \textbf{Taha Yaseen} (ASAB, NUST) \\
     \end{tabular}
     
@@ -105,16 +110,16 @@
 \chapter*{Project Approvals}
 \addcontentsline{toc}{chapter}{Project Approvals}
 
-This report documents the technical development, workflow, mathematical calculations, and empirical qPCR verification of the \textbf{DNA Base Tag and Trace System}.
+This written technical brief documents the system architecture, operational workflow, mathematical calculations, and empirical qPCR verification of the \textbf{DNA Base Tag and Trace System}.
 
-\vspace{2.5cm}
+\vspace{2.0cm}
 
 \noindent
 \begin{tabularx}{\textwidth}{X X}
     \rule{0.85\linewidth}{0.6pt} & \rule{0.85\linewidth}{0.6pt} \\
     \textbf{Dr. Muhammad Qasim Hayat} & \textbf{Dr. Umair Manzoor} \\
     Principal Investigator (PI) & Co-Principal Investigator \\
-    ASAB, NUST & SCME, NUST \\[3.0cm]
+    ASAB, NUST & SCME, NUST \\[2.5cm]
     
     \rule{0.85\linewidth}{0.6pt} & \rule{0.85\linewidth}{0.6pt} \\
     \textbf{Dr. Husnain Ahmed Janjua} & \textbf{Dr. Malik Adeel Umer} \\

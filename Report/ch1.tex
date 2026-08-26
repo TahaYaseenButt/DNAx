@@ -14,17 +14,17 @@ Table~\ref{tab:comparison} compares traditional anti-counterfeiting markers with
 \small
 \caption{Comparison: Conventional Physical Security vs. Synthetic DNA Tagging}
 \label{tab:comparison}
-\begin{tabularx}{\textwidth}{l p{5.5cm} p{6.5cm}}
+\begin{tabularx}{\textwidth}{l p{4.5cm} p{5.5cm}}
 \toprule
-\textbf{Feature} & \textbf{Conventional Markers (Barcodes, Holograms)} & \textbf{DNA Tagging System} \\
+\textbf{Feature} & \textbf{Conventional Markers} & \textbf{DNA Tagging System} \\
 \midrule
-\textbf{Visibility} & Overt / Visible (Can be cloned or duplicated). & \textbf{Covert}: Invisible micro-traces ($< 1\text{ ng/L}$). \\
+\textbf{Visibility} & Overt / Visible (Subject to duplication). & \textbf{Covert}: Invisible micro-traces ($< 1\text{ ng/L}$). \\
 \addlinespace
-\textbf{Unforgeability} & Moderate to Low (Subject to physical forgery). & \textbf{Absolute}: $>10^{120}$ theoretical sequence space. \\
+\textbf{Unforgeability} & Low (Subject to forgery). & \textbf{Absolute}: $>10^{120}$ theoretical sequence space. \\
 \addlinespace
-\textbf{Durability} & Susceptible to wear, heat, and tampering. & \textbf{High}: Encapsulated in silica/ceramic ($>800^\circ\text{C}$). \\
+\textbf{Durability} & Susceptible to heat and wear. & \textbf{High}: Encapsulated in silica/ceramic ($>800^\circ\text{C}$). \\
 \addlinespace
-\textbf{Verification} & Visual or optical scan. & \textbf{Forensic qPCR}: Quantitative fluorophore detection. \\
+\textbf{Verification} & Visual / Optical scan. & \textbf{Forensic qPCR}: Quantitative optical detection. \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -41,8 +41,9 @@ The primary objectives of this project are:
 \begin{figure}[H]
     \centering
     \begin{tikzpicture}[
-        corepillar/.style={rectangle, rounded corners=2pt, draw=black, fill=white, line width=0.8pt, text width=3.2cm, minimum height=1.2cm, align=center, font=\small\bfseries},
-        arrowstyle/.style={-{Stealth[length=2.5mm]}, line width=1.0pt, color=black}
+        scale=0.88, transform shape,
+        corepillar/.style={rectangle, rounded corners=2pt, draw=black, fill=white, line width=0.8pt, text width=3.2cm, minimum height=1.1cm, align=center, font=\small\bfseries},
+        arrowstyle/.style={-{Stealth[length=2.5mm]}, line width=0.9pt, color=black}
     ]
         \node[corepillar] (p1) at (0, 0) {1. DNA Design\\ (Software)};
         \node[corepillar] (p2) at (3.8, 0) {2. Synthesis \&\\ Formulation};

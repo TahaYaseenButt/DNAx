@@ -11,18 +11,19 @@ The software ecosystem operates on a dual-database architecture connecting four 
 \begin{figure}[H]
     \centering
     \begin{tikzpicture}[
-        hubnode/.style={cylinder, draw=black, fill=gray!15, shape aspect=0.4, line width=0.9pt, minimum width=3.2cm, minimum height=1.9cm, align=center, font=\small\bfseries},
-        appnode/.style={rectangle, rounded corners=2pt, draw=black, fill=white, line width=0.8pt, text width=4.2cm, minimum height=1.3cm, align=center, font=\small},
+        scale=0.88, transform shape,
+        hubnode/.style={cylinder, draw=black, fill=gray!15, shape aspect=0.4, line width=0.9pt, minimum width=3.0cm, minimum height=1.8cm, align=center, font=\small\bfseries},
+        appnode/.style={rectangle, rounded corners=2pt, draw=black, fill=white, line width=0.8pt, text width=4.0cm, minimum height=1.25cm, align=center, font=\small},
         linkarrow/.style={latex-latex, line width=0.9pt, color=black}
     ]
         % Central Hub
         \node[hubnode] (hub) at (0, 0) {CENTRAL DATABASE\\ \scriptsize Unified Firebase Core\\ \tiny \texttt{/dna\_exports} \& \texttt{/transactions}};
         
         % 4 Surrounding Apps
-        \node[appnode] (signet) at (-5.5, 2.0) {\textbf{1. DNAx (Signet)}\\ \footnotesize Bioinformatic Design Suite\\ \tiny Sequence \& Assay Generation};
-        \node[appnode] (inv) at (5.5, 2.0) {\textbf{2. DNAx Inventory}\\ \footnotesize Desktop Warehouse Terminal\\ \tiny Batch Generator \& Scanner};
-        \node[appnode] (forensic) at (-5.5, -2.0) {\textbf{4. DNAx Forensics}\\ \footnotesize Desktop Forensic Lab App\\ \tiny Sequence, Gel \& Barcode Tests};
-        \node[appnode] (vendor) at (5.5, -2.0) {\textbf{3. DNAx Vendor}\\ \footnotesize Mobile Android/iOS App\\ \tiny Issuance \& Custody Transfer};
+        \node[appnode] (signet) at (-5.2, 1.9) {\textbf{1. DNAx (Signet)}\\ \footnotesize Bioinformatic Design Suite\\ \tiny Sequence \& Assay Generation};
+        \node[appnode] (inv) at (5.2, 1.9) {\textbf{2. DNAx Inventory}\\ \footnotesize Desktop Warehouse Terminal\\ \tiny Batch Generator \& Scanner};
+        \node[appnode] (forensic) at (-5.2, -1.9) {\textbf{4. DNAx Forensics}\\ \footnotesize Desktop Forensic Lab App\\ \tiny Sequence, Gel \& Barcode Tests};
+        \node[appnode] (vendor) at (5.2, -1.9) {\textbf{3. DNAx Vendor}\\ \footnotesize Mobile Android/iOS App\\ \tiny Issuance \& Custody Transfer};
         
         % Connections
         \draw[linkarrow] (signet.south east) -- (hub.north west);
