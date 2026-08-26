@@ -1,43 +1,46 @@
-\chapter{End-to-End Operational Workflow}
-\label{chap:workflow}
+\chapter{End-to-End Operational Doctrine: Software to Field Deployment}
+\label{chap:operational_doctrine}
 
-\section{System Operational Overview}
-The system translates a digital cryptographic identity into an invisible physical biological taggant, disperses it into products, and recovers it for legal forensic authentication through a 6-step operational chain (Figure~\ref{fig:detailed_workflow}).
+\section{Integrated Operational Architecture}
+The sovereign tagging ecosystem bridges computational bio-molecular design, biochemical manufacturing, industrial application, and forensic verification through a structured five-phase operational doctrine (Figure~\ref{fig:operational_doctrine}).
 
 \begin{figure}[H]
     \centering
     \begin{tikzpicture}[
-        stepnode/.style={rectangle, rounded corners=4pt, draw=nustblue, fill=nustlight, line width=1pt, text width=5.5cm, minimum height=1.3cm, align=left, font=\small},
-        arrowstyle/.style={-{Stealth[length=2.5mm]}, line width=1.2pt, color=nustblue}
+        phasenode/.style={rectangle, rounded corners=4pt, draw=nustblue, fill=nustlight, line width=1pt, text width=5.6cm, minimum height=1.35cm, align=left, font=\small},
+        arrowstyle/.style={-{Stealth[length=2.5mm]}, line width=1.3pt, color=nustblue}
     ]
-        % Left Column
-        \node[stepnode] (s1) at (0, 4.2) {\textbf{Step 1: Bioinformatic Design}\\ \footnotesize Algorithmic synthesis, $T_m$ constraints, safety BLAST};
-        \node[stepnode] (s2) at (0, 2.1) {\textbf{Step 2: Physical Synthesis \& Scaling}\\ \footnotesize High-fidelity PCR, 1L bulk buffer, inventory log};
-        \node[stepnode] (s3) at (0, 0.0) {\textbf{Step 3: Nano-Encapsulation (Optional)}\\ \footnotesize Silica core-shell shielding for harsh environments};
+        % Left Column: Synthesis & Formulation
+        \node[phasenode] (p1) at (0, 4.2) {\textbf{Phase I: In Silico Bioinformatic Design}\\ \footnotesize Algorithmic synthesis, $T_m$ matching, BLAST screen};
+        \node[phasenode] (p2) at (0, 2.1) {\textbf{Phase II: Physical Biomanufacturing}\\ \footnotesize Plasmid miniprep, bulk PCR, 1L carrier formulation};
+        \node[phasenode] (p3) at (0, 0.0) {\textbf{Phase III: Industrial Application}\\ \footnotesize Micro-dosing on packaging, liquids \& security stamps};
         
-        % Right Column
-        \node[stepnode] (s4) at (7.2, 4.2) {\textbf{Step 4: Industrial Product Integration}\\ \footnotesize Automated micro-spray on labels \& pharmaceuticals};
-        \node[stepnode] (s5) at (7.2, 2.1) {\textbf{Step 5: Forensic Field Recovery}\\ \footnotesize Non-destructive swabbing \& chemical etching};
-        \node[stepnode] (s6) at (7.2, 0.0) {\textbf{Step 6: Multiplex qPCR Authentication}\\ \footnotesize 4-channel fluorescence detection \& court dossier};
+        % Right Column: Recovery & Forensic Intelligence
+        \node[phasenode] (p4) at (7.5, 4.2) {\textbf{Phase IV: Forensic Field Extraction}\\ \footnotesize Non-destructive swabbing \& chemical recovery};
+        \node[phasenode] (p5) at (7.5, 2.1) {\textbf{Phase V: Multiplex qPCR Interrogation}\\ \footnotesize 4-channel fluorescence detection \& Cq analysis};
+        \node[phasenode] (p6) at (7.5, 0.0) {\textbf{Phase VI: Cryptographic Authentication}\\ \footnotesize Database ledger matching \& legal certification};
         
-        % Connections
-        \draw[arrowstyle] (s1) -- (s2);
-        \draw[arrowstyle] (s2) -- (s3);
-        \draw[arrowstyle] (s3.east) -- ++(0.85,0) |- (s4.west);
-        \draw[arrowstyle] (s4) -- (s5);
-        \draw[arrowstyle] (s5) -- (s6);
+        % Sequential Flow
+        \draw[arrowstyle] (p1) -- (p2);
+        \draw[arrowstyle] (p2) -- (p3);
+        \draw[arrowstyle] (p3.east) -- ++(0.95,0) |- (p4.west);
+        \draw[arrowstyle] (p4) -- (p5);
+        \draw[arrowstyle] (p5) -- (p6);
     \end{tikzpicture}
-    \caption{The six sequential operational steps of the DNA tagging, product integration, and forensic verification workflow.}
-    \label{fig:detailed_workflow}
+    \caption{The end-to-end operational doctrine governing the life-cycle of national DNA taggants.}
+    \label{fig:operational_doctrine}
 \end{figure}
 
-\section{Step 1: In Silico DNA Taggant Design via Software}
-All DNA taggants are designed through the proprietary bioinformatic software suite using strict thermodynamic and biological safety algorithms:
+\section{Phase I: In Silico Bioinformatic Assay Engineering}
+The design phase is governed by the proprietary \textbf{DNAx Signet\textsuperscript{\textcopyright}} computational engine, executing multi-tiered algorithmic validations:
 \begin{itemize}
-    \item \textbf{Length Standardization}: Standardized to a compact $200\text{ base pair}$ (bp) linear double-stranded DNA construct.
-    \item \textbf{GC Content \& Homopolymer Control}: Restricted to $48.0\%\text{--}52.0\%$ GC content with complete suppression of homopolymer tracts ($\ge 4$ consecutive identical bases) to ensure high physical synthesis fidelity.
-    \item \textbf{Local BLAST Safety Screening}: Screened against NCBI microbial and environmental genome databases to guarantee that the artificial sequence shares $<25\%$ homology with any known biological organism, preventing false positives and biohazard risks.
-    \item \textbf{Thermodynamic Optimization}: Designed using SantaLucia nearest-neighbor thermodynamic parameters, matching primer melting temperatures ($T_m = 58.5 \pm 1.0^\circ\text{C}$) and setting probe annealing temperatures ($T_m \ge 68.0^\circ\text{C}$) strictly $10.0^\circ\text{C}$ above primers.
+    \item \textbf{Construct Sizing \& Structural Geometry}: Standardized to a 200~base pair (bp) linear double-stranded DNA construct. The core payload contains four modular 24~bp target domains flanked by 20~bp forward and reverse primer binding sites (Figure~\ref{fig:molecular_anatomy}).
+    \item \textbf{Thermodynamic Optimization via SantaLucia Boundary Conditions}: Melting temperatures ($T_m$) are calculated using unified nearest-neighbor thermodynamic parameters:
+    \begin{equation}
+        T_m = \frac{\Delta H^\circ}{\Delta S^\circ + R \ln(C_T / 4)} + 16.6 \log_{10}[\text{Na}^+]
+    \end{equation}
+    Primers are constrained to $T_m = 58.5 \pm 1.0^\circ\text{C}$ ($\Delta T_m \le 0.5^\circ\text{C}$ between forward and reverse), while multiplex probes are matched at $T_m \ge 68.0^\circ\text{C}$ (strictly $+10.0^\circ\text{C}$ differential above primers to ensure probe binding precedence).
+    \item \textbf{Biological Safety and Local BLAST Screening}: Sequences are screened against offline NCBI genome mirrors to guarantee $<25\%$ homology with any known pathogenic or environmental organism, eliminating false-positive amplification and biosafety risks.
 \end{itemize}
 
 \begin{figure}[H]
@@ -56,48 +59,42 @@ All DNA taggants are designed through the proprietary bioinformatic software sui
         
         \draw[decorate, decoration={brace, amplitude=6pt, mirror}, line width=1pt, color=black] 
             ($(p1.south west)+(0,-0.15)$) -- ($(p4.south east)+(0,-0.15)$)
-            node[midway, below=7pt, font=\small\bfseries] {Multiplex Information Payload (4 Channels $\times$ 24 bp)};
+            node[midway, below=7pt, font=\small\bfseries] {Multiplex Information Payload (4 Probes $\times$ 24 bp)};
             
         \draw[decorate, decoration={brace, amplitude=6pt}, line width=1pt, color=nustblue] 
             ($(fwd.north west)+(0,0.15)$) -- ($(rev.north east)+(0,0.15)$)
             node[midway, above=7pt, font=\small\bfseries\color{nustblue}] {Total Linear dsDNA Construct (200 bp)};
     \end{tikzpicture}
     \caption{Molecular architecture of the synthesized 200~bp DNA construct featuring flanking 20~bp primer docks and 4 internal 24~bp fluorescent probe targets.}
-    \label{fig:taggant_anatomy}
+    \label{fig:molecular_anatomy}
 \end{figure}
 
-\section{Step 2: Physical Synthesis, Amplification \& Inventory Storage}
-Following computational validation, the master DNA construct is physically synthesized:
+\section{Phase II: High-Fidelity Biomanufacturing \& Bulk Formulation}
+Upon computational validation, the physical DNA construct is synthesized, amplified, and stabilized:
 \begin{enumerate}
-    \item \textbf{Master Plasmid Cloning}: The 200~bp sequence was cloned into high-copy pUC57 vector minipreps (Lot No. BJ033535).
-    \item \textbf{Bulk PCR Amplification}: High-fidelity thermal cycling ($95^\circ\text{C}$ 5m; 35 cycles of $95^\circ\text{C}$ 30s, $55^\circ\text{C}$ 30s, $72^\circ\text{C}$ 45s; $72^\circ\text{C}$ 7m) produces milligram-scale yields of pure 200~bp amplicon.
-    \item \textbf{1.0-Liter Bulk Carrier Formulation}: Amplified DNA is blended into a stabilized aqueous carrier matrix (10~mL 1M Tris-HCl, 2~mL 0.5M EDTA at pH 8.0, 988~mL nuclease-free water, 100~$\mu\text{L}$ PCR product), yielding 1.0~Liter of active taggant solution.
-    \item \textbf{Inventory Vaulting}: Master lots are logged into the central database with unique cryptographic QR identifiers and vaulted in monitored cold storage.
+    \item \textbf{Master Plasmid Miniprep}: Physical synthesis was executed in high-copy pUC57 vector miniprep (Lot No. BJ033535).
+    \item \textbf{High-Fidelity PCR Amplification}: Bulk thermal cycling yields milligram-scale quantities of analytical-grade 200~bp amplicon.
+    \item \textbf{1.0-Liter Bulk Carrier Stabilization}: Amplified construct is blended into an industrial-grade aqueous carrier matrix ($10\text{ mL } 1\text{M Tris-HCl}, 2\text{ mL } 0.5\text{M EDTA at pH } 8.0, 988\text{ mL }\text{ddH}_2\text{O}, 100~\mu\text{L}\text{ PCR product}$), generating 1.0~Liter of stabilized bulk taggant solution ready for plant distribution.
 \end{enumerate}
 
-\section{Step 3: Protective Nano-Encapsulation (High-Stress Environments)}
-For application scenarios involving high thermal loads, mechanical shear, or outdoor UV exposure (e.g., metals, defense components, or pyrotechnics), the DNA molecules are encapsulated in inorganic silica ($\text{SiO}_2$) core-shell structures with outer ceramic barriers capable of withstanding temperatures exceeding $800^\circ\text{C}$.
-
-\section{Step 4: Product Integration \& Automated Industrial Dispensing}
-The taggant solution is integrated into consumer packaging and strategic products:
+\section{Phase III: Industrial Substrate Dispersion \& Automated Application}
+The stabilized taggant is deployed into physical industrial products:
 \begin{itemize}
-    \item \textbf{Pharmaceutical \& Consumer Liquid Tagging}: Direct micro-dosing into liquids (\textit{Gelsemium 30, Surkhana}) at ppb levels with zero alteration of chemical efficacy.
-    \item \textbf{Security Packaging \& QR Labels}: Micro-dispensed directly onto 2D encrypted product QR labels and excise tax stamps.
-    \item \textbf{Automated Roll-to-Roll Machinery}: Engineered inline spray-coating and infrared flash-drying line operating at $60^\circ\text{C}$ for high-speed manufacturing integration.
+    \item \textbf{Direct Liquid Dosing}: Integrated into liquid pharmaceuticals (\textit{Gelsemium 30, Surkhana}) and high-value chemical products at non-toxic parts-per-billion concentrations.
+    \item \textbf{Automated Packaging Spray Machine}: Engineered inline 6-station roll-to-roll spray and infrared curing assembly line operating at $60^\circ\text{C}$ (1.5-second flash dry) for high-speed carton and label printing.
 \end{itemize}
 
-\section{Step 5: Forensic Field Sampling \& Chemical Recovery}
-When an enforcement officer or forensic agent suspects product tampering:
+\section{Phase IV: Forensic Extraction \& Field Sampling Protocols}
+In enforcement and audit scenarios, field officers execute non-destructive recovery:
 \begin{enumerate}
-    \item \textbf{Non-Destructive Field Swabbing}: A sterile swab moistened with recovery buffer is wiped across the designated security zone.
-    \item \textbf{Rapid Chemical Etching}: For encapsulated samples, a mild buffered fluoride solution ($\text{NH}_4\text{F}/\text{HF}$) dissolves the outer silica matrix within 10 minutes without damaging the DNA.
-    \item \textbf{Spin-Column Purification}: Standard micro-spin column extraction elutes purified, concentrated DNA ready for thermal cycling.
+    \item \textbf{Field Swabbing}: A sterile swab wetted with extraction buffer captures surface-bound taggants.
+    \item \textbf{Silica Shell Chemical Etching}: For encapsulated formulations, buffered fluoride ($\text{NH}_4\text{F}/\text{HF}$) dissolves outer inorganic matrices within 10 minutes.
+    \item \textbf{Column Chromatography}: Spin-column membrane isolation yields purified, amplifiable DNA template in $25.0~\mu\text{L}$ nuclease-free water.
 \end{enumerate}
 
-\section{Step 6: Multiplex qPCR Detection \& Instant Identification}
-The recovered extract is transferred into a 4-channel real-time optical thermal cycler:
+\section{Phase V: Optical Real-Time Multiplex Verification \& Certification}
+Purified template is interrogated in a 4-channel real-time optical thermal cycler:
 \begin{itemize}
-    \item \textbf{Closed-Tube Interrogation}: All four fluorophore channels (FAM, HEX, Texas Red, Cy5) are excited and measured simultaneously.
-    \item \textbf{Automated Ledger Deconvolution}: The recorded $C_q$ values are matched against the national central database to definitively confirm the manufacturer, production lot, and supply chain authenticity.
-    \item \textbf{Legal Certification}: A cryptographically signed Forensic Certificate of Authenticity is generated for judicial evidence.
+    \item \textbf{Simultaneous 4-Plex Optical Interrogation}: Probes labeled with FAM ($520\text{ nm}$), HEX ($556\text{ nm}$), Texas Red ($610\text{ nm}$), and Cy5 ($670\text{ nm}$) generate distinct fluorescence trajectories.
+    \item \textbf{Cryptographic Authentication}: The recorded optical signature is queried against the national central database ledger, generating an unforgeable, court-admissible \textbf{Forensic Certificate of Authenticity}.
 \end{itemize}

@@ -1,12 +1,14 @@
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces The end-to-end sovereign lifecycle of the DNA tagging and forensic verification system.}}{2}{figure.caption.3}%
+\contentsline {figure}{\numberline {1.1}{\ignorespaces The closed-loop sovereign lifecycle of the national DNA authentication architecture.}}{2}{figure.caption.4}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces The six sequential operational steps of the DNA tagging, product integration, and forensic verification workflow.}}{3}{figure.caption.4}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Molecular architecture of the synthesized 200~bp DNA construct featuring flanking 20~bp primer docks and 4 internal 24~bp fluorescent probe targets.}}{4}{figure.caption.5}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces The end-to-end operational doctrine governing the life-cycle of national DNA taggants.}}{3}{figure.caption.5}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Molecular architecture of the synthesized 200~bp DNA construct featuring flanking 20~bp primer docks and 4 internal 24~bp fluorescent probe targets.}}{4}{figure.caption.6}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Agarose gel electrophoresis confirming high-specificity PCR amplification of the 200~bp synthetic DNA taggant construct with zero non-specific banding.}}{7}{figure.caption.6}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Simultaneous real-time qPCR amplification plots demonstrating 100\% optical detection across all 4 probe channels (FAM, HEX, Texas Red, Cy5).}}{8}{figure.caption.7}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Combinatorial formulation of 4 distinct probe targets from a sovereign master library of 72 yielding over 1 million unique industrial batch codes.}}{7}{figure.caption.7}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Concentric multi-layer architecture of the encapsulated DNA taggant particle providing thermal and chemical protection.}}{10}{figure.caption.9}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Agarose gel electrophoresis confirming high-specificity PCR amplification of the 200~bp synthetic DNA taggant construct with zero non-specific banding.}}{10}{figure.caption.9}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Real-time multiplex qPCR amplification curves demonstrating simultaneous 100\% optical detection across all 4 probe channels.}}{11}{figure.caption.10}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces The 4-tier DNAx software ecosystem operating on a secure, role-isolated central database ledger.}}{13}{figure.caption.10}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Concentric multi-layer architecture of the encapsulated DNA taggant particle providing thermal and chemical protection.}}{12}{figure.caption.12}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces The 4-tier sovereign software ecosystem operating on a role-isolated central database ledger.}}{15}{figure.caption.13}%

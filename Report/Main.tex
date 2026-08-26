@@ -26,8 +26,8 @@
 
 % --- Formal Monochrome & NUST Blue Color Palette ---
 \definecolor{nustblue}{RGB}{15, 60, 115}      % Primary Accent: NUST Deep Blue
-\definecolor{nustlight}{RGB}{235, 242, 250}   % Subtle Table / Box Fill
-\definecolor{bordergray}{RGB}{180, 190, 200}  % Clean Diagram Borders
+\definecolor{nustlight}{RGB}{240, 244, 250}   % Subtle Table / Box Fill
+\definecolor{bordergray}{RGB}{160, 175, 190}  % Clean Diagram Borders
 
 % --- Hyperref Setup ---
 \hypersetup{
@@ -35,7 +35,7 @@
     linkcolor=nustblue,
     citecolor=nustblue,
     urlcolor=nustblue,
-    pdftitle={Indigenous DNA Tagging System for National Industries - Executive Briefing},
+    pdftitle={Indigenous DNA Tagging System for National Industries - Presidential Technical Briefing},
     pdfauthor={National University of Sciences and Technology (NUST)}
 }
 
@@ -44,13 +44,13 @@
 \addtolength{\topmargin}{-3pt}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\small\color{black}Indigenous DNA Tagging System for Industries}
+\fancyhead[L]{\small\color{black}Indigenous DNA Tagging System for National Industries}
 \fancyhead[R]{\small\color{black}NUST ASAB-SCME}
 \fancyfoot[C]{\color{black}\thepage}
 \renewcommand{\headrulewidth}{0.5pt}
 \renewcommand{\footrulewidth}{0.5pt}
 
-% --- Section and Chapter Title Formatting (Strict Black Text with NUST Blue Accents) ---
+% --- Dignitary-Grade Chapter & Section Title Formatting (Strict Black with NUST Blue Accents) ---
 \titleformat{\chapter}[display]
   {\normalfont\bfseries\color{black}}
   {\filleft\large\MakeUppercase{\chaptertitlename} \Huge\color{nustblue}\thechapter}
@@ -73,7 +73,7 @@
 \color{black}
 
 % =========================================================================
-% EXECUTIVE TITLE PAGE (PRESIDENTIAL BRIEFING STANDARD)
+% EXECUTIVE TITLE PAGE (PRESIDENTIAL / HEAD OF STATE BRIEFING STANDARD)
 % =========================================================================
 \begin{titlepage}
 \begin{center}
@@ -86,21 +86,21 @@
     \begin{figure}[H]
         \centering
         \begin{tikzpicture}
-            \node[rectangle, rounded corners=6pt, draw=nustblue, fill=nustlight, line width=1.2pt, minimum width=0.65\textwidth, minimum height=2.2cm, align=center] {
-                \Large \textbf{\color{nustblue}NATIONAL DEFENSE \& STRATEGIC INDUSTRIES}\\[0.2cm]
-                \small \textbf{\color{black}PROJECT PROOF-OF-CONCEPT \& TECHNICAL REPORT}
+            \node[rectangle, rounded corners=6pt, draw=nustblue, fill=nustlight, line width=1.2pt, minimum width=0.75\textwidth, minimum height=2.4cm, align=center] {
+                \Large \textbf{\color{nustblue}PRESIDENTIAL TECHNICAL BRIEFING \& STRATEGIC DOSSIER}\\[0.25cm]
+                \small \textbf{\color{black}INDIGENOUS BIO-MOLECULAR DEFENSE \& SUPPLY CHAIN INTEGRITY}
             };
         \end{tikzpicture}
     \end{figure}
     
     \vspace{0.8cm}
-    {\large \textbf{EXECUTIVE BRIEFING REPORT}}\\[0.4cm]
+    {\large \textbf{TECHNICAL PROOF-OF-CONCEPT REPORT}}\\[0.4cm]
     
     \noindent\makebox[\linewidth]{{\color{nustblue}\rule{\textwidth}{2pt}}}\\[0.4cm]
-    {\huge \textbf{INDIGENOUS DEVELOPMENT OF DNA TAGGING SYSTEM FOR INDUSTRIES}}\\[0.2cm]
+    {\huge \textbf{INDIGENOUS DEVELOPMENT OF DNA TAGGING SYSTEM FOR NATIONAL INDUSTRIES}}\\[0.2cm]
     \noindent\makebox[\linewidth]{{\color{nustblue}\rule{\textwidth}{1pt}}}\\[0.8cm]
     
-    {\large \textbf{Project Inception:} January 2, 2026 \quad $\vert$ \quad \textbf{Review Date:} August 2026}\\[1.5cm]
+    {\large \textbf{Project Review:} August 2026 \quad $\vert$ \quad \textbf{Classification:} Strategic / Proprietary}\\[1.5cm]
     
     \begin{tabular}{ll}
         \textbf{Principal Investigator:} & \textbf{Dr. Muhammad Qasim Hayat} (ASAB, NUST) \\[0.2cm]
@@ -118,10 +118,10 @@
 % =========================================================================
 % EXECUTIVE SIGNATURES & VERIFICATION
 % =========================================================================
-\chapter*{Institutional Authentication \& Approvals}
-\addcontentsline{toc}{chapter}{Institutional Authentication \& Approvals}
+\chapter*{Institutional Authentication \& Sovereign Endorsement}
+\addcontentsline{toc}{chapter}{Institutional Authentication \& Sovereign Endorsement}
 
-This formal report presents the comprehensive technological architecture, empirical wet-lab validation, and proof-of-concept results for the \textbf{Indigenous DNA Tagging System for Industries}. All experimental data, real-time qPCR curves, and software protocols documented herein have been executed, verified, and approved by the project research leadership.
+This strategic technical report presents the completed technological architecture, mathematical foundation, and empirical wet-lab validation for the \textbf{Indigenous DNA Tagging System for National Industries}. All bioinformatic algorithms, physical synthesis protocols, real-time multiplex qPCR verification curves, and scalability models documented herein have been executed, validated, and formally certified by the project scientific leadership.
 
 \vspace{2.5cm}
 
@@ -141,7 +141,7 @@ This formal report presents the comprehensive technological architecture, empiri
 \clearpage
 
 % =========================================================================
-% TABLE OF CONTENTS
+% TABLE OF CONTENTS, LIST OF FIGURES & TABLES
 % =========================================================================
 \pagenumbering{roman}
 \tableofcontents
@@ -155,12 +155,13 @@ This formal report presents the comprehensive technological architecture, empiri
 \setcounter{page}{1}
 
 % =========================================================================
-% CHAPTER INCLUDES
+% STRATEGIC CHAPTERS
 % =========================================================================
 \include{ch1}
 \include{ch2}
 \include{ch3}
 \include{ch4}
 \include{ch5}
+\include{ch6}
 
 \end{document}

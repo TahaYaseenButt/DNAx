@@ -1,48 +1,68 @@
-\chapter{Digital Management System \& National Verification}
-\label{chap:dms}
+\chapter{Inorganic Nanomaterial Encapsulation for Extreme Environments}
+\label{chap:nano_encapsulation}
 
-\section{Unified Digital Architecture}
-To guarantee sovereign data security, prevent unauthorized access, and provide court-admissible audit trails, the digital infrastructure is built around a centralized, role-isolated architecture (Figure~\ref{fig:dms_architecture}).
+\section{Nano-Shielding Rationale: Thermal, Chemical, and Mechanical Defense}
+While bare synthetic DNA is stable in buffered liquid carriers, harsh industrial environments — such as metallic projectile casting, high-temperature pyrotechnics, explosive detonations, intense UV solar irradiation, and corrosive chemical exposures — demand robust physical protection. To overcome these constraints, an inorganic multi-layer core-shell nanoparticle system was engineered (Figure~\ref{fig:core_shell_architecture}).
 
 \begin{figure}[H]
     \centering
-    \begin{tikzpicture}[
-        hubnode/.style={cylinder, draw=nustblue, fill=nustlight, shape aspect=0.4, line width=1.2pt, minimum width=3.2cm, minimum height=2.2cm, align=center, font=\small\bfseries},
-        appnode/.style={rectangle, rounded corners=4pt, draw=black, fill=white, line width=1pt, text width=4.0cm, minimum height=1.5cm, align=center, font=\small},
-        linkarrow/.style={latex-latex, line width=1.1pt, color=nustblue}
-    ]
-        % Central Hub
-        \node[hubnode] (hub) at (0, 0) {CENTRAL SECURE\\ DATABASE\\ \scriptsize Unified Relational Ledger\\ \tiny Encrypted Cryptographic Records};
+    \begin{tikzpicture}[scale=0.95]
+        % Outermost Ceramic Shield
+        \draw[line width=1.4pt, fill=nustlight, draw=black] (0,0) circle (3.5cm);
+        \node[font=\footnotesize\bfseries, color=black] at (0, 3.1) {Outer Refractory Ceramic Barrier ($>800^\circ\text{C}$)};
         
-        % 4 Surrounding Apps
-        \node[appnode] (signet) at (-5.5, 2.3) {\textbf{1. DNAx Signet\textsuperscript{\textcopyright}}\\ \footnotesize National Research Lab\\ \tiny Generates \& Validates Taggants};
-        \node[appnode] (mfg) at (5.5, 2.3) {\textbf{2. DNAx Manufacturing\textsuperscript{\textcopyright}}\\ \footnotesize Production Facility\\ \tiny Registers, Mixes \& Dispenses};
-        \node[appnode] (forensic) at (-5.5, -2.3) {\textbf{4. DNAx Forensics\textsuperscript{\textcopyright}}\\ \footnotesize Enforcement Agency\\ \tiny qPCR Deconvolution \& Certification};
-        \node[appnode] (vendor) at (5.5, -2.3) {\textbf{3. DNAx Vendor\textsuperscript{\textcopyright}}\\ \footnotesize Supply Chain \& Customs\\ \tiny Mobile Custody Tracking};
+        % Secondary Silica & Phosphor Shell
+        \draw[line width=1.1pt, fill=white, draw=black] (0,0) circle (2.8cm);
+        \node[font=\footnotesize\bfseries, color=black] at (0, 2.45) {Secondary $\text{SiO}_2$ Shell + Phosphors ($\text{SnO}_2:\text{Eu}^{3+}$)};
         
-        % Secure SQL Links
-        \draw[linkarrow] (signet.south east) -- (hub.north west);
-        \draw[linkarrow] (mfg.south west) -- (hub.north east);
-        \draw[linkarrow] (forensic.north east) -- (hub.south west);
-        \draw[linkarrow] (vendor.north west) -- (hub.south east);
+        % DNA Strands Layer
+        \draw[line width=1.1pt, fill=nustlight, draw=nustblue] (0,0) circle (2.1cm);
+        \node[font=\footnotesize\bfseries, color=nustblue] at (0, 1.75) {Synthetic DNA Layer ($\delta^-$ Backbone)};
+        
+        % CTAB Surfactant Bilayer
+        \draw[line width=1.0pt, fill=white, draw=black] (0,0) circle (1.4cm);
+        \node[font=\scriptsize\bfseries, color=black] at (0, 1.1) {CTAB Bilayer ($\delta^+$)};
+        
+        % Silica Nanoparticle Core
+        \draw[line width=1.2pt, fill=nustlight, draw=black] (0,0) circle (0.8cm);
+        \node[font=\tiny\bfseries, color=black, align=center] at (0, 0) {$\text{SiO}_2$ Core\\ (200--300 nm)};
     \end{tikzpicture}
-    \caption{The 4-tier DNAx software ecosystem operating on a secure, role-isolated central database ledger.}
-    \label{fig:dms_architecture}
+    \caption{Concentric multi-layer architecture of the encapsulated DNA taggant particle providing thermal and chemical protection.}
+    \label{fig:core_shell_architecture}
 \end{figure}
 
-\section{Specialized Software Capabilities}
-The ecosystem comprises four purpose-built application modules:
-\begin{enumerate}
-    \item \textbf{DNAx Signet\textsuperscript{\textcopyright} (Research Laboratory Module)}: Operates inside secure national central laboratories. Performs thermodynamic modeling, in silico BLAST homology checks, primer/probe optimization, and cryptographic QR token generation.
-    \item \textbf{DNAx Manufacturing\textsuperscript{\textcopyright} (Industrial Production Module)}: Deployed on factory-floor workstations. Interfaces directly with micro-metering pumps on automated spray machinery to dispense exact taggant formulas and bind them to product serials.
-    \item \textbf{DNAx Vendor\textsuperscript{\textcopyright} (Mobile Supply Chain Module)}: Deployed on handheld mobile terminals for customs officers, distributors, and logistics checkpoints. Enforces biometric verification, scans product QR codes, and logs timestamped GPS coordinates to create an unbroken chain of custody.
-    \item \textbf{DNAx Forensics\textsuperscript{\textcopyright} (Agency Verification Module)}: Dedicated to national forensic institutes and security agencies. Ingests raw multi-channel qPCR telemetry, deconvolutes the 4-probe fluorophore combination, verifies authenticity against the central database, and generates cryptographically signed legal certificates.
-\end{enumerate}
+\textit{[Space provided below for custom descriptive notes regarding encapsulation architecture, inorganic shielding mechanisms, and protective coating formulations.]}
 
-\section{Strategic Impact \& Conclusion}
-The successful empirical completion of this proof-of-concept establishes a complete, sovereign technological capability for the nation:
-\begin{itemize}
-    \item \textbf{100\% Indigenous IP}: Zero reliance on foreign proprietary platforms for sequence design, synthesis, or verification algorithms.
-    \item \textbf{Multi-Industry Applicability}: Field-tested across pharmaceuticals, security labels, and automated manufacturing lines, with scalable formulations for strategic defense materials.
-    \item \textbf{Unbreakable Chain of Custody}: Physical DNA molecular markers cryptographically bound to digital database ledgers, providing absolute forensic truth for national security and economic protection.
-\end{itemize}
+\vspace{2.5cm}
+
+\section{Encapsulation Protocols \& Reaction Methodology}
+\textit{[Space provided for detailed step-by-step chemical protocols including Stöber sol-gel synthesis, CTAB functionalization, DNA electrostatic binding, secondary shell growth, and phosphor doping.]}
+
+\subsection{Stage I: Silica Core Nanoparticle Synthesis}
+\vspace{3.0cm}
+
+\subsection{Stage II: CTAB Surface Functionalization \& Charge Inversion}
+\vspace{3.0cm}
+
+\subsection{Stage III: DNA Loading \& Secondary Silica Shell Encapsulation}
+\vspace{3.0cm}
+
+\subsection{Stage IV: Optical Phosphor Doping \& Outer Ceramic Shielding}
+\vspace{3.0cm}
+
+\clearpage
+
+\section{Nanomaterial Characterization Data}
+\textit{[Space designated for structural and chemical characterization results (SEM, EDX, PSA, FTIR, and XRD).]}
+
+\subsection{Scanning Electron Microscopy (SEM) \& EDX Spectroscopy}
+\vspace{3.5cm}
+
+\subsection{Particle Size Analysis (PSA) — Laser Diffraction}
+\vspace{3.5cm}
+
+\subsection{Fourier Transform Infrared (FTIR) Spectroscopy}
+\vspace{3.5cm}
+
+\subsection{X-Ray Diffraction (XRD) Phase Analysis}
+\vspace{3.5cm}
