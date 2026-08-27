@@ -49,23 +49,32 @@ DNA constructs are designed through the custom software engine:
     \centering
     \begin{tikzpicture}[
         scale=0.88, transform shape,
-        basebox/.style={rectangle, draw=black, line width=0.8pt, minimum height=0.85cm, align=center, font=\small\bfseries},
-        primerbox/.style={basebox, fill=gray!15, text width=2.2cm},
-        probebox/.style={basebox, fill=white, text width=2.0cm}
+        boxstyle/.style={
+            rectangle, 
+            draw=black, 
+            line width=0.8pt, 
+            minimum width=2.15cm, 
+            text width=2.05cm, 
+            minimum height=1.35cm, 
+            align=center, 
+            font=\footnotesize\bfseries
+        },
+        primerbox/.style={boxstyle, fill=gray!15},
+        probebox/.style={boxstyle, fill=white}
     ]
-        \node[primerbox] (fwd) at (0, 0) {5' Forward\\ Primer (20 bp)};
-        \node[probebox, right=0.12cm of fwd] (p1) {Probe 1\\ FAM (24 bp)};
-        \node[probebox, right=0.12cm of p1] (p2) {Probe 2\\ HEX (24 bp)};
-        \node[probebox, right=0.12cm of p2] (p3) {Probe 3\\ TxRed (24 bp)};
-        \node[probebox, right=0.12cm of p3] (p4) {Probe 4\\ Cy5 (24 bp)};
-        \node[primerbox, right=0.12cm of p4] (rev) {3' Reverse\\ Primer (20 bp)};
+        \node[primerbox] (fwd) at (0, 0) {5' Forward\\ Primer\\ (20 bp)};
+        \node[probebox, right=0.12cm of fwd] (p1) {Probe 1\\ FAM\\ (24 bp)};
+        \node[probebox, right=0.12cm of p1] (p2) {Probe 2\\ HEX\\ (24 bp)};
+        \node[probebox, right=0.12cm of p2] (p3) {Probe 3\\ TxRed\\ (24 bp)};
+        \node[probebox, right=0.12cm of p3] (p4) {Probe 4\\ Cy5\\ (24 bp)};
+        \node[primerbox, right=0.12cm of p4] (rev) {3' Reverse\\ Primer\\ (20 bp)};
         
         \draw[decorate, decoration={brace, amplitude=5pt, mirror}, line width=0.8pt, color=black] 
-            ($(p1.south west)+(0,-0.12)$) -- ($(p4.south east)+(0,-0.12)$)
+            ($(p1.south west)+(0,-0.15)$) -- ($(p4.south east)+(0,-0.15)$)
             node[midway, below=6pt, font=\small\bfseries] {Multiplex Payload (4 Probes $\times$ 24 bp)};
             
         \draw[decorate, decoration={brace, amplitude=5pt}, line width=0.8pt, color=black] 
-            ($(fwd.north west)+(0,0.12)$) -- ($(rev.north east)+(0,0.12)$)
+            ($(fwd.north west)+(0,0.15)$) -- ($(rev.north east)+(0,0.15)$)
             node[midway, above=6pt, font=\small\bfseries] {Synthesized Prototype Construct (200 bp)};
     \end{tikzpicture}
     \caption{Molecular layout of the synthesized 200~bp prototype DNA taggant construct.}
