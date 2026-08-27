@@ -4,12 +4,13 @@
 \section{Overview}
 Wet-lab experiments conducted at ASAB-NUST successfully achieved:
 \begin{enumerate}
-    \item High-fidelity PCR synthesis and electrophoretic confirmation of the pure 200~bp prototype construct.
+    \item Rapid colony PCR recovery ($95^\circ\text{C}$, 10~min heat-lysis) and gradient PCR optimization ($57^\circ\text{C}$) of the 200~bp prototype construct.
+    \item Validation of 1.0-Liter bulk spray formulation homogeneity ($C_q \approx 4.2\text{--}5.7$ across 5 random fractions).
     \item Real-time multiplex qPCR detection with 100\% optical signal across all 4 probe channels (FAM, HEX, Texas Red, Cy5) in a single reaction.
 \end{enumerate}
 
-\section{Gel Electrophoresis}
-The PCR amplification product was evaluated on a 2.0\% agarose gel stained with ethidium bromide (Figure~\ref{fig:gel_electrophoresis}).
+\section{Gel Electrophoresis \& Annealing Optimization}
+Gradient PCR was evaluated on a 2.0\% agarose gel across annealing temperatures from $54^\circ\text{C}$ to $59^\circ\text{C}$ (Figure~\ref{fig:gel_electrophoresis}).
 
 \begin{figure}[H]
     \centering
@@ -31,7 +32,7 @@ The PCR amplification product was evaluated on a 2.0\% agarose gel stained with 
         
         % Well Labels Above
         \node[font=\footnotesize\bfseries, color=black, align=center] at (-2.8, 3.1) {Lane M\\ \scriptsize (DNA Ladder)};
-        \node[font=\footnotesize\bfseries, color=black, align=center] at (-0.9, 3.1) {Lane 1\\ \scriptsize (PCR Product)};
+        \node[font=\footnotesize\bfseries, color=black, align=center] at (-0.9, 3.1) {Lane 1\\ \scriptsize ($57^\circ\text{C}$ Optimum)};
         \node[font=\footnotesize\bfseries, color=black, align=center] at (0.9, 3.1) {Lane 2\\ \scriptsize (Replicate)};
         \node[font=\footnotesize\bfseries, color=black, align=center] at (2.8, 3.1) {Lane 3\\ \scriptsize (No Template)};
         
@@ -64,9 +65,32 @@ The PCR amplification product was evaluated on a 2.0\% agarose gel stained with 
     \label{fig:gel_electrophoresis}
 \end{figure}
 
-The gel image confirmed a clean, single band migrating precisely at the 200~bp marker, with no primer-dimer formation or degradation.
+The temperature range $55^\circ\text{C}\text{--}57^\circ\text{C}$ yielded sharp amplification, with $57.0^\circ\text{C}$ identified as the optimum annealing temperature, producing a single, well-defined band at 200~bp without primer-dimers.
 
-\section{4-Channel Multiplex qPCR}
+\section{Bulk Formulation Homogeneity (1.0~L Reagent)}
+To evaluate whether DNA taggants remain uniformly distributed within a large-volume liquid carrier, five random fractions (F1 to F5) were sampled from the 1.0-Liter TE formulation and evaluated via qPCR (Table~\ref{tab:homogeneity_data}).
+
+\begin{table}[H]
+\centering
+\small
+\caption{qPCR Assessment of Spatial Homogeneity Across 1.0-Liter Bulk Reagent}
+\label{tab:homogeneity_data}
+\begin{tabularx}{\textwidth}{c c c p{4.5cm}}
+\toprule
+\textbf{Sample Fraction} & \textbf{Reagent Volume} & \textbf{Observed $C_q$} & \textbf{Homogeneity Status} \\
+\midrule
+\textbf{F1} & $1.0~\mu\text{L}$ & \textbf{4.21} & Positive (Uniform Distribution) \\
+\textbf{F2} & $1.0~\mu\text{L}$ & \textbf{5.03} & Positive (Uniform Distribution) \\
+\textbf{F3} & $1.0~\mu\text{L}$ & \textbf{5.75} & Positive (Uniform Distribution) \\
+\textbf{F4} & $1.0~\mu\text{L}$ & \textbf{5.34} & Positive (Uniform Distribution) \\
+\textbf{F5} & $1.0~\mu\text{L}$ & \textbf{5.25} & Positive (Uniform Distribution) \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The tight cycle threshold cluster ($C_q = 4.2\text{--}5.7$) across all 5 fractions confirms complete spatial dispersion throughout the 1.0-Liter spray formulation.
+
+\section{4-Channel Multiplex qPCR Verification}
 Real-time qPCR was executed with simultaneous 4-channel fluorescence acquisition (Figure~\ref{fig:qpcr_curves}).
 
 \begin{figure}[H]
@@ -159,7 +183,7 @@ Real-time qPCR was executed with simultaneous 4-channel fluorescence acquisition
 \end{figure}
 
 \section{Quantitative Cycle ($C_q$) Data}
-Table~\ref{tab:qpcr_empirical_data} presents the experimental quantification cycle ($C_q$) values:
+Table~\ref{tab:qpcr_empirical_data} presents the experimental quantification cycle ($C_q$) values for single and multiplex probe validation:
 
 \begin{table}[H]
 \centering
@@ -174,6 +198,8 @@ Table~\ref{tab:qpcr_empirical_data} presents the experimental quantification cyc
 \textbf{Probe B} & FAM & $520\text{ nm}$ & \textbf{5.34} / \textbf{6.01} & \textbf{Positive} (High Copy Amplification) \\
 \textbf{Probe C} & Texas Red & $610\text{ nm}$ & \textbf{15.62} / \textbf{16.89} & \textbf{Positive} (Target Confirmed) \\
 \textbf{Probe D} & Cy5 & $670\text{ nm}$ & \textbf{17.49} / \textbf{18.83} & \textbf{Positive} (Target Confirmed) \\
+\midrule
+\textbf{Multiplex Run} & All 4 Channels & Multi & \textbf{11.95 -- 15.49} & \textbf{Positive} (All 4 Dyes Resolved) \\
 \bottomrule
 \end{tabularx}
 \end{table}

@@ -83,26 +83,28 @@ DNA constructs are designed through the custom software engine:
 
 \section{Physical Synthesis \& Formulation}
 \begin{enumerate}
-    \item \textbf{Plasmid Miniprep}: Synthesized in pUC57 vector (Lot No. BJ033535).
-    \item \textbf{PCR Scaling}: High-yield PCR amplification ($35\text{ cycles}$) produces pure amplicon ($200\text{ bp}$ prototype).
-    \item \textbf{1.0-Liter Bulk Formulation}: 100~$\mu\text{L}$ PCR product is mixed into 1.0~Liter of stabilized carrier buffer (10~mL 1M Tris-HCl, 2~mL 0.5M EDTA, 988~mL $\text{ddH}_2\text{O}$), generating the master taggant stock.
+    \item \textbf{Bacterial Host Propagation}: The cloned construct was supplied in transformed \textit{Escherichia coli} (Stab Top10) on ampicillin-selective LB agar and cultured in LB broth at $37^\circ\text{C}$ for 16 hours.
+    \item \textbf{Rapid Heat-Lysis Screening}: Individual bacterial colonies were suspended in $100~\mu\text{L}$ TE buffer, heat-treated at $95^\circ\text{C}$ for 10 minutes in a thermal cycler, and briefly spun. The supernatant was used directly as PCR template, eliminating the need for commercial DNA extraction kits.
+    \item \textbf{Annealing Optimization \& PCR Scaling}: Gradient PCR performed across $54^\circ\text{C}\text{--}59^\circ\text{C}$ identified $57.0^\circ\text{C}$ as the optimal annealing temperature. 35 cycles of amplification produced pure 200~bp amplicon stocks.
+    \item \textbf{1.0-Liter Master Spray Formulation}: 1.0~Liter of stabilized TE buffer (10~mM Tris-HCl, 1~mM EDTA, pH~8.0) was prepared with distilled water and autoclaved at $121^\circ\text{C}$ for 20 minutes. A volume of $100~\mu\text{L}$ of amplified DNA taggant (from 4--5 PCR reactions) was introduced into the 1~L carrier buffer and blended on a laboratory blood mixer to achieve complete spatial homogeneity.
 \end{enumerate}
 
 \section{Product Integration}
 \begin{itemize}
-    \item \textbf{Liquids}: Directly dosed into pharmaceutical bottles (\textit{Gelsemium 30, Surkhana}) at parts-per-billion levels.
-    \item \textbf{Packaging \& Labels}: Applied via an automated 6-station roll-to-roll spray machine with infrared flash curing ($60^\circ\text{C}$, 1.5s).
+    \item \textbf{Commercial Pharmaceutical QR Codes}: The taggant spray formulation was directly applied onto 2D DataMatrix and QR code panels of commercial pharmaceutical packaging (e.g., Macter syrup bottles, Bismol, and tablet cartons).
+    \item \textbf{Liquid Matrices}: Directly dosed into liquid consumables (\textit{Gelsemium 30, Surkhana}) at parts-per-billion concentrations without altering color, viscosity, or chemical stability.
+    \item \textbf{Industrial Roll-to-Roll Spraying}: Applied via an automated 6-station roll-to-roll spray machine with infrared flash curing ($60^\circ\text{C}$, 1.5s).
 \end{itemize}
 
 \section{Field Recovery}
 \begin{enumerate}
-    \item \textbf{Swabbing}: A sterile swab moistened with recovery buffer wipes the product security zone.
-    \item \textbf{Chemical Etching}: For coated samples, mild fluoride buffer ($\text{NH}_4\text{F}/\text{HF}$) dissolves silica coatings in 10 minutes.
-    \item \textbf{Spin Column}: Standard silica spin column elutes clean DNA in $25.0~\mu\text{L}$ water.
+    \item \textbf{Surface Swabbing}: A sterile swab moistened with recovery buffer wipes the printed QR code or product security zone.
+    \item \textbf{Chemical Etching}: For encapsulated samples, mild fluoride buffer ($\text{NH}_4\text{F}/\text{HF}$) dissolves outer silica nano-coatings within 10 minutes.
+    \item \textbf{Purification}: Standard silica spin column elutes purified DNA in $25.0~\mu\text{L}$ nuclease-free water.
 \end{enumerate}
 
-\section{qPCR Verification}
+\section{qPCR Verification Protocols}
 \begin{itemize}
-    \item \textbf{Multiplex Run}: The recovered sample is run in a 4-channel real-time thermal cycler to simultaneously detect FAM, HEX, Texas Red, and Cy5.
-    \item \textbf{Database Matching}: Recorded $C_q$ values are checked against the database to confirm product authenticity and lot identity.
+    \item \textbf{Thermal Cycling Program}: Standard 5-stage profile: Initial denaturation at $95^\circ\text{C}$ for 5~min (1 cycle), followed by 35 cycles of denaturation ($95^\circ\text{C}$, 30s), annealing ($55^\circ\text{C}\text{--}57^\circ\text{C}$, 30s), extension ($72^\circ\text{C}$, 45s), and a final extension at $72^\circ\text{C}$ for 7~min.
+    \item \textbf{4-Channel Deconvolution}: The recovered DNA is run with 4 sequence-specific fluorophore probes (FAM, HEX, Texas Red, Cy5) to simultaneously confirm the 4-probe code against the central cloud ledger.
 \end{itemize}
