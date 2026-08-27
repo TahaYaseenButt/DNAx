@@ -68,27 +68,30 @@ Gradient PCR was evaluated on a 2.0\% agarose gel across annealing temperatures 
 The temperature range $55^\circ\text{C}\text{--}57^\circ\text{C}$ yielded sharp amplification, with $57.0^\circ\text{C}$ identified as the optimum annealing temperature, producing a single, well-defined band at 200~bp without primer-dimers.
 
 \section{Bulk Formulation Homogeneity (1.0~L Reagent)}
-To evaluate whether DNA taggants remain uniformly distributed within a large-volume liquid carrier, five random fractions (F1 to F5) were sampled from the 1.0-Liter TE formulation and evaluated via qPCR (Table~\ref{tab:homogeneity_data}).
+To evaluate whether DNA taggants remain uniformly distributed within a large-volume liquid carrier, multiple independent fractions (F1 to F7 and product recovery replicates PR1--PR2) were sampled from the 1.0-Liter TE formulation and evaluated via qPCR (Table~\ref{tab:homogeneity_data}).
 
 \begin{table}[H]
 \centering
 \small
 \caption{qPCR Assessment of Spatial Homogeneity Across 1.0-Liter Bulk Reagent}
 \label{tab:homogeneity_data}
-\begin{tabularx}{\textwidth}{c c c p{4.5cm}}
+\begin{tabularx}{\textwidth}{c c c p{4.2cm}}
 \toprule
-\textbf{Sample Fraction} & \textbf{Reagent Volume} & \textbf{Observed $C_q$} & \textbf{Homogeneity Status} \\
+\textbf{Sample Fraction} & \textbf{Template Volume} & \textbf{Observed $C_q$} & \textbf{Homogeneity Status} \\
 \midrule
-\textbf{F1} & $1.0~\mu\text{L}$ & \textbf{4.21} & Positive (Uniform Distribution) \\
-\textbf{F2} & $1.0~\mu\text{L}$ & \textbf{5.03} & Positive (Uniform Distribution) \\
-\textbf{F3} & $1.0~\mu\text{L}$ & \textbf{5.75} & Positive (Uniform Distribution) \\
-\textbf{F4} & $1.0~\mu\text{L}$ & \textbf{5.34} & Positive (Uniform Distribution) \\
-\textbf{F5} & $1.0~\mu\text{L}$ & \textbf{5.25} & Positive (Uniform Distribution) \\
+\textbf{F1} & $1.0~\mu\text{L}$ & \textbf{4.21} & Positive (Uniform Dispersion) \\
+\textbf{F2} & $1.0~\mu\text{L}$ & \textbf{5.03} & Positive (Uniform Dispersion) \\
+\textbf{F3} & $1.0~\mu\text{L}$ & \textbf{5.75} & Positive (Uniform Dispersion) \\
+\textbf{F4} & $1.0~\mu\text{L}$ & \textbf{5.34} & Positive (Uniform Dispersion) \\
+\textbf{F5 (Replicates R1/R2)} & $1.0\text{--}2.0~\mu\text{L}$ & \textbf{5.03 / 6.01} & Positive (Uniform Dispersion) \\
+\textbf{F6 (Replicates R1/R2)} & $1.0\text{--}2.0~\mu\text{L}$ & \textbf{5.75 / 6.59} & Positive (Uniform Dispersion) \\
+\textbf{F7 (Replicates R1/R2)} & $1.0\text{--}2.0~\mu\text{L}$ & \textbf{5.34 / 5.36} & Positive (Uniform Dispersion) \\
+\textbf{PR (Replicates R1/R2)} & $1.0\text{--}2.0~\mu\text{L}$ & \textbf{3.99 / 5.23} & Positive (Product Recovery) \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-The tight cycle threshold cluster ($C_q = 4.2\text{--}5.7$) across all 5 fractions confirms complete spatial dispersion throughout the 1.0-Liter spray formulation.
+The tight cycle threshold cluster ($C_q = 3.99\text{--}6.59$) across all 7 fractions and product replicates confirms complete spatial dispersion and stability throughout the 1.0-Liter spray formulation.
 
 \section{4-Channel Multiplex qPCR Verification}
 Real-time qPCR was executed with simultaneous 4-channel fluorescence acquisition (Figure~\ref{fig:qpcr_curves}).
@@ -183,23 +186,23 @@ Real-time qPCR was executed with simultaneous 4-channel fluorescence acquisition
 \end{figure}
 
 \section{Quantitative Cycle ($C_q$) Data}
-Table~\ref{tab:qpcr_empirical_data} presents the experimental quantification cycle ($C_q$) values for single and multiplex probe validation:
+Table~\ref{tab:qpcr_empirical_data} presents the experimental quantification cycle ($C_q$) values for single and multiplex probe validation across all tested replicates:
 
 \begin{table}[H]
 \centering
 \small
 \caption{Empirical qPCR Verification Data Across 4 Optical Probe Channels}
 \label{tab:qpcr_empirical_data}
-\begin{tabularx}{\textwidth}{l c c c p{4.0cm}}
+\begin{tabularx}{\textwidth}{l c c c X}
 \toprule
 \textbf{Target Probe} & \textbf{Optical Channel} & \textbf{Emission $\lambda$} & \textbf{Experimental $C_q$} & \textbf{Verification Status} \\
 \midrule
-\textbf{Probe A} & HEX & $556\text{ nm}$ & \textbf{17.25} / \textbf{17.29} & \textbf{Positive} (Target Confirmed) \\
-\textbf{Probe B} & FAM & $520\text{ nm}$ & \textbf{5.34} / \textbf{6.01} & \textbf{Positive} (High Copy Amplification) \\
-\textbf{Probe C} & Texas Red & $610\text{ nm}$ & \textbf{15.62} / \textbf{16.89} & \textbf{Positive} (Target Confirmed) \\
-\textbf{Probe D} & Cy5 & $670\text{ nm}$ & \textbf{17.49} / \textbf{18.83} & \textbf{Positive} (Target Confirmed) \\
+\textbf{Probe A} & FAM & $520\text{ nm}$ & \textbf{1.29 -- 6.01} & Positive (Target Confirmed) \\
+\textbf{Probe B} & HEX & $556\text{ nm}$ & \textbf{8.83 -- 17.29} & Positive (Target Confirmed) \\
+\textbf{Probe C} & Texas Red & $610\text{ nm}$ & \textbf{14.64 -- 16.89} & Positive (Target Confirmed) \\
+\textbf{Probe D} & Cy5 & $670\text{ nm}$ & \textbf{17.00 -- 18.83} & Positive (Target Confirmed) \\
 \midrule
-\textbf{Multiplex Run} & All 4 Channels & Multi & \textbf{11.95 -- 15.49} & \textbf{Positive} (All 4 Dyes Resolved) \\
+\textbf{4-Plex Multiplex} & All 4 Channels & Multi & \textbf{11.95 -- 15.49} & Positive (Full Deconvolution) \\
 \bottomrule
 \end{tabularx}
 \end{table}

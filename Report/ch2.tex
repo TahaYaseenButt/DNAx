@@ -85,6 +85,7 @@ DNA constructs are designed through the custom software engine:
 \begin{enumerate}
     \item \textbf{Bacterial Host Propagation}: The cloned construct was supplied in transformed \textit{Escherichia coli} (Stab Top10) on ampicillin-selective LB agar and cultured in LB broth at $37^\circ\text{C}$ for 16 hours.
     \item \textbf{Rapid Heat-Lysis Screening}: Individual bacterial colonies were suspended in $100~\mu\text{L}$ TE buffer, heat-treated at $95^\circ\text{C}$ for 10 minutes in a thermal cycler, and briefly spun. The supernatant was used directly as PCR template, eliminating the need for commercial DNA extraction kits.
+    \item \textbf{Standard PCR Master Mix ($25~\mu\text{L}$ Volume)}: Reagents were combined in $0.2\text{ mL}$ tubes comprising $2.5~\mu\text{L}$ 10$\times$ PCR buffer, $1.5~\mu\text{L}$ $\text{MgCl}_2$, $1.0~\mu\text{L}$ dNTPs, $1.0~\mu\text{L}$ Taq DNA polymerase, $1.0~\mu\text{L}$ each of forward and reverse primers, $1.0\text{--}2.0~\mu\text{L}$ template DNA, and $15.0\text{--}16.0~\mu\text{L}$ distilled water.
     \item \textbf{Annealing Optimization \& PCR Scaling}: Gradient PCR performed across $54^\circ\text{C}\text{--}59^\circ\text{C}$ identified $57.0^\circ\text{C}$ as the optimal annealing temperature. 35 cycles of amplification produced pure 200~bp amplicon stocks.
     \item \textbf{1.0-Liter Master Spray Formulation}: 1.0~Liter of stabilized TE buffer (10~mM Tris-HCl, 1~mM EDTA, pH~8.0) was prepared with distilled water and autoclaved at $121^\circ\text{C}$ for 20 minutes. A volume of $100~\mu\text{L}$ of amplified DNA taggant (from 4--5 PCR reactions) was introduced into the 1~L carrier buffer and blended on a laboratory blood mixer to achieve complete spatial homogeneity.
 \end{enumerate}
@@ -105,6 +106,7 @@ DNA constructs are designed through the custom software engine:
 
 \section{qPCR Verification Protocols}
 \begin{itemize}
-    \item \textbf{Thermal Cycling Program}: Standard 5-stage profile: Initial denaturation at $95^\circ\text{C}$ for 5~min (1 cycle), followed by 35 cycles of denaturation ($95^\circ\text{C}$, 30s), annealing ($55^\circ\text{C}\text{--}57^\circ\text{C}$, 30s), extension ($72^\circ\text{C}$, 45s), and a final extension at $72^\circ\text{C}$ for 7~min.
+    \item \textbf{Probe-Based qPCR Formulation ($20~\mu\text{L}$ Volume)}: Reagents comprise $4.0~\mu\text{L}$ of 2$\times$ Super Real Probe Premix, $0.6~\mu\text{L}$ forward primer, $0.6~\mu\text{L}$ reverse primer, $0.4~\mu\text{L}$ fluorophore probe, $1.0\text{--}2.0~\mu\text{L}$ template DNA, and $12.4\text{--}13.4~\mu\text{L}$ RNase-free $\text{ddH}_2\text{O}$.
+    \item \textbf{Thermal Cycling \& Melt Analysis}: Initial hot-start activation at $95^\circ\text{C}$ for 15~min, followed by 40 cycles of denaturation ($95^\circ\text{C}$, 30s), annealing ($55^\circ\text{C}$, 30s), extension ($72^\circ\text{C}$, 45s), hold at $95^\circ\text{C}$ for 60s, and high-resolution melt acquisition from $72^\circ\text{C}$ to $95^\circ\text{C}$ at $0.3^\circ\text{C}/\text{s}$.
     \item \textbf{4-Channel Deconvolution}: The recovered DNA is run with 4 sequence-specific fluorophore probes (FAM, HEX, Texas Red, Cy5) to simultaneously confirm the 4-probe code against the central cloud ledger.
 \end{itemize}
