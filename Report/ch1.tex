@@ -40,24 +40,27 @@ The specific objectives completed in this work include:
     \item \textbf{Spatial Homogeneity Assessment}: Verify uniform distribution of the DNA taggant across multiple fractions (F1 to F7) of the 1.0-Liter bulk preparation using real-time qPCR.
     \item \textbf{Sequence-Specific Probe Verification}: Evaluate four distinct fluorophore probes (Probes A, B, C, and D) in individual and 4-plex multiplex real-time qPCR formats.
     \item \textbf{Packaging QR Code Application \& Recovery}: Apply the formulated taggant onto commercial packaging materials over 2D QR codes and demonstrate recovery via surface swabbing.
+    \item \textbf{5-Software Digital Ecosystem}: Develop an integrated 5-module digital management system (\textit{DNAx Signet}, \textit{DNAx Manufacture}, \textit{DNAx Inventory}, \textit{DNAx Vendor}, and \textit{DNAx Forensics}) connected via a central database to manage taggant design, product integration, inventory tracking, distribution checks, and laboratory verification.
 \end{enumerate}
 
 \begin{figure}[H]
     \centering
     \begin{tikzpicture}[
-        scale=0.88, transform shape,
-        corepillar/.style={rectangle, rounded corners=2pt, draw=black, fill=white, line width=0.8pt, text width=3.2cm, minimum height=1.1cm, align=center, font=\small\bfseries},
+        scale=0.82, transform shape,
+        corepillar/.style={rectangle, rounded corners=2pt, draw=black, fill=white, line width=0.8pt, text width=2.6cm, minimum height=1.1cm, align=center, font=\footnotesize\bfseries},
         arrowstyle/.style={-{Stealth[length=2.5mm]}, line width=0.9pt, color=black}
     ]
         \node[corepillar] (p1) at (0, 0) {1. Design \&\\ Synthesis};
-        \node[corepillar] (p2) at (3.8, 0) {2. PCR Amplification\\ \& Gel Check};
-        \node[corepillar] (p3) at (7.6, 0) {3. 1.0~L Formulation\\ \& QR Application};
-        \node[corepillar] (p4) at (11.4, 0) {4. Real-Time qPCR\\ Verification};
+        \node[corepillar] (p2) at (3.2, 0) {2. PCR Scaling\\ \& Gel Check};
+        \node[corepillar] (p3) at (6.4, 0) {3. 1.0~L Formulation\\ \& QR Dosing};
+        \node[corepillar] (p4) at (9.6, 0) {4. Real-Time qPCR\\ Verification};
+        \node[corepillar] (p5) at (12.8, 0) {5. 5-App Software\\ Ecosystem};
         
         \draw[arrowstyle] (p1) -- (p2);
         \draw[arrowstyle] (p2) -- (p3);
         \draw[arrowstyle] (p3) -- (p4);
+        \draw[arrowstyle] (p4) -- (p5);
     \end{tikzpicture}
-    \caption{Workflow of the Indigenous DNA Tagging System.}
-    \label{fig:four_pillars}
+    \caption{Workflow of the Indigenous DNA Tagging System encompassing laboratory synthesis and digital management.}
+    \label{fig:five_pillars}
 \end{figure}
