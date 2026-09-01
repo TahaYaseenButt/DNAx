@@ -182,18 +182,22 @@ Synthetic DNA taggants must be completely benign and environmentally inert:
 \end{figure}
 
     \item \textbf{Rapid Heat-Lysis Protocol}: Rather than using costly spin-column kits, individual colonies were transferred into $100~\mu\text{L}$ TE buffer, heat-lysed at $95^\circ\text{C}$ for 10 minutes in a thermal cycler, and briefly spun. The supernatant was used directly as PCR template.
-    \item \textbf{Standard PCR Master Mix ($25~\mu\text{L}$ Reaction)}:
+    \item \textbf{Optimized qPCR / PCR Reaction Formulation ($20.0~\mu\text{L}$ System)}:
     \begin{itemize}
-        \item $10\times$ PCR Buffer: $2.5~\mu\text{L}$
-        \item $\text{MgCl}_2$ ($25\text{ mM}$): $1.5~\mu\text{L}$
-        \item dNTP Mixture ($10\text{ mM}$): $1.0~\mu\text{L}$
-        \item Forward Primer ($10~\mu\text{M}$): $1.0~\mu\text{L}$
-        \item Reverse Primer ($10~\mu\text{M}$): $1.0~\mu\text{L}$
-        \item Taq DNA Polymerase ($5\text{ U}/\mu\text{L}$): $1.0~\mu\text{L}$
-        \item Colony-PCR Template: $1.0\text{--}2.0~\mu\text{L}$
-        \item Nuclease-Free Distilled Water: $15.0\text{--}16.0~\mu\text{L}$
+        \item $2\times$ Real-Time Master Mix: $10.0~\mu\text{L}$
+        \item Universal Forward Primer: $0.6~\mu\text{L}$
+        \item Universal Reverse Primer: $0.6~\mu\text{L}$
+        \item Template DNA: $1.0~\mu\text{L}$ (Reaction~1) or $2.0~\mu\text{L}$ (Reaction~2)
+        \item Nuclease-Free Water ($\text{ddH}_2\text{O}$): $7.8~\mu\text{L}$ (Reaction~1) or $6.8~\mu\text{L}$ (Reaction~2)
+        \item Total Reaction Volume: \textbf{20.0~$\mu\text{L}$}
     \end{itemize}
-    \item \textbf{Annealing Optimization}: Gradient PCR ($54^\circ\text{C}\text{--}59^\circ\text{C}$) verified $57.0^\circ\text{C}$ as the optimum annealing temperature, yielding high-concentration amplicon stocks over 35 cycles.
+    \item \textbf{Thermal Cycling Schedule}:
+    \begin{itemize}
+        \item Initial Denaturation: $95^\circ\text{C}$ for 5 min (1 cycle)
+        \item 3-Step Amplification (35 cycles): Denaturation at $95^\circ\text{C}$ (30 sec), Annealing at $55^\circ\text{C}$ (30 sec), Extension at $72^\circ\text{C}$ (45 sec)
+        \item Final Extension: $72^\circ\text{C}$ for 7 min (1 cycle)
+        \item Infinite Hold: $4^\circ\text{C}$ ($\infty$, 1 cycle)
+    \end{itemize}
     \item \textbf{1.0-Liter Master Spray Formulation}: A 1.0~Liter carrier of stabilized TE buffer (10~mM Tris-HCl, 1~mM EDTA, pH~8.0) was prepared and autoclaved at $121^\circ\text{C}$ for 20 minutes. A volume of $100~\mu\text{L}$ amplified DNA taggant was introduced into the 1~L bottle and blended using a laboratory blood mixer to achieve total spatial homogeneity.
 \end{enumerate}
 

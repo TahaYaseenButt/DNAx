@@ -21,10 +21,62 @@ To maximize amplification fidelity and eliminate non-specific primer-dimer artif
 
 Experimental observations confirmed:
 \begin{itemize}
-    \item At $54^\circ\text{C}$ and $59^\circ\text{C}$, amplification was sub-optimal with weak band intensity.
-    \item In the range of $55^\circ\text{C}\text{--}57^\circ\text{C}$, robust yield was observed, with **$57.0^\circ\text{C}$ producing the maximum electrophoretic intensity**.
-    \item A single, sharp band migrated precisely at the 200~bp reference ladder position, confirming the absence of secondary amplicons, chimeric artifacts, or primer-dimer complexes.
+    \item In gradient gel electrophoresis, amplification was evaluated between $54^\circ\text{C}$ and $59^\circ\text{C}$. Robust, specific amplification was achieved across $55^\circ\text{C}\text{--}57^\circ\text{C}$.
+    \item $55.0^\circ\text{C}$ was established as the standardized thermal cycler annealing temperature for all analytical qPCR runs.
+    \item A single, sharp band migrated precisely at the 200~bp reference ladder position, confirming the complete absence of secondary amplicons, chimeric artifacts, or primer-dimer complexes.
 \end{itemize}
+
+\section{qPCR Reaction Recipe \& Thermal Cycling Program}
+To ensure rigorous analytical reproducibility, eliminate non-specific hybridization, and maximize signal-to-noise ratio across all optical channels, the empirical qPCR assays were standardized to a total volume of $20.0~\mu\text{L}$. Table~\ref{tab:qpcr_recipe} specifies the master mix and oligonucleotide concentrations utilized for Reaction~1 ($1.0~\mu\text{L}$ template) and Reaction~2 ($2.0~\mu\text{L}$ template), matching the laboratory protocol shown in Figure~\ref{fig:qpcr_recipe_img}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.88\textwidth]{qpcr_recipe_thermal_cycling.png}
+    \caption{Laboratory master recipe and thermal cycler parameter program executed for taggant quantification.}
+    \label{fig:qpcr_recipe_img}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\small
+\caption{Empirical Real-Time PCR / qPCR Reaction Recipe ($20.0~\mu\text{L}$ System)}
+\label{tab:qpcr_recipe}
+\begin{tabularx}{0.85\textwidth}{X c c}
+\toprule
+\textbf{Component} & \textbf{Reaction 1} & \textbf{Reaction 2} \\
+\midrule
+Master Mix ($2\times$) & $10.0~\mu\text{L}$ & $10.0~\mu\text{L}$ \\
+Forward Primer & $0.6~\mu\text{L}$ & $0.6~\mu\text{L}$ \\
+Reverse Primer & $0.6~\mu\text{L}$ & $0.6~\mu\text{L}$ \\
+Template DNA & $1.0~\mu\text{L}$ & $2.0~\mu\text{L}$ \\
+Distilled Water ($\text{ddH}_2\text{O}$) & $7.8~\mu\text{L}$ & $6.8~\mu\text{L}$ \\
+\midrule
+\textbf{Total Volume} & \textbf{20.0~$\mu\text{L}$} & \textbf{20.0~$\mu\text{L}$} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The precise 3-step thermal cycling protocol configured on the real-time thermal cycler is itemized in Table~\ref{tab:thermal_cycling}.
+
+\begin{table}[H]
+\centering
+\small
+\caption{Thermal Cycler Amplification Parameters}
+\label{tab:thermal_cycling}
+\begin{tabularx}{0.88\textwidth}{X c c c}
+\toprule
+\textbf{Step} & \textbf{Temperature} & \textbf{Time} & \textbf{Cycles} \\
+\midrule
+Initial Denaturation & $95^\circ\text{C}$ & 5 min & 1 \\
+Denaturation & $95^\circ\text{C}$ & 30 sec & \multirow{3}{*}{35 cycles*} \\
+Annealing & $55^\circ\text{C}$ & 30 sec & \\
+Extension & $72^\circ\text{C}$ & 45 sec & \\
+Final Extension & $72^\circ\text{C}$ & 7 min & 1 \\
+Hold & $4^\circ\text{C}$ & $\infty$ & 1 \\
+\bottomrule
+\multicolumn{4}{@{}p{0.88\textwidth}@{}}{\footnotesize *35 cycles applies to the Denaturation, Annealing, and Extension steps (repeated as one cycle).}
+\end{tabularx}
+\end{table}
 
 \section{Bulk Formulation Homogeneity \& Serial Dilution Dynamics}
 A critical requirement for industrial taggants is that micro-dosed DNA molecules remain uniformly dispersed without aggregation or precipitation across large-volume liquid carriers. 

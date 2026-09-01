@@ -9,8 +9,9 @@
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Combinatorial mixing of 4 probes from a 72-probe library yielding over 1 million unique codes.}}{10}{figure.caption.9}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Empirical 2.0\% agarose gel electrophoresis photograph under UV transillumination showing the reference DNA ladder on the left (Lane M) and the discrete, high-fidelity 200~bp amplified DNA taggant bands across gradient annealing lanes.}}{13}{figure.caption.11}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Empirical real-time qPCR amplification curves and quantification cycle ($C_q$) tables directly captured from the thermal cycler across all four optical probe channels: Probe A (HEX), Probe B (FAM), Probe C (Texas Red), and Probe D (Cy5).}}{15}{figure.caption.13}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Laboratory master recipe and thermal cycler parameter program executed for taggant quantification.}}{14}{figure.caption.12}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Empirical real-time qPCR amplification curves and quantification cycle ($C_q$) tables directly captured from the thermal cycler across all four optical probe channels: Probe A (HEX), Probe B (FAM), Probe C (Texas Red), and Probe D (Cy5).}}{16}{figure.caption.16}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Multi-layer architecture of the encapsulated DNA taggant particle.}}{17}{figure.caption.15}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Multi-layer architecture of the encapsulated DNA taggant particle.}}{18}{figure.caption.18}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces The 4-app software ecosystem operating on the central database ledger.}}{20}{figure.caption.16}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces The 4-app software ecosystem operating on the central database ledger.}}{21}{figure.caption.19}%
