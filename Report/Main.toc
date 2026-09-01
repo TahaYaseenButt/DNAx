@@ -1,48 +1,24 @@
 \contentsline {chapter}{Project Approvals}{1}{chapter*.1}%
 \contentsline {chapter}{\numberline {1}Project Background \& Objectives}{1}{chapter.1}%
-\contentsline {section}{\numberline {1.1}National Strategic Context}{1}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Conventional Markers vs. Synthetic DNA}{1}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Core Scientific Foundations}{2}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Technical Scope \& Deliverables}{2}{section.1.4}%
-\contentsline {chapter}{\numberline {2}System Workflow \& Methodology}{4}{chapter.2}%
-\contentsline {section}{\numberline {2.1}End-to-End Operational Lifecycle}{4}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Molecular Architecture \& Probe Allocation}{4}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Thermodynamic Assay Engineering}{5}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Bio-Safety Filtering \& Offline BLAST}{6}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Physical Synthesis, Scaling \& Bulk Formulation}{6}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Industrial Product Integration}{8}{section.2.6}%
-\contentsline {section}{\numberline {2.7}Field Extraction \& Forensic Recovery}{9}{section.2.7}%
-\contentsline {chapter}{\numberline {3}National Scale Calculations}{10}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Sequence Space \& Combinatorial Entropy}{10}{section.3.1}%
-\contentsline {section}{\numberline {3.2}72-Probe Combinatorial Library Architecture}{10}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Multi-Sector Industrial Allocation}{11}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Dosing \& Unit Economics}{11}{section.3.4}%
-\contentsline {chapter}{\numberline {4}Experimental Results \& Verification}{13}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Overview of Empirical Verification Program}{13}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Gel Electrophoresis \& Annealing Optimization}{13}{section.4.2}%
-\contentsline {section}{\numberline {4.3}qPCR Reaction Recipe \& Thermal Cycling Program}{14}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Bulk Formulation Homogeneity \& Serial Dilution Dynamics}{16}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Serial Dilution Analysis}{16}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}1.0-Liter Spatial Homogeneity Data}{16}{subsection.4.4.2}%
-\contentsline {section}{\numberline {4.5}Empirical 4-Probe qPCR Amplification Results}{17}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Quantitative Cycle ($C_q$) Data}{17}{section.4.6}%
-\contentsline {chapter}{\numberline {5}Nanomaterial Encapsulation}{19}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Nano-Shielding Rationale}{19}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Encapsulation Protocols}{19}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Stage I: Silica Core Synthesis}{19}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Stage II: CTAB Functionalization \& Charge Inversion}{20}{subsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.2.3}Stage III: DNA Loading \& Secondary Silica Encapsulation}{20}{subsection.5.2.3}%
-\contentsline {subsection}{\numberline {5.2.4}Stage IV: Phosphor Doping \& Outer Ceramic Shielding}{20}{subsection.5.2.4}%
-\contentsline {section}{\numberline {5.3}Characterization Data}{21}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}SEM \& EDX Analysis}{21}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}Particle Size Analysis (PSA)}{21}{subsection.5.3.2}%
-\contentsline {subsection}{\numberline {5.3.3}FTIR Spectroscopy}{21}{subsection.5.3.3}%
-\contentsline {subsection}{\numberline {5.3.4}XRD Phase Analysis}{21}{subsection.5.3.4}%
-\contentsline {chapter}{\numberline {6}Software Ecosystem \& Digital Management System}{22}{chapter.6}%
-\contentsline {section}{\numberline {6.1}System Architecture \& Operational Philosophy}{22}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Application Modules}{22}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}1. DNAx Signet (Bioinformatic Design Platform)}{23}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}2. DNAx Inventory (Manufacturing \& Warehouse Terminal)}{23}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}3. DNAx Vendor (Mobile Supply Chain Platform)}{23}{subsection.6.2.3}%
-\contentsline {subsection}{\numberline {6.2.4}4. DNAx Forensics (Laboratory Verification Suite)}{24}{subsection.6.2.4}%
-\contentsline {section}{\numberline {6.3}Sovereign Technological Capability \& Conclusion}{24}{section.6.3}%
+\contentsline {section}{\numberline {1.1}Introduction and Strategic Context}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Conventional Anti-Counterfeiting vs. DNA Tagging}{1}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Specific Objectives of the Project}{2}{section.1.3}%
+\contentsline {chapter}{\numberline {2}Materials \& Taggant Synthesis}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}DNA Taggant Construct \& Bacterial Host}{3}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Bacterial Culture \& Colony Heat-Lysis}{3}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Universal Primers \& Sequence-Specific Probes}{3}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Endpoint PCR Synthesis Formulation \& Thermal Cycling}{4}{section.2.4}%
+\contentsline {chapter}{\numberline {3}Formulation \& Industrial Application}{6}{chapter.3}%
+\contentsline {section}{\numberline {3.1}1.0-Liter Bulk Carrier Formulation in TE Buffer}{6}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Sterilization \& Mixing Procedure}{7}{subsection.3.1.1}%
+\contentsline {section}{\numberline {3.2}Application to Commercial Products \& Packaging}{7}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Field Sampling \& Forensic Swabbing Protocol}{8}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Experimental Results \& Verification}{9}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Agarose Gel Electrophoresis Verification}{9}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Serial Dilution Analysis \& Template Dynamics}{9}{section.4.2}%
+\contentsline {section}{\numberline {4.3}1.0-Liter Bulk Homogeneity \& Product Recovery}{10}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Real-Time qPCR Formulation \& Cycling Parameters}{10}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Real-Time qPCR Probe Verification Results}{12}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Discussion \& Conclusion}{14}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Discussion of Experimental Findings}{14}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Conclusion}{14}{section.5.2}%

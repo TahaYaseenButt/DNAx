@@ -1,95 +1,33 @@
 \chapter{Experimental Results \& Verification}
 \label{chap:results}
 
-\section{Overview of Empirical Verification Program}
-Comprehensive wet-lab experiments were executed at the ASAB-NUST molecular biology laboratories to validate the physical viability, liquid stability, and forensic detectability of the synthesized DNA taggant:
-\begin{enumerate}
-    \item \textbf{High-Fidelity Amplification \& Gradient Optimization}: Determining optimal annealing conditions for the 200~bp prototype construct on agarose gel electrophoresis.
-    \item \textbf{Large-Volume Spatial Homogeneity}: Confirming uniform dispersion of the DNA taggant throughout a 1.0-Liter industrial carrier formulation.
-    \item \textbf{Single and Multiplex Real-Time qPCR}: Demonstrating 100\% positive optical resolution across all four fluorophore probe channels (FAM, HEX, Texas Red, Cy5) in both individual and simultaneous multi-probe formats.
-\end{enumerate}
-
-\section{Gel Electrophoresis \& Annealing Optimization}
-To maximize amplification fidelity and eliminate non-specific primer-dimer artifacts, gradient PCR was conducted across six annealing temperatures ranging from $54^\circ\text{C}$ to $59^\circ\text{C}$ using the colony-PCR lysate template. Amplified products were evaluated on a 2.0\% agarose gel stained with ethidium bromide (Figure~\ref{fig:gel_electrophoresis}).
+\section{Agarose Gel Electrophoresis Verification}
+To verify the molecular size and fidelity of the synthesized taggant construct, amplified products from gradient PCR ($54^\circ\text{C}\text{--}59^\circ\text{C}$) were evaluated on a 2.0\% agarose gel stained with ethidium bromide (Figure~\ref{fig:gel_electrophoresis}).
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.85\textwidth]{gel_electrophoresis_real.png}
-    \caption{Empirical 2.0\% agarose gel electrophoresis photograph under UV transillumination showing the reference DNA ladder on the left (Lane M) and the discrete, high-fidelity 200~bp amplified DNA taggant bands across gradient annealing lanes.}
+    \caption{Empirical 2.0\% agarose gel electrophoresis photograph under UV transillumination showing the DNA ladder on the left (Lane M) and the discrete, high-yield 200~bp amplified DNA taggant bands across gradient annealing lanes.}
     \label{fig:gel_electrophoresis}
 \end{figure}
 
-Experimental observations confirmed:
+The electrophoretic run confirmed:
 \begin{itemize}
-    \item In gradient gel electrophoresis, amplification was evaluated between $54^\circ\text{C}$ and $59^\circ\text{C}$. Robust, specific amplification was achieved across $55^\circ\text{C}\text{--}57^\circ\text{C}$.
-    \item $55.0^\circ\text{C}$ was established as the standardized thermal cycler annealing temperature for all analytical qPCR runs.
-    \item A single, sharp band migrated precisely at the 200~bp reference ladder position, confirming the complete absence of secondary amplicons, chimeric artifacts, or primer-dimer complexes.
+    \item A single, sharp amplicon band migrated precisely at the 200~bp reference ladder rung.
+    \item Optimal amplification yield was achieved at annealing temperatures between $55^\circ\text{C}$ and $57^\circ\text{C}$.
+    \item Total absence of non-specific secondary amplicons, primer-dimer complexes, or chimeric artifacts, verifying the high specificity of the universal primer pair.
 \end{itemize}
 
-\section{qPCR Reaction Recipe \& Thermal Cycling Program}
-To ensure rigorous analytical reproducibility, eliminate non-specific hybridization, and maximize signal-to-noise ratio across all optical channels, the empirical qPCR assays were standardized to a total volume of $20.0~\mu\text{L}$. Table~\ref{tab:qpcr_recipe} specifies the master mix and oligonucleotide concentrations utilized for Reaction~1 ($1.0~\mu\text{L}$ template) and Reaction~2 ($2.0~\mu\text{L}$ template), matching the laboratory protocol shown in Figure~\ref{fig:qpcr_recipe_img}.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.88\textwidth]{qpcr_recipe_thermal_cycling.png}
-    \caption{Laboratory master recipe and thermal cycler parameter program executed for taggant quantification.}
-    \label{fig:qpcr_recipe_img}
-\end{figure}
-
-\begin{table}[H]
-\centering
-\small
-\caption{Empirical Real-Time PCR / qPCR Reaction Recipe ($20.0~\mu\text{L}$ System)}
-\label{tab:qpcr_recipe}
-\begin{tabularx}{0.85\textwidth}{X c c}
-\toprule
-\textbf{Component} & \textbf{Reaction 1} & \textbf{Reaction 2} \\
-\midrule
-Master Mix ($2\times$) & $10.0~\mu\text{L}$ & $10.0~\mu\text{L}$ \\
-Forward Primer & $0.6~\mu\text{L}$ & $0.6~\mu\text{L}$ \\
-Reverse Primer & $0.6~\mu\text{L}$ & $0.6~\mu\text{L}$ \\
-Template DNA & $1.0~\mu\text{L}$ & $2.0~\mu\text{L}$ \\
-Distilled Water ($\text{ddH}_2\text{O}$) & $7.8~\mu\text{L}$ & $6.8~\mu\text{L}$ \\
-\midrule
-\textbf{Total Volume} & \textbf{20.0~$\mu\text{L}$} & \textbf{20.0~$\mu\text{L}$} \\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-The precise 3-step thermal cycling protocol configured on the real-time thermal cycler is itemized in Table~\ref{tab:thermal_cycling}.
-
-\begin{table}[H]
-\centering
-\small
-\caption{Thermal Cycler Amplification Parameters}
-\label{tab:thermal_cycling}
-\begin{tabularx}{0.88\textwidth}{X c c c}
-\toprule
-\textbf{Step} & \textbf{Temperature} & \textbf{Time} & \textbf{Cycles} \\
-\midrule
-Initial Denaturation & $95^\circ\text{C}$ & 5 min & 1 \\
-Denaturation & $95^\circ\text{C}$ & 30 sec & \multirow{3}{*}{35 cycles*} \\
-Annealing & $55^\circ\text{C}$ & 30 sec & \\
-Extension & $72^\circ\text{C}$ & 45 sec & \\
-Final Extension & $72^\circ\text{C}$ & 7 min & 1 \\
-Hold & $4^\circ\text{C}$ & $\infty$ & 1 \\
-\bottomrule
-\multicolumn{4}{@{}p{0.88\textwidth}@{}}{\footnotesize *35 cycles applies to the Denaturation, Annealing, and Extension steps (repeated as one cycle).}
-\end{tabularx}
-\end{table}
-
-\section{Bulk Formulation Homogeneity \& Serial Dilution Dynamics}
-A critical requirement for industrial taggants is that micro-dosed DNA molecules remain uniformly dispersed without aggregation or precipitation across large-volume liquid carriers. As established in Chapter~2 (Table~\ref{tab:bulk_1L_formulation} and Figure~\ref{fig:bulk_1L_recipe_img}), the 1.0-Liter bulk carrier was prepared from $10.0\text{ mL } 1\text{M Tris-HCl}$, $2.0\text{ mL } 0.5\text{M EDTA}$ ($\text{pH} = 8.0$), and $988.0\text{ mL}$ distilled water, subsequently spiked with $100~\mu\text{L}$ of amplified taggant amplicon pooled from 4--5 PCR reaction tubes.
-
-\subsection{Serial Dilution Analysis}
-Because real-time qPCR operates with extreme sensitivity, high initial concentrations of unpurified template can cause reaction saturation or hook effects. Serial 1:10 dilutions ($D_1$ to $D_4$) were evaluated:
+\section{Serial Dilution Analysis \& Template Dynamics}
+Real-time qPCR exhibits high analytical sensitivity. In early laboratory testing, undiluted, concentrated PCR product showed partial reaction inhibition. To resolve this and establish the optimal working concentration, serial 1:10 dilutions ($D_1$ to $D_4$) were evaluated:
 \begin{itemize}
-    \item The undiluted, concentrated PCR product exhibited partial kinetic inhibition during real-time cycling.
-    \item In contrast, the $1:10,000$ dilution ($D_4$) produced highly consistent, sharp amplification ($C_q \approx 4.78$). This empirical finding confirms that minute micro-dosing yields optimal quantification kinetics.
+    \item The concentrated template caused partial kinetic suppression during real-time amplification.
+    \item Serial dilution systematically relieved inhibition, with the 1:10,000 dilution ($D_4$) producing sharp, reproducible quantification cycles ($C_q \approx 4.78$).
+    \item Consequently, the 1:10,000 dilution was established as the standardized working concentration for bulk carrier formulation.
 \end{itemize}
 
-\subsection{1.0-Liter Spatial Homogeneity Data}
-To verify uniform mixing across the entire 1.0-Liter carrier volume, multiple independent fractions (F1 to F7) and product recovery swabbing tests (PR1--PR2) were sampled and evaluated (Table~\ref{tab:homogeneity_data}).
+\section{1.0-Liter Bulk Homogeneity \& Product Recovery}
+To assess whether the DNA taggant remains uniformly dispersed throughout the 1.0-Liter TE buffer carrier without settling or precipitation, multiple independent fractions (F1 to F7) and product recovery swabbing samples (PR1--PR2) were evaluated via real-time qPCR (Table~\ref{tab:homogeneity_data}).
 
 \begin{table}[H]
 \centering
@@ -112,24 +50,74 @@ To verify uniform mixing across the entire 1.0-Liter carrier volume, multiple in
 \end{tabularx}
 \end{table}
 
-The tight cycle threshold cluster ($C_q = 3.99\text{--}6.59$) across all 7 fractions and product replicates proves 100\% spatial homogeneity and liquid stability throughout the 1.0-Liter spray formulation.
+The consistent cycle threshold values ($C_q = 3.99\text{--}6.59$) across all sampled fractions and swabbed packaging surfaces confirm uniform liquid dispersion and stable recovery of the DNA taggant.
 
-\section{Empirical 4-Probe qPCR Amplification Results}
-Real-time qPCR amplification was conducted across all four dedicated probe channels. Figure~\ref{fig:qpcr_real_curves} displays the exact amplification trajectories and quantification cycle ($C_q$) data tables generated by the real-time thermal cycler for each respective probe target:
+\section{Real-Time qPCR Formulation \& Cycling Parameters}
+Forensic detection was standardized to a $20.0~\mu\text{L}$ reaction volume utilizing commercial real-time master mix, universal primers, and sequence-specific probes (Figure~\ref{fig:qpcr_recipe_img}, Table~\ref{tab:qpcr_recipe}, and Table~\ref{tab:thermal_cycling}).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{qpcr_recipe_thermal_cycling.png}
+    \caption{Laboratory master recipe and thermal cycler parameter schedule for real-time qPCR verification.}
+    \label{fig:qpcr_recipe_img}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\small
+\caption{Real-Time qPCR Reaction Formulation ($20.0~\mu\text{L}$ Total Volume)}
+\label{tab:qpcr_recipe}
+\begin{tabularx}{0.85\textwidth}{X c c}
+\toprule
+\textbf{Component} & \textbf{Reaction 1} & \textbf{Reaction 2} \\
+\midrule
+Master Mix ($2\times$) & $10.0~\mu\text{L}$ & $10.0~\mu\text{L}$ \\
+Forward Primer & $0.6~\mu\text{L}$ & $0.6~\mu\text{L}$ \\
+Reverse Primer & $0.6~\mu\text{L}$ & $0.6~\mu\text{L}$ \\
+Template DNA & $1.0~\mu\text{L}$ & $2.0~\mu\text{L}$ \\
+Distilled Water ($\text{ddH}_2\text{O}$) & $7.8~\mu\text{L}$ & $6.8~\mu\text{L}$ \\
+\midrule
+\textbf{Total Volume} & \textbf{20.0~$\mu\text{L}$} & \textbf{20.0~$\mu\text{L}$} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+\centering
+\small
+\caption{Real-Time Thermal Cycler Parameter Schedule}
+\label{tab:thermal_cycling}
+\begin{tabularx}{0.88\textwidth}{X c c c}
+\toprule
+\textbf{Step} & \textbf{Temperature} & \textbf{Time} & \textbf{Cycles} \\
+\midrule
+Initial Denaturation & $95^\circ\text{C}$ & 5 min & 1 \\
+Denaturation & $95^\circ\text{C}$ & 30 sec & \multirow{3}{*}{35 cycles*} \\
+Annealing & $55^\circ\text{C}$ & 30 sec & \\
+Extension & $72^\circ\text{C}$ & 45 sec & \\
+Final Extension & $72^\circ\text{C}$ & 7 min & 1 \\
+Hold & $4^\circ\text{C}$ & $\infty$ & 1 \\
+\bottomrule
+\multicolumn{4}{@{}p{0.88\textwidth}@{}}{\footnotesize *35 cycles applies to the Denaturation, Annealing, and Extension steps (repeated as one cycle).}
+\end{tabularx}
+\end{table}
+
+\section{Real-Time qPCR Probe Verification Results}
+Real-time qPCR amplification was evaluated across all four individual fluorophore probe channels, followed by a simultaneous 4-plex multiplex reaction. Figure~\ref{fig:qpcr_real_curves} displays the amplification curves and quantification cycle ($C_q$) data generated directly by the real-time thermal cycler.
 
 \begin{figure}[H]
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
         \includegraphics[width=\linewidth]{qpcr_probe_a_hex.png}
-        \caption{Prob A HEX ($\lambda_{\text{em}} = 556\text{ nm}$)}
+        \caption{Probe A (HEX Channel)}
         \label{fig:qpcr_probe_a}
-    \end{subfigure}
+    \end{subfigure}%
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
         \includegraphics[width=\linewidth]{qpcr_probe_b_fam.png}
-        \caption{Prob B FAM ($\lambda_{\text{em}} = 520\text{ nm}$)}
+        \caption{Probe B (FAM Channel)}
         \label{fig:qpcr_probe_b}
     \end{subfigure}
     
@@ -138,40 +126,39 @@ Real-time qPCR amplification was conducted across all four dedicated probe chann
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
         \includegraphics[width=\linewidth]{qpcr_probe_c_txr.png}
-        \caption{Prob C Texas Red ($\lambda_{\text{em}} = 610\text{ nm}$)}
+        \caption{Probe C (Texas Red Channel)}
         \label{fig:qpcr_probe_c}
-    \end{subfigure}
+    \end{subfigure}%
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
         \includegraphics[width=\linewidth]{qpcr_probe_d_cy5.png}
-        \caption{Prob D Cy5 ($\lambda_{\text{em}} = 670\text{ nm}$)}
+        \caption{Probe D (Cy5 Channel)}
         \label{fig:qpcr_probe_d}
     \end{subfigure}
-    \caption{Empirical real-time qPCR amplification curves and quantification cycle ($C_q$) tables directly captured from the thermal cycler across all four optical probe channels: Probe A (HEX), Probe B (FAM), Probe C (Texas Red), and Probe D (Cy5).}
+    \caption{Empirical real-time qPCR amplification curves and quantification cycle ($C_q$) data tables captured directly from the thermal cycler across all four optical channels: Probe A (HEX), Probe B (FAM), Probe C (Texas Red), and Probe D (Cy5).}
     \label{fig:qpcr_real_curves}
 \end{figure}
 
-\section{Quantitative Cycle ($C_q$) Data}
-Table~\ref{tab:qpcr_empirical_data} presents the experimental quantification cycle ($C_q$) values for single and multiplex probe validation across all tested replicates:
+Table~\ref{tab:empirical_probe_data} summarizes the quantification cycle ranges and analytical outcomes across all individual channels and the multiplex format.
 
 \begin{table}[H]
 \centering
 \small
-\caption{Empirical qPCR Verification Data Across 4 Optical Probe Channels}
-\label{tab:qpcr_empirical_data}
-\begin{tabularx}{\textwidth}{l c c c X}
+\caption{Summary of Empirical Real-Time qPCR Optical Results}
+\label{tab:empirical_probe_data}
+\begin{tabularx}{\textwidth}{X c c c c}
 \toprule
-\textbf{Target Probe} & \textbf{Optical Channel} & \textbf{Emission $\lambda$} & \textbf{Experimental $C_q$} & \textbf{Verification Status} \\
+\textbf{Assay Format} & \textbf{Optical Channel} & \textbf{Ex / Em ($\lambda$)} & \textbf{Observed $C_q$ Range} & \textbf{Status} \\
 \midrule
-\textbf{Probe A} & HEX & $556\text{ nm}$ & \textbf{1.29 -- 17.25} & Positive (Target Confirmed) \\
-\textbf{Probe B} & FAM & $520\text{ nm}$ & \textbf{3.99 -- 6.59} & Positive (Target Confirmed) \\
-\textbf{Probe C} & Texas Red & $610\text{ nm}$ & \textbf{14.84 -- 16.89} & Positive (Target Confirmed) \\
-\textbf{Probe D} & Cy5 & $670\text{ nm}$ & \textbf{17.00 -- 18.83} & Positive (Target Confirmed) \\
+\textbf{Probe A} & HEX & $535 / 556\text{ nm}$ & \textbf{1.29 -- 17.25} & Positive \\
+\textbf{Probe B} & FAM & $495 / 520\text{ nm}$ & \textbf{3.99 -- 6.59} & Positive \\
+\textbf{Probe C} & Texas Red & $585 / 610\text{ nm}$ & \textbf{14.84 -- 16.89} & Positive \\
+\textbf{Probe D} & Cy5 & $650 / 670\text{ nm}$ & \textbf{17.00 -- 18.83} & Positive \\
 \midrule
-\textbf{4-Plex Multiplex} & All 4 Channels & Multi & \textbf{11.95 -- 15.49} & Positive (Full Deconvolution) \\
+\textbf{4-Plex Multiplex} & 4 Channels & Multi-Channel & \textbf{11.95 -- 15.49} & Positive \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-All four fluorophore probes yielded clean amplification with $C_q < 20.0$, verifying that 4-probe multiplex deconvolution operates with 100\% specificity.
+The positive amplification across all four probe channels in both individual and multiplex configurations confirms that the synthetic DNA taggant can be authenticated with complete molecular specificity.

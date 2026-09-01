@@ -1,124 +1,57 @@
-\chapter{National Scale Calculations}
-\label{chap:national_calculations}
+\chapter{Formulation \& Industrial Application}
+\label{chap:formulation_application}
 
-\section{Sequence Space \& Combinatorial Entropy}
-For a synthetic linear DNA construct of length $N$ nucleotides, with four canonical nitrogenous bases ($\text{Adenine, Thymine, Cytosine, Guanine}$) possible at each position, the theoretical combinatorial space $S_{\text{total}}$ scales as:
-\begin{equation}
-    S_{\text{total}} = 4^N = 2^{2N}
-\end{equation}
-Taking the $N = 200\text{ base pair}$ linear construct synthesized for this project as an illustrative prototype, the total sequence permutation space is:
-\begin{equation}
-    S_{\text{total}} = 4^{200} = 2^{400} \approx \mathbf{2.58 \times 10^{120}\text{ unique sequence combinations}}
-\end{equation}
-To put this astronomical number into perspective:
-\begin{itemize}
-    \item The total estimated number of elementary atoms in the observable universe is approximately $10^{80}$.
-    \item The theoretical 200~bp sequence entropy ($2.58 \times 10^{120}$) exceeds universal atomic matter by **40 orders of magnitude**.
-    \item Consequently, the probability of an adversary randomly synthesizing or guessing an authentic sequence is effectively zero ($P < 10^{-120}$).
-\end{itemize}
+\section{1.0-Liter Bulk Carrier Formulation in TE Buffer}
+To enable industrial-scale application across commercial products, a standardized 1.0-Liter carrier formulation was prepared using sterile Tris-EDTA (TE) buffer (10~mM Tris-HCl, 1~mM EDTA, pH~8.0). TE buffer maintains long-term DNA integrity by chelating divalent metal ions (such as $\text{Mg}^{2+}$) that serve as co-factors for environmental DNases.
 
-\section{72-Probe Combinatorial Library Architecture}
-In nationwide commercial deployment, synthesizing a unique, custom-made DNA strand from scratch for every single product batch would be financially and logistically prohibitive. 
-
-To overcome this, the system uses a **combinatorial multi-probe mixing doctrine**:
-\begin{enumerate}
-    \item The sovereign facility maintains a master physical library of $M = 72$ pre-validated, orthogonal 24~bp fluorescent probe targets.
-    \item For any given production batch or authorized manufacturer, a unique combination of $k = 4$ distinct probes is drawn from the library and formulated together.
-\end{enumerate}
-
-The total number of distinct, non-interfering physical batch codes $C(M, k)$ generated is calculated via binomial combinations:
-\begin{equation}
-    C(72, 4) = \binom{72}{4} = \frac{72!}{4!(72-4)!} = \frac{72 \times 71 \times 70 \times 69}{4 \times 3 \times 2 \times 1} = \mathbf{1,028,790\text{ unique batch codes}}
-\end{equation}
+The master formulation recipe executed in the laboratory is illustrated in Figure~\ref{fig:bulk_1L_recipe_img} and summarized in Table~\ref{tab:bulk_1L_formulation}.
 
 \begin{figure}[H]
     \centering
-    \begin{tikzpicture}[
-        scale=0.88, transform shape,
-        block/.style={
-            rectangle, 
-            rounded corners=1pt, 
-            draw=black, 
-            fill=white, 
-            font=\tiny\bfseries, 
-            minimum width=0.85cm, 
-            minimum height=0.55cm, 
-            align=center
-        },
-        selblock/.style={
-            rectangle, 
-            rounded corners=2pt, 
-            draw=black, 
-            fill=gray!15, 
-            line width=0.8pt, 
-            font=\footnotesize\bfseries, 
-            minimum width=3.4cm, 
-            text width=3.2cm, 
-            minimum height=0.75cm, 
-            align=center
-        }
-    ]
-        % Library Block Matrix
-        \node[font=\small\bfseries\color{black}] at (2.4, 3.0) {Master Library ($M = 72$ Probes)};
-        
-        \foreach \x in {0,...,5} {
-            \foreach \y in {0,...,3} {
-                \pgfmathtruncatemacro{\idx}{\y*6 + \x + 1}
-                \node[block] at (\x*0.95, \y*0.6) {P\idx};
-            }
-        }
-        
-        % Arrow to Selection
-        \draw[-{Stealth[length=3mm]}, line width=1.0pt, color=black] (5.8, 0.9) -- (7.2, 0.9) 
-            node[midway, above, font=\scriptsize\bfseries] {Select $k=4$};
-            
-        % Selected Taggant
-        \node[font=\small\bfseries\color{black}] at (9.4, 3.0) {Unique Batch Code};
-        \node[selblock] (sb1) at (9.4, 2.1) {Probe 12 (FAM)};
-        \node[selblock] (sb2) at (9.4, 1.3) {Probe 35 (HEX)};
-        \node[selblock] (sb3) at (9.4, 0.5) {Probe 54 (TxRed)};
-        \node[selblock] (sb4) at (9.4, -0.3) {Probe 71 (Cy5)};
-        
-        \node[rectangle, draw=black, fill=white, rounded corners=2pt, font=\footnotesize\bfseries, align=center, text width=5.2cm] at (4.8, -1.5) {
-            $\displaystyle \binom{72}{4} = \mathbf{1,028,790}$\\
-            Unique Combinations
-        };
-    \end{tikzpicture}
-    \caption{Combinatorial mixing of 4 probes from a 72-probe library yielding over 1 million unique codes.}
-    \label{fig:combinatorial_selection}
+    \includegraphics[width=0.72\textwidth]{bulk_1L_formulation_recipe.png}
+    \caption{Laboratory master batch recipe for the 1.0-Liter stabilized TE buffer taggant carrier formulation.}
+    \label{fig:bulk_1L_recipe_img}
 \end{figure}
-
-This architecture allows the state to generate **over 1.02 million unique, non-interfering physical batch codes** from a single compact cabinet containing only 72 chemical vials.
-
-\section{Multi-Sector Industrial Allocation}
-The library size ($M$) and multiplexing depth ($k$) can be expanded modularly to meet decades of national industrial growth (Table~\ref{tab:combinatorial_scaling}).
 
 \begin{table}[H]
 \centering
 \small
-\caption{Combinatorial Scaling and National Industrial Allocation}
-\label{tab:combinatorial_scaling}
-\begin{tabularx}{\textwidth}{c c c X}
+\caption{1.0-Liter Bulk TE Buffer Carrier and Taggant Dosing Formulation}
+\label{tab:bulk_1L_formulation}
+\begin{tabularx}{0.88\textwidth}{X c c}
 \toprule
-\textbf{Library Size ($M$)} & \textbf{Multiplex ($k$)} & \textbf{Unique Codes} & \textbf{Target National Sector} \\
+\textbf{Component Reagent} & \textbf{Dispensed Volume} & \textbf{Final Concentration} \\
 \midrule
-$M = 48$ & $k = 4$ & $194,580$ & Strategic Pharmaceutical Verification. \\
-\addlinespace
-\textbf{$M = 72$} & \textbf{$k = 4$} & \textbf{$1,028,790$} & \textbf{Multi-Sector}: Pharma, Fuels, Defense, Tax Stamps. \\
-\addlinespace
-$M = 96$ & $k = 4$ & $3,321,960$ & Industrial Fasteners \& Agrochemicals. \\
-\addlinespace
-$M = 96$ & $k = 5$ & $66,439,200$ & Security Documents, Currency, \& Fiscal Stamps. \\
-\addlinespace
-$M = 120$ & $k = 5$ & $190,578,024$ & Universal Multi-Decade National Industrial Scale. \\
+$1.0\text{ M Tris-HCl}$ ($\text{pH} = 8.0$) & $10.0\text{ mL}$ & $10.0\text{ mM}$ \\
+$0.5\text{ M EDTA}$ ($\text{pH} = 8.0$) & $2.0\text{ mL}$ & $1.0\text{ mM}$ \\
+Nuclease-Free Distilled Water & $988.0\text{ mL}$ & Solvent Matrix \\
+Amplified DNA Taggant (PCR Product) & $100.0~\mu\text{L}$ (4--5 tubes) & Micro-Dosed Molecular Marker \\
+\midrule
+\textbf{Total Master Formulation Volume} & \textbf{1,000.1~mL ($\approx 1.0$~Liter)} & Stabilized Industrial Spray \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-\section{Dosing \& Unit Economics}
+\subsection{Sterilization \& Mixing Procedure}
 \begin{enumerate}
-    \item \textbf{Micro-Dosing Sensitivity}: A single real-time qPCR reaction requires only $\sim 10\text{ femtograms } (10^{-14}\text{ g})$ of DNA template for definitive fluorescence detection.
-    \item \textbf{High Industrial Yield}: A single 1.0-Liter master batch formulated with $100~\mu\text{L}$ PCR product contains over $10^{13}$ copies of the construct, sufficient to tag **over 100 million physical commercial units** (vials, ampoules, carton labels, or tax banderoles).
-    \item \textbf{Unit Cost Analysis}: The total chemical synthesis and buffer reagent cost per tagged product unit is **less than PKR 0.01 ($< 0.00004\text{ USD}$)**. This microscopic per-unit cost makes the system vastly more cost-effective than physical holograms, RFID inlays, or specialty luminescent dyes.
-    \item \textbf{Environmental and Matrix Invariance}: Synthetic DNA is chemically non-reactive in petroleum, organic solvents, and pharmaceutical syrups, ensuring indefinite shelf life without altering the physical or chemical properties of the host product.
+    \item \textbf{Buffer Preparation}: $10.0\text{ mL}$ of $1\text{ M Tris-HCl}$ and $2.0\text{ mL}$ of $0.5\text{ M EDTA}$ were measured and added to $900\text{ mL}$ of distilled water. The solution was adjusted to $\text{pH} = 8.0$ and brought to a total volume of $1000\text{ mL}$.
+    \item \textbf{Autoclaving}: The carrier buffer was sterilized in an autoclave at $121^\circ\text{C}$ for 20 minutes to eliminate any biological contaminants and allowed to cool to ambient temperature.
+    \item \textbf{Taggant Dosing}: $100.0~\mu\text{L}$ of amplified 200~bp DNA taggant product (pooled from 4--5 tubes of endpoint PCR reactions) was introduced into the 1.0-Liter container.
+    \item \textbf{Homogenization}: The container was agitated on a laboratory blood mixer for continuous rotational blending, achieving uniform spatial distribution of the DNA molecules throughout the 1.0-Liter volume.
+\end{enumerate}
+
+\section{Application to Commercial Products \& Packaging}
+The formulated 1.0-Liter DNA taggant spray was tested across diverse commercial packaging surfaces and liquid formulations:
+\begin{itemize}
+    \item \textbf{Pharmaceutical Packaging \& Blister Foils}: Applied directly to commercial pharmaceutical packaging materials, including Macter syrup bottles, Bismol cartons, and tablet blister foils.
+    \item \textbf{2D QR Code Integration}: The taggant was applied over printed 2D DataMatrix and QR code zones on product labels, associating the physical bio-molecular tag with digital identification strings.
+    \item \textbf{Direct Liquid Micro-Dosing}: Trace quantities of the taggant solution were introduced into liquid consumer formulations (\textit{Gelsemium 30, Surkhana}) at parts-per-billion concentrations, preserving chemical clarity, physical stability, and product potency.
+\end{itemize}
+
+\section{Field Sampling \& Forensic Swabbing Protocol}
+To authenticate tagged products in the field without destroying packaging:
+\begin{enumerate}
+    \item A sterile cotton swab moistened with sterile TE buffer is firmly rubbed across the marked QR code or packaging surface.
+    \item The swab head is immersed in $25.0\text{--}50.0~\mu\text{L}$ of sterile nuclease-free water or TE buffer in a microcentrifuge tube.
+    \item The eluted liquid is used directly as template ($1.0\text{--}2.0~\mu\text{L}$) for confirmatory real-time qPCR forensic deconvolution.
 \end{enumerate}

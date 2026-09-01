@@ -1,117 +1,79 @@
-\chapter{System Workflow \& Methodology}
-\label{chap:workflow}
+\chapter{Materials \& Taggant Synthesis}
+\label{chap:materials_synthesis}
 
-\section{End-to-End Operational Lifecycle}
-The Indigenous DNA Tag and Trace System bridges digital cryptographic identity with physical bio-molecular authentication. The operational lifecycle spans six discrete stages from laboratory design to field forensic verification (Figure~\ref{fig:workflow_diagram}).
+\section{DNA Taggant Construct \& Bacterial Host}
+The molecular marker developed for this project is a unique, synthetic 200~bp double-stranded DNA sequence designed specifically for covert industrial authentication. The construct was supplied cloned into the pUC57 plasmid vector with ampicillin selection (Lot No. BJ0335352-1, miniprep yield $\sim 4~\mu\text{g}$) and hosted in transformed \textit{Escherichia coli} (Stab Top10).
 
 \begin{figure}[H]
     \centering
-    \begin{tikzpicture}[
-        scale=0.9, transform shape,
-        stepnode/.style={rectangle, rounded corners=2pt, draw=black, fill=white, line width=0.8pt, text width=6.2cm, minimum height=1.1cm, align=left, font=\small},
-        arrowstyle/.style={-{Stealth[length=2.5mm]}, line width=0.9pt, color=black}
-    ]
-        % Left Column
-        \node[stepnode] (s1) at (0, 3.4) {\textbf{1. DNA Designing}\\ \footnotesize Algorithmic generation, $T_m$ matching, BLAST};
-        \node[stepnode] (s2) at (0, 1.7) {\textbf{2. Physical Synthesis}\\ \footnotesize PCR scaling, 1L carrier buffer formulation};
-        \node[stepnode] (s3) at (0, 0.0) {\textbf{3. Product Integration}\\ \footnotesize Spraying on packaging, liquids \& security stamps};
-        
-        % Right Column
-        \node[stepnode] (s4) at (7.4, 3.4) {\textbf{4. Field Recovery}\\ \footnotesize Surface swabbing \& chemical recovery};
-        \node[stepnode] (s5) at (7.4, 1.7) {\textbf{5. qPCR Verification}\\ \footnotesize 4-channel multiplex detection \& deconvolution};
-        \node[stepnode] (s6) at (7.4, 0.0) {\textbf{6. Database Match}\\ \footnotesize Ledger query \& verification report};
-        
-        % Sequential Flow
-        \draw[arrowstyle] (s1) -- (s2);
-        \draw[arrowstyle] (s2) -- (s3);
-        \draw[arrowstyle] (s3.east) -- ++(0.6,0) |- (s4.west);
-        \draw[arrowstyle] (s4) -- (s5);
-        \draw[arrowstyle] (s5) -- (s6);
-    \end{tikzpicture}
-    \caption{The six sequential stages of the DNA tagging and verification lifecycle.}
-    \label{fig:workflow_diagram}
+    \begin{subfigure}[b]{0.31\textwidth}
+        \centering
+        \includegraphics[height=5.0cm, keepaspectratio]{taggant_template_puc57.png}
+        \caption{Cloned Taggant (pUC57)}
+        \label{fig:taggant_template}
+    \end{subfigure}%
+    \hfill
+    \begin{subfigure}[b]{0.31\textwidth}
+        \centering
+        \includegraphics[height=5.0cm, keepaspectratio]{primer_forward.png}
+        \caption{Forward Primer Stock}
+        \label{fig:primer_forward}
+    \end{subfigure}%
+    \hfill
+    \begin{subfigure}[b]{0.31\textwidth}
+        \centering
+        \includegraphics[height=5.0cm, keepaspectratio]{primer_reverse.png}
+        \caption{Reverse Primer Stock}
+        \label{fig:primer_reverse}
+    \end{subfigure}
+    \caption{Physical synthesis materials: (a) Cloned 200~bp synthetic DNA taggant template in pUC57 plasmid vector (Lot No. BJ0335352-1, $\sim 4~\mu\text{g}$ miniprep), (b) Universal Forward Primer stock ($T_m = 58.5^\circ\text{C}$, reconstitute in $194.4~\mu\text{L}$), and (c) Universal Reverse Primer stock (reconstitute in $180.4~\mu\text{L}$).}
+    \label{fig:synthesis_materials}
 \end{figure}
 
-\section{Molecular Architecture \& Probe Allocation}
-The synthetic DNA construct is engineered as a linear double-stranded DNA molecule. While the software platform supports arbitrary sequence lengths, a 200~bp linear construct was selected as the prototype for empirical laboratory validation:
+\section{Bacterial Culture \& Colony Heat-Lysis}
 \begin{enumerate}
-    \item \textbf{Universal Primer Docks (Flanking 20~bp Regions)}: Standardized forward and reverse primer binding sites flank the construct, allowing universal enzymatic amplification across any product batch without altering the master PCR master mix chemistry.
-    \item \textbf{Multiplex Optical Probe Docks (Four 24~bp Regions)}: Four distinct sequence-specific probe regions are arrayed internally, each assigned to an optical channel:
-    \begin{itemize}
-        \item \textbf{Probe A}: FAM dye ($\lambda_{\text{em}} \approx 520\text{ nm}$, Quencher: BHQ1).
-        \item \textbf{Probe B}: HEX dye ($\lambda_{\text{em}} \approx 556\text{ nm}$, Quencher: BHQ1).
-        \item \textbf{Probe C}: Texas Red dye ($\lambda_{\text{em}} \approx 610\text{ nm}$, Quencher: BHQ2).
-        \item \textbf{Probe D}: Cy5 dye ($\lambda_{\text{em}} \approx 670\text{ nm}$, Quencher: BHQ2).
-    \end{itemize}
-    \item \textbf{Neutral Spacer Segments}: Short, non-repetitive polynucleotide spacers separate the probe targets, eliminating steric crowding and preventing fluorescence quenching between adjacent fluorophores during simultaneous thermal binding.
+    \item \textbf{Cultivation}: Transformed Stab Top10 \textit{E. coli} cells were cultured in 10~mL Luria-Bertani (LB) broth supplemented with ampicillin ($100~\mu\text{g/mL}$) in a shaking incubator at $37^\circ\text{C}$ for 16 hours. Solid cultures were maintained on ampicillin-selective LB agar plates.
+    \item \textbf{Rapid Heat-Lysis}: Rather than utilizing commercial plasmid extraction kits, individual bacterial colonies were suspended in $100~\mu\text{L}$ of sterile TE buffer (10~mM Tris-HCl, 1~mM EDTA, pH~8.0). Heat lysis was executed in a thermal cycler at $95^\circ\text{C}$ for 10 minutes. Following a brief centrifugation, the supernatant was used directly as template for PCR amplification.
 \end{enumerate}
 
-\begin{figure}[H]
-    \centering
-    \begin{tikzpicture}[
-        scale=0.88, transform shape,
-        boxstyle/.style={
-            rectangle, 
-            draw=black, 
-            line width=0.8pt, 
-            minimum width=2.15cm, 
-            text width=2.05cm, 
-            minimum height=1.35cm, 
-            align=center, 
-            font=\footnotesize\bfseries
-        },
-        primerbox/.style={boxstyle, fill=gray!15},
-        probebox/.style={boxstyle, fill=white}
-    ]
-        \node[primerbox] (fwd) at (0, 0) {5' Forward\\ Primer\\ (20 bp)};
-        \node[probebox, right=0.12cm of fwd] (p1) {Probe A\\ FAM\\ (24 bp)};
-        \node[probebox, right=0.12cm of p1] (p2) {Probe B\\ HEX\\ (24 bp)};
-        \node[probebox, right=0.12cm of p2] (p3) {Probe C\\ TxRed\\ (24 bp)};
-        \node[probebox, right=0.12cm of p3] (p4) {Probe D\\ Cy5\\ (24 bp)};
-        \node[primerbox, right=0.12cm of p4] (rev) {3' Reverse\\ Primer\\ (20 bp)};
-        
-        \draw[decorate, decoration={brace, amplitude=5pt, mirror}, line width=0.8pt, color=black] 
-            ($(p1.south west)+(0,-0.15)$) -- ($(p4.south east)+(0,-0.15)$)
-            node[midway, below=6pt, font=\small\bfseries] {Multiplex Payload (4 Probes $\times$ 24 bp)};
-            
-        \draw[decorate, decoration={brace, amplitude=5pt}, line width=0.8pt, color=black] 
-            ($(fwd.north west)+(0,0.15)$) -- ($(rev.north east)+(0,0.15)$)
-            node[midway, above=6pt, font=\small\bfseries] {Synthesized Prototype Construct (200 bp)};
-    \end{tikzpicture}
-    \caption{Molecular layout of the synthesized 200~bp prototype DNA taggant construct.}
-    \label{fig:molecular_anatomy}
-\end{figure}
+\section{Universal Primers \& Sequence-Specific Probes}
+Enzymatic amplification and real-time quantification utilize standardized universal primers and four sequence-specific fluorophore-labeled hydrolysis probes:
+\begin{itemize}
+    \item \textbf{Universal Forward Primer}: $T_m = 58.5^\circ\text{C}$ (reconstituted in $194.4~\mu\text{L}$ nuclease-free water for $100~\mu\text{M}$ stock).
+    \item \textbf{Universal Reverse Primer}: Reconstituted in $180.4~\mu\text{L}$ nuclease-free water for $100~\mu\text{M}$ stock.
+    \item \textbf{Sequence-Specific Optical Probes (A, B, C, D)}: Four distinct probes targeting internal regions of the 200~bp taggant construct (Figure~\ref{fig:physical_probes} and Table~\ref{tab:probe_specifications}).
+\end{itemize}
 
 \begin{figure}[H]
     \centering
     \begin{subfigure}[b]{0.23\textwidth}
         \centering
-        \includegraphics[height=4.8cm, keepaspectratio]{tube_probe_a_fam.png}
+        \includegraphics[height=4.6cm, keepaspectratio]{tube_probe_a_fam.png}
         \caption{Probe A (FAM)}
         \label{fig:tube_probe_a}
     \end{subfigure}%
     \hfill
     \begin{subfigure}[b]{0.23\textwidth}
         \centering
-        \includegraphics[height=4.8cm, keepaspectratio]{tube_probe_b_hex.png}
+        \includegraphics[height=4.6cm, keepaspectratio]{tube_probe_b_hex.png}
         \caption{Probe B (HEX)}
         \label{fig:tube_probe_b}
     \end{subfigure}%
     \hfill
     \begin{subfigure}[b]{0.23\textwidth}
         \centering
-        \includegraphics[height=4.8cm, keepaspectratio]{tube_probe_c_txr.png}
+        \includegraphics[height=4.6cm, keepaspectratio]{tube_probe_c_txr.png}
         \caption{Probe C (TxRed)}
         \label{fig:tube_probe_c}
     \end{subfigure}%
     \hfill
     \begin{subfigure}[b]{0.23\textwidth}
         \centering
-        \includegraphics[height=4.8cm, keepaspectratio]{tube_probe_d_cy5.png}
+        \includegraphics[height=4.6cm, keepaspectratio]{tube_probe_d_cy5.png}
         \caption{Probe D (Cy5)}
         \label{fig:tube_probe_d}
     \end{subfigure}
-    \caption{Physical synthesized oligonucleotide probe stocks for the 4-channel multiplex detection assay: (a) Probe A ($5'\text{-FAM}, 3'\text{-BHQ1}$), (b) Probe B ($5'\text{-HEX}, 3'\text{-BHQ1}$), (c) Probe C ($5'\text{-TXR}, 3'\text{-BHQ2}$), and (d) Probe D ($5'\text{-CY5}, 3'\text{-BHQ2}$).}
+    \caption{Physical synthesized fluorophore probe stocks: (a) Probe A ($5'\text{-FAM}, 3'\text{-BHQ1}$), (b) Probe B ($5'\text{-HEX}, 3'\text{-BHQ1}$), (c) Probe C ($5'\text{-Texas Red}, 3'\text{-BHQ2}$), and (d) Probe D ($5'\text{-Cy5}, 3'\text{-BHQ2}$).}
     \label{fig:physical_probes}
 \end{figure}
 
@@ -132,62 +94,13 @@ The synthetic DNA construct is engineered as a linear double-stranded DNA molecu
 \end{tabularx}
 \end{table}
 
-\section{Thermodynamic Assay Engineering}
-To ensure robust, simultaneous amplification of all targets in a single reaction vessel, melting temperatures ($T_m$) are calculated using the unified SantaLucia nearest-neighbor thermodynamic model:
-\begin{equation}
-    T_m = \frac{\Delta H^\circ}{\Delta S^\circ + R \ln(C_T / 4)} + 16.6 \log_{10}[\text{Na}^+]
-\end{equation}
-where $\Delta H^\circ$ is enthalpy, $\Delta S^\circ$ is entropy, $R$ is the universal gas constant, $C_T$ is oligonucleotide concentration, and $[\text{Na}^+]$ is the monovalent cation concentration.
-\begin{itemize}
-    \item \textbf{Primer Annealing Matching}: Forward and reverse primer melting temperatures are tightly balanced at $T_m = 58.5 \pm 1.0^\circ\text{C}$ to avoid asymmetric extension rates.
-    \item \textbf{Probe Thermal Offset ($\Delta T_m \ge +10.0^\circ\text{C}$)}: All internal fluorescent probes are engineered with $T_m \ge 68.0^\circ\text{C}$. This $+10.0^\circ\text{C}$ elevation guarantees that during the thermal cycler annealing phase, all fluorophore probes hybridize to their single-stranded targets \textit{prior} to primer binding and Taq polymerase 5'--3' exonucleolytic cleavage.
-\end{itemize}
-
-\section{Bio-Safety Filtering \& Offline BLAST}
-Synthetic DNA taggants must be completely benign and environmentally inert:
-\begin{enumerate}
-    \item \textbf{Zero Pathogen Homology}: Generated sequences undergo automated BLASTn screening against local offline mirrors of the NCBI GenBank database (encompassing human, animal, plant, bacterial, and viral genomes). Any sequence sharing $>25\%$ homology or an $E\text{-value} < 10^{-2}$ is rejected.
-    \item \textbf{Absence of Secondary Structures}: Folding algorithms filter out hairpins and self-dimers with $\Delta G < -3.0\text{ kcal/mol}$ to prevent self-priming.
-    \item \textbf{GC Content Clamp}: Nucleotide composition is strictly constrained between $48\%\text{--}52\%$, with homopolymer runs prohibited ($>3$ consecutive identical nucleotides).
-\end{enumerate}
-
-\section{Physical Synthesis, Scaling \& Bulk Formulation}
-\begin{enumerate}
-    \item \textbf{Bacterial Host Propagation}: The synthetic construct was supplied in transformed \textit{Escherichia coli} (Stab Top10) in pUC57 plasmid vector (Lot No. BJ0335352-1, 200~bp in pUC57 Amp, miniprep $\sim 4~\mu\text{g}$) and cultured on ampicillin-selective LB agar/broth at $37^\circ\text{C}$ for 16 hours. Physical stocks of the template construct and universal PCR primer pairs are displayed in Figure~\ref{fig:synthesis_reagents}.
+\section{Endpoint PCR Synthesis Formulation \& Thermal Cycling}
+To mass-produce the 200~bp synthetic taggant construct from the bacterial lysate, standard endpoint PCR amplification was conducted in a total volume of $25.0~\mu\text{L}$ (Figure~\ref{fig:pcr_recipe_img}, Table~\ref{tab:pcr_recipe_endpoint}, and Table~\ref{tab:pcr_thermal_cycling}).
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.31\textwidth}
-        \centering
-        \includegraphics[height=4.8cm, keepaspectratio]{taggant_template_puc57.png}
-        \caption{Cloned Taggant in pUC57}
-        \label{fig:taggant_template}
-    \end{subfigure}%
-    \hfill
-    \begin{subfigure}[b]{0.31\textwidth}
-        \centering
-        \includegraphics[height=4.8cm, keepaspectratio]{primer_forward.png}
-        \caption{Forward Primer Stock}
-        \label{fig:primer_forward}
-    \end{subfigure}%
-    \hfill
-    \begin{subfigure}[b]{0.31\textwidth}
-        \centering
-        \includegraphics[height=4.8cm, keepaspectratio]{primer_reverse.png}
-        \caption{Reverse Primer Stock}
-        \label{fig:primer_reverse}
-    \end{subfigure}
-    \caption{Physical biochemical synthesis materials: (a) Synthesized 200~bp DNA taggant construct cloned in pUC57 plasmid vector (Lot No. BJ0335352-1, $\sim 4~\mu\text{g}$ miniprep), (b) Universal Forward Primer stock ($T_m = 58.5^\circ\text{C}$, reconstitute in $194.4~\mu\text{L}$), and (c) Universal Reverse Primer stock (reconstitute in $180.4~\mu\text{L}$).}
-    \label{fig:synthesis_reagents}
-\end{figure}
-
-    \item \textbf{Rapid Heat-Lysis Protocol}: Rather than using costly spin-column kits, individual colonies were transferred into $100~\mu\text{L}$ TE buffer, heat-lysed at $95^\circ\text{C}$ for 10 minutes in a thermal cycler, and briefly spun. The supernatant was used directly as PCR template.
-    \item \textbf{Standard Endpoint PCR Formulation ($25.0~\mu\text{L}$ Reaction Volume)}: To scale the 200~bp synthetic taggant construct from plasmid minipreps into bulk quantities, enzymatic endpoint PCR amplification was performed according to the standardized laboratory recipe and thermal cycling schedule (Figure~\ref{fig:pcr_recipe_img}, Table~\ref{tab:pcr_recipe_endpoint}, and Table~\ref{tab:pcr_thermal_cycling}).
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.88\textwidth]{pcr_recipe_thermal_cycling.png}
-    \caption{Laboratory master recipe and thermal cycling program executed for endpoint PCR scaling and bulk taggant synthesis.}
+    \includegraphics[width=0.85\textwidth]{pcr_recipe_thermal_cycling.png}
+    \caption{Laboratory master recipe and thermal cycling schedule executed for endpoint PCR amplification.}
     \label{fig:pcr_recipe_img}
 \end{figure}
 
@@ -200,7 +113,7 @@ Synthetic DNA taggants must be completely benign and environmentally inert:
 \toprule
 \textbf{Component} & \textbf{Reaction 1} & \textbf{Reaction 2} \\
 \midrule
-$10\times$ Buffer & $2.5~\mu\text{L}$ & $2.5~\mu\text{L}$ \\
+$10\times$ PCR Buffer & $2.5~\mu\text{L}$ & $2.5~\mu\text{L}$ \\
 $\text{MgCl}_2$ & $1.5~\mu\text{L}$ & $1.5~\mu\text{L}$ \\
 Forward Primer & $1.0~\mu\text{L}$ & $1.0~\mu\text{L}$ \\
 Reverse Primer & $1.0~\mu\text{L}$ & $1.0~\mu\text{L}$ \\
@@ -232,46 +145,3 @@ Hold & $4^\circ\text{C}$ & $\infty$ & 1 \\
 \multicolumn{4}{@{}p{0.88\textwidth}@{}}{\footnotesize *35 cycles applies to the Denaturation, Annealing, and Extension steps (repeated as one cycle).}
 \end{tabularx}
 \end{table}
-    \item \textbf{1.0-Liter Master Spray Formulation}: To achieve industrial-scale taggant deployment, a 1.0-Liter carrier volume of stabilized Tris-EDTA (TE) buffer was prepared and autoclaved at $121^\circ\text{C}$ for 20 minutes. A volume of $100~\mu\text{L}$ amplified DNA taggant (pooled from 4--5 tubes of the synthesized PCR product) was introduced into the 1~L bottle and blended using a laboratory blood mixer to achieve complete spatial homogeneity (Figure~\ref{fig:bulk_1L_recipe_img} and Table~\ref{tab:bulk_1L_formulation}).
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.72\textwidth]{bulk_1L_formulation_recipe.png}
-    \caption{Laboratory master batch recipe for the 1.0-Liter stabilized TE buffer taggant carrier formulation.}
-    \label{fig:bulk_1L_recipe_img}
-\end{figure}
-
-\begin{table}[H]
-\centering
-\small
-\caption{1.0-Liter Bulk TE Buffer Carrier and Taggant Dosing Formulation}
-\label{tab:bulk_1L_formulation}
-\begin{tabularx}{0.88\textwidth}{X c c}
-\toprule
-\textbf{Component Reagent} & \textbf{Dispensed Volume} & \textbf{Final Concentration} \\
-\midrule
-$1.0\text{ M Tris-HCl}$ & $10.0\text{ mL}$ & $10.0\text{ mM}$ \\
-$0.5\text{ M EDTA}$ ($\text{pH} = 8.0$) & $2.0\text{ mL}$ & $1.0\text{ mM}$ \\
-Nuclease-Free Distilled Water & $988.0\text{ mL}$ & Bulk Solvent Carrier \\
-Amplified DNA Taggant (PCR Product) & $100.0~\mu\text{L}$ (4--5 tubes) & Micro-Dosed Trace Biomarker \\
-\midrule
-\textbf{Total Master Formulation Volume} & \textbf{1,000.1~mL ($\approx 1.0$~Liter)} & Stabilized Industrial Spray \\
-\bottomrule
-\end{tabularx}
-\end{table}
-\end{enumerate}
-
-\section{Industrial Product Integration}
-\begin{itemize}
-    \item \textbf{Commercial Packaging \& 2D QR Codes}: The taggant spray was applied directly to printed 2D DataMatrix and QR code zones on pharmaceutical packaging (Macter syrup bottles, Bismol cartons, and tablet blister foils).
-    \item \textbf{Direct Liquid Dosing}: Tagging solution was micro-dosed into liquid consumer products (\textit{Gelsemium 30, Surkhana}) at sub-ppb concentrations, preserving chemical stability, clarity, and pharmacological potency.
-    \item \textbf{Automated Industrial Spraying}: Deployed via a 6-station roll-to-roll industrial spray machine equipped with infrared flash curing ($60^\circ\text{C}$, 1.5 seconds) for instant carrier solvent evaporation.
-\end{itemize}
-
-\section{Field Extraction \& Forensic Recovery}
-\begin{enumerate}
-    \item \textbf{Surface Swabbing}: A sterile cotton swab moistened with TE buffer scrubs the marked packaging or security stamp.
-    \item \textbf{Chemical De-Shielding}: For silica-coated taggants, mild fluoride buffer dissolves the outer inorganic shell within 10 minutes.
-    \item \textbf{Purification}: Standard silica membrane spin columns elute purified DNA in $25.0~\mu\text{L}$ nuclease-free water.
-    \item \textbf{qPCR Verification}: Recovered eluate is tested in a 4-channel real-time thermal cycler using sequence-specific fluorophore probes (FAM, HEX, Texas Red, Cy5) to establish court-admissible forensic authentication.
-\end{enumerate}

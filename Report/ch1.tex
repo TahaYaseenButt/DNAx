@@ -1,60 +1,48 @@
 \chapter{Project Background \& Objectives}
 \label{chap:background}
 
-\section{National Strategic Context}
-Illicit trade, product adulteration, counterfeiting, and tax stamp evasion impose severe risks across sovereign supply chains, public healthcare systems, and national revenues. In developing and transitional economies, critical supply chains suffer from systemic vulnerabilities:
-\begin{enumerate}
-    \item \textbf{Pharmaceuticals and Therapeutics}: Counterfeit medicines and sub-potent formulations lead to treatment failure, antimicrobial resistance, and loss of life.
-    \item \textbf{Petroleum and Fuels}: Adulteration of refined petroleum with substandard solvents causes industrial equipment failure and massive customs revenue losses.
-    \item \textbf{Defense and Strategic Materials}: Component tampering, unauthorized diversion, and unverified batch substitution compromise operational safety and national security.
-    \item \textbf{Excise and Tax Stamps}: Document forgery and cloned fiscal stamps bypass government excise collection on alcohol, tobacco, and high-value manufactured goods.
-\end{enumerate}
+\section{Introduction and Strategic Context}
+Product counterfeiting, illicit trade, and unauthorized tampering pose significant risks to industrial supply chains, consumer safety, and commercial brand integrity. Critical sectors—including pharmaceuticals, agrochemicals, fuels, and consumer packaged goods—frequently suffer from fraudulent reproduction and substitution.
 
-To counteract these threats, the National University of Sciences and Technology (NUST) initiated the \textbf{Indigenous DNA Base Tag and Trace System} as a sovereign, unforgeable authentication technology.
+Conventional security mechanisms, such as overt holograms, standard serial numbers, and 2D barcodes, authenticate only the outer packaging surface. Because these optical markers can be physically copied, photographed, or transferred, they fail to provide definitive, tamper-proof security.
 
-\section{Conventional Markers vs. Synthetic DNA}
-Existing commercial anti-counterfeiting technologies rely predominantly on physical or optical markers. Table~\ref{tab:comparison} outlines the core vulnerabilities of traditional identifiers compared against synthetic DNA taggants.
+To address these challenges, the National University of Sciences and Technology (NUST) initiated the \textbf{Indigenous DNA Tagging System for Industries}. By utilizing trace quantities of a unique, synthetic DNA construct as a covert molecular marker, products can be authenticated with forensic certainty using polymerase chain reaction (PCR) and real-time quantitative PCR (qPCR) detection.
+
+\section{Conventional Anti-Counterfeiting vs. DNA Tagging}
+Table~\ref{tab:comparison} summarizes the primary distinctions between conventional security markers and covert synthetic DNA taggants.
 
 \begin{table}[H]
 \centering
 \small
-\caption{Comparison: Conventional Physical Security vs. Synthetic DNA Tagging}
+\caption{Comparison: Conventional Surface Security vs. Synthetic DNA Tagging}
 \label{tab:comparison}
 \begin{tabularx}{\textwidth}{l X X}
 \toprule
-\textbf{Parameter} & \textbf{Conventional Security (Barcodes, Holograms, RFID)} & \textbf{DNA Base Tagging System} \\
+\textbf{Parameter} & \textbf{Conventional Security (Barcodes, Holograms)} & \textbf{Synthetic DNA Tagging System} \\
 \midrule
-\textbf{Physical Visibility} & Overt / Visible surface marking (easily photographed or duplicated). & \textbf{Covert}: Invisible micro-traces ($< 1\text{ ng/L}$ or femtograms per dose). \\
+\textbf{Visibility} & Overt / Visible surface marker (easily replicated or photographed). & \textbf{Covert}: Invisible micro-trace applied at parts-per-billion or femtogram levels. \\
 \addlinespace
-\textbf{Unforgeability} & Low to Moderate (Prone to digital cloning, physical detachment). & \textbf{Absolute}: Immense mathematical sequence space ($4^N > 10^{120}$). \\
+\textbf{Security Level} & Low to moderate (vulnerable to digital cloning and physical detachment). & \textbf{Unforgeable}: Defined synthetic nucleotide sequence readable only with specific primers and probes. \\
 \addlinespace
-\textbf{Environmental Robustness} & Vulnerable to mechanical wear, abrasion, and optical degradation. & \textbf{Extreme}: Encapsulated in protective silica/ceramic ($>800^\circ\text{C}$). \\
+\textbf{Product Integration} & Surface label or packaging sticker only. & Integrated directly onto packaging surfaces, QR codes, or liquid formulations. \\
 \addlinespace
-\textbf{Forensic Finality} & Subjective visual inspection or scanner check. & \textbf{Deterministic}: Quantitative multi-channel real-time qPCR. \\
+\textbf{Verification} & Visual inspection or optical scanner. & \textbf{Forensic}: Confirmatory PCR amplification and real-time qPCR probe deconvolution. \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-Traditional barcodes and holograms authenticate only the \textit{packaging surface}, which can be detached, cloned, or reused. Conversely, synthetic DNA taggants are integrated directly into the physical matrix of the product or embedded within security inks, establishing an unbreakable chemical bond between the item and its digital ledger record.
+\section{Specific Objectives of the Project}
+The primary objective of this project phase is to establish a functional, reproducible laboratory workflow for the production, bulk formulation, product application, and forensic detection of an indigenous DNA taggant:
 
-\section{Core Scientific Foundations}
-The Indigenous DNA Tagging System operates on three foundational scientific principles:
 \begin{enumerate}
-    \item \textbf{Mathematical Unforgeability}: Synthetic DNA sequence permutations scale exponentially ($4^N$), making random guessing, brute-force bio-synthesis, or reverse engineering impossible.
-    \item \textbf{Covert Micro-Dosing}: DNA molecules exhibit extreme sensitivity during thermal cycling amplification. Concentrations as low as parts-per-billion (ppb) or femtogram quantities ($10^{-15}\text{ g}$) provide clear detection while remaining chemically inert and undetectable to illicit actors.
-    \item \textbf{Multiplex Optical Deconvolution}: By embedding multiple sequence-specific probe docks (fluorophores) within a single amplicon, a forensic thermal cycler simultaneously verifies multiple dye signatures in a single test well.
+    \item \textbf{Construct Recovery and Bacterial Propagation}: To culture and recover the ordered 200~bp synthetic DNA taggant construct supplied in transformed \textit{Escherichia coli} (Stab Top10) in pUC57 plasmid vector.
+    \item \textbf{PCR Amplification and Gel Verification}: To optimize enzymatic amplification conditions using universal primer pairs and verify construct size on 2.0\% agarose gel electrophoresis.
+    \item \textbf{Serial Dilution Optimization}: To evaluate serial 1:10 dilutions ($D_1$ to $D_4$) of the amplicon, determine the optimal working dilution, and resolve template-dependent qPCR inhibition.
+    \item \textbf{1.0-Liter Bulk Carrier Formulation}: To prepare a standardized 1.0-Liter formulation of stabilized Tris-EDTA (TE) buffer containing the micro-dosed DNA taggant suitable for industrial application.
+    \item \textbf{Spatial Homogeneity Assessment}: To verify uniform distribution and stability of the DNA taggant across multiple fractions (F1 to F7) of the 1.0-Liter bulk preparation using real-time qPCR.
+    \item \textbf{Sequence-Specific Probe Optimization}: To evaluate four distinct fluorophore probes (Probes A, B, C, and D) in individual and 4-plex multiplex real-time qPCR formats.
+    \item \textbf{Commercial Product Application}: To apply the formulated DNA taggant onto industrial packaging materials (syrup bottles, cartons, blister foils) associated with 2D QR codes, as well as liquid formulations, and demonstrate forensic recovery via surface swabbing.
 \end{enumerate}
-
-\section{Technical Scope \& Deliverables}
-The project brings together specialized interdisciplinary expertise across the Atta-ur-Rahman School of Applied Biosciences (ASAB) and the School of Chemical and Materials Engineering (SCME) at NUST:
-\begin{itemize}
-    \item \textbf{Deliverable 1 (DNA Taggant Design)}: Engineering in-house bioinformatics software (\textit{DNAx Signet}) for automated sequence generation, SantaLucia thermodynamic filtering, and pathogen homology screening.
-    \item \textbf{Deliverable 2 (DNA Taggant Synthesis \& Up-Scaling)}: Cloning, bacterial propagation in \textit{E. coli}, high-yield PCR amplification, and preparation of 1.0-Liter carrier formulations.
-    \item \textbf{Deliverable 3 (Nanomaterial Coating \& Shielding)}: Developing core-shell silica nanoparticles to protect DNA under extreme thermal, chemical, and ballistic environments.
-    \item \textbf{Deliverable 4 (Product Matrix Integration)}: Automated spray application onto pharmaceutical packaging, 2D QR codes, and liquid consumables.
-    \item \textbf{Deliverable 5 (Extraction \& Forensic qPCR Verification)}: Rapid chemical recovery protocols and 4-channel qPCR deconvolution for court-admissible forensic authentication.
-    \item \textbf{Deliverable 6 (Digital Management System)}: Developing an integrated, role-isolated software ecosystem (\textit{DNAx Inventory}, \textit{DNAx Vendor}, and \textit{DNAx Forensics}) backed by a central cloud database ledger.
-\end{itemize}
 
 \begin{figure}[H]
     \centering
@@ -63,15 +51,15 @@ The project brings together specialized interdisciplinary expertise across the A
         corepillar/.style={rectangle, rounded corners=2pt, draw=black, fill=white, line width=0.8pt, text width=3.2cm, minimum height=1.1cm, align=center, font=\small\bfseries},
         arrowstyle/.style={-{Stealth[length=2.5mm]}, line width=0.9pt, color=black}
     ]
-        \node[corepillar] (p1) at (0, 0) {1. DNA Design\\ (Bioinformatics)};
-        \node[corepillar] (p2) at (3.8, 0) {2. Synthesis \&\\ Formulation};
-        \node[corepillar] (p3) at (7.6, 0) {3. Product\\ Integration};
-        \node[corepillar] (p4) at (11.4, 0) {4. Forensic qPCR\\ Verification};
+        \node[corepillar] (p1) at (0, 0) {1. Bacterial Recovery\\ \& Colony PCR};
+        \node[corepillar] (p2) at (3.8, 0) {2. Bulk Scaling \&\\ 1.0~L Formulation};
+        \node[corepillar] (p3) at (7.6, 0) {3. Industrial Spray\\ \& Dosing};
+        \node[corepillar] (p4) at (11.4, 0) {4. Real-Time qPCR\\ Forensic Readout};
         
         \draw[arrowstyle] (p1) -- (p2);
         \draw[arrowstyle] (p2) -- (p3);
         \draw[arrowstyle] (p3) -- (p4);
     \end{tikzpicture}
-    \caption{Operational lifecycle of the Indigenous DNA Tag and Trace System.}
-    \label{fig:lifecycle_overview}
+    \caption{Four-stage operational workflow of the Indigenous DNA Tagging System.}
+    \label{fig:four_pillars}
 \end{figure}
