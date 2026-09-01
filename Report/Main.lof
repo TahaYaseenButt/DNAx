@@ -1,5 +1,5 @@
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Four-stage operational workflow of the Indigenous DNA Tagging System.}}{2}{figure.caption.3}%
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Workflow of the Indigenous DNA Tagging System.}}{2}{figure.caption.3}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Physical synthesis materials: (a) Cloned 200~bp synthetic DNA taggant template in pUC57 plasmid vector (Lot No. BJ0335352-1, $\sim 4~\mu \text {g}$ miniprep), (b) Universal Forward Primer stock ($T_m = 58.5^\circ \text {C}$, reconstitute in $194.4~\mu \text {L}$), and (c) Universal Reverse Primer stock (reconstitute in $180.4~\mu \text {L}$).}}{3}{figure.caption.4}%
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Physical synthesized fluorophore probe stocks: (a) Probe A ($5'\text {-FAM}, 3'\text {-BHQ1}$), (b) Probe B ($5'\text {-HEX}, 3'\text {-BHQ1}$), (c) Probe C ($5'\text {-Texas Red}, 3'\text {-BHQ2}$), and (d) Probe D ($5'\text {-Cy5}, 3'\text {-BHQ2}$).}}{4}{figure.caption.5}%
@@ -7,8 +7,9 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Laboratory master batch recipe for the 1.0-Liter stabilized TE buffer taggant carrier formulation.}}{6}{figure.caption.10}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Empirical 2.0\% agarose gel electrophoresis photograph under UV transillumination showing the DNA ladder on the left (Lane M) and the discrete, high-yield 200~bp amplified DNA taggant bands across gradient annealing lanes.}}{9}{figure.caption.12}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Laboratory master recipe and thermal cycler parameter schedule for real-time qPCR verification.}}{11}{figure.caption.14}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Empirical real-time qPCR amplification curves and quantification cycle ($C_q$) data tables captured directly from the thermal cycler across all four optical channels: Probe A (HEX), Probe B (FAM), Probe C (Texas Red), and Probe D (Cy5).}}{12}{figure.caption.17}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Empirical 2.0\% agarose gel electrophoresis photograph under UV transillumination showing the DNA ladder on the left (Lane M) and the discrete, high-yield 200~bp amplified DNA taggant bands across gradient annealing lanes.}}{8}{figure.caption.12}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Laboratory master recipe and thermal cycler parameter schedule for real-time qPCR verification.}}{10}{figure.caption.14}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Empirical real-time qPCR amplification curves and quantification cycle ($C_q$) data tables captured directly from the thermal cycler across all four optical channels: Probe A (HEX), Probe B (FAM), Probe C (Texas Red), and Probe D (Cy5).}}{11}{figure.caption.17}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces The software modules connected through the central database.}}{14}{figure.caption.19}%

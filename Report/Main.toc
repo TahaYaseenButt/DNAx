@@ -1,25 +1,30 @@
 \contentsline {chapter}{Project Approvals}{1}{chapter*.1}%
 \contentsline {chapter}{\numberline {1}Project Background \& Objectives}{1}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Introduction and Strategic Context}{1}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Conventional Anti-Counterfeiting vs. DNA Tagging}{1}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Specific Objectives of the Project}{2}{section.1.3}%
+\contentsline {section}{\numberline {1.1}Introduction}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Conventional Security vs. DNA Tagging}{1}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Project Objectives}{1}{section.1.3}%
 \contentsline {chapter}{\numberline {2}Materials \& Taggant Synthesis}{3}{chapter.2}%
 \contentsline {section}{\numberline {2.1}DNA Taggant Construct \& Bacterial Host}{3}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Bacterial Culture \& Colony Heat-Lysis}{3}{section.2.2}%
 \contentsline {section}{\numberline {2.3}Universal Primers \& Sequence-Specific Probes}{3}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Endpoint PCR Synthesis Formulation \& Thermal Cycling}{4}{section.2.4}%
-\contentsline {chapter}{\numberline {3}Formulation \& Industrial Application}{6}{chapter.3}%
+\contentsline {chapter}{\numberline {3}Formulation \& Packaging QR Code Application}{6}{chapter.3}%
 \contentsline {section}{\numberline {3.1}1.0-Liter Bulk Carrier Formulation in TE Buffer}{6}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Sterilization \& Mixing Procedure}{7}{subsection.3.1.1}%
-\contentsline {section}{\numberline {3.2}Application to Commercial Products \& Packaging}{7}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Field Sampling \& Forensic Swabbing Protocol}{8}{section.3.3}%
-\contentsline {chapter}{\numberline {4}Experimental Results \& Verification}{9}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Agarose Gel Electrophoresis Verification}{9}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Serial Dilution Analysis \& Template Dynamics}{9}{section.4.2}%
-\contentsline {section}{\numberline {4.3}1.0-Liter Bulk Homogeneity \& Product Recovery}{10}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Real-Time qPCR Formulation \& Cycling Parameters}{10}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Real-Time qPCR Probe Verification Results}{12}{section.4.5}%
-\contentsline {chapter}{\numberline {5}DNA Encapsulation}{14}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Discussion \& Conclusion}{15}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Discussion of Experimental Findings}{15}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Conclusion}{15}{section.6.2}%
+\contentsline {subsection}{\numberline {3.1.1}Preparation \& Homogenization Procedure}{7}{subsection.3.1.1}%
+\contentsline {section}{\numberline {3.2}Application \& Recovery on Packaging QR Codes}{7}{section.3.2}%
+\contentsline {chapter}{\numberline {4}Experimental Results \& Verification}{8}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Agarose Gel Electrophoresis Verification}{8}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Serial Dilution Analysis \& Template Dynamics}{8}{section.4.2}%
+\contentsline {section}{\numberline {4.3}1.0-Liter Bulk Homogeneity \& Product Recovery}{9}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Real-Time qPCR Formulation \& Cycling Parameters}{9}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Real-Time qPCR Probe Verification Results}{11}{section.4.5}%
+\contentsline {chapter}{\numberline {5}DNA Encapsulation}{13}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Software Ecosystem}{14}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Overview}{14}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Software Modules}{14}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}1. DNAx Signet (Bioinformatic Design Suite)}{14}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}2. DNAx Manufacture (Product Integration \& Taggant Blending)}{14}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}3. DNAx Inventory (Inventory Management)}{15}{subsection.6.2.3}%
+\contentsline {subsection}{\numberline {6.2.4}4. DNAx Vendor (Distribution \& Verification)}{15}{subsection.6.2.4}%
+\contentsline {subsection}{\numberline {6.2.5}5. DNAx Forensics (Laboratory Verification)}{15}{subsection.6.2.5}%
+\contentsline {section}{\numberline {6.3}Conclusion}{15}{section.6.3}%

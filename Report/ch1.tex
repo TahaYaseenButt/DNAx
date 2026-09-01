@@ -1,15 +1,13 @@
 \chapter{Project Background \& Objectives}
 \label{chap:background}
 
-\section{Introduction and Strategic Context}
-Product counterfeiting, illicit trade, and unauthorized tampering pose significant risks to industrial supply chains, consumer safety, and commercial brand integrity. Critical sectors—including pharmaceuticals, agrochemicals, fuels, and consumer packaged goods—frequently suffer from fraudulent reproduction and substitution.
+\section{Introduction}
+Product counterfeiting and unauthorized tampering pose risks to industrial supply chains, consumer safety, and brand integrity. Conventional security mechanisms, such as surface barcodes and holograms, can be duplicated or physically detached.
 
-Conventional security mechanisms, such as overt holograms, standard serial numbers, and 2D barcodes, authenticate only the outer packaging surface. Because these optical markers can be physically copied, photographed, or transferred, they fail to provide definitive, tamper-proof security.
+To address these challenges, the National University of Sciences and Technology (NUST) developed an \textbf{Indigenous DNA Tagging System for Industries}. Using trace quantities of a synthetic DNA construct as a molecular marker, products and packaging can be verified with high specificity using polymerase chain reaction (PCR) and real-time quantitative PCR (qPCR) detection.
 
-To address these challenges, the National University of Sciences and Technology (NUST) initiated the \textbf{Indigenous DNA Tagging System for Industries}. By utilizing trace quantities of a unique, synthetic DNA construct as a covert molecular marker, products can be authenticated with forensic certainty using polymerase chain reaction (PCR) and real-time quantitative PCR (qPCR) detection.
-
-\section{Conventional Anti-Counterfeiting vs. DNA Tagging}
-Table~\ref{tab:comparison} summarizes the primary distinctions between conventional security markers and covert synthetic DNA taggants.
+\section{Conventional Security vs. DNA Tagging}
+Table~\ref{tab:comparison} outlines the differences between standard surface markers and synthetic DNA taggants.
 
 \begin{table}[H]
 \centering
@@ -20,28 +18,28 @@ Table~\ref{tab:comparison} summarizes the primary distinctions between conventio
 \toprule
 \textbf{Parameter} & \textbf{Conventional Security (Barcodes, Holograms)} & \textbf{Synthetic DNA Tagging System} \\
 \midrule
-\textbf{Visibility} & Overt / Visible surface marker (easily replicated or photographed). & \textbf{Covert}: Invisible micro-trace applied at parts-per-billion or femtogram levels. \\
+\textbf{Visibility} & Overt / Visible surface marker. & \textbf{Covert}: Trace molecular marker. \\
 \addlinespace
-\textbf{Security Level} & Low to moderate (vulnerable to digital cloning and physical detachment). & \textbf{Unforgeable}: Defined synthetic nucleotide sequence readable only with specific primers and probes. \\
+\textbf{Security Level} & Moderate (vulnerable to replication). & \textbf{High}: Unique synthetic sequence detected only with specific primers and probes. \\
 \addlinespace
-\textbf{Product Integration} & Surface label or packaging sticker only. & Integrated directly onto packaging surfaces, QR codes, or liquid formulations. \\
+\textbf{Product Integration} & Surface label only. & Applied directly onto packaging materials and QR codes. \\
 \addlinespace
-\textbf{Verification} & Visual inspection or optical scanner. & \textbf{Forensic}: Confirmatory PCR amplification and real-time qPCR probe deconvolution. \\
+\textbf{Verification} & Visual inspection or standard optical scan. & \textbf{Confirmatory}: PCR amplification and real-time qPCR probe verification. \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-\section{Specific Objectives of the Project}
-The primary objective of this project phase is to establish a functional, reproducible laboratory workflow for the production, bulk formulation, product application, and forensic detection of an indigenous DNA taggant:
+\section{Project Objectives}
+The specific objectives completed in this work include:
 
 \begin{enumerate}
-    \item \textbf{Construct Recovery and Bacterial Propagation}: To culture and recover the ordered 200~bp synthetic DNA taggant construct supplied in transformed \textit{Escherichia coli} (Stab Top10) in pUC57 plasmid vector.
-    \item \textbf{PCR Amplification and Gel Verification}: To optimize enzymatic amplification conditions using universal primer pairs and verify construct size on 2.0\% agarose gel electrophoresis.
-    \item \textbf{Serial Dilution Optimization}: To evaluate serial 1:10 dilutions ($D_1$ to $D_4$) of the amplicon, determine the optimal working dilution, and resolve template-dependent qPCR inhibition.
-    \item \textbf{1.0-Liter Bulk Carrier Formulation}: To prepare a standardized 1.0-Liter formulation of stabilized Tris-EDTA (TE) buffer containing the micro-dosed DNA taggant suitable for industrial application.
-    \item \textbf{Spatial Homogeneity Assessment}: To verify uniform distribution and stability of the DNA taggant across multiple fractions (F1 to F7) of the 1.0-Liter bulk preparation using real-time qPCR.
-    \item \textbf{Sequence-Specific Probe Optimization}: To evaluate four distinct fluorophore probes (Probes A, B, C, and D) in individual and 4-plex multiplex real-time qPCR formats.
-    \item \textbf{Commercial Product Application}: To apply the formulated DNA taggant onto industrial packaging materials (syrup bottles, cartons, blister foils) associated with 2D QR codes, as well as liquid formulations, and demonstrate forensic recovery via surface swabbing.
+    \item \textbf{Construct Recovery}: Culture and recover the 200~bp synthetic DNA taggant construct supplied in transformed \textit{Escherichia coli} (Stab Top10) in pUC57 plasmid vector.
+    \item \textbf{PCR Amplification and Gel Verification}: Optimize enzymatic amplification conditions using universal primer pairs and verify construct size on 2.0\% agarose gel electrophoresis.
+    \item \textbf{Serial Dilution Optimization}: Evaluate serial 1:10 dilutions ($D_1$ to $D_4$) of the amplicon to establish optimal working concentrations for qPCR detection.
+    \item \textbf{1.0-Liter Bulk Carrier Formulation}: Prepare a standardized 1.0-Liter formulation of stabilized Tris-EDTA (TE) buffer containing the micro-dosed DNA taggant.
+    \item \textbf{Spatial Homogeneity Assessment}: Verify uniform distribution of the DNA taggant across multiple fractions (F1 to F7) of the 1.0-Liter bulk preparation using real-time qPCR.
+    \item \textbf{Sequence-Specific Probe Verification}: Evaluate four distinct fluorophore probes (Probes A, B, C, and D) in individual and 4-plex multiplex real-time qPCR formats.
+    \item \textbf{Packaging QR Code Application \& Recovery}: Apply the formulated taggant onto commercial packaging materials over 2D QR codes and demonstrate recovery via surface swabbing.
 \end{enumerate}
 
 \begin{figure}[H]
@@ -51,15 +49,15 @@ The primary objective of this project phase is to establish a functional, reprod
         corepillar/.style={rectangle, rounded corners=2pt, draw=black, fill=white, line width=0.8pt, text width=3.2cm, minimum height=1.1cm, align=center, font=\small\bfseries},
         arrowstyle/.style={-{Stealth[length=2.5mm]}, line width=0.9pt, color=black}
     ]
-        \node[corepillar] (p1) at (0, 0) {1. Bacterial Recovery\\ \& Colony PCR};
-        \node[corepillar] (p2) at (3.8, 0) {2. Bulk Scaling \&\\ 1.0~L Formulation};
-        \node[corepillar] (p3) at (7.6, 0) {3. Industrial Spray\\ \& Dosing};
-        \node[corepillar] (p4) at (11.4, 0) {4. Real-Time qPCR\\ Forensic Readout};
+        \node[corepillar] (p1) at (0, 0) {1. Design \&\\ Synthesis};
+        \node[corepillar] (p2) at (3.8, 0) {2. PCR Amplification\\ \& Gel Check};
+        \node[corepillar] (p3) at (7.6, 0) {3. 1.0~L Formulation\\ \& QR Application};
+        \node[corepillar] (p4) at (11.4, 0) {4. Real-Time qPCR\\ Verification};
         
         \draw[arrowstyle] (p1) -- (p2);
         \draw[arrowstyle] (p2) -- (p3);
         \draw[arrowstyle] (p3) -- (p4);
     \end{tikzpicture}
-    \caption{Four-stage operational workflow of the Indigenous DNA Tagging System.}
+    \caption{Workflow of the Indigenous DNA Tagging System.}
     \label{fig:four_pillars}
 \end{figure}

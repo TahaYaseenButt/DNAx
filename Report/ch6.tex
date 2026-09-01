@@ -1,27 +1,86 @@
-\chapter{Discussion \& Conclusion}
-\label{chap:discussion_conclusion}
+\chapter{Software Ecosystem}
+\label{chap:software_ecosystem}
 
-\section{Discussion of Experimental Findings}
-The laboratory results documented in this report demonstrate the successful implementation of an end-to-end indigenous DNA taggant system for industrial product authentication:
+\section{Overview}
+The DNA Tag and Trace software ecosystem links the bioinformatic design, automated manufacture, tracking, and laboratory verification through a central database (Figure~\ref{fig:dms_architecture}).
 
-\begin{enumerate}
-    \item \textbf{Construct Recovery \& Amplification Fidelity}: The synthetic 200~bp DNA taggant construct was successfully recovered from transformed \textit{Escherichia coli} (Stab Top10) in pUC57 plasmid vector using a rapid colony heat-lysis procedure. Conventional PCR and 2.0\% agarose gel electrophoresis confirmed the presence of a single, sharp 200~bp band without secondary amplicons or primer-dimer artifacts, verifying high enzymatic specificity.
-    
-    \item \textbf{Resolution of Concentration Effects}: Testing of the concentrated PCR template revealed partial reaction inhibition during real-time qPCR. Serial 1:10 dilution analysis resolved this inhibition, identifying the 1:10,000 dilution ($D_4$) as the optimal working concentration ($C_q \approx 4.78$). This finding established a scientific basis for micro-dosing the taggant at trace levels.
-    
-    \item \textbf{Large-Volume Carrier Homogeneity}: The preparation of a 1.0-Liter bulk carrier in stabilized TE buffer (10~mM Tris-HCl, 1~mM EDTA, pH~8.0) containing $100~\mu\text{L}$ of pooled amplicon yielded consistent real-time qPCR detection across all sampled fractions (F1 to F7, $C_q = 4.21\text{--}5.75$). This demonstrates that rotational blending using a laboratory blood mixer achieves uniform spatial dispersion throughout large liquid volumes.
-    
-    \item \textbf{Multi-Probe Optical Deconvolution}: Specific fluorescence signals were achieved across all four individual fluorophore probe channels (Probe A: HEX, Probe B: FAM, Probe C: Texas Red, and Probe D: Cy5). Furthermore, the 4-plex multiplex reaction produced positive amplification across all channels simultaneously ($C_q = 11.95\text{--}15.49$), validating multi-signature forensic verification.
-    
-    \item \textbf{Commercial Product Integration \& Non-Destructive Recovery}: Application of the taggant onto commercial packaging materials (pharmaceutical syrup bottles, cartons, tablet blister foils) and liquid formulations demonstrated practical compatibility. Surface swabbing with sterile cotton swabs in TE buffer enabled non-destructive recovery and positive downstream qPCR detection (PR samples, $C_q = 3.99\text{--}5.23$).
-\end{enumerate}
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        scale=0.88, transform shape,
+        hubnode/.style={cylinder, draw=black, fill=gray!15, shape aspect=0.4, line width=0.9pt, minimum width=3.2cm, minimum height=1.9cm, align=center, font=\small\bfseries},
+        appnode/.style={rectangle, rounded corners=2pt, draw=black, fill=white, line width=0.8pt, text width=4.1cm, minimum height=1.25cm, align=center, font=\small},
+        linkarrow/.style={latex-latex, line width=0.9pt, color=black}
+    ]
+        % Central Hub
+        \node[hubnode] (hub) at (0, -0.2) {CENTRAL DATABASE\\ \scriptsize Unified Firebase Core\\ \tiny \texttt{/dna\_exports} \& \texttt{/transactions}};
+        
+        % 5 Apps
+        \node[appnode] (mfg) at (0, 2.7) {\textbf{2. DNAx Manufacture}\\ \footnotesize Product Taggant Integration\\ \tiny Automated Blending \& Barcode Link};
+        \node[appnode] (signet) at (-5.4, 1.2) {\textbf{1. DNAx (Signet)}\\ \footnotesize Bioinformatic Design Suite\\ \tiny Sequence \& Assay Generation};
+        \node[appnode] (inv) at (5.4, 1.2) {\textbf{3. DNAx Inventory}\\ \footnotesize Desktop Warehouse Terminal\\ \tiny Batch Generator \& Scanner};
+        \node[appnode] (forensic) at (-5.4, -1.8) {\textbf{5. DNAx Forensics}\\ \footnotesize Desktop Forensic Lab App\\ \tiny Sequence, Gel \& Barcode Tests};
+        \node[appnode] (vendor) at (5.4, -1.8) {\textbf{4. DNAx Vendor}\\ \footnotesize Mobile Android/iOS App\\ \tiny Issuance \& Custody Transfer};
+        
+        % Connections
+        \draw[linkarrow] (mfg.south) -- (hub.north);
+        \draw[linkarrow] (signet.south east) -- (hub.west);
+        \draw[linkarrow] (inv.south west) -- (hub.east);
+        \draw[linkarrow] (forensic.north east) -- (hub.south west);
+        \draw[linkarrow] (vendor.north west) -- (hub.south east);
+    \end{tikzpicture}
+    \caption{The software modules connected through the central database.}
+    \label{fig:dms_architecture}
+\end{figure}
+
+\section{Software Modules}
+
+\subsection{1. DNAx Signet (Bioinformatic Design Suite)}
+Used for designing synthetic DNA sequences and assay parameters:
+\begin{itemize}
+    \item Generates sequence constructs with specified lengths and GC content.
+    \item Calculates melting temperatures ($T_m$) for primers and probes.
+    \item Screens sequences against standard databases to ensure specificity.
+    \item Exports design specifications and associated QR codes.
+\end{itemize}
+
+\subsection{2. DNAx Manufacture (Product Integration \& Taggant Blending)}
+DNAx Manufacture is designed to integrate the DNA taggant directly with the product:
+\begin{itemize}
+    \item \textbf{Product Integration}: Integrates the taggant with the physical product.
+    \item \textbf{Automated Combinations}: Automates the combination of taggants from all available taggants while maintaining anonymity across the entire tagging process.
+    \item \textbf{Data Association}: Saves all data regarding the specific combination of taggants against each unique barcode.
+    \item \textbf{Development Status}: This feature is currently in the development phase, with active R\&D underway to complete it end-to-end.
+\end{itemize}
+
+\subsection{3. DNAx Inventory (Inventory Management)}
+Desktop module for managing inventory:
+\begin{itemize}
+    \item Generates and assigns identifiers to product batches.
+    \item Integrates barcode scanning for logging stock intake and dispatch.
+    \item Tracks inventory records in the database.
+\end{itemize}
+
+\subsection{4. DNAx Vendor (Distribution \& Verification)}
+Mobile application for distribution checks:
+\begin{itemize}
+    \item Scans barcodes/QR codes to verify recorded batches.
+    \item Logs product issuance and handover events.
+\end{itemize}
+
+\subsection{5. DNAx Forensics (Laboratory Verification)}
+Specialized verification software for testing laboratories:
+\begin{itemize}
+    \item Matches sequence data and gel electrophoresis sizing (e.g., 200~bp).
+    \item Records and verifies qPCR results against registered batch profiles.
+\end{itemize}
 
 \section{Conclusion}
-This project phase established and validated the complete laboratory pipeline for the \textbf{Indigenous DNA Tagging System for Industries}. From bacterial culture and enzymatic synthesis to 1.0-Liter bulk formulation and 4-channel multiplex qPCR verification, the system demonstrated:
+This project successfully established the laboratory workflow for the indigenous DNA tagging system:
 \begin{itemize}
-    \item High amplification reproducibility and specificity at a 200~bp molecular target size.
-    \item Complete spatial homogeneity across industrial carrier volumes.
-    \item Covert, non-destructive forensic detectability from physical commercial packaging.
-    \item Definitive multi-dye authentication capable of securing industrial supply chains against counterfeiting and unauthorized diversion.
+    \item Design of the 200~bp synthetic DNA construct and primers.
+    \item Enzymatic amplification via PCR and size confirmation on 2.0\% agarose gel.
+    \item Formulation of the 1.0-Liter TE buffer taggant solution.
+    \item Specific detection and verification across individual and multiplex real-time qPCR probe assays.
+    \item Application and non-destructive swabbing recovery on packaging QR codes.
 \end{itemize}
-The experimental protocols, recipes, and baseline verification data established herein provide a rigorous technical foundation for advancing the technology toward pilot-scale industrial deployment.
