@@ -3,12 +3,13 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces The six sequential stages of the DNA tagging and verification lifecycle.}}{4}{figure.caption.4}%
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Molecular layout of the synthesized 200~bp prototype DNA taggant construct.}}{5}{figure.caption.5}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Physical synthesized oligonucleotide probe stocks for the 4-channel multiplex detection assay: (a) Probe A ($5'\text {-FAM}, 3'\text {-BHQ1}$), (b) Probe B ($5'\text {-HEX}, 3'\text {-BHQ1}$), (c) Probe C ($5'\text {-TXR}, 3'\text {-BHQ2}$), and (d) Probe D ($5'\text {-CY5}, 3'\text {-BHQ2}$).}}{5}{figure.caption.6}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Combinatorial mixing of 4 probes from a 72-probe library yielding over 1 million unique codes.}}{9}{figure.caption.6}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Combinatorial mixing of 4 probes from a 72-probe library yielding over 1 million unique codes.}}{9}{figure.caption.8}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Agarose gel electrophoresis showing the discrete 200~bp amplicon band with zero non-specific amplification.}}{11}{figure.caption.8}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Empirical real-time qPCR amplification curves and quantification cycle ($C_q$) tables directly captured from the thermal cycler across all four optical probe channels: Probe A (HEX), Probe B (FAM), Probe C (Texas Red), and Probe D (Cy5).}}{14}{figure.caption.10}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Agarose gel electrophoresis showing the discrete 200~bp amplicon band with zero non-specific amplification.}}{11}{figure.caption.10}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Empirical real-time qPCR amplification curves and quantification cycle ($C_q$) tables directly captured from the thermal cycler across all four optical probe channels: Probe A (HEX), Probe B (FAM), Probe C (Texas Red), and Probe D (Cy5).}}{14}{figure.caption.12}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Multi-layer architecture of the encapsulated DNA taggant particle.}}{16}{figure.caption.12}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Multi-layer architecture of the encapsulated DNA taggant particle.}}{16}{figure.caption.14}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces The 4-app software ecosystem operating on the central database ledger.}}{19}{figure.caption.13}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces The 4-app software ecosystem operating on the central database ledger.}}{19}{figure.caption.15}%

@@ -38,10 +38,10 @@ The synthetic DNA construct is engineered as a linear double-stranded DNA molecu
     \item \textbf{Universal Primer Docks (Flanking 20~bp Regions)}: Standardized forward and reverse primer binding sites flank the construct, allowing universal enzymatic amplification across any product batch without altering the master PCR master mix chemistry.
     \item \textbf{Multiplex Optical Probe Docks (Four 24~bp Regions)}: Four distinct sequence-specific probe regions are arrayed internally, each assigned to an optical channel:
     \begin{itemize}
-        \item \textbf{Probe A}: HEX dye ($\lambda_{\text{em}} \approx 556\text{ nm}$).
-        \item \textbf{Probe B}: FAM dye ($\lambda_{\text{em}} \approx 520\text{ nm}$).
-        \item \textbf{Probe C}: Texas Red dye ($\lambda_{\text{em}} \approx 610\text{ nm}$).
-        \item \textbf{Probe D}: Cy5 dye ($\lambda_{\text{em}} \approx 670\text{ nm}$).
+        \item \textbf{Probe A}: FAM dye ($\lambda_{\text{em}} \approx 520\text{ nm}$, Quencher: BHQ1).
+        \item \textbf{Probe B}: HEX dye ($\lambda_{\text{em}} \approx 556\text{ nm}$, Quencher: BHQ1).
+        \item \textbf{Probe C}: Texas Red dye ($\lambda_{\text{em}} \approx 610\text{ nm}$, Quencher: BHQ2).
+        \item \textbf{Probe D}: Cy5 dye ($\lambda_{\text{em}} \approx 670\text{ nm}$, Quencher: BHQ2).
     \end{itemize}
     \item \textbf{Neutral Spacer Segments}: Short, non-repetitive polynucleotide spacers separate the probe targets, eliminating steric crowding and preventing fluorescence quenching between adjacent fluorophores during simultaneous thermal binding.
 \end{enumerate}
@@ -64,8 +64,8 @@ The synthetic DNA construct is engineered as a linear double-stranded DNA molecu
         probebox/.style={boxstyle, fill=white}
     ]
         \node[primerbox] (fwd) at (0, 0) {5' Forward\\ Primer\\ (20 bp)};
-        \node[probebox, right=0.12cm of fwd] (p1) {Probe A\\ HEX\\ (24 bp)};
-        \node[probebox, right=0.12cm of p1] (p2) {Probe B\\ FAM\\ (24 bp)};
+        \node[probebox, right=0.12cm of fwd] (p1) {Probe A\\ FAM\\ (24 bp)};
+        \node[probebox, right=0.12cm of p1] (p2) {Probe B\\ HEX\\ (24 bp)};
         \node[probebox, right=0.12cm of p2] (p3) {Probe C\\ TxRed\\ (24 bp)};
         \node[probebox, right=0.12cm of p3] (p4) {Probe D\\ Cy5\\ (24 bp)};
         \node[primerbox, right=0.12cm of p4] (rev) {3' Reverse\\ Primer\\ (20 bp)};
@@ -81,6 +81,56 @@ The synthetic DNA construct is engineered as a linear double-stranded DNA molecu
     \caption{Molecular layout of the synthesized 200~bp prototype DNA taggant construct.}
     \label{fig:molecular_anatomy}
 \end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.23\textwidth}
+        \centering
+        \includegraphics[height=4.8cm, keepaspectratio]{tube_probe_a_fam.png}
+        \caption{Probe A (FAM)}
+        \label{fig:tube_probe_a}
+    \end{subfigure}%
+    \hfill
+    \begin{subfigure}[b]{0.23\textwidth}
+        \centering
+        \includegraphics[height=4.8cm, keepaspectratio]{tube_probe_b_hex.png}
+        \caption{Probe B (HEX)}
+        \label{fig:tube_probe_b}
+    \end{subfigure}%
+    \hfill
+    \begin{subfigure}[b]{0.23\textwidth}
+        \centering
+        \includegraphics[height=4.8cm, keepaspectratio]{tube_probe_c_txr.png}
+        \caption{Probe C (TxRed)}
+        \label{fig:tube_probe_c}
+    \end{subfigure}%
+    \hfill
+    \begin{subfigure}[b]{0.23\textwidth}
+        \centering
+        \includegraphics[height=4.8cm, keepaspectratio]{tube_probe_d_cy5.png}
+        \caption{Probe D (Cy5)}
+        \label{fig:tube_probe_d}
+    \end{subfigure}
+    \caption{Physical synthesized oligonucleotide probe stocks for the 4-channel multiplex detection assay: (a) Probe A ($5'\text{-FAM}, 3'\text{-BHQ1}$), (b) Probe B ($5'\text{-HEX}, 3'\text{-BHQ1}$), (c) Probe C ($5'\text{-TXR}, 3'\text{-BHQ2}$), and (d) Probe D ($5'\text{-CY5}, 3'\text{-BHQ2}$).}
+    \label{fig:physical_probes}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\small
+\caption{Physical Specifications of Synthesized 4-Channel Multiplex Probes}
+\label{tab:probe_specifications}
+\begin{tabularx}{\textwidth}{l c c c c X}
+\toprule
+\textbf{Probe} & \textbf{5' Fluorophore} & \textbf{3' Quencher} & \textbf{OD} & \textbf{MW (g/mol)} & \textbf{Reconstitution} \\
+\midrule
+\textbf{Probe A} & FAM & BHQ1 & $2.00$ & $7785.20$ & Add $89.80~\mu\text{L}$ \\
+\textbf{Probe B} & HEX & BHQ1 & $2.00$ & $10082.30$ & Add $64.60~\mu\text{L}$ \\
+\textbf{Probe C} & Texas Red (TXR) & BHQ2 & $2.00$ & $9070.33$ & Add $79.00~\mu\text{L}$ \\
+\textbf{Probe D} & Cy5 & BHQ2 & $2.00$ & $8671.18$ & Add $80.80~\mu\text{L}$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
 
 \section{Thermodynamic Assay Engineering}
 To ensure robust, simultaneous amplification of all targets in a single reaction vessel, melting temperatures ($T_m$) are calculated using the unified SantaLucia nearest-neighbor thermodynamic model:
