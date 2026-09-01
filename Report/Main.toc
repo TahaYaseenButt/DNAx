@@ -23,25 +23,25 @@
 \contentsline {section}{\numberline {4.3}Bulk Formulation Homogeneity \& Serial Dilution Dynamics}{12}{section.4.3}%
 \contentsline {subsection}{\numberline {4.3.1}Serial Dilution Analysis}{12}{subsection.4.3.1}%
 \contentsline {subsection}{\numberline {4.3.2}1.0-Liter Spatial Homogeneity Data}{12}{subsection.4.3.2}%
-\contentsline {section}{\numberline {4.4}4-Channel Multiplex qPCR Verification}{13}{section.4.4}%
+\contentsline {section}{\numberline {4.4}Empirical 4-Probe qPCR Amplification Results}{13}{section.4.4}%
 \contentsline {section}{\numberline {4.5}Quantitative Cycle ($C_q$) Data}{14}{section.4.5}%
-\contentsline {chapter}{\numberline {5}Nanomaterial Encapsulation}{15}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Nano-Shielding Rationale}{15}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Encapsulation Protocols}{15}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Stage I: Silica Core Synthesis}{15}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Stage II: CTAB Functionalization \& Charge Inversion}{16}{subsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.2.3}Stage III: DNA Loading \& Secondary Silica Encapsulation}{16}{subsection.5.2.3}%
-\contentsline {subsection}{\numberline {5.2.4}Stage IV: Phosphor Doping \& Outer Ceramic Shielding}{16}{subsection.5.2.4}%
-\contentsline {section}{\numberline {5.3}Characterization Data}{17}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}SEM \& EDX Analysis}{17}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}Particle Size Analysis (PSA)}{17}{subsection.5.3.2}%
-\contentsline {subsection}{\numberline {5.3.3}FTIR Spectroscopy}{17}{subsection.5.3.3}%
-\contentsline {subsection}{\numberline {5.3.4}XRD Phase Analysis}{17}{subsection.5.3.4}%
-\contentsline {chapter}{\numberline {6}Software Ecosystem \& Digital Management System}{18}{chapter.6}%
-\contentsline {section}{\numberline {6.1}System Architecture \& Operational Philosophy}{18}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Application Modules}{18}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}1. DNAx Signet (Bioinformatic Design Platform)}{19}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}2. DNAx Inventory (Manufacturing \& Warehouse Terminal)}{19}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}3. DNAx Vendor (Mobile Supply Chain Platform)}{19}{subsection.6.2.3}%
-\contentsline {subsection}{\numberline {6.2.4}4. DNAx Forensics (Laboratory Verification Suite)}{20}{subsection.6.2.4}%
-\contentsline {section}{\numberline {6.3}Sovereign Technological Capability \& Conclusion}{20}{section.6.3}%
+\contentsline {chapter}{\numberline {5}Nanomaterial Encapsulation}{16}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Nano-Shielding Rationale}{16}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Encapsulation Protocols}{16}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Stage I: Silica Core Synthesis}{16}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Stage II: CTAB Functionalization \& Charge Inversion}{17}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Stage III: DNA Loading \& Secondary Silica Encapsulation}{17}{subsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.2.4}Stage IV: Phosphor Doping \& Outer Ceramic Shielding}{17}{subsection.5.2.4}%
+\contentsline {section}{\numberline {5.3}Characterization Data}{18}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}SEM \& EDX Analysis}{18}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Particle Size Analysis (PSA)}{18}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}FTIR Spectroscopy}{18}{subsection.5.3.3}%
+\contentsline {subsection}{\numberline {5.3.4}XRD Phase Analysis}{18}{subsection.5.3.4}%
+\contentsline {chapter}{\numberline {6}Software Ecosystem \& Digital Management System}{19}{chapter.6}%
+\contentsline {section}{\numberline {6.1}System Architecture \& Operational Philosophy}{19}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Application Modules}{19}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}1. DNAx Signet (Bioinformatic Design Platform)}{20}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}2. DNAx Inventory (Manufacturing \& Warehouse Terminal)}{20}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}3. DNAx Vendor (Mobile Supply Chain Platform)}{20}{subsection.6.2.3}%
+\contentsline {subsection}{\numberline {6.2.4}4. DNAx Forensics (Laboratory Verification Suite)}{21}{subsection.6.2.4}%
+\contentsline {section}{\numberline {6.3}Sovereign Technological Capability \& Conclusion}{21}{section.6.3}%

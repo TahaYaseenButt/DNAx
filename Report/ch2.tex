@@ -38,10 +38,10 @@ The synthetic DNA construct is engineered as a linear double-stranded DNA molecu
     \item \textbf{Universal Primer Docks (Flanking 20~bp Regions)}: Standardized forward and reverse primer binding sites flank the construct, allowing universal enzymatic amplification across any product batch without altering the master PCR master mix chemistry.
     \item \textbf{Multiplex Optical Probe Docks (Four 24~bp Regions)}: Four distinct sequence-specific probe regions are arrayed internally, each assigned to an optical channel:
     \begin{itemize}
-        \item \textbf{Probe 1}: FAM dye ($\lambda_{\text{em}} \approx 520\text{ nm}$).
-        \item \textbf{Probe 2}: HEX dye ($\lambda_{\text{em}} \approx 556\text{ nm}$).
-        \item \textbf{Probe 3}: Texas Red dye ($\lambda_{\text{em}} \approx 610\text{ nm}$).
-        \item \textbf{Probe 4}: Cy5 dye ($\lambda_{\text{em}} \approx 670\text{ nm}$).
+        \item \textbf{Probe A}: HEX dye ($\lambda_{\text{em}} \approx 556\text{ nm}$).
+        \item \textbf{Probe B}: FAM dye ($\lambda_{\text{em}} \approx 520\text{ nm}$).
+        \item \textbf{Probe C}: Texas Red dye ($\lambda_{\text{em}} \approx 610\text{ nm}$).
+        \item \textbf{Probe D}: Cy5 dye ($\lambda_{\text{em}} \approx 670\text{ nm}$).
     \end{itemize}
     \item \textbf{Neutral Spacer Segments}: Short, non-repetitive polynucleotide spacers separate the probe targets, eliminating steric crowding and preventing fluorescence quenching between adjacent fluorophores during simultaneous thermal binding.
 \end{enumerate}
@@ -64,10 +64,10 @@ The synthetic DNA construct is engineered as a linear double-stranded DNA molecu
         probebox/.style={boxstyle, fill=white}
     ]
         \node[primerbox] (fwd) at (0, 0) {5' Forward\\ Primer\\ (20 bp)};
-        \node[probebox, right=0.12cm of fwd] (p1) {Probe 1\\ FAM\\ (24 bp)};
-        \node[probebox, right=0.12cm of p1] (p2) {Probe 2\\ HEX\\ (24 bp)};
-        \node[probebox, right=0.12cm of p2] (p3) {Probe 3\\ TxRed\\ (24 bp)};
-        \node[probebox, right=0.12cm of p3] (p4) {Probe 4\\ Cy5\\ (24 bp)};
+        \node[probebox, right=0.12cm of fwd] (p1) {Probe A\\ HEX\\ (24 bp)};
+        \node[probebox, right=0.12cm of p1] (p2) {Probe B\\ FAM\\ (24 bp)};
+        \node[probebox, right=0.12cm of p2] (p3) {Probe C\\ TxRed\\ (24 bp)};
+        \node[probebox, right=0.12cm of p3] (p4) {Probe D\\ Cy5\\ (24 bp)};
         \node[primerbox, right=0.12cm of p4] (rev) {3' Reverse\\ Primer\\ (20 bp)};
         
         \draw[decorate, decoration={brace, amplitude=5pt, mirror}, line width=0.8pt, color=black] 
