@@ -19,6 +19,7 @@
 \contentsline {section}{\numberline {4.3}1.0-Liter Bulk Homogeneity \& Product Recovery}{10}{section.4.3}%
 \contentsline {section}{\numberline {4.4}Real-Time qPCR Formulation \& Cycling Parameters}{10}{section.4.4}%
 \contentsline {section}{\numberline {4.5}Real-Time qPCR Probe Verification Results}{12}{section.4.5}%
-\contentsline {chapter}{\numberline {5}Discussion \& Conclusion}{14}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Discussion of Experimental Findings}{14}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Conclusion}{14}{section.5.2}%
+\contentsline {chapter}{\numberline {5}DNA Encapsulation}{14}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Discussion \& Conclusion}{15}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Discussion of Experimental Findings}{15}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Conclusion}{15}{section.6.2}%
