@@ -14,54 +14,8 @@ To maximize amplification fidelity and eliminate non-specific primer-dimer artif
 
 \begin{figure}[H]
     \centering
-    \begin{tikzpicture}[
-        scale=0.88, transform shape,
-        gelbackground/.style={rectangle, fill=black!90, draw=black, line width=1.0pt, minimum width=9.5cm, minimum height=5.8cm, rounded corners=2pt},
-        well/.style={rectangle, fill=black, draw=gray!60, minimum width=1.1cm, minimum height=0.25cm},
-        band/.style={rectangle, fill=white, rounded corners=1pt, opacity=0.9},
-        strongband/.style={band, fill=white, line width=0.5pt, draw=white}
-    ]
-        % Dark Gel Background
-        \node[gelbackground] (gel) at (0, 0) {};
-        
-        % Wells at top
-        \node[well] at (-2.8, 2.2) {};
-        \node[well] at (-0.9, 2.2) {};
-        \node[well] at (0.9, 2.2) {};
-        \node[well] at (2.8, 2.2) {};
-        
-        % Well Labels Above
-        \node[font=\footnotesize\bfseries, color=black, align=center] at (-2.8, 3.1) {Lane M\\ \scriptsize (DNA Ladder)};
-        \node[font=\footnotesize\bfseries, color=black, align=center] at (-0.9, 3.1) {Lane 1\\ \scriptsize ($57^\circ\text{C}$ Optimum)};
-        \node[font=\footnotesize\bfseries, color=black, align=center] at (0.9, 3.1) {Lane 2\\ \scriptsize (Replicate)};
-        \node[font=\footnotesize\bfseries, color=black, align=center] at (2.8, 3.1) {Lane 3\\ \scriptsize (No Template)};
-        
-        % Lane M: DNA Ladder Bands
-        \node[band, minimum width=0.8cm, minimum height=0.08cm] at (-2.8, 1.6) {}; % 1000 bp
-        \node[band, minimum width=0.8cm, minimum height=0.08cm] at (-2.8, 1.1) {}; % 700 bp
-        \node[band, minimum width=0.9cm, minimum height=0.12cm, opacity=1.0] at (-2.8, 0.5) {}; % 500 bp reference
-        \node[band, minimum width=0.8cm, minimum height=0.08cm] at (-2.8, 0.0) {}; % 400 bp
-        \node[band, minimum width=0.8cm, minimum height=0.08cm] at (-2.8, -0.5) {}; % 300 bp
-        \node[strongband, minimum width=0.9cm, minimum height=0.14cm] at (-2.8, -1.1) {}; % 200 bp
-        \node[band, minimum width=0.8cm, minimum height=0.08cm] at (-2.8, -1.8) {}; % 100 bp
-        
-        % Ladder text annotations
-        \node[font=\tiny\color{gray!40}, left=0.6cm of gel.west, anchor=west] at (-4.2, 1.6) {1000 bp};
-        \node[font=\tiny\color{gray!40}, left=0.6cm of gel.west, anchor=west] at (-4.2, 0.5) {500 bp};
-        \node[font=\tiny\bfseries\color{white}, left=0.6cm of gel.west, anchor=west] at (-4.2, -1.1) {\textbf{200 bp}};
-        \node[font=\tiny\color{gray!40}, left=0.6cm of gel.west, anchor=west] at (-4.2, -1.8) {100 bp};
-        
-        % Lane 1: Sharp 200 bp Band
-        \node[strongband, minimum width=0.95cm, minimum height=0.18cm] at (-0.9, -1.1) {};
-        
-        % Lane 2: Replicate 200 bp Band
-        \node[strongband, minimum width=0.95cm, minimum height=0.18cm] at (0.9, -1.1) {};
-        
-        % Target Indicator Arrow
-        \draw[-{Stealth[length=2.5mm]}, line width=1.0pt, color=white] (2.2, -1.1) -- (1.5, -1.1);
-        \node[font=\small\bfseries\color{white}, right=0.1cm of gel.east, anchor=west] at (2.3, -1.1) {Target 200~bp Amplicon};
-    \end{tikzpicture}
-    \caption{Agarose gel electrophoresis showing the discrete 200~bp amplicon band with zero non-specific amplification.}
+    \includegraphics[width=0.85\textwidth]{gel_electrophoresis_real.png}
+    \caption{Empirical 2.0\% agarose gel electrophoresis photograph under UV transillumination showing the reference DNA ladder on the left (Lane M) and the discrete, high-fidelity 200~bp amplified DNA taggant bands across gradient annealing lanes.}
     \label{fig:gel_electrophoresis}
 \end{figure}
 
