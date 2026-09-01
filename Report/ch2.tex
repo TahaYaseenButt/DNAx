@@ -1,8 +1,8 @@
-\chapter{System Workflow}
+\chapter{System Workflow \& Methodology}
 \label{chap:workflow}
 
-\section{Workflow Overview}
-The DNA Tag and Trace workflow consists of five clear operational stages (Figure~\ref{fig:workflow_diagram}).
+\section{End-to-End Operational Lifecycle}
+The Indigenous DNA Tag and Trace System bridges digital cryptographic identity with physical bio-molecular authentication. The operational lifecycle spans six discrete stages from laboratory design to field forensic verification (Figure~\ref{fig:workflow_diagram}).
 
 \begin{figure}[H]
     \centering
@@ -28,22 +28,23 @@ The DNA Tag and Trace workflow consists of five clear operational stages (Figure
         \draw[arrowstyle] (s4) -- (s5);
         \draw[arrowstyle] (s5) -- (s6);
     \end{tikzpicture}
-    \caption{The five stages of the DNA tagging and verification lifecycle.}
+    \caption{The six sequential stages of the DNA tagging and verification lifecycle.}
     \label{fig:workflow_diagram}
 \end{figure}
 
-\section{DNA Designing}
-DNA constructs are designed through the custom software engine:
-\begin{itemize}
-    \item \textbf{Custom Sizing}: The software supports arbitrary, user-defined sequence lengths according to industrial application requirements (for this proof-of-concept validation, a 200~bp prototype construct was engineered and synthesized).
-    \item \textbf{Structure}: Flanked by 20~bp forward and reverse primers, containing four internal 24~bp fluorescent probe targets (FAM, HEX, Texas Red, Cy5) separated by spacers (Figure~\ref{fig:molecular_anatomy}).
-    \item \textbf{Thermodynamic Boundaries}: Melting temperatures ($T_m$) are calculated using SantaLucia parameters:
-    \begin{equation}
-        T_m = \frac{\Delta H^\circ}{\Delta S^\circ + R \ln(C_T / 4)} + 16.6 \log_{10}[\text{Na}^+]
-    \end{equation}
-    Primers are matched at $T_m = 58.5 \pm 1.0^\circ\text{C}$, and probes are set at $T_m \ge 68.0^\circ\text{C}$ ($+10.0^\circ\text{C}$ above primers).
-    \item \textbf{Safety Screening}: Local BLAST checks ensure zero homology ($<25\%$) with any known environmental or human pathogens.
-\end{itemize}
+\section{Molecular Architecture \& Probe Allocation}
+The synthetic DNA construct is engineered as a linear double-stranded DNA molecule. While the software platform supports arbitrary sequence lengths, a 200~bp linear construct was selected as the prototype for empirical laboratory validation:
+\begin{enumerate}
+    \item \textbf{Universal Primer Docks (Flanking 20~bp Regions)}: Standardized forward and reverse primer binding sites flank the construct, allowing universal enzymatic amplification across any product batch without altering the master PCR master mix chemistry.
+    \item \textbf{Multiplex Optical Probe Docks (Four 24~bp Regions)}: Four distinct sequence-specific probe regions are arrayed internally, each assigned to an optical channel:
+    \begin{itemize}
+        \item \textbf{Probe 1}: FAM dye ($\lambda_{\text{em}} \approx 520\text{ nm}$).
+        \item \textbf{Probe 2}: HEX dye ($\lambda_{\text{em}} \approx 556\text{ nm}$).
+        \item \textbf{Probe 3}: Texas Red dye ($\lambda_{\text{em}} \approx 610\text{ nm}$).
+        \item \textbf{Probe 4}: Cy5 dye ($\lambda_{\text{em}} \approx 670\text{ nm}$).
+    \end{itemize}
+    \item \textbf{Neutral Spacer Segments}: Short, non-repetitive polynucleotide spacers separate the probe targets, eliminating steric crowding and preventing fluorescence quenching between adjacent fluorophores during simultaneous thermal binding.
+\end{enumerate}
 
 \begin{figure}[H]
     \centering
@@ -81,32 +82,55 @@ DNA constructs are designed through the custom software engine:
     \label{fig:molecular_anatomy}
 \end{figure}
 
-\section{Physical Synthesis \& Formulation}
-\begin{enumerate}
-    \item \textbf{Bacterial Host Propagation}: The cloned construct was supplied in transformed \textit{Escherichia coli} (Stab Top10) on ampicillin-selective LB agar and cultured in LB broth at $37^\circ\text{C}$ for 16 hours.
-    \item \textbf{Rapid Heat-Lysis Screening}: Individual bacterial colonies were suspended in $100~\mu\text{L}$ TE buffer, heat-treated at $95^\circ\text{C}$ for 10 minutes in a thermal cycler, and briefly spun. The supernatant was used directly as PCR template, eliminating the need for commercial DNA extraction kits.
-    \item \textbf{Standard PCR Master Mix ($25~\mu\text{L}$ Volume)}: Reagents were combined in $0.2\text{ mL}$ tubes comprising $2.5~\mu\text{L}$ 10$\times$ PCR buffer, $1.5~\mu\text{L}$ $\text{MgCl}_2$, $1.0~\mu\text{L}$ dNTPs, $1.0~\mu\text{L}$ Taq DNA polymerase, $1.0~\mu\text{L}$ each of forward and reverse primers, $1.0\text{--}2.0~\mu\text{L}$ template DNA, and $15.0\text{--}16.0~\mu\text{L}$ distilled water.
-    \item \textbf{Annealing Optimization \& PCR Scaling}: Gradient PCR performed across $54^\circ\text{C}\text{--}59^\circ\text{C}$ identified $57.0^\circ\text{C}$ as the optimal annealing temperature. 35 cycles of amplification produced pure 200~bp amplicon stocks.
-    \item \textbf{1.0-Liter Master Spray Formulation}: 1.0~Liter of stabilized TE buffer (10~mM Tris-HCl, 1~mM EDTA, pH~8.0) was prepared with distilled water and autoclaved at $121^\circ\text{C}$ for 20 minutes. A volume of $100~\mu\text{L}$ of amplified DNA taggant (from 4--5 PCR reactions) was introduced into the 1~L carrier buffer and blended on a laboratory blood mixer to achieve complete spatial homogeneity.
-\end{enumerate}
-
-\section{Product Integration}
+\section{Thermodynamic Assay Engineering}
+To ensure robust, simultaneous amplification of all targets in a single reaction vessel, melting temperatures ($T_m$) are calculated using the unified SantaLucia nearest-neighbor thermodynamic model:
+\begin{equation}
+    T_m = \frac{\Delta H^\circ}{\Delta S^\circ + R \ln(C_T / 4)} + 16.6 \log_{10}[\text{Na}^+]
+\end{equation}
+where $\Delta H^\circ$ is enthalpy, $\Delta S^\circ$ is entropy, $R$ is the universal gas constant, $C_T$ is oligonucleotide concentration, and $[\text{Na}^+]$ is the monovalent cation concentration.
 \begin{itemize}
-    \item \textbf{Commercial Pharmaceutical QR Codes}: The taggant spray formulation was directly applied onto 2D DataMatrix and QR code panels of commercial pharmaceutical packaging (e.g., Macter syrup bottles, Bismol, and tablet cartons).
-    \item \textbf{Liquid Matrices}: Directly dosed into liquid consumables (\textit{Gelsemium 30, Surkhana}) at parts-per-billion concentrations without altering color, viscosity, or chemical stability.
-    \item \textbf{Industrial Roll-to-Roll Spraying}: Applied via an automated 6-station roll-to-roll spray machine with infrared flash curing ($60^\circ\text{C}$, 1.5s).
+    \item \textbf{Primer Annealing Matching}: Forward and reverse primer melting temperatures are tightly balanced at $T_m = 58.5 \pm 1.0^\circ\text{C}$ to avoid asymmetric extension rates.
+    \item \textbf{Probe Thermal Offset ($\Delta T_m \ge +10.0^\circ\text{C}$)}: All internal fluorescent probes are engineered with $T_m \ge 68.0^\circ\text{C}$. This $+10.0^\circ\text{C}$ elevation guarantees that during the thermal cycler annealing phase, all fluorophore probes hybridize to their single-stranded targets \textit{prior} to primer binding and Taq polymerase 5'--3' exonucleolytic cleavage.
 \end{itemize}
 
-\section{Field Recovery}
+\section{Bio-Safety Filtering \& Offline BLAST}
+Synthetic DNA taggants must be completely benign and environmentally inert:
 \begin{enumerate}
-    \item \textbf{Surface Swabbing}: A sterile swab moistened with recovery buffer wipes the printed QR code or product security zone.
-    \item \textbf{Chemical Etching}: For encapsulated samples, mild fluoride buffer ($\text{NH}_4\text{F}/\text{HF}$) dissolves outer silica nano-coatings within 10 minutes.
-    \item \textbf{Purification}: Standard silica spin column elutes purified DNA in $25.0~\mu\text{L}$ nuclease-free water.
+    \item \textbf{Zero Pathogen Homology}: Generated sequences undergo automated BLASTn screening against local offline mirrors of the NCBI GenBank database (encompassing human, animal, plant, bacterial, and viral genomes). Any sequence sharing $>25\%$ homology or an $E\text{-value} < 10^{-2}$ is rejected.
+    \item \textbf{Absence of Secondary Structures}: Folding algorithms filter out hairpins and self-dimers with $\Delta G < -3.0\text{ kcal/mol}$ to prevent self-priming.
+    \item \textbf{GC Content Clamp}: Nucleotide composition is strictly constrained between $48\%\text{--}52\%$, with homopolymer runs prohibited ($>3$ consecutive identical nucleotides).
 \end{enumerate}
 
-\section{qPCR Verification Protocols}
+\section{Physical Synthesis, Scaling \& Bulk Formulation}
+\begin{enumerate}
+    \item \textbf{Bacterial Host Propagation}: The synthetic construct was supplied in transformed \textit{Escherichia coli} (Stab Top10) in pUC57 plasmid vector (Lot No. BJ033535) and cultured on ampicillin-selective LB agar/broth at $37^\circ\text{C}$ for 16 hours.
+    \item \textbf{Rapid Heat-Lysis Protocol}: Rather than using costly spin-column kits, individual colonies were transferred into $100~\mu\text{L}$ TE buffer, heat-lysed at $95^\circ\text{C}$ for 10 minutes in a thermal cycler, and briefly spun. The supernatant was used directly as PCR template.
+    \item \textbf{Standard PCR Master Mix ($25~\mu\text{L}$ Reaction)}:
+    \begin{itemize}
+        \item $10\times$ PCR Buffer: $2.5~\mu\text{L}$
+        \item $\text{MgCl}_2$ ($25\text{ mM}$): $1.5~\mu\text{L}$
+        \item dNTP Mixture ($10\text{ mM}$): $1.0~\mu\text{L}$
+        \item Forward Primer ($10~\mu\text{M}$): $1.0~\mu\text{L}$
+        \item Reverse Primer ($10~\mu\text{M}$): $1.0~\mu\text{L}$
+        \item Taq DNA Polymerase ($5\text{ U}/\mu\text{L}$): $1.0~\mu\text{L}$
+        \item Colony-PCR Template: $1.0\text{--}2.0~\mu\text{L}$
+        \item Nuclease-Free Distilled Water: $15.0\text{--}16.0~\mu\text{L}$
+    \end{itemize}
+    \item \textbf{Annealing Optimization}: Gradient PCR ($54^\circ\text{C}\text{--}59^\circ\text{C}$) verified $57.0^\circ\text{C}$ as the optimum annealing temperature, yielding high-concentration amplicon stocks over 35 cycles.
+    \item \textbf{1.0-Liter Master Spray Formulation}: A 1.0~Liter carrier of stabilized TE buffer (10~mM Tris-HCl, 1~mM EDTA, pH~8.0) was prepared and autoclaved at $121^\circ\text{C}$ for 20 minutes. A volume of $100~\mu\text{L}$ amplified DNA taggant was introduced into the 1~L bottle and blended using a laboratory blood mixer to achieve total spatial homogeneity.
+\end{enumerate}
+
+\section{Industrial Product Integration}
 \begin{itemize}
-    \item \textbf{Probe-Based qPCR Formulation ($20~\mu\text{L}$ Volume)}: Reagents comprise $4.0~\mu\text{L}$ of 2$\times$ Super Real Probe Premix, $0.6~\mu\text{L}$ forward primer, $0.6~\mu\text{L}$ reverse primer, $0.4~\mu\text{L}$ fluorophore probe, $1.0\text{--}2.0~\mu\text{L}$ template DNA, and $12.4\text{--}13.4~\mu\text{L}$ RNase-free $\text{ddH}_2\text{O}$.
-    \item \textbf{Thermal Cycling \& Melt Analysis}: Initial hot-start activation at $95^\circ\text{C}$ for 15~min, followed by 40 cycles of denaturation ($95^\circ\text{C}$, 30s), annealing ($55^\circ\text{C}$, 30s), extension ($72^\circ\text{C}$, 45s), hold at $95^\circ\text{C}$ for 60s, and high-resolution melt acquisition from $72^\circ\text{C}$ to $95^\circ\text{C}$ at $0.3^\circ\text{C}/\text{s}$.
-    \item \textbf{4-Channel Deconvolution}: The recovered DNA is run with 4 sequence-specific fluorophore probes (FAM, HEX, Texas Red, Cy5) to simultaneously confirm the 4-probe code against the central cloud ledger.
+    \item \textbf{Commercial Packaging \& 2D QR Codes}: The taggant spray was applied directly to printed 2D DataMatrix and QR code zones on pharmaceutical packaging (Macter syrup bottles, Bismol cartons, and tablet blister foils).
+    \item \textbf{Direct Liquid Dosing}: Tagging solution was micro-dosed into liquid consumer products (\textit{Gelsemium 30, Surkhana}) at sub-ppb concentrations, preserving chemical stability, clarity, and pharmacological potency.
+    \item \textbf{Automated Industrial Spraying}: Deployed via a 6-station roll-to-roll industrial spray machine equipped with infrared flash curing ($60^\circ\text{C}$, 1.5 seconds) for instant carrier solvent evaporation.
 \end{itemize}
+
+\section{Field Extraction \& Forensic Recovery}
+\begin{enumerate}
+    \item \textbf{Surface Swabbing}: A sterile cotton swab moistened with TE buffer scrubs the marked packaging or security stamp.
+    \item \textbf{Chemical De-Shielding}: For silica-coated taggants, mild fluoride buffer dissolves the outer inorganic shell within 10 minutes.
+    \item \textbf{Purification}: Standard silica membrane spin columns elute purified DNA in $25.0~\mu\text{L}$ nuclease-free water.
+    \item \textbf{qPCR Verification}: Recovered eluate is tested in a 4-channel real-time thermal cycler using sequence-specific fluorophore probes (FAM, HEX, Texas Red, Cy5) to establish court-admissible forensic authentication.
+\end{enumerate}

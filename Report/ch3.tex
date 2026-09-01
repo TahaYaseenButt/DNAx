@@ -2,16 +2,31 @@
 \label{chap:national_calculations}
 
 \section{Sequence Space \& Combinatorial Entropy}
-For a linear DNA construct of arbitrary length $N$, with 4 canonical nucleotides ($\text{A, T, C, G}$) at each position, the total number of unique sequence combinations scales as $4^N$.
-
-Taking the $N = 200\text{ base pairs}$ prototype synthesized in our proof-of-concept as an example, the theoretical sequence space $S_{\text{total}}$ is:
+For a synthetic linear DNA construct of length $N$ nucleotides, with four canonical nitrogenous bases ($\text{Adenine, Thymine, Cytosine, Guanine}$) possible at each position, the theoretical combinatorial space $S_{\text{total}}$ scales as:
 \begin{equation}
-    S_{\text{total}} = 4^{200} = 2^{400} \approx \mathbf{2.58 \times 10^{120}\text{ combinations}}
+    S_{\text{total}} = 4^N = 2^{2N}
 \end{equation}
-This sequence space ($2.58 \times 10^{120}$) is vastly larger than the estimated number of atoms in the observable universe ($\approx 10^{80}$), ensuring that no two randomly generated sequences will ever be identical.
+Taking the $N = 200\text{ base pair}$ linear construct synthesized for this project as an illustrative prototype, the total sequence permutation space is:
+\begin{equation}
+    S_{\text{total}} = 4^{200} = 2^{400} \approx \mathbf{2.58 \times 10^{120}\text{ unique sequence combinations}}
+\end{equation}
+To put this astronomical number into perspective:
+\begin{itemize}
+    \item The total estimated number of elementary atoms in the observable universe is approximately $10^{80}$.
+    \item The theoretical 200~bp sequence entropy ($2.58 \times 10^{120}$) exceeds universal atomic matter by **40 orders of magnitude**.
+    \item Consequently, the probability of an adversary randomly synthesizing or guessing an authentic sequence is effectively zero ($P < 10^{-120}$).
+\end{itemize}
 
-\section{72-Probe Combinations}
-In actual implementation, the central facility maintains a physical library of $M = 72$ pre-validated, orthogonal 24~bp DNA probes. By selecting $k = 4$ distinct probes per product batch, the total number of unique batch combinations $C(72, 4)$ is:
+\section{72-Probe Combinatorial Library Architecture}
+In nationwide commercial deployment, synthesizing a unique, custom-made DNA strand from scratch for every single product batch would be financially and logistically prohibitive. 
+
+To overcome this, the system uses a **combinatorial multi-probe mixing doctrine**:
+\begin{enumerate}
+    \item The sovereign facility maintains a master physical library of $M = 72$ pre-validated, orthogonal 24~bp fluorescent probe targets.
+    \item For any given production batch or authorized manufacturer, a unique combination of $k = 4$ distinct probes is drawn from the library and formulated together.
+\end{enumerate}
+
+The total number of distinct, non-interfering physical batch codes $C(M, k)$ generated is calculated via binomial combinations:
 \begin{equation}
     C(72, 4) = \binom{72}{4} = \frac{72!}{4!(72-4)!} = \frac{72 \times 71 \times 70 \times 69}{4 \times 3 \times 2 \times 1} = \mathbf{1,028,790\text{ unique batch codes}}
 \end{equation}
@@ -73,36 +88,37 @@ In actual implementation, the central facility maintains a physical library of $
     \label{fig:combinatorial_selection}
 \end{figure}
 
-This allows the state to generate **over 1 million unique, non-interfering physical batch codes** from a single compact library of 72 vials.
+This architecture allows the state to generate **over 1.02 million unique, non-interfering physical batch codes** from a single compact cabinet containing only 72 chemical vials.
 
-\section{Multi-Sector Application}
-Table~\ref{tab:combinatorial_scaling} illustrates how expanding the library size ($M$) and multiplex depth ($k$) supports nationwide multi-sector scaling.
+\section{Multi-Sector Industrial Allocation}
+The library size ($M$) and multiplexing depth ($k$) can be expanded modularly to meet decades of national industrial growth (Table~\ref{tab:combinatorial_scaling}).
 
 \begin{table}[H]
 \centering
 \small
-\caption{Combinatorial Scaling and National Industrial Applications}
+\caption{Combinatorial Scaling and National Industrial Allocation}
 \label{tab:combinatorial_scaling}
-\begin{tabularx}{\textwidth}{c c c p{6.0cm}}
+\begin{tabularx}{\textwidth}{c c c X}
 \toprule
 \textbf{Library Size ($M$)} & \textbf{Multiplex ($k$)} & \textbf{Unique Codes} & \textbf{Target National Sector} \\
 \midrule
-$M = 48$ & $k = 4$ & $194,580$ & National Pharmaceutical Verification. \\
+$M = 48$ & $k = 4$ & $194,580$ & Strategic Pharmaceutical Verification. \\
 \addlinespace
-\textbf{$M = 72$} & \textbf{$k = 4$} & \textbf{$1,028,790$} & \textbf{Multi-Sector}: Pharma, Petroleum, Defense, Tax Stamps. \\
+\textbf{$M = 72$} & \textbf{$k = 4$} & \textbf{$1,028,790$} & \textbf{Multi-Sector}: Pharma, Fuels, Defense, Tax Stamps. \\
 \addlinespace
-$M = 96$ & $k = 4$ & $3,321,960$ & Consumer Goods \& Agrochemicals. \\
+$M = 96$ & $k = 4$ & $3,321,960$ & Industrial Fasteners \& Agrochemicals. \\
 \addlinespace
-$M = 96$ & $k = 5$ & $66,439,200$ & Security Documents \& Currency. \\
+$M = 96$ & $k = 5$ & $66,439,200$ & Security Documents, Currency, \& Fiscal Stamps. \\
 \addlinespace
-$M = 120$ & $k = 5$ & $190,578,024$ & Universal Multi-Decade National Scale. \\
+$M = 120$ & $k = 5$ & $190,578,024$ & Universal Multi-Decade National Industrial Scale. \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
 \section{Dosing \& Unit Economics}
-\begin{itemize}
-    \item \textbf{Micro-Dosing}: DNA taggants are used at parts-per-billion (ppb) concentrations ($< 1\text{ ng/L}$). A standard $20~\mu\text{L}$ qPCR reaction requires only $\sim 10\text{ femtograms } (10^{-14}\text{ g})$ of DNA.
-    \item \textbf{Batch Yield}: A single 1.0-Liter carrier formulation tags **over 100 million physical units** (bottles, cartons, or tax stamps).
-    \item \textbf{Unit Cost}: The chemical reagent cost per tagged unit is **less than PKR 0.01 ($< 0.00004\text{ USD}$)**, making the system economically viable for mass deployment.
-\end{itemize}
+\begin{enumerate}
+    \item \textbf{Micro-Dosing Sensitivity}: A single real-time qPCR reaction requires only $\sim 10\text{ femtograms } (10^{-14}\text{ g})$ of DNA template for definitive fluorescence detection.
+    \item \textbf{High Industrial Yield}: A single 1.0-Liter master batch formulated with $100~\mu\text{L}$ PCR product contains over $10^{13}$ copies of the construct, sufficient to tag **over 100 million physical commercial units** (vials, ampoules, carton labels, or tax banderoles).
+    \item \textbf{Unit Cost Analysis}: The total chemical synthesis and buffer reagent cost per tagged product unit is **less than PKR 0.01 ($< 0.00004\text{ USD}$)**. This microscopic per-unit cost makes the system vastly more cost-effective than physical holograms, RFID inlays, or specialty luminescent dyes.
+    \item \textbf{Environmental and Matrix Invariance}: Synthetic DNA is chemically non-reactive in petroleum, organic solvents, and pharmaceutical syrups, ensuring indefinite shelf life without altering the physical or chemical properties of the host product.
+\end{enumerate}

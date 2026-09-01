@@ -48,11 +48,16 @@
 \setlength{\parskip}{0.8\baselineskip}
 \setstretch{1.0}
 
-% --- Flush Left Headings (Standard Block Style) ---
+% --- Flush Left Headings (Explicit Chapter Wise Format) ---
 \titleformat{\chapter}[hang]
-  {\normalfont\Large\bfseries\color{black}}
-  {\thechapter.}{0.8em}{\Large\color{black}}
-\titlespacing*{\chapter}{0pt}{2ex}{1.5ex}
+  {\normalfont\LARGE\bfseries\color{black}}
+  {Chapter \thechapter:\quad}{0pt}{\LARGE\color{black}}
+\titlespacing*{\chapter}{0pt}{2.2ex plus 0.4ex minus 0.2ex}{1.5ex}
+
+% --- Table of Contents Formatting ---
+\renewcommand{\cftchappresnum}{Chapter }
+\renewcommand{\cftchapaftersnum}{:\ }
+\setlength{\cftchapnumwidth}{5.8em}
 
 \titleformat{\section}
   {\normalfont\large\bfseries\color{black}}
