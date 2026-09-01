@@ -182,22 +182,56 @@ Synthetic DNA taggants must be completely benign and environmentally inert:
 \end{figure}
 
     \item \textbf{Rapid Heat-Lysis Protocol}: Rather than using costly spin-column kits, individual colonies were transferred into $100~\mu\text{L}$ TE buffer, heat-lysed at $95^\circ\text{C}$ for 10 minutes in a thermal cycler, and briefly spun. The supernatant was used directly as PCR template.
-    \item \textbf{Optimized qPCR / PCR Reaction Formulation ($20.0~\mu\text{L}$ System)}:
-    \begin{itemize}
-        \item $2\times$ Real-Time Master Mix: $10.0~\mu\text{L}$
-        \item Universal Forward Primer: $0.6~\mu\text{L}$
-        \item Universal Reverse Primer: $0.6~\mu\text{L}$
-        \item Template DNA: $1.0~\mu\text{L}$ (Reaction~1) or $2.0~\mu\text{L}$ (Reaction~2)
-        \item Nuclease-Free Water ($\text{ddH}_2\text{O}$): $7.8~\mu\text{L}$ (Reaction~1) or $6.8~\mu\text{L}$ (Reaction~2)
-        \item Total Reaction Volume: \textbf{20.0~$\mu\text{L}$}
-    \end{itemize}
-    \item \textbf{Thermal Cycling Schedule}:
-    \begin{itemize}
-        \item Initial Denaturation: $95^\circ\text{C}$ for 5 min (1 cycle)
-        \item 3-Step Amplification (35 cycles): Denaturation at $95^\circ\text{C}$ (30 sec), Annealing at $55^\circ\text{C}$ (30 sec), Extension at $72^\circ\text{C}$ (45 sec)
-        \item Final Extension: $72^\circ\text{C}$ for 7 min (1 cycle)
-        \item Infinite Hold: $4^\circ\text{C}$ ($\infty$, 1 cycle)
-    \end{itemize}
+    \item \textbf{Standard Endpoint PCR Formulation ($25.0~\mu\text{L}$ Reaction Volume)}: To scale the 200~bp synthetic taggant construct from plasmid minipreps into bulk quantities, enzymatic endpoint PCR amplification was performed according to the standardized laboratory recipe and thermal cycling schedule (Figure~\ref{fig:pcr_recipe_img}, Table~\ref{tab:pcr_recipe_endpoint}, and Table~\ref{tab:pcr_thermal_cycling}).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.88\textwidth]{pcr_recipe_thermal_cycling.png}
+    \caption{Laboratory master recipe and thermal cycling program executed for endpoint PCR scaling and bulk taggant synthesis.}
+    \label{fig:pcr_recipe_img}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\small
+\caption{Endpoint PCR Synthesis Formulation ($25.0~\mu\text{L}$ Reaction Volume)}
+\label{tab:pcr_recipe_endpoint}
+\begin{tabularx}{0.85\textwidth}{X c c}
+\toprule
+\textbf{Component} & \textbf{Reaction 1} & \textbf{Reaction 2} \\
+\midrule
+$10\times$ Buffer & $2.5~\mu\text{L}$ & $2.5~\mu\text{L}$ \\
+$\text{MgCl}_2$ & $1.5~\mu\text{L}$ & $1.5~\mu\text{L}$ \\
+Forward Primer & $1.0~\mu\text{L}$ & $1.0~\mu\text{L}$ \\
+Reverse Primer & $1.0~\mu\text{L}$ & $1.0~\mu\text{L}$ \\
+Taq DNA Polymerase & $1.0~\mu\text{L}$ & $1.0~\mu\text{L}$ \\
+Template DNA & $1.0~\mu\text{L}$ & $2.0~\mu\text{L}$ \\
+Distilled Water & $16.0~\mu\text{L}$ & $15.0~\mu\text{L}$ \\
+\midrule
+\textbf{Total Volume} & \textbf{25.0~$\mu\text{L}$} & \textbf{25.0~$\mu\text{L}$} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+\centering
+\small
+\caption{Endpoint Thermal Cycler Parameter Schedule}
+\label{tab:pcr_thermal_cycling}
+\begin{tabularx}{0.88\textwidth}{X c c c}
+\toprule
+\textbf{Step} & \textbf{Temperature} & \textbf{Time} & \textbf{Cycles} \\
+\midrule
+Initial Denaturation & $95^\circ\text{C}$ & 5 min & 1 \\
+Denaturation & $95^\circ\text{C}$ & 30 sec & \multirow{3}{*}{35 cycles*} \\
+Annealing & $55^\circ\text{C}$ & 30 sec & \\
+Extension & $72^\circ\text{C}$ & 45 sec & \\
+Final Extension & $72^\circ\text{C}$ & 7 min & 1 \\
+Hold & $4^\circ\text{C}$ & $\infty$ & 1 \\
+\bottomrule
+\multicolumn{4}{@{}p{0.88\textwidth}@{}}{\footnotesize *35 cycles applies to the Denaturation, Annealing, and Extension steps (repeated as one cycle).}
+\end{tabularx}
+\end{table}
     \item \textbf{1.0-Liter Master Spray Formulation}: A 1.0~Liter carrier of stabilized TE buffer (10~mM Tris-HCl, 1~mM EDTA, pH~8.0) was prepared and autoclaved at $121^\circ\text{C}$ for 20 minutes. A volume of $100~\mu\text{L}$ amplified DNA taggant was introduced into the 1~L bottle and blended using a laboratory blood mixer to achieve total spatial homogeneity.
 \end{enumerate}
 

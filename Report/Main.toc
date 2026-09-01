@@ -10,8 +10,8 @@
 \contentsline {section}{\numberline {2.3}Thermodynamic Assay Engineering}{5}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Bio-Safety Filtering \& Offline BLAST}{6}{section.2.4}%
 \contentsline {section}{\numberline {2.5}Physical Synthesis, Scaling \& Bulk Formulation}{6}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Industrial Product Integration}{7}{section.2.6}%
-\contentsline {section}{\numberline {2.7}Field Extraction \& Forensic Recovery}{7}{section.2.7}%
+\contentsline {section}{\numberline {2.6}Industrial Product Integration}{8}{section.2.6}%
+\contentsline {section}{\numberline {2.7}Field Extraction \& Forensic Recovery}{8}{section.2.7}%
 \contentsline {chapter}{\numberline {3}National Scale Calculations}{9}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Sequence Space \& Combinatorial Entropy}{9}{section.3.1}%
 \contentsline {section}{\numberline {3.2}72-Probe Combinatorial Library Architecture}{9}{section.3.2}%
